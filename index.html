@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Brand — Education & Services</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #6b7280;
+      --accent: #2b6cb0;
+      --accent-2: #0ea5e9;
+      --card: #f8fafc;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; color: var(--fg); background: var(--bg); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+    .topbar { background: #fafafa; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--muted); }
+    .topbar .container { display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; }
+    .topbar .social a { margin-left: 12px; opacity: .8; }
+    header { background: var(--bg); position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); backdrop-filter: saturate(180%) blur(6px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .logo { font-weight: 800; letter-spacing: .3px; }
+    .logo small { font-weight: 600; color: var(--muted); display:block; font-size:12px; margin-top:-2px; }
+    .menu { display: flex; gap: 22px; }
+    .menu a { color: var(--fg); font-weight: 600; }
+    .menu a.cta { background: var(--accent); color: #fff; padding: 10px 14px; border-radius: 999px; box-shadow: var(--shadow); }
+    .hero { position: relative; background: linear-gradient(180deg, rgba(15,23,42,.4), rgba(15,23,42,.1)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%230ea5e9"/><stop offset="1" stop-color="%232b6cb0"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/></svg>') center/cover no-repeat; color: #fff; }
+    .hero .container { padding: 88px 20px 96px; }
+    .hero h1 { font-size: clamp(32px, 5vw, 54px); margin: 0 0 12px; line-height: 1.15; }
+    .hero p { font-size: clamp(16px, 2.2vw, 20px); opacity: .95; max-width: 800px; }
+    .hero .actions { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 12px; font-weight: 700; border: 1px solid transparent; }
+    .btn.primary { background: var(--accent); color: #fff; box-shadow: var(--shadow); }
+    .btn.secondary { background: #ffffff; color: var(--fg); border-color: var(--border); }
+    section { padding: 64px 0; }
+    .section-title { font-size: 28px; margin: 0 0 8px; }
+    .section-desc { color: var(--muted); margin-bottom: 28px; }
+    .about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; }
+    .about .card { background: var(--card); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; }
+    .service:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .service h3 { margin-top: 0; }
+    .service .more { margin-top: 8px; display: inline-block; font-weight: 700; }
+    .partners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: center; }
+    .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; }
+    .testis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .quote { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); font-size: 15px; }
+    .quote strong { display: block; margin-top: 10px; }
+    .contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 22px; }
+    form { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); }
+    label { display: block; font-weight: 700; margin-top: 12px; }
+    input, textarea { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--border); margin-top: 6px; font: inherit; }
+    button { cursor: pointer; }
+    footer { padding: 36px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+    @media (max-width: 1000px) {
+      .about, .contact { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .testis { grid-template-columns: 1fr 1fr; }
+      .partners { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .menu { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      .testis { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div>📧 contact@yourbrand.com · ☎︎ (905) 000‑0000</div>
+      <div class="social">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">Your Brand <small>Educational Services</small></div>
+      <nav class="menu">
+        <a href="#home">首页</a>
+        <a href="#services">服务</a>
+        <a href="#partners">合作伙伴</a>
+        <a href="#life">学生生活</a>
+        <a href="#contact" class="cta">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Your life in Canada starts now.<br>你的加拿大新生活，从现在开始。</h1>
+      <p>我们提供一站式教育与留学相关服务：住宿安排、监护、学校申请、辅导课程、移民顾问对接与职业发展支持，帮助您顺利起步。</p>
+      <div class="actions">
+        <a class="btn primary" href="#services">查看服务列表</a>
+        <a class="btn secondary" href="#contact">下载课表（示例）</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about">
+      <div class="card">
+        <h2 class="section-title">关于我们</h2>
+        <p class="section-desc">简短介绍你的机构（2–3 段）。例如：与多家教育机构合作，10+ 年经验，覆盖初高中、本科与语言项目；提供落地服务与长期陪伴。</p>
+        <p>可补充使命宣言、优势要点（例如：双语服务、安省本地网络、家长群体口碑）。</p>
+      </div>
+      <div class="card">
+        <h3>亮点速览</h3>
+        <ul>
+          <li>✅ 一站式顾问：住宿 / 监护 / 学校申请 / 签证与移民对接</li>
+          <li>✅ 教育资源：ESL/EAP、K‑12 辅导、竞赛与升学规划</li>
+          <li>✅ 本地支持：落地接机、临时住宿、紧急联络</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">服务</h2>
+      <p class="section-desc">选择你需要的服务并联系我们的顾问获取方案与报价（每项可链接到详情页）。</p>
+      <div class="grid">
+        <div class="service">
+          <h3>Homestay & Accommodation</h3>
+          <p>寄宿家庭筛选、短租与长期房源对接、接机与安置。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>监护服务</h3>
+          <p>未成年人法定监护、学校沟通、紧急联络人。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>学校申请</h3>
+          <p>K‑12、College、University 申请规划与材料辅导。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>辅导课程</h3>
+          <p>英语阅读写作、数学竞赛、ESL/EAP、小班/一对一。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>学生活动</h3>
+          <p>社交与文化体验、义工活动、校园参访。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>职业发展</h3>
+          <p>简历修改、求职辅导、实习资源连接。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>移民顾问对接</h3>
+          <p>签证、学签转工签、移民路径建议（与持证顾问合作）。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>导师制 Mentorship</h3>
+          <p>学术导师与学长学姐一对一指导与社区。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+        <div class="service">
+          <h3>紧急联络</h3>
+          <p>24/7 紧急联系渠道，突发情况应急协调。</p>
+          <a class="more" href="#">查看</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners">
+    <div class="container">
+      <h2 class="section-title">合作伙伴</h2>
+      <p class="section-desc">在此展示你的合作学校、机构或品牌 Logo（占位）</p>
+      <div class="partners">
+        <div class="partner">Partner A</div>
+        <div class="partner">Partner B</div>
+        <div class="partner">Partner C</div>
+        <div class="partner">Partner D</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="life">
+    <div class="container">
+      <h2 class="section-title">学生生活</h2>
+      <p class="section-desc">用 3–6 张活动或校园照片＋简短文字（此处为示例占位）。</p>
+      <div class="grid">
+        <div class="service"><strong>校园参观</strong><p>参访大学、认识专业与校园资源。</p></div>
+        <div class="service"><strong>社团与志愿</strong><p>本地社团活动、社区服务时长记录。</p></div>
+        <div class="service"><strong>文化体验</strong><p>城市探索、艺术展、自然博物馆。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title">学员与家长怎么说</h2>
+      <div class="testis">
+        <div class="quote">“在顾问团队的帮助下，我顺利拿到录取并适应了多伦多的学习与生活！”<strong>— 学生 A</strong></div>
+        <div class="quote">“寄宿家庭安排很稳妥，孩子监护沟通也很及时，省心！”<strong>— 家长 B</strong></div>
+        <div class="quote">“语言课＋竞赛辅导结合，提升明显，还帮我找到了实习。”<strong>— 学生 C</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact">
+      <form>
+        <h2 class="section-title">联系我们</h2>
+        <label>您的邮箱</label>
+        <input type="email" placeholder="you@example.com" required />
+        <label>姓名</label>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+          <input type="text" placeholder="名 First Name" />
+          <input type="text" placeholder="姓 Last Name" />
+        </div>
+        <label>问题 / 需求</label>
+        <textarea rows="5" placeholder="请简单描述你的需求..."></textarea>
+        <div style="margin-top:14px;">
+          <button class="btn primary" type="submit">提交</button>
+        </div>
+      </form>
+      <div>
+        <div class="service">
+          <h3>联系方式</h3>
+          <p>📧 contact@yourbrand.com<br/>☎︎ (905) 000‑0000<br/>📍 Toronto / Markham, ON</p>
+          <p>工作时间：Mon–Fri 10:00–18:00</p>
+        </div>
+        <div class="service">
+          <h3>下载</h3>
+          <p><a href="#">课表示例.pdf</a><br/><a href="#">监护服务手册.pdf</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Your Brand · All rights reserved
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
