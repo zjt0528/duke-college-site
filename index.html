@@ -42,9 +42,21 @@
     section { padding: 64px 0; }
     .section-title { font-size: 28px; margin: 0 0 8px; }
     .section-desc { color: var(--muted); margin-bottom: 28px; }
-    .about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; }
-    .about .card { background: var(--card); border: 1px solid var(--border); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); }
+  /* left card slightly narrower, right card wider */
+  .about { display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; }
+  .about .card { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .about .card:nth-child(2) { padding: 26px; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  /* New services categories layout */
+  .services-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .cat { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); }
+  .cat-title { margin-top: 0; margin-bottom: 12px; }
+  /* stacked (top-down) boxes under each category title */
+  .cat-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .cat .service { padding: 14px; border-radius: 12px; }
+  .cat .service h3 { font-size: 16px; margin: 0 0 6px; }
+  .cat .service p { margin: 0; color: var(--muted); font-size: 14px; }
+  .cat .more { display: inline-block; margin-top: 8px; font-weight: 700; }
     .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; }
     .service:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
     .service h3 { margin-top: 0; }
@@ -63,12 +75,14 @@
     @media (max-width: 1000px) {
       .about, .contact { grid-template-columns: 1fr; }
       .grid { grid-template-columns: repeat(2, 1fr); }
+  .services-cats { grid-template-columns: repeat(2, 1fr); }
       .testis { grid-template-columns: 1fr 1fr; }
       .partners { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .menu { display: none; }
       .grid { grid-template-columns: 1fr; }
+  .services-cats { grid-template-columns: 1fr; }
       .testis { grid-template-columns: 1fr; }
     }
   </style>
@@ -99,11 +113,11 @@
 
   <section id="home" class="hero">
     <div class="container">
-      <h1>Duke College — the world’s largest language institute accredited by the Canadian Language Agency.<br>杜克学院——全球最大的语言培训机构加拿大语言署的认证机构</h1>
-      <p>我们提供一站式教育与留学相关服务：住宿安排、监护、学校申请、辅导课程、移民顾问对接与职业发展支持，帮助您顺利起步。</p>
+      <h1>Duke College Since 2009<br>杜克学院——加拿大语言署的认证语言培训机构</h1>
+      <p>加拿大青少年专业读写品牌课程。</p>
       <div class="actions">
-        <a class="btn primary" href="#services">查看服务列表</a>
-        <a class="btn secondary" href="#contact">下载课表（示例）</a>
+        <a class="btn primary" href="#services">所有课程</a>
+        <a class="btn secondary" href="#contact">点击报名</a>
       </div>
     </div>
   </section>
@@ -118,9 +132,9 @@
       <div class="card">
         <h3>亮点速览</h3>
         <ul>
-          <li>✅ 一站式顾问：住宿 / 监护 / 学校申请 / 签证与移民对接</li>
-          <li>✅ 教育资源：ESL/EAP、K‑12 辅导、竞赛与升学规划</li>
-          <li>✅ 本地支持：落地接机、临时住宿、紧急联络</li>
+          <li>✅ 语言学习中心：K-12 Reading&Writing Program / ESL / Test Prepration</li>
+          <li>✅ 高中学习辅导：学分提升 / 快修学科辅导</li>
+          <li>✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 / 机器人课程</li>
         </ul>
       </div>
     </div>
@@ -128,54 +142,91 @@
 
   <section id="services">
     <div class="container">
-      <h2 class="section-title">服务</h2>
-      <p class="section-desc">选择你需要的服务并联系我们的顾问获取方案与报价（每项可链接到详情页）。</p>
-      <div class="grid">
-        <div class="service">
-          <h3>Homestay & Accommodation</h3>
-          <p>寄宿家庭筛选、短租与长期房源对接、接机与安置。</p>
-          <a class="more" href="#">查看</a>
+      <h2 class="section-title">Services</h2>
+  <p class="section-desc">Choose the services you need and contact our advisors for program details and pricing (each item may link to a detail page).</p>
+      <!-- Services reorganized into three main categories -->
+      <div class="services-cats">
+        <div class="cat">
+          <h3 class="cat-title">K-12 Reading & Writing Program (ESL)</h3>
+          <div class="cat-grid">
+            <div class="service">
+              <h3>Jump Start (K–G2)</h3>
+              <p>Phonics and early reading foundations with placement checks and weekly progress notes.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>Reading Club (G2–G8)</h3>
+              <p>Leveled guided reading to improve fluency, comprehension and vocabulary.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>Classic Reading (G9–G12)</h3>
+              <p>Close reading and literary analysis to prepare students for senior courses and exams.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>Academic Writing (G8–G12)</h3>
+              <p>Practical essay and research writing skills with targeted feedback for improvement.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>Public Speaking (G4–G8)</h3>
+              <p>Short‑format speaking practice to build confidence, clarity and pronunciation.</p>
+              <a class="more" href="#">View</a>
+            </div>
+          </div>
         </div>
-        <div class="service">
-          <h3>监护服务</h3>
-          <p>未成年人法定监护、学校沟通、紧急联络人。</p>
-          <a class="more" href="#">查看</a>
+
+        <div class="cat">
+          <h3 class="cat-title">ESL Course of Canada</h3>
+          <div class="cat-grid">
+            <div class="service">
+              <h3>Youth ESL</h3>
+              <p>Interactive youth program combining language learning with cultural activities and leadership development.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>High School ESL</h3>
+              <p>Comprehensive ESL classes for high‑school students focusing on academic vocabulary, reading comprehension and exam preparation.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>Adult ESL</h3>
+              <p>Practical English for adults emphasizing workplace communication, conversation and professional writing.</p>
+              <a class="more" href="#">View</a>
+            </div>
+          </div>
         </div>
-        <div class="service">
-          <h3>学校申请</h3>
-          <p>K‑12、College、University 申请规划与材料辅导。</p>
-          <a class="more" href="#">查看</a>
-        </div>
-        <div class="service">
-          <h3>辅导课程</h3>
-          <p>英语阅读写作、数学竞赛、ESL/EAP、小班/一对一。</p>
-          <a class="more" href="#">查看</a>
-        </div>
-        <div class="service">
-          <h3>学生活动</h3>
-          <p>社交与文化体验、义工活动、校园参访。</p> 
-          <p>社交与文化体验、义工活动、校园参访。</p>
-          <a class="more" href="#">查看</a>
-        </div>
-        <div class="service">
-          <h3>职业发展</h3>
-          <p>简历修改、求职辅导、实习资源连接。</p>
-          <a class="more" href="#">查看</a>
-        </div>
-        <div class="service">
-          <h3>移民顾问对接</h3>
-          <p>签证、学签转工签、移民路径建议（与持证顾问合作）。</p>
-          <a class="more" href="#">查看</a>
-        </div>
-        <div class="service">
-          <h3>导师制 Mentorship</h3>
-          <p>学术导师与学长学姐一对一指导与社区。</p>
-          <a class="more" href="#">查看</a>
-        </div>
-        <div class="service">
-          <h3>紧急联络</h3>
-          <p>24/7 紧急联系渠道，突发情况应急协调。</p>
-          <a class="more" href="#">查看</a>
+
+        <div class="cat">
+          <h3 class="cat-title">Language Test Preparation Course</h3>
+          <div class="cat-grid">
+            <div class="service">
+              <h3>IELTS</h3>
+              <p>Targeted IELTS training for band improvement across Listening, Reading, Writing and Speaking.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>TOEFL</h3>
+              <p>Strategic TOEFL prep focusing on academic English and test‑taking techniques.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>CELPIP</h3>
+              <p>CELPIP practice modules and timed mock tests to build speed and accuracy.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>Duolingo</h3>
+              <p>Concise Duolingo test drills and adaptive practice for rapid improvement.</p>
+              <a class="more" href="#">View</a>
+            </div>
+            <div class="service">
+              <h3>Other Tests</h3>
+              <p>Custom test prep for additional English proficiency exams on request.</p>
+              <a class="more" href="#">View</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -184,7 +235,7 @@
   <section id="partners">
     <div class="container">
       <h2 class="section-title">合作伙伴</h2>
-      <p class="section-desc">在此展示你的合作学校、机构或品牌 Logo（占位）</p>
+      <p class="section-desc">与我们关系密切的合作伙伴</p>
       <div class="partners">
         <div class="partner">Partner A</div>
         <div class="partner">Partner B</div>
@@ -196,8 +247,8 @@
 
   <section id="life">
     <div class="container">
-      <h2 class="section-title">学生生活</h2>
-      <p class="section-desc">用 3–6 张活动或校园照片＋简短文字（此处为示例占位）。</p>
+      <h2 class="section-title">每月活动</h2>
+      <p class="section-desc">过往活动展示</p>
       <div class="grid">
         <div class="service"><strong>校园参观</strong><p>参访大学、认识专业与校园资源。</p></div>
         <div class="service"><strong>社团与志愿</strong><p>本地社团活动、社区服务时长记录。</p></div>
@@ -237,7 +288,7 @@
       <div>
         <div class="service">
           <h3>联系方式</h3>
-          <p>📧 contact@yourbrand.com<br/>☎︎ (905) 000‑0000<br/>📍 Toronto / Markham, ON</p>
+          <p>📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON</p>
           <p>工作时间：Mon–Fri 10:00–18:00</p>
         </div>
         <div class="service">
@@ -250,7 +301,7 @@
 
   <footer>
     <div class="container">
-      © <span id="y"></span> Your Brand · All rights reserved
+      © <span id="y"></span> Duke College · All rights reserved
     </div>
   </footer>
 
