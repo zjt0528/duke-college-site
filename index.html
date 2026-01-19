@@ -26,9 +26,15 @@
     .topbar .social a { margin-left: 12px; opacity: .8; }
     header { background: var(--bg); position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); backdrop-filter: saturate(180%) blur(6px); }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-    .logo { font-weight: 800; letter-spacing: .3px; }
-    .logo small { font-weight: 600; color: var(--muted); display:block; font-size:12px; margin-top:-2px; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .3px; flex: 0 1 auto; min-width: 0; }
+    .logo-img { height: 48px; width: auto; display: block; border-radius: 6px; flex: 0 0 auto; }
+    .logo-text { line-height: 1; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
+    .logo small { font-weight: 600; color: var(--muted); display:block; font-size:12px; margin-top:6px; }
     .menu { display: flex; gap: 22px; }
+    .menu-toggle { display: none; background: transparent; border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; font-weight: 800; cursor: pointer; }
+    .lang-switch { display: flex; gap: 6px; align-items: center; }
+    .lang-switch button { background: transparent; border: 1px solid var(--border); padding: 6px 8px; border-radius: 6px; font-weight: 700; cursor: pointer; }
+    .lang-switch button.active { background: var(--accent); color: #fff; border-color: transparent; }
     .menu a { color: var(--fg); font-weight: 600; }
     .menu a.cta { background: var(--accent); color: #fff; padding: 10px 14px; border-radius: 999px; box-shadow: var(--shadow); }
     .hero { position: relative; background: linear-gradient(180deg, rgba(15,23,42,.4), rgba(15,23,42,.1)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%230ea5e9"/><stop offset="1" stop-color="%232b6cb0"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/></svg>') center/cover no-repeat; color: #fff; }
@@ -79,46 +85,71 @@
   .services-cats { grid-template-columns: repeat(2, 1fr); }
       .testis { grid-template-columns: 1fr 1fr; }
       .partners { grid-template-columns: 1fr 1fr; }
+      .logo-img { height: 40px; }
+      .logo-text { max-width: 180px; }
     }
     @media (max-width: 640px) {
       .menu { display: none; }
+      .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      .mobile-menu { display: none; position: absolute; top: 64px; right: 20px; background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 10px; box-shadow: var(--shadow); min-width: 240px; z-index: 70; }
+      .mobile-menu.open { display: block; }
+      .mobile-menu .menu-list { display: flex; flex-direction: column; gap: 8px; }
+      .mobile-menu a { display: block; padding: 12px 14px; border-radius: 8px; color: var(--fg); font-weight: 700; text-decoration: none; background: #f0f4f8; border: 1px solid var(--border); transition: all 0.2s ease; }
+      .mobile-menu a:hover { background: var(--accent-2); color: #fff; border-color: var(--accent-2); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+      .mobile-menu a.cta { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2); }
+      .mobile-menu a.cta:hover { background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3); }
+      .menu-toggle { border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; background: var(--card); }
+      @media (min-width: 641px) { .mobile-menu { display: none !important; } }
       .grid { grid-template-columns: 1fr; }
   .services-cats { grid-template-columns: 1fr; }
       .testis { grid-template-columns: 1fr; }
+      .logo-img { height: 36px; }
+      .logo-text { max-width: 140px; }
     }
   </style>
 </head>
 <body>
   <div class="topbar">
     <div class="container">
-      <div>📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511</div>
-      <div class="social">
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
+      <div data-i18n-html="topbar.contact">📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511</div>
+      <div class="lang-switch" aria-label="Language switch">
+        <button id="lang-en">EN</button>
+        <button id="lang-zh" class="active">中文</button>
       </div>
     </div>
   </div>
 
   <header>
     <div class="container nav">
-      <div class="logo">Duke College <small>Educational Services</small></div>
-      <nav class="menu">
-        <a href="#home">首页</a>
-        <a href="#services">服务</a>
-        <a href="#partners">合作伙伴</a>
-        <a href="#life">学生生活</a>
-        <a href="#contact" class="cta">联系</a>
+      <div class="logo">
+        <img src="Images/Logo.jpg" alt="Duke College logo" class="logo-img" />
+        <div class="logo-text">Duke College <small>Educational Services</small></div>
+      </div>
+      <!-- <nav class="menu">
+        <a href="#home" data-i18n="nav.home">首页</a>
+        <a href="#services" data-i18n="nav.services">服务</a>
+        <a href="#partners" data-i18n="nav.partners">合作伙伴</a>
+        <a href="#life" data-i18n="nav.life">学生生活</a>
+        <a href="#contact" class="cta" data-i18n="nav.contact">联系</a>
+      </nav> -->
+      <button id="menu-toggle" class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">☰</button>
+      <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+        <div class="menu-list">
+          <a href="#home" data-i18n="nav.home">首页</a>
+          <a href="#services" data-i18n="nav.services">服务</a>
+          <a href="#contact" class="cta" data-i18n="nav.contact">联系</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <section id="home" class="hero">
     <div class="container">
-      <h1>Duke College Since 2009<br>杜克学院——加拿大语言署的认证语言培训机构</h1>
-      <p>加拿大青少年专业读写品牌课程。</p>
+      <h1 data-i18n="hero.h1">Duke College Since 2009<br>杜克学院——加拿大语言署的认证语言培训机构</h1>
+      <p data-i18n="hero.p">加拿大青少年专业读写品牌课程。</p> 
       <div class="actions">
-        <a class="btn primary" href="#services">所有课程</a>
-        <a class="btn secondary" href="#contact">点击报名</a>
+        <a class="btn primary" href="#services" data-i18n="btn.courses">所有课程</a>
+        <a class="btn secondary" href="#contact" data-i18n="btn.signup">点击报名</a>
       </div>
     </div>
   </section>
@@ -126,16 +157,16 @@
   <section id="about">
     <div class="container about">
       <div class="card">
-        <h2 class="section-title">关于我们</h2>
-        <p class="section-desc">青少年英语读写第一品牌，奠定一生的学业基础</p>
-        <p>加拿大杜克英语ESL学习能力认证</p>
+        <h2 class="section-title" data-i18n="about.title">关于我们</h2>
+        <p class="section-desc" data-i18n="about.desc">青少年英语读写第一品牌，奠定一生的学业基础</p>
+        <p data-i18n="about.cert">加拿大杜克英语ESL学习能力认证</p>
       </div>
       <div class="card">
-        <h3>亮点速览</h3>
+        <h3 data-i18n="about.highlights.title">亮点速览</h3>
         <ul>
-          <li>✅ 语言学习中心：K-12 Reading&Writing Program / ESL / Test Prepration</li>
-          <li>✅ 高中学习辅导：学分提升 / 快修学科辅导</li>
-          <li>✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 / 机器人课程</li>
+          <li data-i18n="about.highlights.li1">✅ 语言学习中心：K-12 Reading&Writing Program / ESL / Test Prepration</li>
+          <li data-i18n="about.highlights.li2">✅ 高中学习辅导：学分提升 / 快修学科辅导</li>
+          <li data-i18n="about.highlights.li3">✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 / 机器人课程</li>
         </ul>
       </div>
     </div>
@@ -143,89 +174,89 @@
 
   <section id="services">
     <div class="container">
-      <h2 class="section-title">Services</h2>
-  <p class="section-desc">Choose the services you need and contact our advisors for program details and pricing (each item may link to a detail page).</p>
+        <h2 class="section-title" data-i18n="services.title">Services</h2>
+      <p class="section-desc" data-i18n="services.desc">Choose the services you need and contact our advisors for program details and pricing (each item may link to a detail page).</p>
       <!-- Services reorganized into three main categories -->
       <div class="services-cats">
         <div class="cat">
-          <h3 class="cat-title">K-12 Reading & Writing Program (ESL)</h3>
+          <h3 class="cat-title" data-i18n="cat.k12.title">K-12 Reading & Writing Program (ESL)</h3>
           <div class="cat-grid">
             <div class="service">
-              <h3>Jump Start (K–G2)</h3>
-              <p>Phonics and early reading foundations with placement checks and weekly progress notes.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.jump.title">Jump Start (K–G2)</h3>
+              <p data-i18n="svc.jump.desc">Phonics and early reading foundations with placement checks and weekly progress notes.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>Reading Club (G2–G8)</h3>
-              <p>Leveled guided reading to improve fluency, comprehension and vocabulary.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.readingclub.title">Reading Club (G2–G8)</h3>
+              <p data-i18n="svc.readingclub.desc">Leveled guided reading to improve fluency, comprehension and vocabulary.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>Classic Reading (G9–G12)</h3>
-              <p>Close reading and literary analysis to prepare students for senior courses and exams.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.classic.title">Classic Reading (G9–G12)</h3>
+              <p data-i18n="svc.classic.desc">Close reading and literary analysis to prepare students for senior courses and exams.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>Academic Writing (G8–G12)</h3>
-              <p>Practical essay and research writing skills with targeted feedback for improvement.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.academicwriting.title">Academic Writing (G8–G12)</h3>
+              <p data-i18n="svc.academicwriting.desc">Practical essay and research writing skills with targeted feedback for improvement.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>Public Speaking (G4–G8)</h3>
-              <p>Short‑format speaking practice to build confidence, clarity and pronunciation.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.publicspeaking.title">Public Speaking (G4–G8)</h3>
+              <p data-i18n="svc.publicspeaking.desc">Short‑format speaking practice to build confidence, clarity and pronunciation.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
           </div>
         </div>
 
         <div class="cat">
-          <h3 class="cat-title">ESL Course of Canada</h3>
+          <h3 class="cat-title" data-i18n="cat.esl.title">ESL Course of Canada</h3>
           <div class="cat-grid">
             <div class="service">
-              <h3>Youth ESL</h3>
-              <p>Interactive youth program combining language learning with cultural activities and leadership development.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.youth.title">Youth ESL</h3>
+              <p data-i18n="svc.youth.desc">Interactive youth program combining language learning with cultural activities and leadership development.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>High School ESL</h3>
-              <p>Comprehensive ESL classes for high‑school students focusing on academic vocabulary, reading comprehension and exam preparation.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.highschool.title">High School ESL</h3>
+              <p data-i18n="svc.highschool.desc">Comprehensive ESL classes for high‑school students focusing on academic vocabulary, reading comprehension and exam preparation.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>Adult ESL</h3>
-              <p>Practical English for adults emphasizing workplace communication, conversation and professional writing.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.adult.title">Adult ESL</h3>
+              <p data-i18n="svc.adult.desc">Practical English for adults emphasizing workplace communication, conversation and professional writing.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
           </div>
         </div>
 
         <div class="cat">
-          <h3 class="cat-title">Language Test Preparation Course</h3>
+          <h3 class="cat-title" data-i18n="cat.tests.title">Language Test Preparation Course</h3>
           <div class="cat-grid">
             <div class="service">
-              <h3>IELTS</h3>
-              <p>Targeted IELTS training for band improvement across Listening, Reading, Writing and Speaking.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.ielts.title">IELTS</h3>
+              <p data-i18n="svc.ielts.desc">Targeted IELTS training for band improvement across Listening, Reading, Writing and Speaking.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>TOEFL</h3>
-              <p>Strategic TOEFL prep focusing on academic English and test‑taking techniques.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.toefl.title">TOEFL</h3>
+              <p data-i18n="svc.toefl.desc">Strategic TOEFL prep focusing on academic English and test‑taking techniques.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>CELPIP</h3>
-              <p>CELPIP practice modules and timed mock tests to build speed and accuracy.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.celpip.title">CELPIP</h3>
+              <p data-i18n="svc.celpip.desc">CELPIP practice modules and timed mock tests to build speed and accuracy.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>Duolingo</h3>
-              <p>Concise Duolingo test drills and adaptive practice for rapid improvement.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.duolingo.title">Duolingo</h3>
+              <p data-i18n="svc.duolingo.desc">Concise Duolingo test drills and adaptive practice for rapid improvement.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
             <div class="service">
-              <h3>Other Tests</h3>
-              <p>Custom test prep for additional English proficiency exams on request.</p>
-              <a class="more" href="#">View</a>
+              <h3 data-i18n="svc.other.title">Other Tests</h3>
+              <p data-i18n="svc.other.desc">Custom test prep for additional English proficiency exams on request.</p>
+              <a class="more" href="#" data-i18n="link.view">View</a>
             </div>
           </div>
         </div>
@@ -235,36 +266,31 @@
 
   <section id="partners">
     <div class="container">
-      <h2 class="section-title">合作伙伴</h2>
-      <p class="section-desc">与我们关系密切的合作伙伴</p>
+      <h2 class="section-title" data-i18n="partners.title">合作伙伴</h2>
+      <p class="section-desc" data-i18n="partners.desc">与我们关系密切的合作伙伴</p>
       <div class="partners">
-        <div class="partner">Partner A</div>
-        <div class="partner">Partner B</div>
-        <div class="partner">Partner C</div>
-        <div class="partner">Partner D</div>
+        <div class="partner" data-i18n="partner.a">Partner A</div>
+        <div class="partner" data-i18n="partner.b">Partner B</div>
+        <div class="partner" data-i18n="partner.c">Partner C</div>
+        <div class="partner" data-i18n="partner.d">Partner D</div>
       </div>
     </div>
   </section>
 
   <section id="life">
     <div class="container">
-      <h2 class="section-title">每月活动</h2>
-      <p class="section-desc">过往活动展示</p>
+      <h2 class="section-title" data-i18n="life.title">每月活动</h2>
+      <p class="section-desc" data-i18n="life.desc">过往活动展示</p>
       <div class="grid">
-        <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards"><strong>Public Speaking Awards Phase</strong><p>Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
-        <div class="service"><img src="Images/image2.jpg" alt="Excellent Student"><strong>Public Speaking Excellent Student</strong><p>Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
-        <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour"><strong>Fall Event – Train Museum Tour</strong><p>Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
+        <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
+        <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
+        <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
       </div>
-    </div>
-  </section>
-
-  <section id="testimonials">
-    <div class="container">
-      <h2 class="section-title">学员与家长怎么说</h2>
+      <h2 class="section-title" data-i18n="testimonials.title">学员与家长怎么说</h2>
       <div class="testis">
-        <div class="quote">"The reading program strengthened my comprehension and writing—my grades improved noticeably." <strong>— Li Wei</strong></div>
-        <div class="quote">"Public speaking classes greatly improved my confidence and presentation skills for class and competitions." <strong>— Emma Chen</strong></div>
-        <div class="quote">"Combining reading and public speaking coaching helped me deliver stronger presentations and land an internship." <strong>— Marcus Liu</strong></div>
+        <div class="quote"><span data-i18n="testi.1.quote">"The reading program strengthened my comprehension and writing—my grades improved noticeably."</span> <strong data-i18n="testi.1.author">— Li Wei</strong></div>
+        <div class="quote"><span data-i18n="testi.2.quote">"Public speaking classes greatly improved my confidence and presentation skills for class and competitions."</span> <strong data-i18n="testi.2.author">— Emma Chen</strong></div>
+        <div class="quote"><span data-i18n="testi.3.quote">"Combining reading and public speaking coaching helped me deliver stronger presentations and land an internship."</span> <strong data-i18n="testi.3.author">— Marcus Liu</strong></div>
       </div>
     </div>
   </section>
@@ -272,29 +298,29 @@
   <section id="contact">
     <div class="container contact">
       <form>
-        <h2 class="section-title">联系我们</h2>
-        <label>您的邮箱</label>
-        <input type="email" placeholder="you@example.com" required />
-        <label>姓名</label>
+        <h2 class="section-title" data-i18n="contact.title">联系我们</h2>
+        <label data-i18n="label.email">您的邮箱</label>
+        <input type="email" placeholder="you@example.com" data-i18n-placeholder="placeholder.email" required />
+        <label data-i18n="label.name">姓名</label>
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
-          <input type="text" placeholder="名 First Name" />
-          <input type="text" placeholder="姓 Last Name" />
+          <input type="text" placeholder="名 First Name" data-i18n-placeholder="placeholder.first" />
+          <input type="text" placeholder="姓 Last Name" data-i18n-placeholder="placeholder.last" />
         </div>
-        <label>问题 / 需求</label>
-        <textarea rows="5" placeholder="请简单描述你的需求..."></textarea>
+        <label data-i18n="label.message">问题 / 需求</label>
+        <textarea rows="5" placeholder="请简单描述你的需求..." data-i18n-placeholder="placeholder.message"></textarea>
         <div style="margin-top:14px;">
-          <button class="btn primary" type="submit">提交</button>
+          <button class="btn primary" type="submit" data-i18n="btn.submit">提交</button>
         </div>
       </form>
       <div>
         <div class="service">
-          <h3>联系方式</h3>
-          <p>📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON</p>
-          <p>工作时间：Mon–Fri 10:00–18:00</p>
+          <h3 data-i18n="contact.info.title">联系方式</h3>
+          <p data-i18n-html="contact.info.content">📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON</p>
+          <p data-i18n="contact.info.hours">工作时间：Mon–Fri 10:00–18:00</p>
         </div>
         <div class="service">
-          <h3>下载</h3>
-          <p><a href="#">课表示例.pdf</a><br/><a href="#">监护服务手册.pdf</a></p>
+          <h3 data-i18n="downloads.title">下载</h3>
+          <p><a href="#" data-i18n="downloads.sample">课表示例.pdf</a><br/><a href="#" data-i18n="downloads.guardian">监护服务手册.pdf</a></p>
         </div>
       </div>
     </div>
@@ -302,10 +328,326 @@
 
   <footer>
     <div class="container">
-      © <span id="y"></span> Duke College · All rights reserved
+      © <span id="y"></span> <span data-i18n="footer.copy">Duke College And Business Technology · All rights reserved</span>
     </div>
   </footer>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    (function(){
+      const translations = {
+        en: {
+          'nav.home': 'Home',
+          'nav.services': 'Services',
+          'nav.partners': 'Partners',
+          'nav.life': 'Student Life',
+          'nav.contact': 'Contact',
+          'hero.h1': 'Duke College — Accredited language training provider in Canada',
+          'hero.p': 'Canadian youth reading & writing programs.',
+          'btn.courses': 'All Courses',
+          'btn.signup': 'Sign Up',
+          'about.title': 'About Us',
+          'about.desc': 'Leading brand in youth reading & writing, building lifelong academic foundations.',
+          'services.title': 'Services',
+          'services.desc': 'Choose the services you need and contact our advisors for program details and pricing.',
+          'partners.title': 'Partners',
+          'partners.desc': 'Our close partner organizations',
+          'life.title': 'Monthly Events',
+          'life.desc': 'Past event highlights',
+          'testimonials.title': 'What Students & Parents Say',
+          'contact.title': 'Contact Us',
+          'link.view': 'View',
+          'cat.k12.title': 'K-12 Reading & Writing Program (ESL)',
+          'cat.esl.title': 'ESL Course of Canada',
+          'cat.tests.title': 'Language Test Preparation Course',
+          'svc.jump.title': 'Jump Start (K–G2)',
+          'svc.jump.desc': 'Phonics and early reading foundations with placement checks and weekly progress notes.',
+          'svc.readingclub.title': 'Reading Club (G2–G8)',
+          'svc.readingclub.desc': 'Leveled guided reading to improve fluency, comprehension and vocabulary.',
+          'svc.classic.title': 'Classic Reading (G9–G12)',
+          'svc.classic.desc': 'Close reading and literary analysis to prepare students for senior courses and exams.',
+          'svc.academicwriting.title': 'Academic Writing (G8–G12)',
+          'svc.academicwriting.desc': 'Practical essay and research writing skills with targeted feedback for improvement.',
+          'svc.publicspeaking.title': 'Public Speaking (G4–G8)',
+          'svc.publicspeaking.desc': 'Short‑format speaking practice to build confidence, clarity and pronunciation.',
+          'svc.youth.title': 'Youth ESL',
+          'svc.youth.desc': 'Interactive youth program combining language learning with cultural activities and leadership development.',
+          'svc.highschool.title': 'High School ESL',
+          'svc.highschool.desc': 'Comprehensive ESL classes for high‑school students focusing on academic vocabulary, reading comprehension and exam preparation.',
+          'svc.adult.title': 'Adult ESL',
+          'svc.adult.desc': 'Practical English for adults emphasizing workplace communication, conversation and professional writing.',
+          'svc.ielts.title': 'IELTS',
+          'svc.ielts.desc': 'Targeted IELTS training for band improvement across Listening, Reading, Writing and Speaking.',
+          'svc.toefl.title': 'TOEFL',
+          'svc.toefl.desc': 'Strategic TOEFL prep focusing on academic English and test‑taking techniques.',
+          'svc.celpip.title': 'CELPIP',
+          'svc.celpip.desc': 'CELPIP practice modules and timed mock tests to build speed and accuracy.',
+          'svc.duolingo.title': 'Duolingo',
+          'svc.duolingo.desc': 'Concise Duolingo test drills and adaptive practice for rapid improvement.',
+          'svc.other.title': 'Other Tests',
+          'svc.other.desc': 'Custom test prep for additional English proficiency exams on request.',
+          'life.event1.title': 'Public Speaking Awards Phase',
+          'life.event1.desc': 'Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.',
+          'about.cert': 'Duke College ESL learning ability certification (Canada)',
+          'about.highlights.title': 'Highlights',
+          'about.highlights.li1': 'Language learning centre: K-12 Reading & Writing Program / ESL / Test Preparation',
+          'about.highlights.li2': 'High-school academic support: credit improvement / condensed subject tutoring',
+          'about.highlights.li3': 'Competitions & interest training: math contests / music lessons / robotics',
+          'life.event1.imgAlt': 'Public Speaking Awards',
+          'life.event2.title': 'Public Speaking Excellent Student',
+          'life.event2.desc': 'Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.',
+          'life.event2.imgAlt': 'Excellent Student',
+          'life.event3.title': 'Fall Event – Train Museum Tour',
+          'life.event3.desc': 'Educational excursion exploring railway history and cultural exhibits during our fall program season.',
+          'life.event3.imgAlt': 'Train Museum Tour',
+          'about.cert': 'Duke College ESL learning ability certification (Canada)',
+          'about.highlights.title': 'Highlights',
+          'about.highlights.li1': 'Language learning centre: K-12 Reading & Writing Program / ESL / Test Preparation',
+          'about.highlights.li2': 'High-school academic support: credit improvement / condensed subject tutoring',
+          'about.highlights.li3': 'Competitions & interest training: math contests / music lessons / robotics',
+          'testi.1.quote': '"The reading program strengthened my comprehension and writing—my grades improved noticeably."',
+          'testi.1.author': '— Li Wei',
+          'testi.2.quote': '"Public speaking classes greatly improved my confidence and presentation skills for class and competitions."',
+          'testi.2.author': '— Emma Chen',
+          'testi.3.quote': '"Combining reading and public speaking coaching helped me deliver stronger presentations and land an internship."',
+          'testi.3.author': '— Marcus Liu',
+          'label.email': 'Your email',
+          'placeholder.email': 'you@example.com',
+          'label.name': 'Name',
+          'placeholder.first': 'First name',
+          'placeholder.last': 'Last name',
+          'label.message': 'Message / Requirements',
+          'placeholder.message': 'Please briefly describe your needs...',
+          'btn.submit': 'Submit',
+          'contact.info.title': 'Contact Info',
+          'contact.info.content': '📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON',
+          'contact.info.hours': 'Office hours: Mon–Fri 10:00–18:00',
+          'downloads.title': 'Downloads',
+          'downloads.sample': 'Sample Schedule.pdf',
+          'downloads.guardian': 'Guardian Services Guide.pdf',
+          'footer.copy': 'Duke College And Business Technology · All rights reserved',
+          'topbar.contact': '📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511',
+          'social.facebook': 'Facebook',
+          'social.instagram': 'Instagram',
+          'partner.a': 'Partner A',
+          'partner.b': 'Partner B',
+          'partner.c': 'Partner C',
+          'partner.d': 'Partner D'
+        },
+        zh: {
+          'nav.home': '首页',
+          'nav.services': '服务',
+          'nav.partners': '合作伙伴',
+          'nav.life': '学生生活',
+          'nav.contact': '联系',
+          'hero.h1': 'Duke College Since 2009\n杜克学院——加拿大语言署的认证语言培训机构',
+          'hero.p': '加拿大青少年专业读写品牌课程。',
+          'btn.courses': '所有课程',
+          'btn.signup': '点击报名',
+          'about.title': '关于我们',
+          'about.desc': '青少年英语读写第一品牌，奠定一生的学业基础',
+          'services.title': 'Services',
+          'services.desc': '选择您需要的服务并联系顾问获取课程详情与价格（每项可链接到详情页）。',
+          'partners.title': '合作伙伴',
+          'partners.desc': '与我们关系密切的合作伙伴',
+          'life.title': '每月活动',
+          'life.desc': '过往活动展示',
+          'testimonials.title': '学员与家长怎么说',
+          'contact.title': '联系我们',
+          'link.view': '查看',
+          'cat.k12.title': 'K-12 阅读与写作课程 (ESL)',
+          'cat.esl.title': '加拿大ESL课程',
+          'cat.tests.title': '语言考试培训课程',
+          'svc.jump.title': 'Jump Start (K–G2)',
+          'svc.jump.desc': '语音和早期阅读基础，包含分班测试和每周进度记录。',
+          'svc.readingclub.title': 'Reading Club (G2–G8)',
+          'svc.readingclub.desc': '分级指导阅读，提高流利度、理解力与词汇量。',
+          'svc.classic.title': 'Classic Reading (G9–G12)',
+          'svc.classic.desc': '精读与文学分析，帮助学生为高年级课程和考试做准备。',
+          'svc.academicwriting.title': 'Academic Writing (G8–G12)',
+          'svc.academicwriting.desc': '实用论文与研究写作技能，提供针对性反馈以提升能力。',
+          'svc.publicspeaking.title': 'Public Speaking (G4–G8)',
+          'svc.publicspeaking.desc': '短时演讲练习，培养自信、表达清晰与发音。',
+          'svc.youth.title': 'Youth ESL',
+          'svc.youth.desc': '互动式青少年项目，结合语言学习、文化活动与领导力培养。',
+          'svc.highschool.title': 'High School ESL',
+          'svc.highschool.desc': '面向高中生的综合ESL课程，侧重学术词汇、阅读理解与考试准备。',
+          'svc.adult.title': 'Adult ESL',
+          'svc.adult.desc': '面向成人的实用英语课程，强调职场沟通、会话与专业写作。',
+          'svc.ielts.title': 'IELTS',
+          'svc.ielts.desc': '针对IELTS四项（听说读写）的强化训练，提升分数。',
+          'svc.toefl.title': 'TOEFL',
+          'svc.toefl.desc': '针对学术英语与考试技巧的TOEFL备考课程。',
+          'svc.celpip.title': 'CELPIP',
+          'svc.celpip.desc': 'CELPIP练习模块与计时模拟测试，提升速度与准确性。',
+          'svc.duolingo.title': 'Duolingo',
+          'svc.duolingo.desc': '精简的Duolingo考题训练与自适应练习，快速提升。',
+          'svc.other.title': 'Other Tests',
+          'svc.other.desc': '可按需定制其他英语能力考试的备考服务。',
+          'life.event1.title': '口语演讲颁奖阶段',
+          'life.event1.desc': '表彰优秀演讲与口语能力的学生颁奖典礼。',
+          'life.event1.imgAlt': '口语演讲颁奖',
+          'life.event2.title': '口语演讲优秀学生',
+          'life.event2.desc': '表彰在口语课程中表现突出的学生，他们展现了非凡的自信与表达能力。',
+          'life.event2.imgAlt': '优秀学生',
+          'life.event3.title': '秋季活动 – 火车博物馆参观',
+          'life.event3.desc': '教育性外出活动，探索铁路历史与文化展览。',
+          'life.event3.imgAlt': '火车博物馆参观',
+          'about.cert': '加拿大杜克英语ESL学习能力认证',
+          'about.highlights.title': '亮点速览',
+          'about.highlights.li1': '✅ 语言学习中心：K-12 阅读与写作课程 / ESL / 考试备考',
+          'about.highlights.li2': '✅ 高中学习辅导：学分提升 / 快修学科辅导',
+          'about.highlights.li3': '✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 / 机器人课程',
+          'testi.1.quote': '"该阅读课程增强了我的理解力和写作能力——我的成绩有了明显提升。"',
+          'testi.1.author': '— 李伟',
+          'testi.2.quote': '"口语课程大大提高了我的自信和课堂、比赛的表达能力。"',
+          'testi.2.author': '— 艾玛·陈',
+          'testi.3.quote': '"结合阅读与口语辅导帮我做出更出色的演讲，还获得了实习机会。"',
+          'testi.3.author': '— 马库斯·刘',
+          'label.email': '您的邮箱',
+          'placeholder.email': 'you@example.com',
+          'label.name': '姓名',
+          'placeholder.first': '名',
+          'placeholder.last': '姓',
+          'label.message': '问题 / 需求',
+          'placeholder.message': '请简单描述你的需求...',
+          'btn.submit': '提交',
+          'contact.info.title': '联系方式',
+          'contact.info.content': '📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON',
+          'contact.info.hours': '工作时间：Mon–Fri 10:00–18:00',
+          'downloads.title': '下载',
+          'downloads.sample': '课表示例.pdf',
+          'downloads.guardian': '监护服务手册.pdf',
+          'footer.copy': 'Duke College And Business Technology · All rights reserved',
+          'topbar.contact': '📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511',
+          'social.facebook': 'Facebook',
+          'social.instagram': 'Instagram',
+          'partner.a': '合作伙伴 A',
+          'partner.b': '合作伙伴 B',
+          'partner.c': '合作伙伴 C',
+          'partner.d': '合作伙伴 D'
+        }
+      };
+
+      function setLang(lang){
+        console.debug('setLang:', lang);
+        const items = document.querySelectorAll('[data-i18n]');
+        items.forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          const text = translations[lang] && translations[lang][key];
+          if(text === undefined){
+            console.warn('i18n: missing key', key, 'for lang', lang, el);
+            return;
+          }
+          // preserve <br> if present in hero.h1
+          if(key === 'hero.h1' && text.includes('\n')){
+            el.innerHTML = text.split('\n').map((s,i)=> i? '<br>'+escapeHtml(s): escapeHtml(s)).join('');
+            console.debug('i18n: set innerHTML', key, text);
+          } else {
+            // if element contains inline tags (e.g. <strong>), set textContent for safety
+            el.textContent = text;
+            console.debug('i18n: set textContent', key, text);
+          }
+        });
+
+        // placeholders
+        const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholders.forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          const text = translations[lang] && translations[lang][key];
+          if(text !== undefined) el.placeholder = text;
+        });
+
+        // alt attributes for images
+        const alts = document.querySelectorAll('[data-i18n-alt]');
+        alts.forEach(el => {
+          const key = el.getAttribute('data-i18n-alt');
+          const text = translations[lang] && translations[lang][key];
+          if(text !== undefined) el.alt = text;
+        });
+
+        // html content (for contact info with line breaks)
+        const htmls = document.querySelectorAll('[data-i18n-html]');
+        htmls.forEach(el => {
+          const key = el.getAttribute('data-i18n-html');
+          const text = translations[lang] && translations[lang][key];
+          if(text !== undefined) el.innerHTML = text;
+        });
+
+        localStorage.setItem('site-lang', lang);
+        const enBtn = document.getElementById('lang-en');
+        const zhBtn = document.getElementById('lang-zh');
+        if(enBtn) enBtn.classList.toggle('active', lang === 'en');
+        if(zhBtn) zhBtn.classList.toggle('active', lang === 'zh');
+      }
+
+      function escapeHtml(str){
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        const enBtn = document.getElementById('lang-en');
+        const zhBtn = document.getElementById('lang-zh');
+        if(enBtn) enBtn.addEventListener('click', ()=> setLang('en'));
+        if(zhBtn) zhBtn.addEventListener('click', ()=> setLang('zh'));
+        // mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function closeMobile(){
+          if(!menuToggle || !mobileMenu) return;
+          menuToggle.setAttribute('aria-expanded','false');
+          mobileMenu.classList.remove('open');
+          mobileMenu.setAttribute('aria-hidden','true');
+        }
+        function openMobile(){
+          if(!menuToggle || !mobileMenu) return;
+          menuToggle.setAttribute('aria-expanded','true');
+          mobileMenu.classList.add('open');
+          mobileMenu.setAttribute('aria-hidden','false');
+        }
+        if(menuToggle && mobileMenu){
+          menuToggle.addEventListener('click', function(e){
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            if(expanded) closeMobile(); else openMobile();
+            e.stopPropagation();
+          });
+          // close when clicking outside
+          document.addEventListener('click', function(ev){
+            if(!mobileMenu.classList.contains('open')) return;
+            if(ev.target === menuToggle || mobileMenu.contains(ev.target)) return;
+            closeMobile();
+          });
+          // close on resize to larger screens
+          window.addEventListener('resize', function(){ if(window.innerWidth > 640) closeMobile(); });
+          // ensure each mobile link closes menu on click
+          mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> closeMobile()));
+        }
+        const saved = localStorage.getItem('site-lang');
+        const defaultLang = saved || (navigator.language && navigator.language.startsWith('zh') ? 'zh' : 'en');
+        setLang(defaultLang);
+        // quick parity check: report any markup keys missing in translations
+        (function checkI18nParity(){
+          try{
+            const attrs = ['data-i18n','data-i18n-placeholder','data-i18n-alt','data-i18n-html'];
+            const markupKeys = new Set();
+            attrs.forEach(attr => document.querySelectorAll('['+attr+']').forEach(el => {
+              const k = el.getAttribute(attr);
+              if(k) markupKeys.add(k);
+            }));
+
+            const locales = Object.keys(translations || {});
+            locales.forEach(locale => {
+              const tKeys = new Set(Object.keys(translations[locale] || {}));
+              const missing = [...markupKeys].filter(k => !tKeys.has(k));
+              const unused = [...tKeys].filter(k => !markupKeys.has(k));
+              if(missing.length) console.warn('i18n-parity: missing keys for', locale, missing);
+              else console.debug('i18n-parity: no missing keys for', locale);
+              if(unused.length) console.debug('i18n-parity: unused translation keys for', locale, unused.slice(0,20), unused.length>20? '...':'');
+            });
+          }catch(e){ console.error('i18n-parity: error', e); }
+        })();
+      });
+    })();
+  </script>
 </body>
 </html>
