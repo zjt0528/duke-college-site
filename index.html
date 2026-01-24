@@ -37,11 +37,32 @@
     .lang-switch button.active { background: var(--accent); color: #fff; border-color: transparent; }
     .menu a { color: var(--fg); font-weight: 600; }
     .menu a.cta { background: var(--accent); color: #fff; padding: 10px 14px; border-radius: 999px; box-shadow: var(--shadow); }
-    .hero { position: relative; background: linear-gradient(180deg, rgba(15,23,42,.4), rgba(15,23,42,.1)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%230ea5e9"/><stop offset="1" stop-color="%232b6cb0"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/></svg>') center/cover no-repeat; color: #fff; }
-    .hero .container { padding: 88px 20px 96px; }
+    .hero { position: relative; background: none; color: #fff; }
+    .hero { position: relative; background: none; color: #fff; overflow: hidden; padding: 0; }
+    .hero-bleed {
+      display: block;
+      width: 100vw;
+      max-width: 100%;
+      margin-left: calc(50% - 50vw);
+      height: clamp(620px, 36vh, 420px);
+      object-fit: cover;
+    }
+    .hero .container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 28px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 10;
+    }
     .hero h1 { font-size: clamp(32px, 5vw, 54px); margin: 0 0 12px; line-height: 1.15; }
     .hero p { font-size: clamp(16px, 2.2vw, 20px); opacity: .95; max-width: 800px; }
-    .hero .actions { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero .actions { margin-top: 0; display: flex; gap: 12px; flex-wrap: wrap; pointer-events: auto; }
     .btn { display: inline-block; padding: 12px 18px; border-radius: 12px; font-weight: 700; border: 1px solid transparent; }
     .btn.primary { background: var(--accent); color: #fff; box-shadow: var(--shadow); }
     .btn.secondary { background: #ffffff; color: var(--fg); border-color: var(--border); }
@@ -69,7 +90,9 @@
     .service .more { margin-top: 8px; display: inline-block; font-weight: 700; }
     .service img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
     .partners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: center; }
-    .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; }
+    .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 200px; }
+    .partner img { max-height: 120px; width: auto; object-fit: contain; }
+    .partners .partner:first-child { justify-content: center; }
     .testis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .quote { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); font-size: 15px; }
     .quote strong { display: block; margin-top: 10px; }
@@ -87,6 +110,7 @@
       .partners { grid-template-columns: 1fr 1fr; }
       .logo-img { height: 40px; }
       .logo-text { max-width: 180px; }
+      .hero .container { bottom: 20px; }
     }
     @media (max-width: 640px) {
       .menu { display: none; }
@@ -105,6 +129,7 @@
       .testis { grid-template-columns: 1fr; }
       .logo-img { height: 36px; }
       .logo-text { max-width: 140px; }
+      .hero .container { bottom: 12px; }
     }
   </style>
 </head>
@@ -118,7 +143,7 @@
       </div>
     </div>
   </div>
-
+ 
   <header>
     <div class="container nav">
       <div class="logo">
@@ -144,9 +169,8 @@
   </header>
 
   <section id="home" class="hero">
+    <img class="hero-bleed" src="Images/Duke_Image.png" alt="Duke College" />
     <div class="container">
-      <h1 data-i18n="hero.h1">Duke College Since 2009<br>杜克学院——加拿大语言署的认证语言培训机构</h1>
-      <p data-i18n="hero.p">加拿大青少年专业读写品牌课程。</p> 
       <div class="actions">
         <a class="btn primary" href="#services" data-i18n="btn.courses">所有课程</a>
         <a class="btn secondary" href="#contact" data-i18n="btn.signup">点击报名</a>
@@ -159,7 +183,7 @@
       <div class="card">
         <h2 class="section-title" data-i18n="about.title">关于我们</h2>
         <p class="section-desc" data-i18n="about.desc">青少年英语读写第一品牌，奠定一生的学业基础</p>
-        <p data-i18n="about.cert">加拿大杜克英语ESL学习能力认证</p>
+        <!-- <p data-i18n="about.cert">加拿大杜克英语ESL学习能力认证</p> -->
       </div>
       <div class="card">
         <h3 data-i18n="about.highlights.title">亮点速览</h3>
@@ -174,94 +198,46 @@
 
   <section id="services">
     <div class="container">
+
         <h2 class="section-title" data-i18n="services.title">Services</h2>
       <p class="section-desc" data-i18n="services.desc">Choose the services you need and contact our advisors for program details and pricing (each item may link to a detail page).</p>
       <!-- Services reorganized into three main categories -->
       <div class="services-cats">
         <div class="cat">
+           <img src="Images/K12.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.k12.title">K-12 Reading & Writing Program (ESL)</h3>
-          <div class="cat-grid">
-            <div class="service">
-              <h3 data-i18n="svc.jump.title">Jump Start (K–G2)</h3>
-              <p data-i18n="svc.jump.desc">Phonics and early reading foundations with placement checks and weekly progress notes.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.readingclub.title">Reading Club (G2–G8)</h3>
-              <p data-i18n="svc.readingclub.desc">Leveled guided reading to improve fluency, comprehension and vocabulary.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.classic.title">Classic Reading (G9–G12)</h3>
-              <p data-i18n="svc.classic.desc">Close reading and literary analysis to prepare students for senior courses and exams.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.academicwriting.title">Academic Writing (G8–G12)</h3>
-              <p data-i18n="svc.academicwriting.desc">Practical essay and research writing skills with targeted feedback for improvement.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.publicspeaking.title">Public Speaking (G4–G8)</h3>
-              <p data-i18n="svc.publicspeaking.desc">Short‑format speaking practice to build confidence, clarity and pronunciation.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-          </div>
         </div>
 
         <div class="cat">
+          <img src="Images/ESL.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.esl.title">ESL Course of Canada</h3>
-          <div class="cat-grid">
-            <div class="service">
-              <h3 data-i18n="svc.youth.title">Youth ESL</h3>
-              <p data-i18n="svc.youth.desc">Interactive youth program combining language learning with cultural activities and leadership development.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.highschool.title">High School ESL</h3>
-              <p data-i18n="svc.highschool.desc">Comprehensive ESL classes for high‑school students focusing on academic vocabulary, reading comprehension and exam preparation.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.adult.title">Adult ESL</h3>
-              <p data-i18n="svc.adult.desc">Practical English for adults emphasizing workplace communication, conversation and professional writing.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-          </div>
+
         </div>
 
         <div class="cat">
+          <img src="Images/LanguageTest.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.tests.title">Language Test Preparation Course</h3>
-          <div class="cat-grid">
-            <div class="service">
-              <h3 data-i18n="svc.ielts.title">IELTS</h3>
-              <p data-i18n="svc.ielts.desc">Targeted IELTS training for band improvement across Listening, Reading, Writing and Speaking.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.toefl.title">TOEFL</h3>
-              <p data-i18n="svc.toefl.desc">Strategic TOEFL prep focusing on academic English and test‑taking techniques.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.celpip.title">CELPIP</h3>
-              <p data-i18n="svc.celpip.desc">CELPIP practice modules and timed mock tests to build speed and accuracy.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.duolingo.title">Duolingo</h3>
-              <p data-i18n="svc.duolingo.desc">Concise Duolingo test drills and adaptive practice for rapid improvement.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-            <div class="service">
-              <h3 data-i18n="svc.other.title">Other Tests</h3>
-              <p data-i18n="svc.other.desc">Custom test prep for additional English proficiency exams on request.</p>
-              <a class="more" href="#" data-i18n="link.view">View</a>
-            </div>
-          </div>
         </div>
+                <div class="cat">
+           <img src="Images/publicspeaking.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+          <h3 class="cat-title" data-i18n="cat.ps.title">Public Speaking</h3>
+        </div>
+
+        <div class="cat">
+          <img src="Images/Math.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+          <h3 class="cat-title" data-i18n="cat.math.title">Math</h3>
+
+        </div>
+
+        <div class="cat">
+          <img src="Images/Others.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+          <h3 class="cat-title" data-i18n="cat.others.title">Others</h3>
+        </div>
+
       </div>
     </div>
+
+    
   </section>
 
   <section id="partners">
@@ -269,10 +245,10 @@
       <h2 class="section-title" data-i18n="partners.title">合作伙伴</h2>
       <p class="section-desc" data-i18n="partners.desc">与我们关系密切的合作伙伴</p>
       <div class="partners">
-        <div class="partner" data-i18n="partner.a">Partner A</div>
-        <div class="partner" data-i18n="partner.b">Partner B</div>
-        <div class="partner" data-i18n="partner.c">Partner C</div>
-        <div class="partner" data-i18n="partner.d">Partner D</div>
+        <div class="partner"><img src="Images/Partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+        <div class="partner"><img src="Images/Partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+        <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
+        <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
       </div>
     </div>
   </section>
@@ -347,7 +323,7 @@
           'btn.courses': 'All Courses',
           'btn.signup': 'Sign Up',
           'about.title': 'About Us',
-          'about.desc': 'Leading brand in youth reading & writing, building lifelong academic foundations.',
+          'about.desc': 'Duke College is an educational institution dedicated to developing Reading & Writing skills in young learners.Through a structured, scientific, and step-by-step teaching approach, we help students build a strong foundation in reading, enhance their writing skills, and cultivate long-term academic learning abilities.',
           'services.title': 'Services',
           'services.desc': 'Choose the services you need and contact our advisors for program details and pricing.',
           'partners.title': 'Partners',
@@ -357,9 +333,12 @@
           'testimonials.title': 'What Students & Parents Say',
           'contact.title': 'Contact Us',
           'link.view': 'View',
-          'cat.k12.title': 'K-12 Reading & Writing Program (ESL)',
+          'cat.k12.title': 'K-12 Reading & Writing Program',
           'cat.esl.title': 'ESL Course of Canada',
           'cat.tests.title': 'Language Test Preparation Course',
+          'cat.ps.title': 'Public Speaking Course',
+          'cat.math.title': 'Math Course',
+          'cat.others.title': 'Other Courses',
           'svc.jump.title': 'Jump Start (K–G2)',
           'svc.jump.desc': 'Phonics and early reading foundations with placement checks and weekly progress notes.',
           'svc.readingclub.title': 'Reading Club (G2–G8)',
@@ -429,10 +408,10 @@
           'topbar.contact': '📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511',
           'social.facebook': 'Facebook',
           'social.instagram': 'Instagram',
-          'partner.a': 'Partner A',
-          'partner.b': 'Partner B',
-          'partner.c': 'Partner C',
-          'partner.d': 'Partner D'
+          'partner.a': 'IELTS',
+          'partner.b': 'CELPIP',
+          'partner.c': 'VIP Teaching',
+          'partner.d': 'Western University'
         },
         zh: {
           'nav.home': '首页',
@@ -445,9 +424,9 @@
           'btn.courses': '所有课程',
           'btn.signup': '点击报名',
           'about.title': '关于我们',
-          'about.desc': '青少年英语读写第一品牌，奠定一生的学业基础',
+          'about.desc': '      Duke College 是一家专注于青少年英语 Reading&Writing（阅读与写作）能力培养的教育机构.我们致力于通过系统、科学、循序渐进的教学方式，帮助孩子建立扎实的阅读基础，提升写作表达能力，发展长期的学术学习能力。',
           'services.title': 'Services',
-          'services.desc': '选择您需要的服务并联系顾问获取课程详情与价格（每项可链接到详情页）。',
+          'services.desc': '选择您需要的服务并联系顾问获取课程详情与价格',
           'partners.title': '合作伙伴',
           'partners.desc': '与我们关系密切的合作伙伴',
           'life.title': '每月活动',
@@ -455,9 +434,12 @@
           'testimonials.title': '学员与家长怎么说',
           'contact.title': '联系我们',
           'link.view': '查看',
-          'cat.k12.title': 'K-12 阅读与写作课程 (ESL)',
+          'cat.k12.title': 'K-12 阅读与写作课程 ',
           'cat.esl.title': '加拿大ESL课程',
           'cat.tests.title': '语言考试培训课程',
+          'cat.ps.title': '公共演讲课程',
+          'cat.math.title': '数学课程',
+          'cat.others.title': '其它课程',
           'svc.jump.title': 'Jump Start (K–G2)',
           'svc.jump.desc': '语音和早期阅读基础，包含分班测试和每周进度记录。',
           'svc.readingclub.title': 'Reading Club (G2–G8)',
@@ -522,10 +504,10 @@
           'topbar.contact': '📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511',
           'social.facebook': 'Facebook',
           'social.instagram': 'Instagram',
-          'partner.a': '合作伙伴 A',
-          'partner.b': '合作伙伴 B',
-          'partner.c': '合作伙伴 C',
-          'partner.d': '合作伙伴 D'
+          'partner.a': '雅思',
+          'partner.b': '思培',
+          'partner.c': 'VIP 教学',
+          'partner.d': '西安大略大学'
         }
       };
 
