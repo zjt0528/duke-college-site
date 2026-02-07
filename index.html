@@ -15,7 +15,7 @@
       --border: #e5e7eb;
       --shadow: 0 10px 30px rgba(0,0,0,.06);
       --radius: 14px;
-    }
+    }  
     * { box-sizing: border-box; }
     body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; color: var(--fg); background: var(--bg); line-height: 1.6; }
     a { color: var(--accent); text-decoration: none; }
@@ -40,7 +40,7 @@
     .hero { position: relative; background: none; color: #fff; }
     .hero { position: relative; background: none; color: #fff; overflow: hidden; padding: 0; }
     .hero-bleed {
-      display: block;
+      display: block;        
       width: 100vw;
       max-width: 100%;
       margin-left: calc(50% - 50vw);
@@ -92,8 +92,16 @@
     .partners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: center; }
     .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 200px; }
     .partner img { max-height: 120px; width: auto; object-fit: contain; }
-    .partners .partner:first-child { justify-content: center; }
-    .testis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center; }
+    .modal.show { display: flex; }
+    .modal-content { background: #fff; padding: 0; border-radius: 12px; max-width: 700px; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3); display: flex; flex-direction: column; }
+    .modal-image { width: 100%; height: 320px; object-fit: cover; border-radius: 12px 12px 0 0; }
+    .modal-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 24px 40px 0; }
+    .modal-header h2 { margin: 0; font-size: 24px; flex: 1; }
+    .modal-close { background: none; border: none; font-size: 28px; cursor: pointer; color: var(--muted); padding: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { color: var(--fg); }
+    #modal-body { padding: 0 40px 40px 40px; }
+    .modal-close:hover { color: var(--fg); }
     .quote { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); font-size: 15px; }
     .quote strong { display: block; margin-top: 10px; }
     .contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 22px; }
@@ -136,7 +144,7 @@
 <body>
   <div class="topbar">
     <div class="container">
-      <div data-i18n-html="topbar.contact">📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511</div>
+      <div data-i18n-html="topbar.contact">📧 dukecollege8@gmail.com · ☎︎ (905) 569‑0511</div>
       <div class="lang-switch" aria-label="Language switch">
         <button id="lang-en">EN</button>
         <button id="lang-zh" class="active">中文</button>
@@ -148,7 +156,7 @@
     <div class="container nav">
       <div class="logo">
         <img src="Images/Logo.jpg" alt="Duke College logo" class="logo-img" />
-        <div class="logo-text">Duke College <small>Educational Services</small></div>
+        <div class="logo-text">Duke-College<small>Educational Institute</small></div>
       </div>
       <!-- <nav class="menu">
         <a href="#home" data-i18n="nav.home">首页</a>
@@ -206,32 +214,36 @@
         <div class="cat">
            <img src="Images/K12.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.k12.title">K-12 Reading & Writing Program (ESL)</h3>
+          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('k12')">View More</button>
         </div>
 
         <div class="cat">
-          <img src="Images/ESL.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+          <img src="Images/ESL.png" alt="ESL Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.esl.title">ESL Course of Canada</h3>
-
+          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('esl')">View More</button>
         </div>
 
         <div class="cat">
-          <img src="Images/LanguageTest.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+          <img src="Images/LanguageTest.png" alt="Language Test Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.tests.title">Language Test Preparation Course</h3>
+          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('tests')">View More</button>
         </div>
                 <div class="cat">
-           <img src="Images/publicspeaking.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+           <img src="Images/publicspeaking.png" alt="Public Speaking Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.ps.title">Public Speaking</h3>
+          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('ps')">View More</button>
         </div>
 
         <div class="cat">
-          <img src="Images/Math.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+          <img src="Images/Math.png" alt="Math Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.math.title">Math</h3>
-
+          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('math')">View More</button>
         </div>
 
         <div class="cat">
-          <img src="Images/Others.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
+          <img src="Images/Others.png" alt="Other Programs" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.others.title">Others</h3>
+          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('others')">View More</button>
         </div>
 
       </div>
@@ -245,8 +257,8 @@
       <h2 class="section-title" data-i18n="partners.title">合作伙伴</h2>
       <p class="section-desc" data-i18n="partners.desc">与我们关系密切的合作伙伴</p>
       <div class="partners">
-        <div class="partner"><img src="Images/Partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
-        <div class="partner"><img src="Images/Partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+        <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+        <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
         <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
         <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
       </div>
@@ -291,7 +303,7 @@
       <div>
         <div class="service">
           <h3 data-i18n="contact.info.title">联系方式</h3>
-          <p data-i18n-html="contact.info.content">📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON</p>
+          <p data-i18n-html="contact.info.content">📧 dukecollege8@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 250 Ferrier St, Markham, ON L3R 2Z5</p>
           <p data-i18n="contact.info.hours">工作时间：Mon–Fri 10:00–18:00</p>
         </div>
         <div class="service">
@@ -308,7 +320,43 @@
     </div>
   </footer>
 
+  <!-- Modal Popup -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <img id="modal-image" class="modal-image" src="" alt="Program image" />
+      <div class="modal-header">
+        <h2 id="modal-title">Program Details</h2>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    // Modal functionality
+    const modalData = {
+      k12: { title: 'K-12 Reading & Writing Program', image: 'Images/K12.png', content: '<p>Our comprehensive K-12 reading and writing program is designed to build strong foundations in literacy skills. With leveled instruction from kindergarten through grade 12, students develop fluency, comprehension, and expressive writing abilities.</p><p><strong>Key Features:</strong></p><ul><li>Phonics and early reading foundations</li><li>Guided reading for comprehension</li><li>Literary analysis and close reading</li><li>Academic essay writing</li><li>Public speaking integrated components</li></ul>' },
+      esl: { title: 'ESL Course of Canada', image: 'Images/ESL.png', content: '<p>Comprehensive English as a Second Language instruction tailored to students of all ages and proficiency levels.</p><p><strong>Programs Include:</strong></p><ul><li>Youth ESL - Interactive cultural programs</li><li>High School ESL - Academic vocabulary focus</li><li>Adult ESL - Workplace communication skills</li><li>Flexible scheduling and adaptive learning</li></ul>' },
+      tests: { title: 'Language Test Preparation', image: 'Images/LanguageTest.png', content: '<p>Specialized test preparation for major English proficiency exams.</p><p><strong>Tests Covered:</strong></p><ul><li>IELTS - Band improvement strategy</li><li>TOEFL - Academic English focus</li><li>CELPIP - Canadian immigration exam</li><li>Duolingo - Rapid improvement drills</li><li>Custom test prep available</li></ul>' },
+      ps: { title: 'Public Speaking Course', image: 'Images/publicspeaking.png', content: '<p>Build confidence and presentation skills through structured public speaking instruction.</p><p><strong>Program Benefits:</strong></p><ul><li>Confidence building in front of audiences</li><li>Clarity and articulation development</li><li>Pronunciation improvement</li><li>Presentation structure and delivery</li><li>Q&A and panel discussion skills</li></ul>' },
+      math: { title: 'Math Course', image: 'Images/Math.png', content: '<p>Specialized mathematics instruction for students of all levels.</p><p><strong>Offerings:</strong></p><ul><li>Foundational numeracy skills</li><li>Canadian math competition prep</li><li>Grade-level tutoring</li><li>Advanced problem-solving</li><li>Test preparation for standardized exams</li></ul>' },
+      others: { title: 'Other Programs', image: 'Images/Others.png', content: '<p>Additional specialized instruction beyond our core programs.</p><p><strong>Available Courses:</strong></p><ul><li>Music lessons and instruction</li><li>Robotics and STEM learning</li><li>Subject-specific tutoring</li><li>Academic support services</li><li>Custom program design available</li></ul>' }
+    };
+
+    function openModal(type) {
+      const data = modalData[type];
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-image').src = data.image;
+      document.getElementById('modal-body').innerHTML = data.content;
+      document.getElementById('modal').classList.add('show');
+    }
+
+    function closeModal(event) {
+      if (event && event.target.id !== 'modal') return;
+      document.getElementById('modal').classList.remove('show');
+    }
+  </script>
   <script>
     (function(){
       const translations = {
@@ -399,13 +447,13 @@
           'placeholder.message': 'Please briefly describe your needs...',
           'btn.submit': 'Submit',
           'contact.info.title': 'Contact Info',
-          'contact.info.content': '📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON',
+          'contact.info.content': '📧 dukecollege8@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 250 Ferrier St, Markham, ON L3R 2Z5',
           'contact.info.hours': 'Office hours: Mon–Fri 10:00–18:00',
           'downloads.title': 'Downloads',
           'downloads.sample': 'Sample Schedule.pdf',
           'downloads.guardian': 'Guardian Services Guide.pdf',
           'footer.copy': 'Duke College And Business Technology · All rights reserved',
-          'topbar.contact': '📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511',
+          'topbar.contact': '📧 dukecollege8@gmail.com · ☎︎ (905) 569‑0511',
           'social.facebook': 'Facebook',
           'social.instagram': 'Instagram',
           'partner.a': 'IELTS',
@@ -495,13 +543,13 @@
           'placeholder.message': '请简单描述你的需求...',
           'btn.submit': '提交',
           'contact.info.title': '联系方式',
-          'contact.info.content': '📧 readingtown.miss@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 Toronto / Markham, ON',
+          'contact.info.content': '📧 dukecollege8@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 250 Ferrier St, Markham, ON L3R 2Z5',
           'contact.info.hours': '工作时间：Mon–Fri 10:00–18:00',
           'downloads.title': '下载',
           'downloads.sample': '课表示例.pdf',
           'downloads.guardian': '监护服务手册.pdf',
           'footer.copy': 'Duke College And Business Technology · All rights reserved',
-          'topbar.contact': '📧 readingtown.miss@gmail.com · ☎︎ (905) 569‑0511',
+          'topbar.contact': '📧 dukecollege8@gmail.com · ☎︎ (905) 569‑0511',
           'social.facebook': 'Facebook',
           'social.instagram': 'Instagram',
           'partner.a': '雅思',
