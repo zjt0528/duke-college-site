@@ -73,7 +73,13 @@
   .about { display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; }
   .about .card { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow); }
   .about .card:nth-child(2) { padding: 26px; }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid { display: flex; gap: 18px; overflow: hidden; position: relative; }
+    .grid-scroll { display: flex; gap: 18px; animation: scroll-left 45s linear infinite; }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-66.67%); }
+    }
+    .grid-scroll:hover { animation-play-state: paused; }
   /* New services categories layout */
   .services-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .cat { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); }
@@ -84,13 +90,26 @@
   .cat .service h3 { font-size: 16px; margin: 0 0 6px; }
   .cat .service p { margin: 0; color: var(--muted); font-size: 14px; }
   .cat .more { display: inline-block; margin-top: 8px; font-weight: 700; }
-    .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; }
+    .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; flex-shrink: 0; width: 360px; }
     .service:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
     .service h3 { margin-top: 0; }
     .service .more { margin-top: 8px; display: inline-block; font-weight: 700; }
     .service img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
-    .partners { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: center; }
-    .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 200px; }
+    .partners { display: grid; grid-template-columns: repeat(5, 200px); gap: 14px; align-items: center; position: relative; height: 280px; }
+    .partners-batch { position: absolute; top: 0; left: 0; display: grid; grid-template-columns: repeat(5, 200px); gap: 14px; width: 100%; animation: fadeInOut 50s ease-in-out infinite; }
+    .partners-batch:nth-child(2) { animation-delay: -10s; }
+    .partners-batch:nth-child(3) { animation-delay: -20s; }
+    .partners-batch:nth-child(4) { animation-delay: -30s; }
+    .partners-batch:nth-child(5) { animation-delay: -40s; }
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      18% { opacity: 1; }
+      22% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .partners:hover .partners-batch { animation-play-state: paused; }
+    .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 200px; flex-shrink: 0; width: 200px; }
     .partner img { max-height: 120px; width: auto; object-fit: contain; }
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center; }
     .modal.show { display: flex; }
@@ -102,20 +121,22 @@
     .modal-close:hover { color: var(--fg); }
     #modal-body { padding: 0 40px 40px 40px; }
     .modal-close:hover { color: var(--fg); }
-    .quote { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); font-size: 15px; }
+    .testis { display: flex; flex-direction: column; gap: 14px; }
+    .quote { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); font-size: 15px; flex-shrink: 0; min-height: 100px; }
     .quote strong { display: block; margin-top: 10px; }
     .contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 22px; }
     form { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); }
     label { display: block; font-weight: 700; margin-top: 12px; }
     input, textarea { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--border); margin-top: 6px; font: inherit; }
     button { cursor: pointer; }
+    .qr-container { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: auto; }
+    .qr-code { width: 220px !important; height: 220px !important; margin: 20px auto; object-fit: contain; }
     footer { padding: 36px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
     @media (max-width: 1000px) {
       .about, .contact { grid-template-columns: 1fr; }
       .grid { grid-template-columns: repeat(2, 1fr); }
   .services-cats { grid-template-columns: repeat(2, 1fr); }
       .testis { grid-template-columns: 1fr 1fr; }
-      .partners { grid-template-columns: 1fr 1fr; }
       .logo-img { height: 40px; }
       .logo-text { max-width: 180px; }
       .hero .container { bottom: 20px; }
@@ -257,10 +278,42 @@
       <h2 class="section-title" data-i18n="partners.title">合作伙伴</h2>
       <p class="section-desc" data-i18n="partners.desc">与我们关系密切的合作伙伴</p>
       <div class="partners">
-        <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
-        <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
-        <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
-        <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
+        <div class="partners-batch">
+          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
+          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
+          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
+        </div>
+        <div class="partners-batch">
+          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
+          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
+          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
+        </div>
+        <div class="partners-batch">
+          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
+          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
+          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
+          
+        </div>
+        <div class="partners-batch">
+          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
+          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
+          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
+        </div>
+        <div class="partners-batch">
+          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
+          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
+          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -270,9 +323,17 @@
       <h2 class="section-title" data-i18n="life.title">每月活动</h2>
       <p class="section-desc" data-i18n="life.desc">过往活动展示</p>
       <div class="grid">
-        <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
-        <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
-        <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
+        <div class="grid-scroll">
+          <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
+          <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
+          <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
+          <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
+          <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
+          <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
+          <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
+          <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
+          <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
+        </div>
       </div>
       <h2 class="section-title" data-i18n="testimonials.title">学员与家长怎么说</h2>
       <div class="testis">
@@ -301,14 +362,15 @@
         </div>
       </form>
       <div>
+        <div class="service qr-container">
+          <h3 data-i18n="contact.qr.title">扫码联系我们</h3>
+          <img src="Images/QR_code.jpg" alt="Contact QR Code" class="qr-code" />
+          <p data-i18n="contact.qr.desc">使用微信扫描二维码，获取最新课程信息和报名方式</p>
+        </div>
         <div class="service">
           <h3 data-i18n="contact.info.title">联系方式</h3>
           <p data-i18n-html="contact.info.content">📧 dukecollege8@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 250 Ferrier St, Markham, ON L3R 2Z5</p>
           <p data-i18n="contact.info.hours">工作时间：Mon–Fri 10:00–18:00</p>
-        </div>
-        <div class="service">
-          <h3 data-i18n="downloads.title">下载</h3>
-          <p><a href="#" data-i18n="downloads.sample">课表示例.pdf</a><br/><a href="#" data-i18n="downloads.guardian">监护服务手册.pdf</a></p>
         </div>
       </div>
     </div>
@@ -448,7 +510,9 @@
           'btn.submit': 'Submit',
           'contact.info.title': 'Contact Info',
           'contact.info.content': '📧 dukecollege8@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 250 Ferrier St, Markham, ON L3R 2Z5',
-          'contact.info.hours': 'Office hours: Mon–Fri 10:00–18:00',
+          'contact.info.hours': 'Office hours: Mon–Fri 10:00–19:00',
+          'contact.qr.title': 'Scan to Contact Us',
+          'contact.qr.desc': 'Scan the QR code with WeChat to get the latest course information and registration details.',
           'downloads.title': 'Downloads',
           'downloads.sample': 'Sample Schedule.pdf',
           'downloads.guardian': 'Guardian Services Guide.pdf',
@@ -459,7 +523,8 @@
           'partner.a': 'IELTS',
           'partner.b': 'CELPIP',
           'partner.c': 'VIP Teaching',
-          'partner.d': 'Western University'
+          'partner.d': 'Western University',
+          'partner.e': ' Dong_An Educational Services Canada Inc.'
         },
         zh: {
           'nav.home': '首页',
@@ -544,7 +609,9 @@
           'btn.submit': '提交',
           'contact.info.title': '联系方式',
           'contact.info.content': '📧 dukecollege8@gmail.com<br/>☎︎ (905) 569‑0511<br/>📍 250 Ferrier St, Markham, ON L3R 2Z5',
-          'contact.info.hours': '工作时间：Mon–Fri 10:00–18:00',
+          'contact.info.hours': '工作时间：Mon–Fri 10:00–19:00',
+          'contact.qr.title': '扫码联系我们',
+          'contact.qr.desc': '使用微信扫描二维码，获取最新课程信息和报名方式',
           'downloads.title': '下载',
           'downloads.sample': '课表示例.pdf',
           'downloads.guardian': '监护服务手册.pdf',
@@ -555,7 +622,8 @@
           'partner.a': '雅思',
           'partner.b': '思培',
           'partner.c': 'VIP 教学',
-          'partner.d': '西安大略大学'
+          'partner.d': '西安大略大学',
+          'partner.e': '东安教育服务'
         }
       };
 
