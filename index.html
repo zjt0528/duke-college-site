@@ -17,6 +17,7 @@
       --radius: 14px;
     }  
     * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; }
     body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; color: var(--fg); background: var(--bg); line-height: 1.6; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-2); }
@@ -47,8 +48,8 @@
     .menu a.cta:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(43, 108, 176, 0.35); }
     .page { display: none; }
     .page.active { display: block; }
-    .hero { position: relative; background: none; color: #fff; }
-    .hero { position: relative; background: none; color: #fff; overflow: hidden; padding: 0; }
+    .hero { position: relative; background: none; overflow: hidden; padding: 0; }
+    .hero.hero-home { color: #fff; }
     .hero-bleed {
       display: block;        
       width: 100vw;
@@ -57,7 +58,7 @@
       height: clamp(620px, 36vh, 420px);
       object-fit: cover;
     }
-    .hero .container {
+    .hero.hero-home .container {
       position: absolute;
       left: 0;
       right: 0;
@@ -70,9 +71,9 @@
       pointer-events: none;
       z-index: 10;
     }
-    .hero h1 { font-size: clamp(32px, 5vw, 54px); margin: 0 0 12px; line-height: 1.15; }
-    .hero p { font-size: clamp(16px, 2.2vw, 20px); opacity: .95; max-width: 800px; }
-    .hero .actions { margin-top: 0; display: flex; gap: 12px; flex-wrap: wrap; pointer-events: auto; }
+    .hero.hero-home h1 { font-size: clamp(32px, 5vw, 54px); margin: 0 0 12px; line-height: 1.15; }
+    .hero.hero-home p { font-size: clamp(16px, 2.2vw, 20px); opacity: .95; max-width: 800px; }
+    .hero.hero-home .actions { margin-top: 0; display: flex; gap: 12px; flex-wrap: wrap; pointer-events: auto; }
     .btn { display: inline-block; padding: 12px 18px; border-radius: 12px; font-weight: 700; border: 1px solid transparent; }
     .btn.primary { background: var(--accent); color: #fff; box-shadow: var(--shadow); }
     .btn.secondary { background: #ffffff; color: var(--fg); border-color: var(--border); }
@@ -100,26 +101,23 @@
   .cat .service h3 { font-size: 16px; margin: 0 0 6px; }
   .cat .service p { margin: 0; color: var(--muted); font-size: 14px; }
   .cat .more { display: inline-block; margin-top: 8px; font-weight: 700; }
-    .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; flex-shrink: 0; width: 360px; }
+    .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; }
     .service:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
     .service h3 { margin-top: 0; }
     .service .more { margin-top: 8px; display: inline-block; font-weight: 700; }
     .service img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
-    .partners { display: grid; grid-template-columns: repeat(5, 200px); gap: 14px; align-items: center; position: relative; height: 280px; }
-    .partners-batch { position: absolute; top: 0; left: 0; display: grid; grid-template-columns: repeat(5, 200px); gap: 14px; width: 100%; animation: fadeInOut 50s ease-in-out infinite; }
-    .partners-batch:nth-child(2) { animation-delay: -10s; }
-    .partners-batch:nth-child(3) { animation-delay: -20s; }
-    .partners-batch:nth-child(4) { animation-delay: -30s; }
-    .partners-batch:nth-child(5) { animation-delay: -40s; }
-    @keyframes fadeInOut {
-      0% { opacity: 0; }
-      5% { opacity: 1; }
-      18% { opacity: 1; }
-      22% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-    .partners:hover .partners-batch { animation-play-state: paused; }
-    .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 200px; flex-shrink: 0; width: 200px; }
+
+    /* Keep fixed card width only in the horizontal scrolling row */
+    .grid-scroll .service { flex-shrink: 0; width: 360px; }
+    .partners-wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; }
+    .partners-arrow { padding: 10px 14px; line-height: 1; }
+    .partners-arrow[disabled] { opacity: .5; cursor: not-allowed; }
+    .partners { overflow: hidden; height: 280px; width: 100%; }
+    .partners-track { --partners-gap: 14px; display: flex; gap: var(--partners-gap); height: 100%; transition: transform .22s ease; will-change: transform; }
+    .partners-track .partner { flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); }
+    /* No-JS fallback: allow wrapping instead of sliding */
+    .partners:not([data-enhanced="true"]) .partners-track { flex-wrap: wrap; transform: none !important; }
+    .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 200px; min-width: 0; }
     .partner img { max-height: 120px; width: auto; object-fit: contain; }
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center; }
     .modal.show { display: flex; }
@@ -150,7 +148,7 @@
       .testis { grid-template-columns: 1fr 1fr; }
       .logo-img { height: 40px; }
       .logo-text { max-width: 180px; }
-      .hero .container { bottom: 20px; }
+      .hero.hero-home .container { bottom: 20px; }
     }
     @media (max-width: 767px) {
       .menu { display: none; position: absolute; top: 64px; right: 20px; background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 10px; box-shadow: var(--shadow); min-width: 240px; z-index: 70; flex-direction: column; gap: 8px; }
@@ -167,7 +165,7 @@
       .testis { grid-template-columns: 1fr; }
       .logo-img { height: 36px; }
       .logo-text { max-width: 140px; }
-      .hero .container { bottom: 12px; }
+      .hero.hero-home .container { bottom: 12px; }
     }
   </style>
 </head>
@@ -200,7 +198,7 @@
   </header>
 
   <main id="page-home" class="page active" data-route="home" aria-hidden="false">
-    <section id="home" class="hero">
+    <section id="home" class="hero hero-home">
       <img class="hero-bleed" src="Images/Duke_Image.png" alt="Duke College" />
       <div class="container">
         <div class="actions">
@@ -280,43 +278,19 @@
     <div class="container">
       <h2 class="section-title" data-i18n="partners.title">合作伙伴</h2>
       <p class="section-desc" data-i18n="partners.desc">与我们关系密切的合作伙伴</p>
-      <div class="partners">
-        <div class="partners-batch">
-          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
-          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
-          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
-          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
-          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
+      <div class="partners-wrap" aria-label="Partners navigation">
+        <button id="partners-prev" type="button" class="btn secondary partners-arrow" aria-label="Previous partners">‹</button>
+        <div class="partners">
+          <div class="partners-track">
+            <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+            <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
+            <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
+            <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
+            <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
+            <div class="partner"><img src="Images/CCISS.png" alt="CCISS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.f">CCISS</span></div>
+          </div>
         </div>
-        <div class="partners-batch">
-          <div class="partner"><img src="Images/CCISS.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.f">CCISS</span></div>
-          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
-          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
-          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
-          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
-        </div>
-        <div class="partners-batch">
-          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
-          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
-          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
-          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
-          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
-          
-        </div>
-        <div class="partners-batch">
-          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
-          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
-          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
-          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
-          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
-        </div>
-        <div class="partners-batch">
-          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
-          <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
-          <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
-          <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
-          <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
-        </div>
+        <button id="partners-next" type="button" class="btn secondary partners-arrow" aria-label="Next partners">›</button>
       </div>
     </div>
   </section>
@@ -1251,6 +1225,62 @@
         const zhBtn = document.getElementById('lang-zh');
         if(enBtn) enBtn.addEventListener('click', ()=> setLang('en'));
         if(zhBtn) zhBtn.addEventListener('click', ()=> setLang('zh'));
+
+        // Partners: slide by 1 item (show 5 at a time)
+        (function initPartners(){
+          const partnersEl = document.querySelector('#partners .partners');
+          const track = partnersEl ? partnersEl.querySelector('.partners-track') : null;
+          const prevBtn = document.getElementById('partners-prev');
+          const nextBtn = document.getElementById('partners-next');
+          if(!partnersEl || !track || !prevBtn || !nextBtn) return;
+
+          const items = Array.from(track.querySelectorAll('.partner'));
+          const visibleCount = 5;
+          const total = items.length;
+          const maxIndex = Math.max(0, total - visibleCount);
+          let index = 0;
+          let stepPx = 0;
+
+          partnersEl.setAttribute('data-enhanced', 'true');
+
+          function getGapPx(){
+            const cs = window.getComputedStyle(track);
+            const gap = cs.gap || cs.columnGap || '0px';
+            const parsed = parseFloat(gap);
+            return Number.isFinite(parsed) ? parsed : 0;
+          }
+
+          function measure(){
+            const first = items[0];
+            if(!first) { stepPx = 0; return; }
+            const gap = getGapPx();
+            stepPx = first.getBoundingClientRect().width + gap;
+          }
+
+          function updateButtons(){
+            const disable = total <= visibleCount;
+            prevBtn.disabled = disable || index <= 0;
+            nextBtn.disabled = disable || index >= maxIndex;
+          }
+
+          function render(){
+            if(stepPx <= 0) measure();
+            track.style.transform = `translateX(${-index * stepPx}px)`;
+            updateButtons();
+          }
+
+          function setIndex(nextIndex){
+            index = Math.min(maxIndex, Math.max(0, nextIndex));
+            render();
+          }
+
+          prevBtn.addEventListener('click', () => setIndex(index - 1));
+          nextBtn.addEventListener('click', () => setIndex(index + 1));
+          window.addEventListener('resize', () => { measure(); render(); });
+
+          measure();
+          render();
+        })();
         // mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
         const siteMenu = document.getElementById('site-menu');
