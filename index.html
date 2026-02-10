@@ -24,19 +24,29 @@
     .topbar { background: #fafafa; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--muted); }
     .topbar .container { display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; }
     .topbar .social a { margin-left: 12px; opacity: .8; }
-    header { background: var(--bg); position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); backdrop-filter: saturate(180%) blur(6px); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .3px; flex: 0 1 auto; min-width: 0; }
-    .logo-img { height: 48px; width: auto; display: block; border-radius: 6px; flex: 0 0 auto; }
-    .logo-text { line-height: 1; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
-    .logo small { font-weight: 600; color: var(--muted); display:block; font-size:12px; margin-top:6px; }
-    .menu { display: flex; gap: 22px; }
-    .menu-toggle { display: none; background: transparent; border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; font-weight: 800; cursor: pointer; }
-    .lang-switch { display: flex; gap: 6px; align-items: center; }
-    .lang-switch button { background: transparent; border: 1px solid var(--border); padding: 6px 8px; border-radius: 6px; font-weight: 700; cursor: pointer; }
-    .lang-switch button.active { background: var(--accent); color: #fff; border-color: transparent; }
-    .menu a { color: var(--fg); font-weight: 600; }
-    .menu a.cta { background: var(--accent); color: #fff; padding: 10px 14px; border-radius: 999px; box-shadow: var(--shadow); }
+    header { background: var(--bg); position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); backdrop-filter: saturate(180%) blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .logo { display: flex; align-items: center; gap: 14px; font-weight: 800; letter-spacing: .3px; flex: 0 1 auto; min-width: 0; }
+    .logo-img { height: 50px; width: auto; display: block; border-radius: 10px; flex: 0 0 auto; box-shadow: 0 4px 12px rgba(43, 108, 176, 0.12); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .logo-img:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(43, 108, 176, 0.18); }
+    .logo-text { line-height: 1.1; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; font-size: 17px; }
+    .logo small { font-weight: 600; color: var(--muted); display:block; font-size:11px; margin-top:6px; letter-spacing: .4px; }
+    .menu { display: flex; gap: 28px; align-items: center; }
+    .menu-toggle { display: none; background: transparent; border: 2px solid var(--accent); padding: 9px 12px; border-radius: 10px; font-weight: 800; cursor: pointer; color: var(--accent); transition: all 0.3s ease; }
+    .menu-toggle:hover { background: var(--accent); color: #fff; box-shadow: 0 4px 14px rgba(43, 108, 176, 0.25); transform: translateY(-2px); }
+    .lang-switch { display: flex; gap: 8px; align-items: center; }
+    .lang-switch button { background: #f5f7fa; border: 2px solid transparent; padding: 8px 14px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; color: var(--muted); font-size: 13px; }
+    .lang-switch button:hover { background: #eff2f7; color: var(--fg); border-color: var(--accent); }
+    .lang-switch button.active { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2); }
+    .menu a { color: var(--fg); font-weight: 600; transition: all 0.3s ease; position: relative; font-size: 15px; padding: 8px 0; }
+    .menu a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2.5px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.3s ease; border-radius: 2px; }
+    .menu a:hover { color: var(--accent); }
+    .menu a:hover::after { width: 100%; }
+    .menu a.cta { background: linear-gradient(135deg, var(--accent) 0%, #0d8ccf 100%); color: #fff; padding: 11px 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(43, 108, 176, 0.25); transition: all 0.3s ease; font-weight: 700; font-size: 14px; }
+    .menu a.cta::after { display: none; }
+    .menu a.cta:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(43, 108, 176, 0.35); }
+    .page { display: none; }
+    .page.active { display: block; }
     .hero { position: relative; background: none; color: #fff; }
     .hero { position: relative; background: none; color: #fff; overflow: hidden; padding: 0; }
     .hero-bleed {
@@ -132,6 +142,7 @@
     .qr-container { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: auto; }
     .qr-code { width: 220px !important; height: 220px !important; margin: 20px auto; object-fit: contain; }
     footer { padding: 36px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+    @media (min-width: 768px) { .menu { display: flex !important; } }
     @media (max-width: 1000px) {
       .about, .contact { grid-template-columns: 1fr; }
       .grid { grid-template-columns: repeat(2, 1fr); }
@@ -141,18 +152,16 @@
       .logo-text { max-width: 180px; }
       .hero .container { bottom: 20px; }
     }
-    @media (max-width: 640px) {
-      .menu { display: none; }
+    @media (max-width: 767px) {
+      .menu { display: none; position: absolute; top: 64px; right: 20px; background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 10px; box-shadow: var(--shadow); min-width: 240px; z-index: 70; flex-direction: column; gap: 8px; }
+      .menu.open { display: flex; }
       .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
-      .mobile-menu { display: none; position: absolute; top: 64px; right: 20px; background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 10px; box-shadow: var(--shadow); min-width: 240px; z-index: 70; }
-      .mobile-menu.open { display: block; }
-      .mobile-menu .menu-list { display: flex; flex-direction: column; gap: 8px; }
-      .mobile-menu a { display: block; padding: 12px 14px; border-radius: 8px; color: var(--fg); font-weight: 700; text-decoration: none; background: #f0f4f8; border: 1px solid var(--border); transition: all 0.2s ease; }
-      .mobile-menu a:hover { background: var(--accent-2); color: #fff; border-color: var(--accent-2); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-      .mobile-menu a.cta { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2); }
-      .mobile-menu a.cta:hover { background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3); }
+      .menu a { display: block; padding: 12px 14px; border-radius: 8px; color: var(--fg); font-weight: 700; text-decoration: none; background: #f0f4f8; border: 1px solid var(--border); transition: all 0.2s ease; }
+      .menu a::after { display: none; }
+      .menu a:hover { background: var(--accent-2); color: #fff; border-color: var(--accent-2); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+      .menu a.cta { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 4px 12px rgba(43, 108, 176, 0.2); }
+      .menu a.cta:hover { background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3); }
       .menu-toggle { border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; background: var(--card); }
-      @media (min-width: 641px) { .mobile-menu { display: none !important; } }
       .grid { grid-template-columns: 1fr; }
   .services-cats { grid-template-columns: 1fr; }
       .testis { grid-template-columns: 1fr; }
@@ -179,54 +188,48 @@
         <img src="Images/Logo.jpg" alt="Duke College logo" class="logo-img" />
         <div class="logo-text">Duke-College<small>Educational Institute</small></div>
       </div>
-      <!-- <nav class="menu">
-        <a href="#home" data-i18n="nav.home">首页</a>
-        <a href="#services" data-i18n="nav.services">服务</a>
-        <a href="#partners" data-i18n="nav.partners">合作伙伴</a>
-        <a href="#life" data-i18n="nav.life">学生生活</a>
-        <a href="#contact" class="cta" data-i18n="nav.contact">联系</a>
-      </nav> -->
-      <button id="menu-toggle" class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">☰</button>
-      <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
-        <div class="menu-list">
-          <a href="#home" data-i18n="nav.home">首页</a>
-          <a href="#services" data-i18n="nav.services">服务</a>
-          <a href="#contact" class="cta" data-i18n="nav.contact">联系</a>
-        </div>
+      <nav id="site-menu" class="menu" aria-hidden="false">
+        <a href="#/home" data-i18n="nav.home">首页</a>
+        <a href="#/home/services" data-i18n="nav.services">服务</a>
+        <a href="#/math" data-i18n="nav.math">数学</a>
+        <a href="#/fr" data-i18n="nav.french">法语</a>
+        <a href="#/home/contact" class="cta" data-i18n="nav.contact">联系</a>
       </nav>
+      <button id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">☰</button>
     </div>
   </header>
 
-  <section id="home" class="hero">
-    <img class="hero-bleed" src="Images/Duke_Image.png" alt="Duke College" />
-    <div class="container">
-      <div class="actions">
-        <a class="btn primary" href="#services" data-i18n="btn.courses">所有课程</a>
-        <a class="btn secondary" href="#contact" data-i18n="btn.signup">点击报名</a>
+  <main id="page-home" class="page active" data-route="home" aria-hidden="false">
+    <section id="home" class="hero">
+      <img class="hero-bleed" src="Images/Duke_Image.png" alt="Duke College" />
+      <div class="container">
+        <div class="actions">
+          <a class="btn primary" href="#/home/services" data-i18n="btn.courses">所有课程</a>
+          <a class="btn secondary" href="#/home/contact" data-i18n="btn.signup">点击报名</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about">
-    <div class="container about">
-      <div class="card">
-        <h2 class="section-title" data-i18n="about.title">关于我们</h2>
-        <p class="section-desc" data-i18n="about.desc">青少年英语读写第一品牌，奠定一生的学业基础</p>
-        <!-- <p data-i18n="about.cert">加拿大杜克英语ESL学习能力认证</p> -->
+    <section id="about">
+      <div class="container about">
+        <div class="card">
+          <h2 class="section-title" data-i18n="about.title">关于我们</h2>
+          <p class="section-desc" data-i18n="about.desc">青少年英语读写第一品牌，奠定一生的学业基础</p>
+          <!-- <p data-i18n="about.cert">加拿大杜克英语ESL学习能力认证</p> -->
+        </div>
+        <div class="card">
+          <h3 data-i18n="about.highlights.title">亮点速览</h3>
+          <ul>
+            <li data-i18n="about.highlights.li1">✅ 语言学习中心：K-12 Reading&Writing Program / ESL / Test Prepration</li>
+            <li data-i18n="about.highlights.li2">✅ 高中学习辅导：学分提升 / 快修学科辅导</li>
+            <li data-i18n="about.highlights.li3">✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 / 机器人课程</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3 data-i18n="about.highlights.title">亮点速览</h3>
-        <ul>
-          <li data-i18n="about.highlights.li1">✅ 语言学习中心：K-12 Reading&Writing Program / ESL / Test Prepration</li>
-          <li data-i18n="about.highlights.li2">✅ 高中学习辅导：学分提升 / 快修学科辅导</li>
-          <li data-i18n="about.highlights.li3">✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 / 机器人课程</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <div class="container">
+    <section id="services">
+      <div class="container">
 
         <h2 class="section-title" data-i18n="services.title">Services</h2>
       <p class="section-desc" data-i18n="services.desc">Choose the services you need and contact our advisors for program details and pricing (each item may link to a detail page).</p>
@@ -271,7 +274,7 @@
     </div>
 
     
-  </section>
+    </section>
 
   <section id="partners">
     <div class="container">
@@ -286,7 +289,7 @@
           <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
         </div>
         <div class="partners-batch">
-          <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
+          <div class="partner"><img src="Images/CCISS.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.f">CCISS</span></div>
           <div class="partner"><img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span></div>
           <div class="partner"><img src="Images/Partner3.png" alt="VIP Teaching" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.c">VIP Teaching</span></div>
           <div class="partner"><img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span></div>
@@ -344,8 +347,8 @@
     </div>
   </section>
 
-  <section id="contact">
-    <div class="container contact">
+    <section id="contact">
+      <div class="container contact">
       <form>
         <h2 class="section-title" data-i18n="contact.title">联系我们</h2>
         <label data-i18n="label.email">您的邮箱</label>
@@ -373,8 +376,468 @@
           <p data-i18n="contact.info.hours">工作时间：Mon–Fri 10:00–18:00</p>
         </div>
       </div>
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
+
+  <main id="page-math" class="page" data-route="math" aria-hidden="true">
+    <section class="hero" style="padding: 48px 0;">
+      <div class="container">
+        <h2 class="section-title" data-i18n="math.title">Math</h2>
+        <p class="section-desc" data-i18n="math.desc">Foundational to competition‑level math support tailored to each student.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="services-cats">
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="math.track1.title">Singapore Math</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                  <h3 style="margin: 0;" data-i18n="math.track1.item1.title">Grade 1-2</h3>
+                  <a class="btn primary" style="padding: 10px 14px;" href="#/math-gr12" data-i18n="math.gr12.view">View More</a>
+                </div>
+              </div>
+              <div class="service">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                  <h3 style="margin: 0;" data-i18n="math.track1.item2.title">Grade 3-4</h3>
+                  <a class="btn primary" style="padding: 10px 14px;" href="#/math-gr34" data-i18n="math.gr34.view">View More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="math.track2.title">Enrichment</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3 data-i18n="math.track2.item1.title">Advanced Topics</h3>
+                <p data-i18n="math.track2.item1.desc">Challenge problems, logic, and contest techniques.</p>
+              </div>
+              <div class="service">
+                <h3 data-i18n="math.track2.item2.title">Competition Prep</h3>
+                <p data-i18n="math.track2.item2.desc">AMC/Canadian competitions training and mock tests.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="math.track3.title">High School</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3 data-i18n="math.track3.item1.title">Credit Courses</h3>
+                <p data-i18n="math.track3.item1.desc">Functions, advanced functions, calculus readiness.</p>
+              </div>
+              <div class="service">
+                <h3 data-i18n="math.track3.item2.title">Exam Support</h3>
+                <p data-i18n="math.track3.item2.desc">Targeted review and exam strategies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="page-math-gr12" class="page" data-route="math-gr12" aria-hidden="true">
+    <section class="hero" style="padding: 48px 0;">
+      <div class="container">
+        <h2 class="section-title" data-i18n="math.gr12.title">Grade 1–2 (Units)</h2>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
+          <p class="section-desc" style="margin: 0;" data-i18n="math.gr12.desc">Singapore Math — Grade 1–2 course units overview.</p>
+          <a class="btn secondary" href="#/math" data-i18n="math.gr12.back">Back to Math</a>
+        </div>
+        <div class="services-cats">
+          <div class="cat">
+            <h3 class="cat-title">Units 1–6</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3>Unit 1: Numbers within 1000</h3>
+                <ul>
+                  <li>Recognise and write numbers within 1000 in numerals and words</li>
+                  <li>Identify the place value of numbers within 1000</li>
+                  <li>Compare and arrange numbers within 1000</li>
+                  <li>Complete number patterns</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 2: Adding Numbers within 1000</h3>
+                <ul>
+                  <li>Perform simple and mental addition of numbers within 1000</li>
+                  <li>Add numbers within 1000 without regrouping</li>
+                  <li>Add numbers within 1000 by regrouping ones, tens or hundreds</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 3: Subtracting Numbers within 1000</h3>
+                <ul>
+                  <li>Perform simple and mental subtraction of numbers within 1000</li>
+                  <li>Subtract numbers within 1000 without regrouping</li>
+                  <li>Subtract numbers within 1000 by regrouping ones, tens or hundreds</li>
+                  <li>Subtract numbers within 1000 across zeroes</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 4: Word Problems on Addition and Subtraction</h3>
+                <ul>
+                  <li>Add and subtract using part-whole</li>
+                  <li>Add and subtract by adding on and taking away sets</li>
+                  <li>Add and subtract by comparing two sets</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 5: Multiplying and Dividing</h3>
+                <ul>
+                  <li>Multiply using equal groups and repeated addition</li>
+                  <li>Divide by sharing equally and using equal groups</li>
+                  <li>Make multiplication and division stories</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 6: Multiplying and Dividing Numbers by 2, 5 and 10</h3>
+                <ul>
+                  <li>Multiply numbers within multiplication table of 2</li>
+                  <li>Multiply numbers within multiplication table of 5</li>
+                  <li>Multiply numbers within multiplication table of 10</li>
+                  <li>Multiply numbers in any order</li>
+                  <li>Divide numbers using multiplication facts</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cat">
+            <h3 class="cat-title">Units 7–12</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3>Unit 7: Multiplying and Dividing Numbers by 3 and 4</h3>
+                <ul>
+                  <li>Multiply numbers within multiplication table of 3</li>
+                  <li>Multiply numbers within multiplication table of 4</li>
+                  <li>Multiply numbers in any order</li>
+                  <li>Divide numbers using multiplication facts</li>
+                  <li>Write multiplication and division fact families</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 8: Word Problems on Multiplication and Division</h3>
+                <ul>
+                  <li>Solve multiplication word problems</li>
+                  <li>Solve division word problems</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 9: Length</h3>
+                <ul>
+                  <li>Measure length, width and height using a metre rule</li>
+                  <li>Compare and order lengths in metres</li>
+                  <li>Measure lengths of shorter objects in centimetres</li>
+                  <li>Compare and order lengths in centimetres</li>
+                  <li>Add and subtract length</li>
+                  <li>Multiply and divide length</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 10: Two-Step Word Problems on Addition and Subtraction</h3>
+                <ul>
+                  <li>Solve two-step addition and subtraction word problems</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 11: Mass</h3>
+                <ul>
+                  <li>Compare two or more masses</li>
+                  <li>Measure and compare masses in kilograms</li>
+                  <li>Measure and compare masses in grams</li>
+                  <li>Add and subtract mass</li>
+                  <li>Multiply and divide mass</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 12: Money</h3>
+                <ul>
+                  <li>Find the value of a group of notes and coins</li>
+                  <li>Change cents and dollars</li>
+                  <li>Compare money</li>
+                  <li>Solve word problems related to money</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cat">
+            <h3 class="cat-title">Units 13–17</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3>Unit 13: Two-Dimensional and Three-Dimensional Figures</h3>
+                <ul>
+                  <li>Recognise squares, rectangles, triangles, circles, semicircles and quarter circles</li>
+                  <li>Combine shapes to make new figures</li>
+                  <li>Draw figures using dot or square grid paper</li>
+                  <li>Recognise cubes, cuboids, cones, cylinders and spheres</li>
+                  <li>Combine solids to make new figures</li>
+                  <li>Make patterns with shapes</li>
+                  <li>Make patterns with solids</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 14: Fractions</h3>
+                <ul>
+                  <li>Understand that fractions are equal parts</li>
+                  <li>Understand parts and whole</li>
+                  <li>Compare fractions</li>
+                  <li>Arrange fractions</li>
+                  <li>Add and subtract like fractions</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 15: Time</h3>
+                <ul>
+                  <li>Read and write the correct time</li>
+                  <li>Draw hour and minute hands correctly</li>
+                  <li>Use ‘am’ and ‘pm’ correctly</li>
+                  <li>Find the time after a certain time given the duration of half hour or one hour</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 16: Picture Graphs</h3>
+                <ul>
+                  <li>Read and understand picture graphs with scales</li>
+                  <li>Create picture graphs with scales</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 17: Volume</h3>
+                <ul>
+                  <li>Compare volumes of liquid</li>
+                  <li>Read and measure volume of liquid in litres</li>
+                  <li>Solve word problems related to adding, subtracting, multiplying and dividing volume</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="page-math-gr34" class="page" data-route="math-gr34" aria-hidden="true">
+    <section class="hero" style="padding: 48px 0;">
+      <div class="container">
+        <h2 class="section-title" data-i18n="math.gr34.title">Grade 3–4 (Units)</h2>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
+          <p class="section-desc" style="margin: 0;" data-i18n="math.gr34.desc">Singapore Math — Grade 3–4 course units overview.</p>
+          <a class="btn secondary" href="#/math" data-i18n="math.gr34.back">Back to Math</a>
+        </div>
+
+        <div class="services-cats">
+          <div class="cat">
+            <h3 class="cat-title">Units 1–5</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3>Unit 1: Numbers within 100 000</h3>
+                <ul>
+                  <li>Count and write numbers within 100 000 in numerals and words</li>
+                  <li>Understand the place value of numbers within 100 000</li>
+                  <li>Compare and arrange numbers within 100 000</li>
+                  <li>Complete number patterns</li>
+                  <li>Round off numbers to the nearest ten, hundred and thousand</li>
+                  <li>Estimate sums and differences</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 2: Factors and Multiples</h3>
+                <ul>
+                  <li>List factors and common factors of whole numbers</li>
+                  <li>List multiples and common multiples of whole numbers</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 3: Multiplying and Dividing Whole Numbers</h3>
+                <ul>
+                  <li>Multiply by 1-digit and 2-digit numbers</li>
+                  <li>Divide by 1-digit numbers</li>
+                  <li>Estimate answers in multiplication and division</li>
+                  <li>Check that answers are reasonable</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 4: Word Problems on Whole Numbers</h3>
+                <ul>
+                  <li>Solve up to three-step word problems</li>
+                </ul>
+                <p style="margin: 10px 0 0; color: var(--muted); font-size: 14px;">Non-Routine Questions 1 — Heuristics: The Before-After Concept; Word Problems</p>
+              </div>
+              <div class="service">
+                <h3>Unit 5: Angles</h3>
+                <ul>
+                  <li>Understand and measure angles</li>
+                  <li>Draw angles to 180°</li>
+                  <li>Understand turns and an 8-point compass</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cat">
+            <h3 class="cat-title">Units 6–10</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3>Unit 6: Squares and Rectangles</h3>
+                <ul>
+                  <li>Recognise properties of squares and rectangles</li>
+                  <li>Find unknown lengths in squares and rectangles</li>
+                  <li>Find unknown angles in squares and rectangles</li>
+                  <li>Draw squares and rectangles</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 7: Symmetry</h3>
+                <ul>
+                  <li>Identify symmetric figures</li>
+                  <li>Identify the lines of symmetry in figures</li>
+                  <li>Complete symmetric figures and patterns</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 8: Fractions</h3>
+                <ul>
+                  <li>Recognise mixed numbers and improper fractions</li>
+                  <li>Convert mixed numbers to improper fractions or improper fractions to mixed numbers</li>
+                  <li>Compare and order fractions</li>
+                  <li>Understand fraction of a set</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 9: Adding and Subtracting Fractions</h3>
+                <ul>
+                  <li>Add and subtract fractions</li>
+                  <li>Solve word problems related to addition and subtraction of fractions</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 10: Decimals</h3>
+                <ul>
+                  <li>Understand tenths, hundredths and thousandths</li>
+                  <li>Compare and order decimals</li>
+                  <li>Round off decimals to the nearest whole number, 1 decimal place or 2 decimal places</li>
+                  <li>Express a fraction as a decimal, and vice versa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="cat">
+            <h3 class="cat-title">Units 11–15</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3>Unit 11: Four Operations of Decimals</h3>
+                <ul>
+                  <li>Add and subtract decimals</li>
+                  <li>Multiply and divide decimals</li>
+                  <li>Estimate the value of decimals</li>
+                  <li>Check that answers are reasonable</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 12: Word Problems on Decimals</h3>
+                <ul>
+                  <li>Solve word problems related to decimals</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 13: Area and Perimeter</h3>
+                <ul>
+                  <li>Calculate perimeter and area of rectangles, squares and composite figures</li>
+                  <li>Find length or breadth of a rectangle/square given its perimeter/area</li>
+                  <li>Solve word problems related to perimeter and area</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 14: Tables and Line Graphs</h3>
+                <ul>
+                  <li>Read and understand data in a table</li>
+                  <li>Complete tables using given data</li>
+                  <li>Solve problems using given data in line graphs</li>
+                </ul>
+              </div>
+              <div class="service">
+                <h3>Unit 15: Time</h3>
+                <ul>
+                  <li>Measure time in seconds</li>
+                  <li>Express time in 12-hour clock and 24-hour clock</li>
+                  <li>Find the duration of two different times</li>
+                  <li>Calculate the starting or ending time given the duration</li>
+                  <li>Solve word problems related to time</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="page-fr" class="page" data-route="fr" aria-hidden="true">
+    <section class="hero" style="padding: 48px 0;">
+      <div class="container">
+        <h2 class="section-title" data-i18n="french.title">French</h2>
+        <p class="section-desc" data-i18n="french.desc">Comprehensive French language instruction for young learners and exam preparation.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="services-cats">
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="french.track1.title">Foundations</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3 data-i18n="french.track1.item1.title">Core Skills</h3>
+                <p data-i18n="french.track1.item1.desc">Basic phonics, vocabulary and beginner grammar for early learners.</p>
+              </div>
+              <div class="service">
+                <h3 data-i18n="french.track1.item2.title">Homework & Practice</h3>
+                <p data-i18n="french.track1.item2.desc">Regular practice to build listening, speaking and reading fluency.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="french.track2.title">Communication</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3 data-i18n="french.track2.item1.title">Conversational French</h3>
+                <p data-i18n="french.track2.item1.desc">Interactive speaking classes focused on practical communication.</p>
+              </div>
+              <div class="service">
+                <h3 data-i18n="french.track2.item2.title">Cultural Activities</h3>
+                <p data-i18n="french.track2.item2.desc">Cultural projects and activities to reinforce language learning.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="french.track3.title">Exam Prep</h3>
+            <div class="cat-grid">
+              <div class="service">
+                <h3 data-i18n="french.track3.item1.title">DELF/DALF Preparation</h3>
+                <p data-i18n="french.track3.item1.desc">Targeted training for French proficiency exams and certification.</p>
+              </div>
+              <div class="service">
+                <h3 data-i18n="french.track3.item2.title">High School Support</h3>
+                <p data-i18n="french.track3.item2.desc">Coursework support and exam strategies for secondary students.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
@@ -421,10 +884,13 @@
   </script>
   <script>
     (function(){
+      let currentLang = null;
       const translations = {
         en: {
           'nav.home': 'Home',
           'nav.services': 'Services',
+          'nav.math': 'Math',
+          'nav.french': 'French',
           'nav.partners': 'Partners',
           'nav.life': 'Student Life',
           'nav.contact': 'Contact',
@@ -436,6 +902,48 @@
           'about.desc': 'Duke College is an educational institution dedicated to developing Reading & Writing skills in young learners.Through a structured, scientific, and step-by-step teaching approach, we help students build a strong foundation in reading, enhance their writing skills, and cultivate long-term academic learning abilities.',
           'services.title': 'Services',
           'services.desc': 'Choose the services you need and contact our advisors for program details and pricing.',
+          'math.title': 'Math',
+          'math.desc': 'Foundational to competition‑level math support tailored to each student.',
+          'math.gr12.view': 'View More',
+          'math.gr12.title': 'Grade 1–2 (Units)',
+          'math.gr12.desc': 'Singapore Math — Grade 1–2 course units overview.',
+          'math.gr12.back': 'Back to Math',
+          'math.gr34.view': 'View More',
+          'math.gr34.title': 'Grade 3–4 (Units)',
+          'math.gr34.desc': 'Singapore Math — Grade 3–4 course units overview.',
+          'math.gr34.back': 'Back to Math',
+          'french.title': 'French',
+          'french.desc': 'Comprehensive French language instruction for young learners and exam preparation.',
+          'french.track1.title': 'Foundations',
+          'french.track1.item1.title': 'Core Skills',
+          'french.track1.item1.desc': 'Basic phonics, vocabulary and beginner grammar for early learners.',
+          'french.track1.item2.title': 'Homework & Practice',
+          'french.track1.item2.desc': 'Regular practice to build listening, speaking and reading fluency.',
+          'french.track2.title': 'Communication',
+          'french.track2.item1.title': 'Conversational French',
+          'french.track2.item1.desc': 'Interactive speaking classes focused on practical communication.',
+          'french.track2.item2.title': 'Cultural Activities',
+          'french.track2.item2.desc': 'Cultural projects and activities to reinforce language learning.',
+          'french.track3.title': 'Exam Prep',
+          'french.track3.item1.title': 'DELF/DALF Preparation',
+          'french.track3.item1.desc': 'Targeted training for French proficiency exams and certification.',
+          'french.track3.item2.title': 'High School Support',
+          'french.track3.item2.desc': 'Coursework support and exam strategies for secondary students.',
+          'math.track1.title': 'Singapore Math',
+          'math.track1.item1.title': 'Grade 1-2',
+          'math.track1.item1.desc': 'Number sense, algebra basics, and problem‑solving practice.',
+          'math.track1.item2.title': 'Homework Help',
+          'math.track1.item2.desc': 'Weekly tutoring to reinforce classroom learning.',
+          'math.track2.title': 'Enrichment',
+          'math.track2.item1.title': 'Advanced Topics',
+          'math.track2.item1.desc': 'Challenge problems, logic, and contest techniques.',
+          'math.track2.item2.title': 'Competition Prep',
+          'math.track2.item2.desc': 'AMC/Canadian competitions training and mock tests.',
+          'math.track3.title': 'High School',
+          'math.track3.item1.title': 'Credit Courses',
+          'math.track3.item1.desc': 'Functions, advanced functions, calculus readiness.',
+          'math.track3.item2.title': 'Exam Support',
+          'math.track3.item2.desc': 'Targeted review and exam strategies.',
           'partners.title': 'Partners',
           'partners.desc': 'Our close partner organizations',
           'life.title': 'Monthly Events',
@@ -524,11 +1032,31 @@
           'partner.b': 'CELPIP',
           'partner.c': 'VIP Teaching',
           'partner.d': 'Western University',
-          'partner.e': ' Dong_An Educational Services Canada Inc.'
+          'partner.e': ' Dong_An Educational Services Canada Inc.',
+          'partner.f': 'CCISS'
         },
         zh: {
+          'nav.french': '法语',
+          'french.title': '法语',
+          'french.desc': '法语课程，从入门到考试备考，适合青少年学习者。',
+          'french.track1.title': '基础课程',
+          'french.track1.item1.title': '核心能力',
+          'french.track1.item1.desc': '音标、基础词汇与初级语法。',
+          'french.track1.item2.title': '作业与练习',
+          'french.track1.item2.desc': '定期练习以提升听说读写流利度。',
+          'french.track2.title': '交际课程',
+          'french.track2.item1.title': '会话法语',
+          'french.track2.item1.desc': '以实用交流为主的口语课程。',
+          'french.track2.item2.title': '文化活动',
+          'french.track2.item2.desc': '通过文化项目巩固语言学习。',
+          'french.track3.title': '考试与进阶',
+          'french.track3.item1.title': 'DELF/DALF 备考',
+          'french.track3.item1.desc': '针对法语能力考试的专项训练与认证准备。',
+          'french.track3.item2.title': '高中支持',
+          'french.track3.item2.desc': '面向中学学生的课程辅导与考试策略。',
           'nav.home': '首页',
           'nav.services': '服务',
+          'nav.math': '数学',
           'nav.partners': '合作伙伴',
           'nav.life': '学生生活',
           'nav.contact': '联系',
@@ -540,6 +1068,31 @@
           'about.desc': '      Duke College 是一家专注于青少年英语 Reading&Writing（阅读与写作）能力培养的教育机构.我们致力于通过系统、科学、循序渐进的教学方式，帮助孩子建立扎实的阅读基础，提升写作表达能力，发展长期的学术学习能力。',
           'services.title': 'Services',
           'services.desc': '选择您需要的服务并联系顾问获取课程详情与价格',
+          'math.title': '数学',
+          'math.desc': '从基础到竞赛的数学支持，按学生情况定制。',
+          'math.gr12.view': '查看详情',
+          'math.gr12.title': '一年级–二年级（单元）',
+          'math.gr12.desc': '新加坡数学 Grade 1–2 课程单元概览。',
+          'math.gr12.back': '返回数学',
+          'math.gr34.view': '查看详情',
+          'math.gr34.title': '三年级–四年级（单元）',
+          'math.gr34.desc': '新加坡数学 Grade 3–4 课程单元概览。',
+          'math.gr34.back': '返回数学',
+          'math.track1.title': '新加坡数学',
+          'math.track1.item1.title': '1-2 年级',
+          'math.track1.item1.desc': '数感、代数基础与解题训练。',
+          'math.track1.item2.title': '3-4 年级',
+          'math.track1.item2.desc': '每周辅导强化课堂学习。',
+          'math.track2.title': '提升课程',
+          'math.track2.item1.title': '进阶专题',
+          'math.track2.item1.desc': '挑战题、逻辑训练与竞赛技巧。',
+          'math.track2.item2.title': '竞赛备考',
+          'math.track2.item2.desc': 'AMC/加拿大竞赛训练与模拟测试。',
+          'math.track3.title': '高中课程',
+          'math.track3.item1.title': '学分课程',
+          'math.track3.item1.desc': '函数、进阶函数与微积分预备。',
+          'math.track3.item2.title': '考试辅导',
+          'math.track3.item2.desc': '针对性复习与应试策略。',
           'partners.title': '合作伙伴',
           'partners.desc': '与我们关系密切的合作伙伴',
           'life.title': '每月活动',
@@ -623,7 +1176,8 @@
           'partner.b': '思培',
           'partner.c': 'VIP 教学',
           'partner.d': '西安大略大学',
-          'partner.e': '东安教育服务'
+          'partner.e': '东安教育服务',
+          'partner.f': ' 加拿大国际留学生服务中心'
         }
       };
 
@@ -677,6 +1231,15 @@
         const zhBtn = document.getElementById('lang-zh');
         if(enBtn) enBtn.classList.toggle('active', lang === 'en');
         if(zhBtn) zhBtn.classList.toggle('active', lang === 'zh');
+
+        currentLang = lang;
+      }
+
+      function ensureLang(){
+        const saved = localStorage.getItem('site-lang');
+        const fallback = (navigator.language && navigator.language.startsWith('zh')) ? 'zh' : 'en';
+        const lang = saved || fallback;
+        if(lang !== currentLang) setLang(lang);
       }
 
       function escapeHtml(str){
@@ -690,20 +1253,44 @@
         if(zhBtn) zhBtn.addEventListener('click', ()=> setLang('zh'));
         // mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const siteMenu = document.getElementById('site-menu');
+        function setRouteFromHash(){
+          // Ensure correct language is applied on every route change.
+          ensureLang();
+
+          const raw = window.location.hash || '#/home';
+          const match = raw.match(/^#\/([^\/]+)(?:\/([^\/]+))?/);
+          const route = match && match[1] ? match[1] : 'home';
+          const anchor = match && match[2] ? match[2] : null;
+
+          document.querySelectorAll('.page').forEach(page => {
+            const isActive = page.getAttribute('data-route') === route;
+            page.classList.toggle('active', isActive);
+            page.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+          });
+
+          if(route === 'home' && anchor){
+            requestAnimationFrame(() => {
+              const el = document.getElementById(anchor);
+              if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
         function closeMobile(){
-          if(!menuToggle || !mobileMenu) return;
+          if(!menuToggle || !siteMenu) return;
           menuToggle.setAttribute('aria-expanded','false');
-          mobileMenu.classList.remove('open');
-          mobileMenu.setAttribute('aria-hidden','true');
+          siteMenu.classList.remove('open');
+          siteMenu.setAttribute('aria-hidden','true');
         }
         function openMobile(){
-          if(!menuToggle || !mobileMenu) return;
+          if(!menuToggle || !siteMenu) return;
           menuToggle.setAttribute('aria-expanded','true');
-          mobileMenu.classList.add('open');
-          mobileMenu.setAttribute('aria-hidden','false');
+          siteMenu.classList.add('open');
+          siteMenu.setAttribute('aria-hidden','false');
         }
-        if(menuToggle && mobileMenu){
+        if(menuToggle && siteMenu){
           menuToggle.addEventListener('click', function(e){
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
             if(expanded) closeMobile(); else openMobile();
@@ -711,18 +1298,19 @@
           });
           // close when clicking outside
           document.addEventListener('click', function(ev){
-            if(!mobileMenu.classList.contains('open')) return;
-            if(ev.target === menuToggle || mobileMenu.contains(ev.target)) return;
+            if(!siteMenu.classList.contains('open')) return;
+            if(ev.target === menuToggle || siteMenu.contains(ev.target)) return;
             closeMobile();
           });
           // close on resize to larger screens
-          window.addEventListener('resize', function(){ if(window.innerWidth > 640) closeMobile(); });
+          window.addEventListener('resize', function(){ if(window.innerWidth > 767) closeMobile(); });
           // ensure each mobile link closes menu on click
-          mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> closeMobile()));
+          siteMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> closeMobile()));
         }
-        const saved = localStorage.getItem('site-lang');
-        const defaultLang = saved || (navigator.language && navigator.language.startsWith('zh') ? 'zh' : 'en');
-        setLang(defaultLang);
+        window.addEventListener('hashchange', setRouteFromHash);
+        setRouteFromHash();
+        // Apply language on initial load too.
+        ensureLang();
         // quick parity check: report any markup keys missing in translations
         (function checkI18nParity(){
           try{
