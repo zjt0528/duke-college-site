@@ -165,6 +165,9 @@
       .menu-toggle { border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; background: var(--card); }
       .grid { grid-template-columns: 1fr; }
   .services-cats { grid-template-columns: 1fr; }
+        .partners { height: auto; }
+        .partners-track .partner { flex: 0 0 calc((100% - (1 * var(--partners-gap))) / 2); }
+        .partner img { max-height: 140px; width: 100%; height: auto; }
       .split-row { flex-wrap: wrap; }
       .testis { grid-template-columns: 1fr; }
       .logo-img { height: 36px; }
@@ -1568,9 +1571,9 @@
           if(!partnersEl || !track || !prevBtn || !nextBtn) return;
 
           const items = Array.from(track.querySelectorAll('.partner'));
-          const visibleCount = 5;
           const total = items.length;
-          const maxIndex = Math.max(0, total - visibleCount);
+          let visibleCount = 5;
+          let maxIndex = Math.max(0, total - visibleCount);
           let index = 0;
           let stepPx = 0;
 
@@ -1588,6 +1591,10 @@
             if(!first) { stepPx = 0; return; }
             const gap = getGapPx();
             stepPx = first.getBoundingClientRect().width + gap;
+            if(stepPx > 0){
+              visibleCount = Math.max(1, Math.floor((partnersEl.clientWidth + gap) / stepPx));
+              maxIndex = Math.max(0, total - visibleCount);
+            }
           }
 
           function updateButtons(){
