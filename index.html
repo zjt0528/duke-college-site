@@ -80,10 +80,9 @@
     section { padding: 64px 0; }
     .section-title { font-size: 28px; margin: 0 0 8px; }
     .section-desc { color: var(--muted); margin-bottom: 28px; }
-  /* left card slightly narrower, right card wider */
-  .about { display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; }
-  .about .card { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow); }
-  .about .card:nth-child(2) { padding: 26px; }
+    .about { display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; }
+    .about .card { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .about .card:nth-child(2) { padding: 26px; }
     .grid { display: flex; gap: 18px; overflow: hidden; position: relative; }
     .grid-scroll { display: flex; gap: 18px; animation: scroll-left 45s linear infinite; }
     @keyframes scroll-left {
@@ -91,26 +90,14 @@
       100% { transform: translateX(-66.67%); }
     }
     .grid-scroll:hover { animation-play-state: paused; }
-  /* New services categories layout */
-  .services-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .cat { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); }
-  .cat-title { margin-top: 0; margin-bottom: 12px; }
-  .split-row { display: flex; align-items: center; gap: 12px; flex-wrap: nowrap; }
-  .split-row .split-body { flex: 1 1 240px; min-width: 0; }
-  .split-row .btn { margin-left: auto; white-space: nowrap; min-width: 120px; min-height: 40px; display: inline-flex; align-items: center; justify-content: center; align-self: center; }
-  /* stacked (top-down) boxes under each category title */
-  .cat-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-  .cat .service { padding: 14px; border-radius: 12px; }
-  .cat .service h3 { font-size: 16px; margin: 0 0 6px; }
-  .cat .service p { margin: 0; color: var(--muted); font-size: 14px; }
-  .cat .more { display: inline-block; margin-top: 8px; font-weight: 700; }
+    .services-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .cat { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); }
+    #page-teachers .services-cats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; }
     .service:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
     .service h3 { margin-top: 0; }
     .service .more { margin-top: 8px; display: inline-block; font-weight: 700; }
     .service img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
-
-    /* Keep fixed card width only in the horizontal scrolling row */
     .grid-scroll .service { flex-shrink: 0; width: 360px; }
     .partners-wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; }
     .partners-arrow { padding: 10px 14px; line-height: 1; }
@@ -118,7 +105,6 @@
     .partners { overflow: hidden; height: 280px; width: 100%; }
     .partners-track { --partners-gap: 14px; display: flex; gap: var(--partners-gap); height: 100%; transition: transform .22s ease; will-change: transform; }
     .partners-track .partner { flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); }
-    /* No-JS fallback: allow wrapping instead of sliding */
     .partners:not([data-enhanced="true"]) .partners-track { flex-wrap: wrap; transform: none !important; }
     .partner { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: 12px; text-align: center; color: var(--muted); font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 200px; min-width: 0; }
     .partner img { max-height: 120px; width: auto; object-fit: contain; }
@@ -131,7 +117,6 @@
     .modal-close { background: none; border: none; font-size: 28px; cursor: pointer; color: var(--muted); padding: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
     .modal-close:hover { color: var(--fg); }
     #modal-body { padding: 0 40px 40px 40px; }
-    .modal-close:hover { color: var(--fg); }
     .testis { display: flex; flex-direction: column; gap: 14px; }
     .quote { background: var(--card); border: 1px solid var(--border); padding: 20px; border-radius: var(--radius); font-size: 15px; flex-shrink: 0; min-height: 100px; }
     .quote strong { display: block; margin-top: 10px; }
@@ -148,6 +133,7 @@
       .about, .contact { grid-template-columns: 1fr; }
       .grid { grid-template-columns: repeat(2, 1fr); }
   .services-cats { grid-template-columns: repeat(2, 1fr); }
+      #page-teachers .services-cats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .testis { grid-template-columns: 1fr 1fr; }
       .logo-img { height: 40px; }
       .logo-text { max-width: 180px; }
@@ -259,7 +245,8 @@
           <h3 class="cat-title" data-i18n="cat.tests.title">Language Test Preparation Course</h3>
           <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('tests')" data-i18n="link.view">View More</button>
         </div>
-                <div class="cat">
+        
+        <div class="cat">
            <img src="Images/publicspeaking.png" alt="Public Speaking Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
           <h3 class="cat-title" data-i18n="cat.ps.title">Public Speaking</h3>
           <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('ps')" data-i18n="link.view">View More</button>
@@ -1214,7 +1201,7 @@
         <div class="services-cats">
           <div class="cat">
             <div style="text-align: center;">
-              <img src="Images/Teacher1.jpg" alt="Teacher 1" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <img src="Images/Teacher1-zh.jpg" data-i18n-src-zh="Images/Teacher1-zh.jpg" data-i18n-src-en="Images/Teacher1-en.jpg" alt="Teacher 1" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
               <h3 data-i18n="teachers.t1.name">Sarah Johnson</h3>
               <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t1.title">Senior English Instructor</p>
               <p data-i18n="teachers.t1.bio">15+ years teaching K-12 Reading & Writing. MA in Education from University of Toronto.</p>
@@ -1222,25 +1209,23 @@
           </div>
           <div class="cat">
             <div style="text-align: center;">
-              <img src="Images/Teacher2.jpg" alt="Teacher 2" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t2.name">Michael Chen</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t2.title">Mathematics Specialist</p>
-              <p data-i18n="teachers.t2.bio">Competition math trainer with expertise in AMC and Kangaroo contests. PhD in Mathematics.</p>
+              <img src="Images/Teacher2-zh.jpg" data-i18n-src-zh="Images/Teacher2-zh.jpg" data-i18n-src-en="Images/Teacher2-en.jpg" alt="Teacher 2" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <h3 data-i18n="teachers.t2.name">Donald Qi 老师</h3>
+              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t2.title">资深教育咨询专家顾问与学术写作指导老师</p>
+              <p data-i18n="teachers.t2.bio">早年毕业于上海复旦大学并留校任教英美文学，后获女王大学文学硕士及多伦多大学教育学博士学位。曾长期在多伦多教育局从事语言教学测评评估工作，并在加拿大多所大学学院教授学术写作。现任杜克学院资深教育咨询专家顾问与学术写作指导老师。</p>
             </div>
           </div>
           <div class="cat">
             <div style="text-align: center;">
-              <img src="Images/Teacher3.jpg" alt="Teacher 3" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <img src="Images/Teacher3-zh.jpg" data-i18n-src-zh="Images/Teacher3-zh.jpg" data-i18n-src-en="Images/Teacher3-en.jpg" alt="Teacher 3" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
               <h3 data-i18n="teachers.t3.name">Emily Wang</h3>
               <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t3.title">ESL Program Director</p>
               <p data-i18n="teachers.t3.bio">TESOL certified with 12 years experience. Specialized in academic English and IELTS preparation.</p>
             </div>
           </div>
-        </div>
-        <div class="services-cats" style="margin-top: 32px;">
           <div class="cat">
             <div style="text-align: center;">
-              <img src="Images/Teacher4.jpg" alt="Teacher 4" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <img src="Images/Teacher4-zh.jpg" data-i18n-src-zh="Images/Teacher4-zh.jpg" data-i18n-src-en="Images/Teacher4-en.jpg" alt="Teacher 4" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
               <h3 data-i18n="teachers.t4.name">David Martinez</h3>
               <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t4.title">Public Speaking Coach</p>
               <p data-i18n="teachers.t4.bio">Former debate champion and speech coach. Helps students build confidence and persuasive skills.</p>
@@ -1248,7 +1233,7 @@
           </div>
           <div class="cat">
             <div style="text-align: center;">
-              <img src="Images/Teacher5.jpg" alt="Teacher 5" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <img src="Images/Teacher5-zh.jpg" data-i18n-src-zh="Images/Teacher5-zh.jpg" data-i18n-src-en="Images/Teacher5-en.jpg" alt="Teacher 5" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
               <h3 data-i18n="teachers.t5.name">Sophie Dubois</h3>
               <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t5.title">French Language Instructor</p>
               <p data-i18n="teachers.t5.bio">Native French speaker with DELF/DALF examiner certification. 10 years teaching experience.</p>
@@ -1256,24 +1241,36 @@
           </div>
           <div class="cat">
             <div style="text-align: center;">
-              <img src="Images/Teacher6.jpg" alt="Teacher 6" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <img src="Images/Teacher6-zh.jpg" data-i18n-src-zh="Images/Teacher6-zh.jpg" data-i18n-src-en="Images/Teacher6-en.jpg" alt="Teacher 6" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
               <h3 data-i18n="teachers.t6.name">Jason Liu</h3>
               <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t6.title">Academic Writing Mentor</p>
               <p data-i18n="teachers.t6.bio">Published author and writing consultant. Specialized in essay structure and critical analysis.</p>
             </div>
           </div>
-        </div>
-        <div class="services-cats" style="margin-top: 32px;">
           <div class="cat">
             <div style="text-align: center;">
-              <img src="Images/Teacher7.jpg" alt="Teacher 7" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <img src="Images/Teacher7-zh.jpg" data-i18n-src-zh="Images/Teacher7-zh.jpg" data-i18n-src-en="Images/Teacher7-en.jpg" alt="Teacher 7" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
               <h3 data-i18n="teachers.t7.name">Amanda Roberts</h3>
               <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t7.title">Early Learners Specialist</p>
               <p data-i18n="teachers.t7.bio">Expert in phonics and foundational literacy. 8 years working with K-3 students.</p>
             </div>
           </div>
-          <div class="cat" style="visibility: hidden;"></div>
-          <div class="cat" style="visibility: hidden;"></div>
+          <div class="cat">
+            <div style="text-align: center;">
+              <img src="Images/Teacher8-zh.jpg" data-i18n-src-zh="Images/Teacher8-zh.jpg" data-i18n-src-en="Images/Teacher8-en.jpg" alt="Teacher 8" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <h3 data-i18n="teachers.t8.name">Michael Chen</h3>
+              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t8.title">Mathematics Specialist</p>
+              <p data-i18n="teachers.t8.bio">Competition math trainer with expertise in AMC and Kangaroo contests. PhD in Mathematics.</p>
+            </div>
+          </div>
+          <div class="cat">
+            <div style="text-align: center;">
+              <img src="Images/Teacher9-zh.jpg" data-i18n-src-zh="Images/Teacher9-zh.jpg" data-i18n-src-en="Images/Teacher9-en.jpg" alt="Teacher 9" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <h3 data-i18n="teachers.t9.name">Emily Wang</h3>
+              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t9.title">ESL Program Director</p>
+              <p data-i18n="teachers.t9.bio">TESOL certified with 12 years experience. Specialized in academic English and IELTS preparation.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1557,12 +1554,12 @@
           'teachers.t1.name': 'Mr. Daniel Huang',
           'teachers.t1.title': 'English Program',
           'teachers.t1.bio': 'MA in Education (Towson University), graduated from Shanghai International Studies University. 25+ years language teaching experience in China and Canada, specialized in ESL/IELTS/TOEFL (former instructor at New Oriental Education & Technology Group).',
-          'teachers.t2.name': 'Mr. Alireza Riasati',
+          'teachers.t2.name': 'Mr. Donald Qi',
           'teachers.t2.title': 'English Program',
-          'teachers.t2.bio': 'Former language professor at Malaysian universities, teaching at Duke Academy for 3 years. ESL expert and IELTS examiner, specialized in IELTS/TOEFL/CELPIP/Duolingo test preparation.',
-          'teachers.t3.name': 'Mr. Dara Sadeghi',
+          'teachers.t2.bio': 'He graduated from Fudan University in Shanghai and stayed on as a faculty member teaching British and American literature. He later earned an MA in Literature from Queen\'s University and a Doctorate in Education from the University of Toronto. He worked for many years in language teaching assessment and evaluation at the Toronto District School Board, and taught academic writing at multiple universities and colleges across Canada. He currently serves as a senior education consultant and academic writing instructor at Duke College.',
+          'teachers.t3.name': 'Ms. Maggie Chan',
           'teachers.t3.title': 'English Program',
-          'teachers.t3.bio': 'MA in Geography and Political Studies (American Modern University), professional instructor at Duke College. 10 years teaching ESL/IELTS/TOEFL/CELPIP to youth and adults, highly popular among international students.',
+          'teachers.t3.bio': 'Graduated from Western University in Canada with studies in Economics and Languages, and holds a Canadian TESL teaching certificate. She is now a leading instructor for Duke IELTS and Reading Town youth reading and writing programs. With years of study-abroad and teaching experience in top secondary schools in Hong Kong and Canada, she is patient, detail-oriented, professional, and highly loved by elementary and middle school students.',
           'teachers.t4.name': 'Dr. Jovana Pokrajac',
           'teachers.t4.title': 'English Program',
           'teachers.t4.bio': 'BA and MA in English (York University), PhD in Modern Literature (University of Ottawa). Former university professor with 3+ years at Duke College, specialized in university-level academic writing and writing skills development.',
@@ -1575,6 +1572,12 @@
           'teachers.t7.name': 'Ms. Gabby Richardson',
           'teachers.t7.title': 'English Program',
           'teachers.t7.bio': 'MA from University of Guelph, professional English writing instructor at Reading Town. Extensive online ESL teaching experience, specialized in writing expression and language foundation development.',
+          'teachers.t8.name': 'Mr. Alireza Riasati',
+          'teachers.t8.title': 'English Program',
+          'teachers.t8.bio': 'Former language professor at Malaysian universities, teaching at Duke Academy for 3 years. ESL expert and IELTS examiner, specialized in IELTS/TOEFL/CELPIP/Duolingo test preparation.',
+          'teachers.t9.name': 'Mr. Dara Sadeghi',
+          'teachers.t9.title': 'English Program',
+          'teachers.t9.bio': 'MA in Geography and Political Studies (American Modern University), professional instructor at Duke College. 10 years teaching ESL/IELTS/TOEFL/CELPIP to youth and adults, highly popular among international students.',
           'math.track1.title': 'Basic Math',
           'math.track1.item1.title': 'Grade 1-2',
           'math.track1.item1.desc': 'Number sense, algebra basics, and problem‑solving practice.',
@@ -1753,12 +1756,12 @@
           'teachers.t1.name': 'Mr. Daniel Huang（黄老师）',
           'teachers.t1.title': '英语项目',
           'teachers.t1.bio': '教育学研究生（Towson University），毕业于上海外国语大学。中加两地25+年语言教学经验，专长ESL/IELTS/TOEFL（曾任新东方讲师）。',
-          'teachers.t2.name': 'Mr. Alireza Riasati',
+          'teachers.t2.name': 'Donald Qi 老师',
           'teachers.t2.title': '英语项目',
-          'teachers.t2.bio': '来加前为马来西亚高校语言教授，在Duke Academy任教3年。ESL专家与IELTS考官，擅长IELTS/TOEFL/CELPIP/Duolingo等语言考试系统备考。',
-          'teachers.t3.name': 'Mr. Dara Sadeghi',
+          'teachers.t2.bio': '早年毕业于上海复旦大学并留校任教英美文学，后获女王大学文学硕士及多伦多大学教育学博士学位。曾长期在多伦多教育局从事语言教学测评评估工作，并在加拿大多所大学学院教授学术写作。现任杜克学院资深教育咨询专家顾问与学术写作指导老师。',
+          'teachers.t3.name': 'Maggie Chan 老师',
           'teachers.t3.title': '英语项目',
-          'teachers.t3.bio': 'American Modern University研究生（地理与政治学方向），Duke College专业教师。10年教授青少年与成人ESL/IELTS/TOEFL/CELPIP经验，深受国际学生欢迎。',
+          'teachers.t3.bio': '毕业于加拿大西安大略大学经济学与语言系，持有加拿大语言教学 TESL 证书。现为杜克雅思与青少年读写 Reading Town 教学名师。拥有香港重点中学及加拿大多年留学与教育教学经验，教学耐心细致，专业敬业，深受中小学生喜爱。',
           'teachers.t4.name': 'Dr. Jovana Pokrajac',
           'teachers.t4.title': '英语项目',
           'teachers.t4.bio': '英语本硕毕业于York University，并获University of Ottawa现代文学博士。曾任多所大学教授，加入Duke College 3+年，专长大学级学术写作与写作能力提升。',
@@ -1771,6 +1774,12 @@
           'teachers.t7.name': 'Ms. Gabby Richardson',
           'teachers.t7.title': '英语项目',
           'teachers.t7.bio': 'University of Guelph研究生，Reading Town专业英文写作导师；同时具备丰富线上ESL授课经验，擅长写作表达与语言基础提升。',
+          'teachers.t8.name': 'Mr. Alireza Riasati',
+          'teachers.t8.title': '英语项目',
+          'teachers.t8.bio': '来加前为马来西亚高校语言教授，在Duke Academy任教3年。ESL专家与IELTS考官，擅长IELTS/TOEFL/CELPIP/Duolingo等语言考试系统备考。',
+          'teachers.t9.name': 'Mr. Dara Sadeghi',
+          'teachers.t9.title': '英语项目',
+          'teachers.t9.bio': 'American Modern University研究生（地理与政治学方向），Duke College专业教师。10年教授青少年与成人ESL/IELTS/TOEFL/CELPIP经验，深受国际学生欢迎。',
           'nav.home': '首页',
           'nav.english': '英语',
           'nav.math': '数学',
@@ -2093,6 +2102,21 @@
           const key = el.getAttribute('data-i18n-alt');
           const text = translations[lang] && translations[lang][key];
           if(text !== undefined) el.alt = text;
+        });
+
+        // src attributes for language-specific images (e.g. teachers)
+        const i18nImages = document.querySelectorAll('[data-i18n-src-zh], [data-i18n-src-en]');
+        i18nImages.forEach(img => {
+          const defaultSrc = img.getAttribute('data-i18n-src-default') || img.getAttribute('src');
+          if (!img.getAttribute('data-i18n-src-default') && defaultSrc) {
+            img.setAttribute('data-i18n-src-default', defaultSrc);
+          }
+          const targetSrc = img.getAttribute(`data-i18n-src-${lang}`);
+          if (targetSrc) {
+            img.src = targetSrc;
+          } else if (defaultSrc) {
+            img.src = defaultSrc;
+          }
         });
 
         // html content (for contact info with line breaks)
