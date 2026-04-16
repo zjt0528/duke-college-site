@@ -182,6 +182,7 @@
       <nav id="site-menu" class="menu" aria-hidden="false">
         <a href="#/home" data-i18n="nav.home">首页</a>
         <a href="#/en" data-i18n="nav.english">英文</a>
+        <a href="#/cn" data-i18n="nav.chinese">语文</a>
         <a href="#/math" data-i18n="nav.math">数学</a>
         <a href="#/fr" data-i18n="nav.french">法语</a>
         <a href="#/ps" data-i18n="nav.ps">公共演讲</a>
@@ -279,6 +280,9 @@
         <div class="partners">
           <div class="partners-track">
             <div class="partner"><img src="Images/CAIE.png" alt="CAIE" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.g">CAIE</span></div>
+            <a href="https://cecac.ca/about" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
+              <img src="Images/CECAC.jpg" alt="CECAC" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.s">CECAC</span>
+            </a>
             <div class="partner"><img src="Images/CCISS.png" alt="CCISS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.f">CCISS</span></div>
             <div class="partner"><img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span></div>
             <div class="partner"><img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span></div>
@@ -357,6 +361,71 @@
           <p id="office-hours-display">工作时间：Mon–Sat 10:00–20:00</p>
         </div>
       </div>
+      </div>
+    </section>
+  </main>
+
+  <main id="page-cn" class="page" data-route="cn" aria-hidden="true">
+    <section class="hero" style="padding: 48px 0;">
+      <div class="container">
+        <h2 class="section-title" data-i18n="chinese.title">中文教育推广项目</h2>
+        <p class="section-desc" data-i18n="chinese.desc">不是学不会，是一开始就没学对。加中教育文化交流协会携手杜克学院，推出公益补贴中文课程。</p>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="service" style="margin: 0 auto 18px; max-width: 760px;">
+          <img
+            src="Images/Chinese_Poster.jpg"
+            alt="Chinese course poster"
+            data-i18n-alt="chinese.poster.alt"
+            style="display: block; width: 100%; height: auto; border-radius: 12px;"
+          />
+        </div>
+        <div class="services-cats">
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="chinese.problem.title">为什么很多孩子学了几年中文仍然吃力？</h3>
+            <div class="cat-grid">
+              <div class="service" data-i18n-html="chinese.problem.list"></div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="chinese.launch.title">项目发起与课程简介</h3>
+            <div class="cat-grid">
+              <div class="service" data-i18n-html="chinese.launch.list"></div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="chinese.highlights.title">课程亮点与公益支持</h3>
+            <div class="cat-grid">
+              <div class="service" data-i18n-html="chinese.highlights.list"></div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="chinese.objective.title">初期目标：打基础、能读、能开口</h3>
+            <div class="cat-grid">
+              <div class="service" data-i18n-html="chinese.objective.list"></div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="chinese.solution.title">项目优势与解决方案</h3>
+            <div class="cat-grid">
+              <div class="service" data-i18n-html="chinese.solution.list"></div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="chinese.outcome.title">学习结果预期</h3>
+            <div class="cat-grid">
+              <div class="service" data-i18n-html="chinese.outcome.list"></div>
+            </div>
+          </div>
+          <div class="cat">
+            <h3 class="cat-title" data-i18n="chinese.signup.title">限额与报名方式</h3>
+            <div class="cat-grid">
+              <div class="service" data-i18n-html="chinese.signup.list"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1325,6 +1394,7 @@
       const translations = {
         en: {
           'nav.home': 'Home',
+          'nav.chinese': 'Chinese',
           'nav.english': 'English',
           'nav.math': 'Math',
           'nav.french': 'French',
@@ -1350,6 +1420,23 @@
           'english.section.speedReading': 'Speed Reading',
           'english.section.powerPresentation': 'Power Presentation',
           'english.section.classicReading': 'Classic Reading',
+          'chinese.title': 'Chinese Education Promotion Program',
+          'chinese.desc': 'It is not that children cannot learn Chinese, but that the starting method is often wrong. Duke College and the Canada-China Education and Cultural Exchange Association launched a subsidized program.',
+          'chinese.poster.alt': 'Chinese education promotion poster',
+          'chinese.problem.title': 'Why do many children still struggle after years of Chinese learning?',
+          'chinese.problem.list': '<p><strong>Common pain points overseas:</strong></p><ul><li>Cannot decode with pinyin confidently</li><li>Not willing to speak Chinese</li><li>Cannot read Chinese books independently</li><li>Core issue: weak pinyin foundation from the beginning</li></ul>',
+          'chinese.launch.title': 'Program Launch and Course Intro',
+          'chinese.launch.list': '<ul><li>Jointly launched by Duke College and the Canada-China Education and Cultural Exchange Association</li><li>Professional teachers from Duke College</li><li>Association-appointed lecturer support and public-benefit subsidy</li><li>Designed to help more heritage children learn Chinese with lower barriers</li></ul>',
+          'chinese.highlights.title': 'Highlights and Public-Benefit Support',
+          'chinese.highlights.list': '<ul><li>Duke College structured curriculum: formal, professional, and systematic</li><li>Association support: nonprofit and public-benefit mission</li><li>5-year proven curriculum system</li><li>50% tuition subsidy sponsored by the association</li><li>Focus pathway: pinyin -> character recognition -> reading</li><li>This is a real competency course, not a casual interest class</li></ul>',
+          'chinese.objective.title': 'Initial Goal: Build Foundation, Read, and Speak',
+          'chinese.objective.list': '<ol><li>Address common overseas pain points: years of learning but still cannot read, and Chinese feels harder over time</li><li>Provide a practical solution through a newly designed successful program</li></ol>',
+          'chinese.solution.title': 'Program Advantages and Solution Design',
+          'chinese.solution.list': '<ul><li>Academy-based curriculum system (not pieced together)</li><li>Small-group teaching for measurable outcomes</li><li>Systematic pinyin instruction for true foundation building</li><li>50% tuition subsidy from a public-benefit organization</li></ul>',
+          'chinese.outcome.title': 'Expected Learning Outcomes',
+          'chinese.outcome.list': '<ul><li>Read pinyin accurately</li><li>Recognize characters independently</li><li>Start reading Chinese picture books</li><li>Build long-term Chinese learning capability</li></ul>',
+          'chinese.signup.title': 'Limited Seats and Registration',
+          'chinese.signup.list': '<p><strong>Only first 20 students in the initial intake.</strong></p><ul><li>Scan QR code to register</li><li>Add WeChat to consult</li><li>Fill in assessment form and placement evaluation</li></ul>',
           'english.back': 'Back to English Program',
           'english.easyStart.title': 'Easy Start',
           'english.easyStart.desc': 'Foundational English for early learners.',
@@ -1695,12 +1782,31 @@
           'partner.o': 'Canada Glory Immigration',
           'partner.p': 'BTA Study Abroad Consultant Doctor Studio (USA)',
           'partner.q': 'Superstar Music School (Toronto)',
-          'partner.r': 'Axis Fencing Club (Markham)'
+          'partner.r': 'Axis Fencing Club (Markham)',
+          'partner.s': 'CECAC'
         },
         zh: {
+          'nav.chinese': '中文',
           'nav.french': '法语',
           'nav.ps': '公共演讲',
           'nav.teachers': '师资团队',
+          'chinese.title': '中文教育推广项目',
+          'chinese.desc': '不是学不会，是一开始就没学对。加中教育文化交流协会携手杜克学院推出公益补贴中文课程。',
+          'chinese.poster.alt': '中文教育推广海报',
+          'chinese.problem.title': '为什么很多孩子学了几年中文仍然吃力？',
+          'chinese.problem.list': '<p><strong>在海外，很多孩子学了几年中文：</strong></p><ul><li>不会拼读</li><li>不敢开口</li><li>看不懂中文书</li><li>问题往往出在：拼音基础没打好</li></ul>',
+          'chinese.launch.title': '项目发起与课程简介',
+          'chinese.launch.list': '<ul><li>加中教育文化交流协会携手杜克学院，推出全新中文教育推广项目</li><li>杜克学院引入专业优秀教师教学</li><li>协会特聘讲师支持，并提供公益资助</li><li>让更多华裔孩子低门槛学好中文</li></ul>',
+          'chinese.highlights.title': '课程亮点与公益支持',
+          'chinese.highlights.list': '<ul><li>杜克学院开课：专业、正规、有体系</li><li>协会支持：非盈利 + 公益属性</li><li>5年成熟课程体系：正规、专业、放心</li><li>加中协会赞助补贴50%学费</li><li>体现学员公益补贴、扶持，机会难得</li><li>家长期待的学习路径：拼音 -> 识字 -> 阅读</li><li>不是兴趣班，是能力课</li></ul>',
+          'chinese.objective.title': '初期目标：打基础、能读、能开口',
+          'chinese.objective.list': '<ol><li>直击痛点：孩子学中文几年还是不会读；在海外中文越学越难；拼音没打好导致持续补漏洞</li><li>给出解决方案：引入全新成功设计项目</li></ol>',
+          'chinese.solution.title': '项目优势与解决方案',
+          'chinese.solution.list': '<ul><li>学院体系课程（非随便拼凑）</li><li>小班授课（保证效果）</li><li>拼音系统教学（真正打基础）</li><li>协会资助50%学费（社会公益服务机构）</li></ul>',
+          'chinese.outcome.title': '学习结果预期',
+          'chinese.outcome.list': '<p>孩子能获得什么？</p><ul><li>能正确拼读</li><li>能独立认字</li><li>能开始阅读中文绘本</li><li>建立长期中文学习能力</li></ul>',
+          'chinese.signup.title': '限额与报名方式',
+          'chinese.signup.list': '<p><strong>名额有限：仅限首批前20人，先报先得。</strong></p><p>报名方式：</p><ul><li>扫码报名</li><li>添加微信</li><li>填写评估表与测评</li></ul>',
           'french.title': '法语',
           'french.desc': '法语课程，从入门到考试备考，适合青少年学习者。',
           'french.track1.title': '基础课程',
@@ -2063,7 +2169,8 @@
           'partner.o': '加拿大荣耀移民留学',
           'partner.p': '美国美桥留学顾问博士工作室',
           'partner.q': '多伦多星音乐学校',
-          'partner.r': '万锦击剑俱乐部'
+          'partner.r': '万锦击剑俱乐部',
+          'partner.s': '加拿大中文教育协会'
         }
       };
 
