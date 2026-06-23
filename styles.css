@@ -163,6 +163,11 @@
       .hero.hero-home .container { bottom: 20px; }
     }
     @media (max-width: 767px) {
+      /* Tidy the cramped top bar: smaller text/buttons, keep contact on its own line above the language switch */
+      .topbar .container { flex-direction: column; align-items: flex-start; gap: 8px; padding: 8px 16px; }
+      .topbar-contact { font-size: 12px; line-height: 1.4; }
+      .topbar .lang-switch { align-self: flex-end; }
+      .lang-switch button { padding: 6px 12px; font-size: 12px; }
       .menu { display: none; position: absolute; top: 64px; right: 20px; background: var(--card); border: 1px solid var(--border); padding: 12px; border-radius: 10px; box-shadow: var(--shadow); min-width: 240px; z-index: 70; flex-direction: column; align-items: stretch; gap: 8px; }
       .menu.open { display: flex; }
       .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
