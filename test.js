@@ -30,7 +30,14 @@
   const configured = SUPABASE_URL.indexOf('http') === 0 && SUPABASE_ANON_KEY.indexOf('YOUR_') !== 0;
   const db = (configured && window.supabase) ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
-  let questions = [];
+  let sections = [];      // [{ subject, questions: [...] }], ordered by worksheet code
+  let current = null;     // currently selected subject label
+
+  // Sort key from the "2a<N>" code at the start of a subject label (so 2a2 < 2a10).
+  function codeNum(subject) {
+    const m = String(subject).match(/2a(\d+)/i);
+    return m ? parseInt(m[1], 10) : 9999;
+  }
 
   async function load() {
     if (!db) {
@@ -46,15 +53,40 @@
       root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(error.message) + '</p></div>';
       return;
     }
-    questions = data || [];
+
+    // Group questions into worksheets by their subject label.
+    const bySubject = {};
+    (data || []).forEach((q) => { (bySubject[q.subject] = bySubject[q.subject] || []).push(q); });
+    sections = Object.keys(bySubject)
+      .sort((a, b) => codeNum(a) - codeNum(b))
+      .map((s) => ({ subject: s, questions: bySubject[s] }));
+
+    if (!sections.length) {
+      root.innerHTML = '<p class="section-desc">' + t('暂无题目', 'No questions available yet.') + '</p>';
+      return;
+    }
+    if (!current || !bySubject[current]) current = sections[0].subject;
     render();
   }
 
   function render() {
-    if (!questions.length) {
-      root.innerHTML = '<p class="section-desc">' + t('暂无题目', 'No questions available yet.') + '</p>';
-      return;
-    }
+    const section = sections.find((s) => s.subject === current) || sections[0];
+    root.innerHTML = '';
+
+    // Worksheet picker
+    const picker = el('<div class="service" style="margin-bottom:18px;"><label>' + t('选择练习', 'Choose a worksheet') + '</label></div>');
+    const sel = document.createElement('select');
+    sel.style.cssText = 'width:100%; padding:12px; border-radius:10px; border:1px solid var(--border); margin-top:6px; font:inherit;';
+    sections.forEach((sec) => {
+      const o = document.createElement('option');
+      o.value = sec.subject;
+      o.textContent = sec.subject + '  (' + sec.questions.length + ')';
+      if (sec.subject === current) o.selected = true;
+      sel.appendChild(o);
+    });
+    sel.addEventListener('change', () => { current = sel.value; render(); });
+    picker.appendChild(sel);
+    root.appendChild(picker);
 
     const form = el('<form id="test-form"></form>');
 
@@ -68,12 +100,12 @@
       '</div>'
     ));
 
-    // Questions
-    questions.forEach((q, i) => {
+    // Questions for the selected worksheet
+    section.questions.forEach((q, i) => {
       const choices = (q.choices || []).map((c, idx) =>
-        '<label style="display:flex; gap:8px; align-items:center; font-weight:500; margin-top:8px;">' +
-          '<input type="radio" name="q_' + q.id + '" value="' + idx + '" required style="width:auto; margin:0;" /> ' +
-          esc(c) +
+        '<label style="display:flex; gap:8px; align-items:flex-start; font-weight:500; margin-top:8px;">' +
+          '<input type="radio" name="q_' + q.id + '" value="' + idx + '" required style="width:auto; margin:4px 0 0;" /> ' +
+          '<span>' + esc(c) + '</span>' +
         '</label>'
       ).join('');
       form.appendChild(el(
@@ -92,7 +124,6 @@
     ));
 
     form.addEventListener('submit', onSubmit);
-    root.innerHTML = '';
     root.appendChild(form);
   }
 
@@ -102,10 +133,11 @@
     const status = form.querySelector('#test-status');
     const btn = form.querySelector('[type="submit"]');
     const fd = new FormData(form);
+    const section = sections.find((s) => s.subject === current);
 
-    // Collect { questionId: selectedIndex } for the server to grade.
+    // Collect { questionId: selectedIndex } for the selected worksheet only.
     const answers = {};
-    questions.forEach((q) => {
+    section.questions.forEach((q) => {
       const v = fd.get('q_' + q.id);
       if (v !== null) answers[q.id] = parseInt(v, 10);
     });
@@ -118,7 +150,7 @@
       const { data, error } = await db.rpc('submit_test', {
         p_name: fd.get('name'),
         p_email: fd.get('email'),
-        p_subject: null,
+        p_subject: current,   // grade only this worksheet on the server
         p_answers: answers
       });
       if (error) throw error;
@@ -135,5 +167,5 @@
 
   document.addEventListener('DOMContentLoaded', load);
   // Re-render in the new language if the visitor toggles EN/中文.
-  window.addEventListener('languageChanged', () => { if (questions.length) render(); });
+  window.addEventListener('languageChanged', () => { if (sections.length) render(); });
 })();
