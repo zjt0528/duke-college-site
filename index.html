@@ -31,6 +31,7 @@
         <a href="#/fr" data-i18n="nav.french">法语</a>
         <a href="#/ps" data-i18n="nav.ps">公共演讲</a>
         <a href="#/teachers" data-i18n="nav.teachers">师资</a>
+        <a href="#/test" data-i18n="nav.test">在线测试</a>
         <a href="#/home/contact" class="cta" data-i18n="nav.contact">联系</a>
       </nav>
       <button id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">☰</button>
@@ -1221,6 +1222,21 @@
     </section>
   </main>
 
+  <main id="page-test" class="page" data-route="test" aria-hidden="true">
+    <section class="hero" style="padding: 48px 0;">
+      <div class="container">
+        <h2 class="section-title" data-i18n="test.title">在线测试</h2>
+        <p class="section-desc" data-i18n="test.desc">完成在线测评，提交后即时显示成绩。</p>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <!-- Quiz UI is rendered by test.js from questions served by Supabase -->
+        <div id="test-app"></div>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="container">
       © <span id="y"></span> <span data-i18n="footer.copy">Duke College And Business Technology · All rights reserved</span>
@@ -1240,5 +1256,8 @@
   </div>
 
   <script src="script.js" defer></script>
+  <!-- Online test: Supabase client (CDN) + quiz logic -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="test.js" defer></script>
 </body>
 </html>
