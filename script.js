@@ -1,7 +1,21 @@
+/*
+ * Duke College — site script (loaded with `defer`, so the DOM is ready).
+ * Contents:
+ *   1. Footer year stamp
+ *   2. Service-detail modal (openModal/closeModal — called from inline onclick)
+ *   3. Main IIFE: i18n translations, language switch, hash routing,
+ *      partners carousel, office hours, dev-only i18n parity check
+ *   4. Contact form -> Web3Forms submit handler
+ */
+
+/* 1. Stamp the current year into the footer's <span id="y">. */
 document.getElementById('y').textContent = new Date().getFullYear();
 
 
-    // Modal functionality
+    /* 2. Service-detail modal.
+     *    Each key maps a service card to its popup title/image/HTML body.
+     *    openModal() is invoked from inline onclick="openModal('k12')" etc.,
+     *    so these functions must stay global (do not wrap in an IIFE). */
     const modalData = {
       k12: { title: 'K-12 Reading & Writing Program', image: 'Images/K12.png', content: '<p>Our comprehensive K-12 reading and writing program is designed to build strong foundations in literacy skills. With leveled instruction from kindergarten through grade 12, students develop fluency, comprehension, and expressive writing abilities.</p><p><strong>Key Features:</strong></p><ul><li>Phonics and early reading foundations</li><li>Guided reading for comprehension</li><li>Literary analysis and close reading</li><li>Academic essay writing</li><li>Public speaking integrated components</li></ul>' },
       esl: { title: 'ESL Course of Canada', image: 'Images/ESL.png', content: '<p>Comprehensive English as a Second Language instruction tailored to students of all ages and proficiency levels.</p><p><strong>Programs Include:</strong></p><ul><li>Youth ESL - Interactive cultural programs</li><li>High School ESL - Academic vocabulary focus</li><li>Adult ESL - Workplace communication skills</li><li>Flexible scheduling and adaptive learning</li></ul>' },
@@ -20,13 +34,20 @@ document.getElementById('y').textContent = new Date().getFullYear();
     }
 
     function closeModal(event) {
+      // Ignore clicks that bubble up from inside the modal content; only the
+      // backdrop (#modal) or the explicit close button should dismiss it.
       if (event && event.target.id !== 'modal') return;
       document.getElementById('modal').classList.remove('show');
     }
 
 
+    /* 3. Main app IIFE: i18n + routing + widgets. */
     (function(){
-      let currentLang = null; 
+      let currentLang = null; // 'en' | 'zh'; null until first setLang()
+
+      // Translation tables keyed by data-i18n* attribute values in the markup.
+      // Every key should exist in both `en` and `zh` (checkI18nParity() below
+      // logs any mismatches to the console during development).
       const translations = {
         en: {
           'nav.home': 'Home',
@@ -427,6 +448,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
           'partner.r': 'Axis Fencing Club (Markham)',
           'partner.s': 'CECAC'
         },
+        // Chinese strings — same keys as `en` above.
         zh: {
           'nav.chinese': '中文',
           'nav.french': '法语',
@@ -823,6 +845,10 @@ document.getElementById('y').textContent = new Date().getFullYear();
         }
       };
 
+      // Apply a language across the whole page: walks every data-i18n* element
+      // and swaps text / placeholder / alt / src / innerHTML, persists the
+      // choice to localStorage('site-lang'), and fires a 'languageChanged' event
+      // so other widgets (e.g. office hours) can re-render.
       function setLang(lang){
         console.debug('setLang:', lang);
         const items = document.querySelectorAll('[data-i18n]');
@@ -895,6 +921,8 @@ document.getElementById('y').textContent = new Date().getFullYear();
         window.dispatchEvent(new Event('languageChanged'));
       }
 
+      // Pick the language on load: saved preference wins, else fall back to the
+      // browser language (zh* -> Chinese, otherwise English).
       function ensureLang(){
         const saved = localStorage.getItem('site-lang');
         const fallback = (navigator.language && navigator.language.startsWith('zh')) ? 'zh' : 'en';
@@ -902,17 +930,22 @@ document.getElementById('y').textContent = new Date().getFullYear();
         if(lang !== currentLang) setLang(lang);
       }
 
+      // Escape user-facing text before inserting as innerHTML (used for hero.h1).
       function escapeHtml(str){
         return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       }
 
+      // Everything below wires up the DOM once it has finished parsing.
       document.addEventListener('DOMContentLoaded', function(){
+        // Language switch buttons in the top bar.
         const enBtn = document.getElementById('lang-en');
         const zhBtn = document.getElementById('lang-zh');
         if(enBtn) enBtn.addEventListener('click', ()=> setLang('en'));
         if(zhBtn) zhBtn.addEventListener('click', ()=> setLang('zh'));
 
-        // Partners: slide by 1 item (show 5 at a time)
+        // Partners carousel: show ~5 logos, advance one at a time. Widths are
+        // measured at runtime so the step matches the rendered card + gap, and
+        // it re-measures on resize. Sets data-enhanced="true" (see styles.css).
         (function initPartners(){
           const partnersEl = document.querySelector('#partners .partners');
           const track = partnersEl ? partnersEl.querySelector('.partners-track') : null;
@@ -971,9 +1004,12 @@ document.getElementById('y').textContent = new Date().getFullYear();
           measure();
           render();
         })();
-        // mobile menu toggle
+        // Mobile hamburger menu + hash-based router.
         const menuToggle = document.getElementById('menu-toggle');
         const siteMenu = document.getElementById('site-menu');
+
+        // Hash router: "#/route" shows the matching <main data-route>, and the
+        // optional "#/home/anchor" second segment scrolls to a section on home.
         function setRouteFromHash(){
           // Ensure correct language is applied on every route change.
           ensureLang();
@@ -1031,11 +1067,13 @@ document.getElementById('y').textContent = new Date().getFullYear();
         setRouteFromHash();
         // Apply language on initial load too.
         ensureLang();
-        // Update office hours based on current day
+        // Live "Open now / Closed" badge for the contact section. Recomputes
+        // from the visitor's local clock, refreshes every minute, and re-renders
+        // when the language changes. (Closed Sundays; Mon–Sat 10:00–20:00.)
         (function updateOfficeHours(){
           const hoursEl = document.getElementById('office-hours-display');
           if(!hoursEl) return;
-          
+
           const updateHours = () => {
             const now = new Date();
             const day = now.getDay(); // 0=Sunday, 1=Monday, ..., 6=Saturday
@@ -1083,7 +1121,9 @@ document.getElementById('y').textContent = new Date().getFullYear();
           window.addEventListener('languageChanged', updateHours);
         })();
         
-        // quick parity check: report any markup keys missing in translations
+        // Dev-only sanity check: logs translation keys that are referenced in
+        // the markup but missing from a locale (or defined but unused). Purely
+        // diagnostic console output — has no effect on what the visitor sees.
         (function checkI18nParity(){
           try{
             const attrs = ['data-i18n','data-i18n-placeholder','data-i18n-alt','data-i18n-html'];
@@ -1107,17 +1147,21 @@ document.getElementById('y').textContent = new Date().getFullYear();
       });
     })();
 
-    // Contact form -> Web3Forms (AJAX submit, stays on page)
+    /* 4. Contact form -> Web3Forms.
+     *    Submits via fetch (AJAX) so the visitor stays on the page, then shows a
+     *    bilingual success/error message. The form's access_key (in index.html)
+     *    must be a real key from web3forms.com for submissions to be delivered. */
     (function initContactForm(){
       document.addEventListener('DOMContentLoaded', function(){
         const form = document.getElementById('contact-form');
         if(!form) return;
         const status = document.getElementById('form-status');
+        // Tiny helper: return the zh or en string for the current language.
         const msg = (zh, en) => (localStorage.getItem('site-lang') || 'zh') === 'zh' ? zh : en;
         const setStatus = (text, color) => { if(status){ status.textContent = text; status.style.color = color || ''; } };
 
         form.addEventListener('submit', async function(e){
-          e.preventDefault();
+          e.preventDefault(); // handle it ourselves instead of a full page POST
           const submitBtn = form.querySelector('[type="submit"]');
           if(submitBtn) submitBtn.disabled = true;
           setStatus(msg('提交中…', 'Sending…'), '#6b7280');
