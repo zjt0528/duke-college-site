@@ -179,9 +179,12 @@
       .menu-toggle { border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; background: var(--card); }
       .grid { grid-template-columns: 1fr; }
   .services-cats { grid-template-columns: 1fr; }
-        .partners { height: auto; }
-        .partners-track .partner { flex: 0 0 calc((100% - (1 * var(--partners-gap))) / 2); }
-        .partner img { max-height: 140px; width: 100%; height: auto; }
+      /* Partners: keep the arrow carousel on mobile, but show 2 logos per view.
+         The linked logos carry an inline flex (1/5 width) for the desktop 5-up
+         layout, so override it to a uniform half-width with !important. */
+      .partners { height: auto; }
+      .partners-track .partner { flex: 0 0 calc((100% - var(--partners-gap)) / 2) !important; max-width: calc((100% - var(--partners-gap)) / 2); min-height: 150px; }
+      .partner img { max-height: 90px; max-width: 100%; width: auto; height: auto; }
       .split-row { flex-wrap: wrap; }
       .testis { grid-template-columns: 1fr; }
       .logo-img { height: 36px; }
