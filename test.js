@@ -14,8 +14,8 @@
  * Then run supabase/setup.sql in the Supabase SQL editor.
  */
 (function () {
-  const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';   // e.g. https://abcd1234.supabase.co
-  const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // public "anon" key (safe to expose)
+  const SUPABASE_URL = 'https://dwiseofenceqjcqbvhfu.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3aXNlb2ZlbmNlcWpjcWJ2aGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxODAwMTgsImV4cCI6MjA5Nzc1NjAxOH0.n4Xd_eEcctqaJGj7hlObfh4mtBH0_hjrBA8iedW1OyA'; // public "anon" key (safe to expose)
 
   const root = document.getElementById('test-app');
   if (!root) return;
