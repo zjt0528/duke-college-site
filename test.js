@@ -357,8 +357,14 @@
   }
 
   // ---- Admin panel -----------------------------------------------------------
-  // Lists every account with an Approve toggle and per-worksheet checkboxes.
+  // Scales to many students/worksheets: search + status filter, one collapsed
+  // row per student (expand to edit), and per-skill-group toggle buttons.
   // All actions go through admin_* RPCs, which re-verify admin rights in the DB.
+  let adminUsers = [];
+  let adminSubjects = [];
+  let adminQuery = '';
+  let adminStatusFilter = 'all';   // 'all' | 'pending' | 'approved'
+
   async function loadAdmin() {
     root.innerHTML = '<p class="section-desc">' + t('加载用户中…', 'Loading users…') + '</p>';
     const [usersRes, subjectsRes] = await Promise.all([
@@ -370,37 +376,122 @@
       root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(msg) + '</p></div>';
       return;
     }
+    adminUsers = usersRes.data || [];
     // Sort worksheets by their number (2a1, 2a2, … 2a10), not alphabetically.
-    const subjects = (subjectsRes.data || []).map((r) => r.subject).sort((a, b) => codeNum(a) - codeNum(b));
-    renderAdmin(usersRes.data || [], subjects);
+    adminSubjects = (subjectsRes.data || []).map((r) => r.subject).sort((a, b) => codeNum(a) - codeNum(b));
+    renderAdmin();
   }
 
-  function renderAdmin(users, subjects) {
+  // Skill name from a worksheet label, e.g. "2a1 - Context Clue" → "Context Clue".
+  function skillOf(subject) {
+    const m = String(subject).match(/-\s*(.+)$/);
+    return m ? m[1].trim() : String(subject);
+  }
+
+  // Worksheets grouped by skill, preserving numeric order within each group.
+  function subjectGroups() {
+    const groups = [];
+    adminSubjects.forEach((s) => {
+      const skill = skillOf(s);
+      let g = groups.find((x) => x.skill === skill);
+      if (!g) { g = { skill: skill, items: [] }; groups.push(g); }
+      g.items.push(s);
+    });
+    return groups;
+  }
+
+  function accessSummary(u) {
+    if (!u.approved) return '';
+    if (u.subjects === null || u.subjects === undefined) return ' · ' + t('全部练习', 'all worksheets');
+    return ' · ' + u.subjects.length + ' ' + t('个练习', 'worksheet(s)');
+  }
+
+  function statusBadge(u) {
+    return u.approved
+      ? '<span style="color:#28a745;">' + t('已开通', 'Approved') + '</span>'
+      : '<span style="color:#d97706;">' + t('待审核', 'Pending') + '</span>';
+  }
+
+  function renderAdmin() {
     root.innerHTML = '';
     root.appendChild(signedInBar({ back: true }));
     root.appendChild(el('<h3 style="margin:0 0 6px;">' + t('用户管理', 'User management') + '</h3>'));
     root.appendChild(el('<p class="section-desc">' +
-      t('勾选“允许测试”开通账号；选择该学生可以做的练习（全不选 = 全部练习）。',
-        'Tick "Allow testing" to activate an account, then pick which worksheets the student may take (none ticked = all worksheets).') + '</p>'));
+      t('点击学生展开编辑；勾选“允许测试”开通账号，选择可做的练习（全不选 = 全部练习）。',
+        'Click a student to edit. Tick "Allow testing" to activate the account, then pick worksheets (none ticked = all worksheets).') + '</p>'));
 
-    if (!users.length) {
-      root.appendChild(el('<p class="section-desc">' + t('暂无注册用户。', 'No registered users yet.') + '</p>'));
+    // Toolbar: search + status filter
+    const bar = el('<div class="service" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:14px;"></div>');
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.placeholder = t('搜索姓名或邮箱…', 'Search name or email…');
+    search.value = adminQuery;
+    search.style.cssText = 'flex:1; min-width:200px; margin-top:0;';
+    const statusSel = document.createElement('select');
+    statusSel.style.cssText = 'padding:12px; border-radius:10px; border:1px solid var(--border); font:inherit;';
+    [['all', t('全部', 'All')], ['pending', t('待审核', 'Pending')], ['approved', t('已开通', 'Approved')]].forEach(([v, label]) => {
+      const o = document.createElement('option');
+      o.value = v; o.textContent = label;
+      if (v === adminStatusFilter) o.selected = true;
+      statusSel.appendChild(o);
+    });
+    const listWrap = el('<div></div>');
+    search.addEventListener('input', () => { adminQuery = search.value; renderAdminList(listWrap); });
+    statusSel.addEventListener('change', () => { adminStatusFilter = statusSel.value; renderAdminList(listWrap); });
+    bar.appendChild(search);
+    bar.appendChild(statusSel);
+    root.appendChild(bar);
+    root.appendChild(listWrap);
+    renderAdminList(listWrap);
+  }
+
+  function renderAdminList(listWrap) {
+    listWrap.innerHTML = '';
+    const q = adminQuery.trim().toLowerCase();
+    const filtered = adminUsers.filter((u) => {
+      if (adminStatusFilter === 'pending' && u.approved) return false;
+      if (adminStatusFilter === 'approved' && !u.approved) return false;
+      if (q && ((u.name || '') + ' ' + (u.email || '')).toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+    listWrap.appendChild(el('<p class="section-desc" style="margin-bottom:12px;">' +
+      t('显示 ', 'Showing ') + filtered.length + ' / ' + adminUsers.length + t(' 位学生', ' students') + '</p>'));
+    if (!filtered.length) {
+      listWrap.appendChild(el('<p class="section-desc">' + t('没有匹配的学生。', 'No matching students.') + '</p>'));
       return;
     }
+    filtered.forEach((u) => listWrap.appendChild(userRow(u)));
+  }
 
-    users.forEach((u) => {
-      const card = el('<div class="service" style="margin-bottom:14px;"></div>');
-      card.appendChild(el('<strong>' + esc(u.name || t('（未填姓名）', '(no name)')) + '</strong> — ' + esc(u.email || '')));
+  function userRow(u) {
+    // Collapsed by default; only the row being edited is expanded.
+    const details = el('<details class="service" style="margin-bottom:10px; padding:14px 18px;"></details>');
+    const summary = el('<summary style="cursor:pointer; font-weight:700;"></summary>');
+    const summaryText = el('<span></span>');
+    const renderSummary = () => {
+      summaryText.innerHTML = esc(u.name || t('（未填姓名）', '(no name)')) +
+        ' <span style="color:var(--muted); font-weight:500;">' + esc(u.email || '') + '</span> — ' +
+        statusBadge(u) + '<span style="color:var(--muted); font-weight:500;">' + accessSummary(u) + '</span>';
+    };
+    renderSummary();
+    summary.appendChild(summaryText);
+    details.appendChild(summary);
 
-      const approved = el(
-        '<label style="display:flex; gap:8px; align-items:center; margin-top:10px; font-weight:700;">' +
-          '<input type="checkbox" class="acc-approved" style="width:auto; margin:0;" ' + (u.approved ? 'checked' : '') + ' /> ' +
-          t('允许测试', 'Allow testing') +
-        '</label>');
-      card.appendChild(approved);
+    const body = el('<div style="margin-top:12px;"></div>');
+    body.appendChild(el(
+      '<label style="display:flex; gap:8px; align-items:center; font-weight:700;">' +
+        '<input type="checkbox" class="acc-approved" style="width:auto; margin:0;" ' + (u.approved ? 'checked' : '') + ' /> ' +
+        t('允许测试', 'Allow testing') +
+      '</label>'));
 
-      const grid = el('<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:6px; margin-top:10px;"></div>');
-      subjects.forEach((s) => {
+    // Worksheets grouped by skill, each group with a select-all/none toggle.
+    subjectGroups().forEach((g) => {
+      const head = el('<div style="display:flex; gap:12px; align-items:center; margin-top:12px;"></div>');
+      head.appendChild(el('<strong style="font-size:14px;">' + esc(g.skill) + '</strong>'));
+      const toggle = el('<a href="#" style="font-size:13px; font-weight:700;">' + t('全选 / 清除', 'all / none') + '</a>');
+      head.appendChild(toggle);
+      const grid = el('<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); gap:6px; margin-top:6px;"></div>');
+      g.items.forEach((s) => {
         const checked = Array.isArray(u.subjects) && u.subjects.indexOf(s) !== -1;
         grid.appendChild(el(
           '<label style="display:flex; gap:8px; align-items:center; font-weight:500;">' +
@@ -408,35 +499,47 @@
             '<span>' + esc(s) + '</span>' +
           '</label>'));
       });
-      card.appendChild(grid);
-
-      const row = el('<div style="display:flex; gap:12px; align-items:center; margin-top:12px;"></div>');
-      const save = el('<button class="btn primary" type="button" style="padding:8px 16px;">' + t('保存', 'Save') + '</button>');
-      const status = el('<span style="font-weight:700;"></span>');
-      save.addEventListener('click', async () => {
-        const picked = [...card.querySelectorAll('.acc-subject:checked')].map((c) => c.value);
-        save.disabled = true;
-        status.style.color = '#6b7280';
-        status.textContent = t('保存中…', 'Saving…');
-        const { error } = await db.rpc('admin_set_access', {
-          p_user: u.user_id,
-          p_approved: card.querySelector('.acc-approved').checked,
-          p_subjects: picked.length ? picked : null   // none ticked = all worksheets
-        });
-        if (error) {
-          status.style.color = '#d33';
-          status.textContent = t('保存失败：', 'Save failed: ') + (error.message || '');
-        } else {
-          status.style.color = '#28a745';
-          status.textContent = t('已保存', 'Saved');
-        }
-        save.disabled = false;
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const boxes = [...grid.querySelectorAll('.acc-subject')];
+        const allOn = boxes.every((b) => b.checked);
+        boxes.forEach((b) => { b.checked = !allOn; });
       });
-      row.appendChild(save);
-      row.appendChild(status);
-      card.appendChild(row);
-      root.appendChild(card);
+      body.appendChild(head);
+      body.appendChild(grid);
     });
+
+    const row = el('<div style="display:flex; gap:12px; align-items:center; margin-top:14px;"></div>');
+    const save = el('<button class="btn primary" type="button" style="padding:8px 16px;">' + t('保存', 'Save') + '</button>');
+    const status = el('<span style="font-weight:700;"></span>');
+    save.addEventListener('click', async () => {
+      const picked = [...body.querySelectorAll('.acc-subject:checked')].map((c) => c.value);
+      save.disabled = true;
+      status.style.color = '#6b7280';
+      status.textContent = t('保存中…', 'Saving…');
+      const { error } = await db.rpc('admin_set_access', {
+        p_user: u.user_id,
+        p_approved: body.querySelector('.acc-approved').checked,
+        p_subjects: picked.length ? picked : null   // none ticked = all worksheets
+      });
+      if (error) {
+        status.style.color = '#d33';
+        status.textContent = t('保存失败：', 'Save failed: ') + (error.message || '');
+      } else {
+        // Keep the cached row in sync and refresh the collapsed summary line.
+        u.approved = body.querySelector('.acc-approved').checked;
+        u.subjects = picked.length ? picked : null;
+        renderSummary();
+        status.style.color = '#28a745';
+        status.textContent = t('已保存', 'Saved');
+      }
+      save.disabled = false;
+    });
+    row.appendChild(save);
+    row.appendChild(status);
+    body.appendChild(row);
+    details.appendChild(body);
+    return details;
   }
 
   async function onSubmit(e) {
