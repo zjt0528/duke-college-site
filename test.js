@@ -39,6 +39,7 @@
   let session = null;     // Supabase auth session (null when logged out)
   let loggedIn = null;    // last gate state, to avoid redundant re-renders
   let authMode = 'signin';
+  let recovering = false; // true while the user is setting a new password
   let sections = [];      // [{ subject, questions: [...] }], ordered by worksheet code
   let current = null;     // currently selected subject label
 
@@ -60,10 +61,18 @@
     const { data } = await db.auth.getSession();
     session = data.session;
     // React to sign in / sign out (also fires once on load).
-    db.auth.onAuthStateChange((_event, s) => {
+    db.auth.onAuthStateChange((event, s) => {
       session = s;
+      if (event === 'PASSWORD_RECOVERY') {
+        // User arrived from a reset-password email: show the set-new-password
+        // form (the email link may land on any route, so force the test page).
+        recovering = true;
+        if (!location.hash.startsWith('#/test')) location.hash = '#/test';
+        renderRecovery();
+        return;
+      }
       const nowIn = !!s;
-      if (nowIn === loggedIn) return;   // gate state unchanged — don't reload
+      if (nowIn === loggedIn && !recovering) return;   // gate state unchanged — don't reload
       route();
     });
     route();
@@ -71,6 +80,7 @@
 
   function route() {
     loggedIn = !!session;
+    if (recovering) { renderRecovery(); return; }
     if (session) loadQuestions();
     else renderAuth();
   }
@@ -108,6 +118,67 @@
       renderAuth();
     });
     card.appendChild(toggle);
+
+    if (authMode === 'signin') {
+      const forgot = el('<p style="margin-top:6px;"><a href="#" id="auth-forgot">' + t('忘记密码？', 'Forgot password?') + '</a></p>');
+      forgot.querySelector('#auth-forgot').addEventListener('click', (e) => { e.preventDefault(); sendReset(card); });
+      card.appendChild(forgot);
+    }
+    root.appendChild(card);
+  }
+
+  // Send a password-reset email for the address typed in the login form.
+  async function sendReset(card) {
+    const email = card.querySelector('input[name=email]').value.trim();
+    const status = card.querySelector('#auth-status');
+    if (!email) {
+      status.style.color = '#d33';
+      status.textContent = t('请先在上方填写邮箱，再点击“忘记密码”。', 'Enter your email above first, then click "Forgot password".');
+      return;
+    }
+    status.style.color = '#6b7280';
+    status.textContent = t('发送中…', 'Sending…');
+    // The email link brings the user back to the test page to set a new password.
+    const { error } = await db.auth.resetPasswordForEmail(email, {
+      redirectTo: location.origin + location.pathname + '#/test'
+    });
+    if (error) {
+      status.style.color = '#d33';
+      status.textContent = t('发送失败：', 'Could not send: ') + (error.message || '');
+    } else {
+      status.style.color = '#28a745';
+      status.textContent = t('重置邮件已发送，请查收邮箱并点击链接设置新密码。', 'Reset email sent — open the link in it to set a new password.');
+    }
+  }
+
+  // Shown after the user clicks the reset link in their email.
+  function renderRecovery() {
+    root.innerHTML = '';
+    const card = el('<div class="service" style="max-width:460px; margin:0 auto;"></div>');
+    card.appendChild(el('<h3 style="margin-top:0;">' + t('设置新密码', 'Set a new password') + '</h3>'));
+    const form = el('<form id="recovery-form"></form>');
+    form.appendChild(el('<label>' + t('新密码', 'New password') + '</label>'));
+    form.appendChild(el('<input type="password" name="password" required minlength="6" autocomplete="new-password" />'));
+    form.appendChild(el('<div style="margin-top:14px;"><button class="btn primary" type="submit">' + t('保存并进入测试', 'Save and continue') + '</button></div>'));
+    form.appendChild(el('<p id="recovery-status" role="status" aria-live="polite" style="margin-top:12px; font-weight:700;"></p>'));
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector('#recovery-status');
+      const btn = form.querySelector('[type="submit"]');
+      btn.disabled = true;
+      status.style.color = '#6b7280';
+      status.textContent = t('保存中…', 'Saving…');
+      const { error } = await db.auth.updateUser({ password: new FormData(form).get('password') });
+      if (error) {
+        status.style.color = '#d33';
+        status.textContent = t('保存失败：', 'Could not save: ') + (error.message || '');
+        btn.disabled = false;
+        return;
+      }
+      recovering = false;
+      route();   // password saved; session is live → straight into the test
+    });
+    card.appendChild(form);
     root.appendChild(card);
   }
 
@@ -281,7 +352,8 @@
   // Re-render in the new language if the visitor toggles EN/中文.
   window.addEventListener('languageChanged', () => {
     if (!db) return;
-    if (session) { if (sections.length) renderTest(); }
+    if (recovering) renderRecovery();
+    else if (session) { if (sections.length) renderTest(); }
     else renderAuth();
   });
 })();
