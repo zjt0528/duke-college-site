@@ -1,17 +1,23 @@
 /*
- * Duke College — online test (Supabase-backed).
+ * Duke College — online test (Supabase-backed), with login.
  *
  * How it works:
- *   - Questions are loaded from Supabase via the get_questions() RPC, which
- *     returns prompts/choices but NOT the answer key.
- *   - On submit, answers are sent to the submit_test() RPC, which grades them
+ *   - Visitors must log in (Supabase Auth, email + password) before the test
+ *     is shown. The logged-in account's email is attached to each submission.
+ *   - Questions are loaded via the get_questions() RPC, which returns
+ *     prompts/choices but NOT the answer key.
+ *   - On submit, answers go to the submit_test() RPC, which grades them
  *     server-side, stores the submission, and returns only the score.
  *   - Bilingual: reads the site language from localStorage('site-lang') and
  *     re-renders on the 'languageChanged' event dispatched by script.js.
  *
- * SETUP: fill in the two constants below from your Supabase project
- * (Dashboard > Project Settings > API). The anon key is meant to be public.
- * Then run supabase/setup.sql in the Supabase SQL editor.
+ * SETUP:
+ *   1. Fill in the two constants below (Dashboard > Project Settings > API).
+ *   2. Run supabase/setup.sql, then supabase/questions_lg_r_rs_2a.sql.
+ *   3. Enable Email auth: Dashboard > Authentication > Providers > Email.
+ *      For instant login, turn OFF "Confirm email" (Authentication > Providers
+ *      > Email). If you keep confirmation on, set the Site URL to your domain
+ *      under Authentication > URL Configuration.
  */
 (function () {
   const SUPABASE_URL = 'https://dwiseofenceqjcqbvhfu.supabase.co';
@@ -30,16 +36,20 @@
   const configured = SUPABASE_URL.indexOf('http') === 0 && SUPABASE_ANON_KEY.indexOf('YOUR_') !== 0;
   const db = (configured && window.supabase) ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
+  let session = null;     // Supabase auth session (null when logged out)
+  let loggedIn = null;    // last gate state, to avoid redundant re-renders
+  let authMode = 'signin';
   let sections = [];      // [{ subject, questions: [...] }], ordered by worksheet code
   let current = null;     // currently selected subject label
 
-  // Sort key from the "2a<N>" code at the start of a subject label (so 2a2 < 2a10).
-  function codeNum(subject) {
-    const m = String(subject).match(/2a(\d+)/i);
-    return m ? parseInt(m[1], 10) : 9999;
+  function displayName() {
+    const u = session && session.user;
+    if (!u) return '';
+    return (u.user_metadata && u.user_metadata.full_name) || u.email;
   }
 
-  async function load() {
+  // ---- Entry point / routing -----------------------------------------------
+  async function boot() {
     if (!db) {
       root.innerHTML =
         '<div class="service"><strong>' + t('在线测试尚未配置', 'Online test not configured yet') + '</strong>' +
@@ -47,14 +57,114 @@
                   'Add your Supabase URL and anon key in test.js, then run supabase/setup.sql in the Supabase SQL editor.') + '</p></div>';
       return;
     }
+    const { data } = await db.auth.getSession();
+    session = data.session;
+    // React to sign in / sign out (also fires once on load).
+    db.auth.onAuthStateChange((_event, s) => {
+      session = s;
+      const nowIn = !!s;
+      if (nowIn === loggedIn) return;   // gate state unchanged — don't reload
+      route();
+    });
+    route();
+  }
+
+  function route() {
+    loggedIn = !!session;
+    if (session) loadQuestions();
+    else renderAuth();
+  }
+
+  // ---- Login / sign-up -----------------------------------------------------
+  function renderAuth() {
+    root.innerHTML = '';
+    const card = el('<div class="service" style="max-width:460px; margin:0 auto;"></div>');
+    card.appendChild(el('<h3 style="margin-top:0;">' +
+      (authMode === 'signin' ? t('登录以开始测试', 'Log in to take the test') : t('注册新账号', 'Create an account')) +
+      '</h3>'));
+
+    const form = el('<form id="auth-form"></form>');
+    if (authMode === 'signup') {
+      form.appendChild(el('<label>' + t('姓名', 'Name') + '</label>'));
+      form.appendChild(el('<input type="text" name="name" required />'));
+    }
+    form.appendChild(el('<label>' + t('邮箱', 'Email') + '</label>'));
+    form.appendChild(el('<input type="email" name="email" required />'));
+    form.appendChild(el('<label>' + t('密码', 'Password') + '</label>'));
+    form.appendChild(el('<input type="password" name="password" required minlength="6" autocomplete="current-password" />'));
+    form.appendChild(el('<div style="margin-top:14px;"><button class="btn primary" type="submit">' +
+      (authMode === 'signin' ? t('登录', 'Log in') : t('注册', 'Sign up')) + '</button></div>'));
+    form.appendChild(el('<p id="auth-status" role="status" aria-live="polite" style="margin-top:12px; font-weight:700;"></p>'));
+    form.addEventListener('submit', onAuth);
+    card.appendChild(form);
+
+    const toggle = el('<p style="margin-top:14px;"></p>');
+    toggle.innerHTML = authMode === 'signin'
+      ? t('还没有账号？', 'No account yet? ') + '<a href="#" id="auth-toggle">' + t('注册', 'Sign up') + '</a>'
+      : t('已有账号？', 'Already have an account? ') + '<a href="#" id="auth-toggle">' + t('登录', 'Log in') + '</a>';
+    toggle.querySelector('#auth-toggle').addEventListener('click', (e) => {
+      e.preventDefault();
+      authMode = authMode === 'signin' ? 'signup' : 'signin';
+      renderAuth();
+    });
+    card.appendChild(toggle);
+    root.appendChild(card);
+  }
+
+  async function onAuth(e) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const status = form.querySelector('#auth-status');
+    const btn = form.querySelector('[type="submit"]');
+    const fd = new FormData(form);
+    const email = fd.get('email');
+    const password = fd.get('password');
+
+    btn.disabled = true;
+    status.style.color = '#6b7280';
+    status.textContent = t('处理中…', 'Please wait…');
+
+    try {
+      if (authMode === 'signup') {
+        const { data, error } = await db.auth.signUp({
+          email, password, options: { data: { full_name: fd.get('name') } }
+        });
+        if (error) throw error;
+        if (!data.session) {
+          // Email confirmation is enabled — no session yet.
+          status.style.color = '#28a745';
+          status.textContent = t('注册成功！请查收邮箱完成验证后再登录。',
+                                  'Account created! Check your email to confirm, then log in.');
+          btn.disabled = false;
+          return;
+        }
+        // Otherwise a session was returned → onAuthStateChange routes us in.
+      } else {
+        const { error } = await db.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        // onAuthStateChange routes us into the test.
+      }
+    } catch (err) {
+      status.style.color = '#d33';
+      status.textContent = t('操作失败：', 'Error: ') + (err.message || '');
+      btn.disabled = false;
+    }
+  }
+
+  // ---- Test ----------------------------------------------------------------
+  // Sort key from the "2a<N>" code at the start of a subject label (so 2a2 < 2a10).
+  function codeNum(subject) {
+    const m = String(subject).match(/2a(\d+)/i);
+    return m ? parseInt(m[1], 10) : 9999;
+  }
+
+  async function loadQuestions() {
     root.innerHTML = '<p class="section-desc">' + t('加载题目中…', 'Loading questions…') + '</p>';
     const { data, error } = await db.rpc('get_questions');
     if (error) {
       root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(error.message) + '</p></div>';
       return;
     }
-
-    // Group questions into worksheets by their subject label.
     const bySubject = {};
     (data || []).forEach((q) => { (bySubject[q.subject] = bySubject[q.subject] || []).push(q); });
     sections = Object.keys(bySubject)
@@ -62,16 +172,30 @@
       .map((s) => ({ subject: s, questions: bySubject[s] }));
 
     if (!sections.length) {
-      root.innerHTML = '<p class="section-desc">' + t('暂无题目', 'No questions available yet.') + '</p>';
+      renderTest(true);
       return;
     }
     if (!current || !bySubject[current]) current = sections[0].subject;
-    render();
+    renderTest();
   }
 
-  function render() {
-    const section = sections.find((s) => s.subject === current) || sections[0];
+  function renderTest(empty) {
     root.innerHTML = '';
+
+    // Signed-in bar with log out
+    const bar = el('<div class="service" style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px;"></div>');
+    bar.appendChild(el('<span>' + t('已登录：', 'Signed in: ') + '<strong>' + esc(displayName()) + '</strong></span>'));
+    const out = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('退出登录', 'Log out') + '</button>');
+    out.addEventListener('click', async () => { await db.auth.signOut(); });   // onAuthStateChange → renderAuth
+    bar.appendChild(out);
+    root.appendChild(bar);
+
+    if (empty || !sections.length) {
+      root.appendChild(el('<p class="section-desc">' + t('暂无题目', 'No questions available yet.') + '</p>'));
+      return;
+    }
+
+    const section = sections.find((s) => s.subject === current) || sections[0];
 
     // Worksheet picker
     const picker = el('<div class="service" style="margin-bottom:18px;"><label>' + t('选择练习', 'Choose a worksheet') + '</label></div>');
@@ -84,23 +208,12 @@
       if (sec.subject === current) o.selected = true;
       sel.appendChild(o);
     });
-    sel.addEventListener('change', () => { current = sel.value; render(); });
+    sel.addEventListener('change', () => { current = sel.value; renderTest(); });
     picker.appendChild(sel);
     root.appendChild(picker);
 
     const form = el('<form id="test-form"></form>');
 
-    // Student details
-    form.appendChild(el(
-      '<div class="service" style="margin-bottom:18px;">' +
-        '<label>' + t('姓名', 'Name') + '</label>' +
-        '<input type="text" name="name" required />' +
-        '<label>' + t('邮箱', 'Email') + '</label>' +
-        '<input type="email" name="email" required />' +
-      '</div>'
-    ));
-
-    // Questions for the selected worksheet
     section.questions.forEach((q, i) => {
       const choices = (q.choices || []).map((c, idx) =>
         '<label style="display:flex; gap:8px; align-items:flex-start; font-weight:500; margin-top:8px;">' +
@@ -135,7 +248,6 @@
     const fd = new FormData(form);
     const section = sections.find((s) => s.subject === current);
 
-    // Collect { questionId: selectedIndex } for the selected worksheet only.
     const answers = {};
     section.questions.forEach((q) => {
       const v = fd.get('q_' + q.id);
@@ -148,8 +260,8 @@
 
     try {
       const { data, error } = await db.rpc('submit_test', {
-        p_name: fd.get('name'),
-        p_email: fd.get('email'),
+        p_name: displayName(),
+        p_email: session.user.email,
         p_subject: current,   // grade only this worksheet on the server
         p_answers: answers
       });
@@ -165,7 +277,11 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', load);
+  document.addEventListener('DOMContentLoaded', boot);
   // Re-render in the new language if the visitor toggles EN/中文.
-  window.addEventListener('languageChanged', () => { if (sections.length) render(); });
+  window.addEventListener('languageChanged', () => {
+    if (!db) return;
+    if (session) { if (sections.length) renderTest(); }
+    else renderAuth();
+  });
 })();
