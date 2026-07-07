@@ -370,7 +370,9 @@
       root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(msg) + '</p></div>';
       return;
     }
-    renderAdmin(usersRes.data || [], (subjectsRes.data || []).map((r) => r.subject));
+    // Sort worksheets by their number (2a1, 2a2, … 2a10), not alphabetically.
+    const subjects = (subjectsRes.data || []).map((r) => r.subject).sort((a, b) => codeNum(a) - codeNum(b));
+    renderAdmin(usersRes.data || [], subjects);
   }
 
   function renderAdmin(users, subjects) {
