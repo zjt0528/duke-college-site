@@ -237,10 +237,12 @@
   }
 
   // ---- Test ----------------------------------------------------------------
-  // Sort key from the "2a<N>" code at the start of a subject label (so 2a2 < 2a10).
+  // Sort key from the "<level>a<N>" code of a subject label: level first, then
+  // worksheet number — so 2a2 < 2a10 < 3a1 < 4a1 < 5a1. Labels without a code
+  // sort last (keeping their alphabetical order from the database).
   function codeNum(subject) {
-    const m = String(subject).match(/2a(\d+)/i);
-    return m ? parseInt(m[1], 10) : 9999;
+    const m = String(subject).match(/(\d+)\s*a\s*(\d+)/i);
+    return m ? parseInt(m[1], 10) * 1000 + parseInt(m[2], 10) : 9999999;
   }
 
   // Shared "Signed in as …" bar. opts: { admin: true } adds the Admin button,
