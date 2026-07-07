@@ -198,7 +198,12 @@
     try {
       if (authMode === 'signup') {
         const { data, error } = await db.auth.signUp({
-          email, password, options: { data: { full_name: fd.get('name') } }
+          email, password, options: {
+            data: { full_name: fd.get('name') },
+            // Confirmation email links back to the test page, where the fresh
+            // session is picked up and the student lands straight in the test.
+            emailRedirectTo: location.origin + location.pathname + '#/test'
+          }
         });
         if (error) throw error;
         if (!data.session) {
