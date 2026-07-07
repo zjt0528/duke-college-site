@@ -40,6 +40,8 @@
   let loggedIn = null;    // last gate state, to avoid redundant re-renders
   let authMode = 'signin';
   let recovering = false; // true while the user is setting a new password
+  let isAdmin = false;    // caller is in the admins table (checked server-side too)
+  let view = 'test';      // 'test' | 'admin'
   let sections = [];      // [{ subject, questions: [...] }], ordered by worksheet code
   let current = null;     // currently selected subject label
 
@@ -78,11 +80,18 @@
     route();
   }
 
-  function route() {
+  async function route() {
     loggedIn = !!session;
     if (recovering) { renderRecovery(); return; }
-    if (session) loadQuestions();
-    else renderAuth();
+    if (!session) { isAdmin = false; view = 'test'; renderAuth(); return; }
+    // Admin flag drives the panel button; the RPCs re-check it server-side.
+    // try/catch keeps the page working before migration_admin_access.sql runs.
+    try {
+      const { data } = await db.rpc('is_admin');
+      isAdmin = data === true;
+    } catch (_) { isAdmin = false; }
+    if (view === 'admin' && isAdmin) loadAdmin();
+    else { view = 'test'; loadQuestions(); }
   }
 
   // ---- Login / sign-up -----------------------------------------------------
@@ -234,10 +243,46 @@
     return m ? parseInt(m[1], 10) : 9999;
   }
 
+  // Shared "Signed in as …" bar. opts: { admin: true } adds the Admin button,
+  // { back: true } adds a Back-to-test button (used inside the admin panel).
+  function signedInBar(opts) {
+    opts = opts || {};
+    const bar = el('<div class="service" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px;"></div>');
+    bar.appendChild(el('<span>' + t('已登录：', 'Signed in: ') + '<strong>' + esc(displayName()) + '</strong></span>'));
+    const btns = el('<span style="display:flex; gap:8px; flex-wrap:wrap;"></span>');
+    if (opts.back) {
+      const back = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('返回测试', 'Back to test') + '</button>');
+      back.addEventListener('click', () => { view = 'test'; loadQuestions(); });
+      btns.appendChild(back);
+    }
+    if (opts.admin && isAdmin) {
+      const adm = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('管理', 'Admin') + '</button>');
+      adm.addEventListener('click', () => { view = 'admin'; loadAdmin(); });
+      btns.appendChild(adm);
+    }
+    const out = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('退出登录', 'Log out') + '</button>');
+    out.addEventListener('click', async () => { await db.auth.signOut(); });   // onAuthStateChange → renderAuth
+    btns.appendChild(out);
+    bar.appendChild(btns);
+    return bar;
+  }
+
+  // Shown to logged-in users an admin hasn't approved yet.
+  function renderPending() {
+    root.innerHTML = '';
+    root.appendChild(signedInBar());
+    root.appendChild(el(
+      '<div class="service"><strong>' + t('账号等待审核', 'Account awaiting approval') + '</strong>' +
+      '<p>' + t('您的账号已创建，正在等待管理员审核开通测试权限。请稍后再试，或联系我们。',
+                'Your account has been created and is waiting for an administrator to grant test access. Please check back later or contact us.') + '</p></div>'
+    ));
+  }
+
   async function loadQuestions() {
     root.innerHTML = '<p class="section-desc">' + t('加载题目中…', 'Loading questions…') + '</p>';
     const { data, error } = await db.rpc('get_questions');
     if (error) {
+      if ((error.message || '').indexOf('PENDING_APPROVAL') !== -1) { renderPending(); return; }
       root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(error.message) + '</p></div>';
       return;
     }
@@ -258,13 +303,8 @@
   function renderTest(empty) {
     root.innerHTML = '';
 
-    // Signed-in bar with log out
-    const bar = el('<div class="service" style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px;"></div>');
-    bar.appendChild(el('<span>' + t('已登录：', 'Signed in: ') + '<strong>' + esc(displayName()) + '</strong></span>'));
-    const out = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('退出登录', 'Log out') + '</button>');
-    out.addEventListener('click', async () => { await db.auth.signOut(); });   // onAuthStateChange → renderAuth
-    bar.appendChild(out);
-    root.appendChild(bar);
+    // Signed-in bar with admin entry (if admin) and log out
+    root.appendChild(signedInBar({ admin: true }));
 
     if (empty || !sections.length) {
       root.appendChild(el('<p class="section-desc">' + t('暂无题目', 'No questions available yet.') + '</p>'));
@@ -316,6 +356,87 @@
     root.appendChild(form);
   }
 
+  // ---- Admin panel -----------------------------------------------------------
+  // Lists every account with an Approve toggle and per-worksheet checkboxes.
+  // All actions go through admin_* RPCs, which re-verify admin rights in the DB.
+  async function loadAdmin() {
+    root.innerHTML = '<p class="section-desc">' + t('加载用户中…', 'Loading users…') + '</p>';
+    const [usersRes, subjectsRes] = await Promise.all([
+      db.rpc('admin_list_users'),
+      db.rpc('admin_list_subjects')
+    ]);
+    if (usersRes.error || subjectsRes.error) {
+      const msg = (usersRes.error || subjectsRes.error).message || '';
+      root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(msg) + '</p></div>';
+      return;
+    }
+    renderAdmin(usersRes.data || [], (subjectsRes.data || []).map((r) => r.subject));
+  }
+
+  function renderAdmin(users, subjects) {
+    root.innerHTML = '';
+    root.appendChild(signedInBar({ back: true }));
+    root.appendChild(el('<h3 style="margin:0 0 6px;">' + t('用户管理', 'User management') + '</h3>'));
+    root.appendChild(el('<p class="section-desc">' +
+      t('勾选“允许测试”开通账号；选择该学生可以做的练习（全不选 = 全部练习）。',
+        'Tick "Allow testing" to activate an account, then pick which worksheets the student may take (none ticked = all worksheets).') + '</p>'));
+
+    if (!users.length) {
+      root.appendChild(el('<p class="section-desc">' + t('暂无注册用户。', 'No registered users yet.') + '</p>'));
+      return;
+    }
+
+    users.forEach((u) => {
+      const card = el('<div class="service" style="margin-bottom:14px;"></div>');
+      card.appendChild(el('<strong>' + esc(u.name || t('（未填姓名）', '(no name)')) + '</strong> — ' + esc(u.email || '')));
+
+      const approved = el(
+        '<label style="display:flex; gap:8px; align-items:center; margin-top:10px; font-weight:700;">' +
+          '<input type="checkbox" class="acc-approved" style="width:auto; margin:0;" ' + (u.approved ? 'checked' : '') + ' /> ' +
+          t('允许测试', 'Allow testing') +
+        '</label>');
+      card.appendChild(approved);
+
+      const grid = el('<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:6px; margin-top:10px;"></div>');
+      subjects.forEach((s) => {
+        const checked = Array.isArray(u.subjects) && u.subjects.indexOf(s) !== -1;
+        grid.appendChild(el(
+          '<label style="display:flex; gap:8px; align-items:center; font-weight:500;">' +
+            '<input type="checkbox" class="acc-subject" value="' + esc(s) + '" style="width:auto; margin:0;" ' + (checked ? 'checked' : '') + ' /> ' +
+            '<span>' + esc(s) + '</span>' +
+          '</label>'));
+      });
+      card.appendChild(grid);
+
+      const row = el('<div style="display:flex; gap:12px; align-items:center; margin-top:12px;"></div>');
+      const save = el('<button class="btn primary" type="button" style="padding:8px 16px;">' + t('保存', 'Save') + '</button>');
+      const status = el('<span style="font-weight:700;"></span>');
+      save.addEventListener('click', async () => {
+        const picked = [...card.querySelectorAll('.acc-subject:checked')].map((c) => c.value);
+        save.disabled = true;
+        status.style.color = '#6b7280';
+        status.textContent = t('保存中…', 'Saving…');
+        const { error } = await db.rpc('admin_set_access', {
+          p_user: u.user_id,
+          p_approved: card.querySelector('.acc-approved').checked,
+          p_subjects: picked.length ? picked : null   // none ticked = all worksheets
+        });
+        if (error) {
+          status.style.color = '#d33';
+          status.textContent = t('保存失败：', 'Save failed: ') + (error.message || '');
+        } else {
+          status.style.color = '#28a745';
+          status.textContent = t('已保存', 'Saved');
+        }
+        save.disabled = false;
+      });
+      row.appendChild(save);
+      row.appendChild(status);
+      card.appendChild(row);
+      root.appendChild(card);
+    });
+  }
+
   async function onSubmit(e) {
     e.preventDefault();
     const form = e.currentTarget;
@@ -358,7 +479,10 @@
   window.addEventListener('languageChanged', () => {
     if (!db) return;
     if (recovering) renderRecovery();
-    else if (session) { if (sections.length) renderTest(); }
+    else if (session) {
+      if (view === 'admin' && isAdmin) loadAdmin();
+      else if (sections.length) renderTest();
+    }
     else renderAuth();
   });
 })();
