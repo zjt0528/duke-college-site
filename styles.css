@@ -188,6 +188,6 @@
       .split-row { flex-wrap: wrap; }
       .testis { grid-template-columns: 1fr; }
       .logo-img { height: 36px; }
-      .logo-text { max-width: 140px; }
+      .logo-text { max-width: 160px; }
       .hero.hero-home .container { bottom: 12px; }
     }
