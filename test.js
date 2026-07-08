@@ -672,18 +672,86 @@
       return;
     }
 
-    filtered.forEach((r) => {
-      const pct = r.total ? Math.round((r.score / r.total) * 100) : 0;
-      const when = r.created_at ? new Date(r.created_at).toLocaleString(lang() === 'zh' ? 'zh-CN' : 'en-CA') : '';
-      listWrap.appendChild(el(
-        '<div class="service" style="margin-bottom:10px; padding:14px 18px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center;">' +
-          '<span><strong>' + esc(r.name || t('（未填姓名）', '(no name)')) + '</strong>' +
-          ' <span style="color:var(--muted); font-weight:500;">' + esc(r.email || '') + '</span><br/>' +
-          '<span style="color:var(--muted);">' + esc(r.subject || t('全部练习', 'all worksheets')) + ' · ' + when + '</span></span>' +
-          '<strong style="font-size:18px; color:' + (pct >= 60 ? '#28a745' : '#d97706') + ';">' + r.score + ' / ' + r.total + ' (' + pct + '%)</strong>' +
-        '</div>'
-      ));
+    filtered.forEach((r) => listWrap.appendChild(resultRow(r)));
+  }
+
+  // One expandable submission row: click to load the per-question breakdown.
+  const breakdownCache = {};   // submission id -> rows from admin_get_submission
+  function resultRow(r) {
+    const pct = r.total ? Math.round((r.score / r.total) * 100) : 0;
+    const when = r.created_at ? new Date(r.created_at).toLocaleString(lang() === 'zh' ? 'zh-CN' : 'en-CA') : '';
+    const details = el('<details class="service" style="margin-bottom:10px; padding:14px 18px;"></details>');
+    details.appendChild(el(
+      '<summary style="cursor:pointer; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center;">' +
+        '<span><strong>' + esc(r.name || t('（未填姓名）', '(no name)')) + '</strong>' +
+        ' <span style="color:var(--muted); font-weight:500;">' + esc(r.email || '') + '</span><br/>' +
+        '<span style="color:var(--muted);">' + esc(r.subject || t('全部练习', 'all worksheets')) + ' · ' + when + '</span></span>' +
+        '<strong style="font-size:18px; color:' + (pct >= 60 ? '#28a745' : '#d97706') + ';">' + r.score + ' / ' + r.total + ' (' + pct + '%)</strong>' +
+      '</summary>'
+    ));
+    const body = el('<div style="margin-top:12px;"></div>');
+    details.appendChild(body);
+    details.addEventListener('toggle', async () => {
+      if (!details.open || body.dataset.loaded) return;
+      body.dataset.loaded = '1';
+      body.innerHTML = '<p class="section-desc">' + t('加载答题详情…', 'Loading answers…') + '</p>';
+      if (!breakdownCache[r.id]) {
+        const { data, error } = await db.rpc('admin_get_submission', { p_id: r.id });
+        if (error) {
+          body.innerHTML = '<p style="color:#d33;">' + esc(error.message) + '</p>' +
+            '<p style="color:var(--muted);">' + t('请确认已在 Supabase 运行 migration_submission_detail.sql。',
+                                                  'Make sure migration_submission_detail.sql has been run in Supabase.') + '</p>';
+          delete body.dataset.loaded;   // allow retry after the migration runs
+          return;
+        }
+        breakdownCache[r.id] = data || [];
+      }
+      renderBreakdown(body, breakdownCache[r.id]);
     });
+    return details;
+  }
+
+  // Wrong answers in full (student's pick vs correct); correct ones collapsed.
+  function renderBreakdown(body, rows) {
+    body.innerHTML = '';
+    if (!rows.length) {
+      body.appendChild(el('<p class="section-desc">' + t('无法找到该练习的题目（可能已被修改）。', 'The questions for this worksheet could not be found (they may have changed).') + '</p>'));
+      return;
+    }
+    const choiceText = (q, idx) =>
+      (idx === null || idx === undefined) ? t('（未作答）', '(no answer)')
+      : String.fromCharCode(97 + idx) + '. ' + esc((q.choices || [])[idx] !== undefined ? q.choices[idx] : '?');
+    const wrong = rows.filter((q) => q.picked_index !== q.correct_index);
+    const right = rows.filter((q) => q.picked_index === q.correct_index);
+
+    if (!wrong.length) {
+      body.appendChild(el('<p style="color:#28a745; font-weight:700;">' + t('全部答对！', 'All answers correct!') + '</p>'));
+    } else {
+      body.appendChild(el('<strong style="color:#d33;">✗ ' + t('答错的题目', 'Wrong answers') + ' (' + wrong.length + ')</strong>'));
+      wrong.forEach((q, i) => {
+        body.appendChild(el(
+          '<div style="border:1px solid var(--border); border-radius:10px; padding:12px 14px; margin-top:8px; background:#fff;">' +
+            '<div style="font-weight:600;">' + (i + 1) + '. ' + esc(q.prompt) + '</div>' +
+            '<div style="margin-top:6px; color:#d33;">' + t('学生答案：', 'Student answer: ') + choiceText(q, q.picked_index) + '</div>' +
+            '<div style="color:#28a745;">' + t('正确答案：', 'Correct answer: ') + choiceText(q, q.correct_index) + '</div>' +
+          '</div>'
+        ));
+      });
+    }
+
+    if (right.length) {
+      const dt = el('<details style="margin-top:10px;"><summary style="cursor:pointer; color:var(--muted); font-weight:700;">✓ ' +
+        t('答对的题目', 'Correct answers') + ' (' + right.length + ')</summary></details>');
+      right.forEach((q) => {
+        dt.appendChild(el(
+          '<div style="border:1px solid var(--border); border-radius:10px; padding:10px 14px; margin-top:8px; background:#fff;">' +
+            '<div style="font-weight:600;">' + esc(q.prompt) + '</div>' +
+            '<div style="margin-top:4px; color:#28a745;">' + choiceText(q, q.picked_index) + '</div>' +
+          '</div>'
+        ));
+      });
+      body.appendChild(dt);
+    }
   }
 
   document.addEventListener('DOMContentLoaded', boot);
