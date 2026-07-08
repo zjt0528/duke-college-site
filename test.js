@@ -589,6 +589,9 @@
     else if (session) {
       if (view === 'admin' && isAdmin) loadAdmin();
       else if (sections.length) renderTest();
+      // No sections loaded: the visitor is on the pending-approval, error, or
+      // empty screen — re-run loadQuestions so that view re-renders too.
+      else loadQuestions();
     }
     else renderAuth();
   });

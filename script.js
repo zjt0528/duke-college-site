@@ -13,25 +13,79 @@ document.getElementById('y').textContent = new Date().getFullYear();
 
 
     /* 2. Service-detail modal.
-     *    Each key maps a service card to its popup title/image/HTML body.
+     *    Each key maps a service card to its popup image plus per-language
+     *    title/HTML body ({ en, zh } — picked by the site language).
      *    openModal() is invoked from inline onclick="openModal('k12')" etc.,
      *    so these functions must stay global (do not wrap in an IIFE). */
     const modalData = {
-      k12: { title: 'K-12 Reading & Writing Program', image: 'Images/K12.png', content: '<p>Our comprehensive K-12 reading and writing program is designed to build strong foundations in literacy skills. With leveled instruction from kindergarten through grade 12, students develop fluency, comprehension, and expressive writing abilities.</p><p><strong>Key Features:</strong></p><ul><li>Phonics and early reading foundations</li><li>Guided reading for comprehension</li><li>Literary analysis and close reading</li><li>Academic essay writing</li><li>Public speaking integrated components</li></ul>' },
-      esl: { title: 'ESL Course of Canada', image: 'Images/ESL.png', content: '<p>Comprehensive English as a Second Language instruction tailored to students of all ages and proficiency levels.</p><p><strong>Programs Include:</strong></p><ul><li>Youth ESL - Interactive cultural programs</li><li>High School ESL - Academic vocabulary focus</li><li>Adult ESL - Workplace communication skills</li><li>Flexible scheduling and adaptive learning</li></ul>' },
-      tests: { title: 'Language Test Preparation', image: 'Images/LanguageTest.png', content: '<p>Specialized test preparation for major English proficiency exams.</p><p><strong>Tests Covered:</strong></p><ul><li>IELTS - Band improvement strategy</li><li>TOEFL - Academic English focus</li><li>CELPIP - Canadian immigration exam</li><li>Duolingo - Rapid improvement drills</li><li>Custom test prep available</li></ul>' },
-      ps: { title: 'Public Speaking Course', image: 'Images/publicspeaking.png', content: '<p>Build confidence and presentation skills through structured public speaking instruction.</p><p><strong>Program Benefits:</strong></p><ul><li>Confidence building in front of audiences</li><li>Clarity and articulation development</li><li>Pronunciation improvement</li><li>Presentation structure and delivery</li><li>Q&A and panel discussion skills</li></ul>' },
-      math: { title: 'Math Course', image: 'Images/Math.png', content: '<p>Specialized mathematics instruction for students of all levels.</p><p><strong>Offerings:</strong></p><ul><li>Foundational numeracy skills</li><li>Canadian math competition prep</li><li>Grade-level tutoring</li><li>Advanced problem-solving</li><li>Test preparation for standardized exams</li></ul>' },
-      others: { title: 'Other Programs', image: 'Images/Others.png', content: '<p>Additional specialized instruction beyond our core programs.</p><p><strong>Available Courses:</strong></p><ul><li>Music lessons and instruction</li><li>Robotics and STEM learning</li><li>Subject-specific tutoring</li><li>Academic support services</li><li>Custom program design available</li></ul>' }
+      k12: {
+        image: 'Images/K12.png',
+        title: { en: 'K-12 Reading & Writing Program', zh: 'K-12 阅读与写作课程' },
+        content: {
+          en: '<p>Our comprehensive K-12 reading and writing program is designed to build strong foundations in literacy skills. With leveled instruction from kindergarten through grade 12, students develop fluency, comprehension, and expressive writing abilities.</p><p><strong>Key Features:</strong></p><ul><li>Phonics and early reading foundations</li><li>Guided reading for comprehension</li><li>Literary analysis and close reading</li><li>Academic essay writing</li><li>Public speaking integrated components</li></ul>',
+          zh: '<p>我们系统的 K-12 阅读与写作课程旨在为孩子打下坚实的读写基础。课程从幼儿园到 12 年级分级教学，全面培养学生的阅读流利度、理解力和书面表达能力。</p><p><strong>课程特色：</strong></p><ul><li>自然拼读与早期阅读基础</li><li>引导式阅读理解</li><li>文学分析与精读</li><li>学术论文写作</li><li>融合公共演讲训练</li></ul>'
+        }
+      },
+      esl: {
+        image: 'Images/ESL.png',
+        title: { en: 'ESL Course of Canada', zh: '加拿大 ESL 课程' },
+        content: {
+          en: '<p>Comprehensive English as a Second Language instruction tailored to students of all ages and proficiency levels.</p><p><strong>Programs Include:</strong></p><ul><li>Youth ESL - Interactive cultural programs</li><li>High School ESL - Academic vocabulary focus</li><li>Adult ESL - Workplace communication skills</li><li>Flexible scheduling and adaptive learning</li></ul>',
+          zh: '<p>面向各年龄段、各水平学生的系统 ESL（英语作为第二语言）课程。</p><p><strong>课程包括：</strong></p><ul><li>青少年 ESL —— 互动文化课程</li><li>高中 ESL —— 学术词汇强化</li><li>成人 ESL —— 职场沟通技能</li><li>灵活排课，因材施教</li></ul>'
+        }
+      },
+      tests: {
+        image: 'Images/LanguageTest.png',
+        title: { en: 'Language Test Preparation', zh: '语言考试备考课程' },
+        content: {
+          en: '<p>Specialized test preparation for major English proficiency exams.</p><p><strong>Tests Covered:</strong></p><ul><li>IELTS - Band improvement strategy</li><li>TOEFL - Academic English focus</li><li>CELPIP - Canadian immigration exam</li><li>Duolingo - Rapid improvement drills</li><li>Custom test prep available</li></ul>',
+          zh: '<p>针对各大英语水平考试的专项备考课程。</p><p><strong>涵盖考试：</strong></p><ul><li>雅思（IELTS）—— 分数提升策略</li><li>托福（TOEFL）—— 学术英语强化</li><li>思培（CELPIP）—— 加拿大移民考试</li><li>多邻国（Duolingo）—— 快速提分训练</li><li>可定制个性化备考方案</li></ul>'
+        }
+      },
+      ps: {
+        image: 'Images/publicspeaking.png',
+        title: { en: 'Public Speaking Course', zh: '公共演讲课程' },
+        content: {
+          en: '<p>Build confidence and presentation skills through structured public speaking instruction.</p><p><strong>Program Benefits:</strong></p><ul><li>Confidence building in front of audiences</li><li>Clarity and articulation development</li><li>Pronunciation improvement</li><li>Presentation structure and delivery</li><li>Q&A and panel discussion skills</li></ul>',
+          zh: '<p>通过系统的公共演讲训练，建立自信、提升表达能力。</p><p><strong>课程收获：</strong></p><ul><li>培养面对听众的自信</li><li>提升表达清晰度与口齿</li><li>改善发音</li><li>演讲结构与台风训练</li><li>问答与小组讨论技巧</li></ul>'
+        }
+      },
+      math: {
+        image: 'Images/Math.png',
+        title: { en: 'Math Course', zh: '数学课程' },
+        content: {
+          en: '<p>Specialized mathematics instruction for students of all levels.</p><p><strong>Offerings:</strong></p><ul><li>Foundational numeracy skills</li><li>Canadian math competition prep</li><li>Grade-level tutoring</li><li>Advanced problem-solving</li><li>Test preparation for standardized exams</li></ul>',
+          zh: '<p>面向各水平学生的专业数学辅导。</p><p><strong>课程内容：</strong></p><ul><li>数学基础能力</li><li>加拿大数学竞赛备赛</li><li>各年级同步辅导</li><li>高阶解题训练</li><li>标准化考试备考</li></ul>'
+        }
+      },
+      others: {
+        image: 'Images/Others.png',
+        title: { en: 'Other Programs', zh: '其他课程' },
+        content: {
+          en: '<p>Additional specialized instruction beyond our core programs.</p><p><strong>Available Courses:</strong></p><ul><li>Music lessons and instruction</li><li>Robotics and STEM learning</li><li>Subject-specific tutoring</li><li>Academic support services</li><li>Custom program design available</li></ul>',
+          zh: '<p>核心课程之外的更多特色课程。</p><p><strong>开设课程：</strong></p><ul><li>音乐课程</li><li>机器人与 STEM 课程</li><li>单科辅导</li><li>学业支持服务</li><li>可定制课程方案</li></ul>'
+        }
+      }
     };
+
+    let openModalType = null;   // which service the modal is currently showing
 
     function openModal(type) {
       const data = modalData[type];
-      document.getElementById('modal-title').textContent = data.title;
+      const lang = (localStorage.getItem('site-lang') === 'en') ? 'en' : 'zh';
+      document.getElementById('modal-title').textContent = data.title[lang];
       document.getElementById('modal-image').src = data.image;
-      document.getElementById('modal-body').innerHTML = data.content;
+      document.getElementById('modal-body').innerHTML = data.content[lang];
       document.getElementById('modal').classList.add('show');
+      openModalType = type;
     }
+
+    // If the modal is open when the visitor toggles EN/中文, refresh its content.
+    window.addEventListener('languageChanged', function () {
+      if (openModalType && document.getElementById('modal').classList.contains('show')) {
+        openModal(openModalType);
+      }
+    });
 
     function closeModal(event) {
       // Ignore clicks that bubble up from inside the modal content; only the
