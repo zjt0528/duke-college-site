@@ -41,9 +41,10 @@
   let authMode = 'signin';
   let recovering = false; // true while the user is setting a new password
   let isAdmin = false;    // caller is in the admins table (checked server-side too)
-  let view = 'test';      // 'test' | 'admin'
+  let view = 'test';      // 'test' | 'admin' | 'results'
   let sections = [];      // [{ subject, questions: [...] }], ordered by worksheet code
   let current = null;     // currently selected subject label
+  let mySubs = {};        // subject -> { score, total } — this student's past submissions
 
   function displayName() {
     const u = session && session.user;
@@ -91,6 +92,7 @@
       isAdmin = data === true;
     } catch (_) { isAdmin = false; }
     if (view === 'admin' && isAdmin) loadAdmin();
+    else if (view === 'results' && isAdmin) loadResults();
     else { view = 'test'; loadQuestions(); }
   }
 
@@ -262,6 +264,11 @@
       adm.addEventListener('click', () => { view = 'admin'; loadAdmin(); });
       btns.appendChild(adm);
     }
+    if (opts.results && isAdmin) {
+      const res = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('成绩', 'Results') + '</button>');
+      res.addEventListener('click', () => { view = 'results'; loadResults(); });
+      btns.appendChild(res);
+    }
     const out = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('退出登录', 'Log out') + '</button>');
     out.addEventListener('click', async () => { await db.auth.signOut(); });   // onAuthStateChange → renderAuth
     btns.appendChild(out);
@@ -288,6 +295,14 @@
       root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(error.message) + '</p></div>';
       return;
     }
+    // Past submissions mark worksheets as completed (one attempt each).
+    // try/catch keeps the page working before the migration adds the RPC.
+    mySubs = {};
+    try {
+      const subsRes = await db.rpc('get_my_submissions');
+      (subsRes.data || []).forEach((s) => { if (!mySubs[s.subject]) mySubs[s.subject] = s; });
+    } catch (_) { /* RPC not installed yet */ }
+
     const bySubject = {};
     (data || []).forEach((q) => { (bySubject[q.subject] = bySubject[q.subject] || []).push(q); });
     sections = Object.keys(bySubject)
@@ -298,7 +313,11 @@
       renderTest(true);
       return;
     }
-    if (!current || !bySubject[current]) current = sections[0].subject;
+    if (!current || !bySubject[current]) {
+      // Default to the first worksheet the student hasn't taken yet.
+      const open = sections.find((s) => !mySubs[s.subject]);
+      current = (open || sections[0]).subject;
+    }
     renderTest();
   }
 
@@ -322,13 +341,30 @@
     sections.forEach((sec) => {
       const o = document.createElement('option');
       o.value = sec.subject;
-      o.textContent = sec.subject + '  (' + sec.questions.length + ')';
+      const done = mySubs[sec.subject];
+      o.textContent = sec.subject + '  (' + sec.questions.length + ')' +
+        (done ? '  ✓ ' + t('已完成', 'done') + ' ' + done.score + '/' + done.total : '');
       if (sec.subject === current) o.selected = true;
       sel.appendChild(o);
     });
     sel.addEventListener('change', () => { current = sel.value; renderTest(); });
     picker.appendChild(sel);
     root.appendChild(picker);
+
+    // Already taken: each worksheet allows a single attempt (enforced by the
+    // database too) — show the recorded result instead of the questions.
+    // Admins are exempt (server-side too), so they can re-test freely.
+    const done = mySubs[section.subject];
+    if (done && !isAdmin) {
+      root.appendChild(el(
+        '<div class="service"><strong>' + t('该练习已完成', 'Worksheet completed') + '</strong>' +
+        '<p>' + t('你的成绩：', 'Your score: ') + '<strong>' + done.score + ' / ' + done.total + '</strong>' +
+        (done.created_at ? ' · ' + new Date(done.created_at).toLocaleString(lang() === 'zh' ? 'zh-CN' : 'en-CA') : '') + '</p>' +
+        '<p style="color:var(--muted);">' + t('每个练习只能提交一次。请从上方选择其他练习。',
+                                              'Each worksheet can be submitted only once. Pick another worksheet above.') + '</p></div>'
+      ));
+      return;
+    }
 
     const form = el('<form id="test-form"></form>');
 
@@ -416,7 +452,7 @@
 
   function renderAdmin() {
     root.innerHTML = '';
-    root.appendChild(signedInBar({ back: true }));
+    root.appendChild(signedInBar({ back: true, results: true }));
     root.appendChild(el('<h3 style="margin:0 0 6px;">' + t('用户管理', 'User management') + '</h3>'));
     root.appendChild(el('<p class="section-desc">' +
       t('点击学生展开编辑；勾选“允许测试”开通账号，选择可做的练习（全不选 = 全部练习）。',
@@ -571,14 +607,83 @@
       });
       if (error) throw error;
       const row = Array.isArray(data) ? data[0] : data;
-      status.style.color = '#28a745';
-      status.textContent = t('提交成功！得分：', 'Submitted! Your score: ') + row.score + ' / ' + row.total;
+      // Record locally and re-render: the worksheet flips to its completed
+      // card (with the score) and gets its ✓ in the picker.
+      mySubs[current] = { subject: current, score: row.score, total: row.total, created_at: new Date().toISOString() };
+      renderTest();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
       status.style.color = '#d33';
-      status.textContent = t('提交失败：', 'Submission failed: ') + (err.message || '');
-    } finally {
+      status.textContent = ((err.message || '').indexOf('ALREADY_SUBMITTED') !== -1)
+        ? t('该练习已提交过，每个练习只能提交一次。', 'You have already submitted this worksheet — only one attempt is allowed.')
+        : t('提交失败：', 'Submission failed: ') + (err.message || '');
       btn.disabled = false;
     }
+  }
+
+  // ---- Admin results page ------------------------------------------------------
+  // Every student submission (newest first), filterable by student or worksheet.
+  let adminResults = [];
+  let resultsQuery = '';
+
+  async function loadResults() {
+    root.innerHTML = '<p class="section-desc">' + t('加载成绩中…', 'Loading results…') + '</p>';
+    const { data, error } = await db.rpc('admin_list_submissions');
+    if (error) {
+      root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(error.message) + '</p>' +
+        '<p style="color:var(--muted);">' + t('请确认已在 Supabase 运行 migration_one_submission_results.sql。',
+                                              'Make sure migration_one_submission_results.sql has been run in Supabase.') + '</p></div>';
+      return;
+    }
+    adminResults = data || [];
+    renderResults();
+  }
+
+  function renderResults() {
+    root.innerHTML = '';
+    root.appendChild(signedInBar({ back: true, admin: true }));
+    root.appendChild(el('<h3 style="margin:0 0 6px;">' + t('学生成绩', 'Student results') + '</h3>'));
+    root.appendChild(el('<p class="section-desc">' + t('所有提交记录，按时间倒序。', 'Every submission, newest first.') + '</p>'));
+
+    const bar = el('<div class="service" style="margin-bottom:14px;"></div>');
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.placeholder = t('搜索姓名、邮箱或练习…', 'Search name, email, or worksheet…');
+    search.value = resultsQuery;
+    search.style.marginTop = '0';
+    const listWrap = el('<div></div>');
+    search.addEventListener('input', () => { resultsQuery = search.value; renderResultsList(listWrap); });
+    bar.appendChild(search);
+    root.appendChild(bar);
+    root.appendChild(listWrap);
+    renderResultsList(listWrap);
+  }
+
+  function renderResultsList(listWrap) {
+    listWrap.innerHTML = '';
+    const q = resultsQuery.trim().toLowerCase();
+    const filtered = adminResults.filter((r) =>
+      !q || ((r.name || '') + ' ' + (r.email || '') + ' ' + (r.subject || '')).toLowerCase().indexOf(q) !== -1);
+
+    listWrap.appendChild(el('<p class="section-desc" style="margin-bottom:12px;">' +
+      t('显示 ', 'Showing ') + filtered.length + ' / ' + adminResults.length + t(' 条提交', ' submissions') + '</p>'));
+    if (!filtered.length) {
+      listWrap.appendChild(el('<p class="section-desc">' + t('暂无提交记录。', 'No submissions yet.') + '</p>'));
+      return;
+    }
+
+    filtered.forEach((r) => {
+      const pct = r.total ? Math.round((r.score / r.total) * 100) : 0;
+      const when = r.created_at ? new Date(r.created_at).toLocaleString(lang() === 'zh' ? 'zh-CN' : 'en-CA') : '';
+      listWrap.appendChild(el(
+        '<div class="service" style="margin-bottom:10px; padding:14px 18px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center;">' +
+          '<span><strong>' + esc(r.name || t('（未填姓名）', '(no name)')) + '</strong>' +
+          ' <span style="color:var(--muted); font-weight:500;">' + esc(r.email || '') + '</span><br/>' +
+          '<span style="color:var(--muted);">' + esc(r.subject || t('全部练习', 'all worksheets')) + ' · ' + when + '</span></span>' +
+          '<strong style="font-size:18px; color:' + (pct >= 60 ? '#28a745' : '#d97706') + ';">' + r.score + ' / ' + r.total + ' (' + pct + '%)</strong>' +
+        '</div>'
+      ));
+    });
   }
 
   document.addEventListener('DOMContentLoaded', boot);
@@ -588,6 +693,7 @@
     if (recovering) renderRecovery();
     else if (session) {
       if (view === 'admin' && isAdmin) loadAdmin();
+      else if (view === 'results' && isAdmin) renderResults();
       else if (sections.length) renderTest();
       // No sections loaded: the visitor is on the pending-approval, error, or
       // empty screen — re-run loadQuestions so that view re-renders too.
