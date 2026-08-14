@@ -501,7 +501,6 @@ document.getElementById('y').textContent = new Date().getFullYear();
           'partner.n': 'Prospect International Consulting',
           'partner.o': 'Canada Glory Immigration',
           'partner.p': 'BTA Study Abroad Consultant Doctor Studio (USA)',
-          'partner.q': 'Superstar Music School (Toronto)',
           'partner.r': 'Axis Fencing Club (Markham)',
           'partner.s': 'CECAC'
         },
@@ -899,7 +898,6 @@ document.getElementById('y').textContent = new Date().getFullYear();
           'partner.n': '加拿大博大移民留学',
           'partner.o': '加拿大荣耀移民留学',
           'partner.p': '美国美桥留学顾问博士工作室',
-          'partner.q': '多伦多星音乐学校',
           'partner.r': '万锦击剑俱乐部',
           'partner.s': '加拿大中文教育协会'
         }
