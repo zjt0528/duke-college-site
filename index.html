@@ -1,1262 +1,3024 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Duke College Inc. — Education & Services</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-contact" data-i18n-html="topbar.contact">📧 dukecollege.vip@gmail.com · ☎︎ (905) 569‑0511</div>
-      <div class="lang-switch" aria-label="Language switch">
-        <button id="lang-en">EN</button>
-        <button id="lang-zh" class="active">中文</button>
-      </div>
-    </div>
-  </div>
- 
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <img src="Images/Logo.jpg" alt="Duke College logo" class="logo-img" />
-        <div class="logo-text">Duke College Inc.<small>Educational Institute</small></div>
-      </div>
-      <nav id="site-menu" class="menu" aria-hidden="false">
-        <a href="#/home" data-i18n="nav.home">首页</a>
-        <a href="#/en" data-i18n="nav.english">英文</a>
-        <a href="#/cn" data-i18n="nav.chinese">语文</a>
-        <a href="#/math" data-i18n="nav.math">数学</a>
-        <a href="#/fr" data-i18n="nav.french">法语</a>
-        <a href="#/ps" data-i18n="nav.ps">公共演讲</a>
-        <a href="#/teachers" data-i18n="nav.teachers">师资</a>
-        <a href="#/test" data-i18n="nav.test">在线测试</a>
-        <a href="#/home/contact" class="cta" data-i18n="nav.contact">联系</a>
-      </nav>
-      <button id="menu-toggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Open menu">☰</button>
-    </div>
-  </header>
-
-  <main id="page-home" class="page active" data-route="home" aria-hidden="false">
-    <section id="home" class="hero hero-home">
-      <img class="hero-bleed" src="Images/Duke_Image.png" alt="Duke College" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Duke College Inc. — Education & Services</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="topbar">
       <div class="container">
-        <div class="actions">
-          <a class="btn primary" href="#/home/services" data-i18n="btn.courses">所有课程</a>
-          <a class="btn secondary" href="#/home/contact" data-i18n="btn.signup">点击报名</a>
+        <div class="topbar-contact" data-i18n-html="topbar.contact">
+          📧 dukecollege.vip@gmail.com · ☎︎ (905) 569‑0511
         </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about">
-        <div class="card">
-          <h2 class="section-title" data-i18n="about.title">关于我们</h2>
-          <p class="section-desc" data-i18n="about.desc">青少年英语读写第一品牌，奠定一生的学业基础</p>
-          <!-- <p data-i18n="about.cert">加拿大杜克英语ESL学习能力认证</p> -->
+        <div class="lang-switch" aria-label="Language switch">
+          <button id="lang-en">EN</button>
+          <button id="lang-zh" class="active">中文</button>
         </div>
-        <div class="card">
-          <h3 data-i18n="about.highlights.title">亮点速览</h3>
-          <ul>
-            <li data-i18n="about.highlights.li1">✅ 语言学习中心：K-12 Reading&Writing Program / ESL / Test Prepration</li>
-            <li data-i18n="about.highlights.li2">✅ 高中学习辅导：学分提升 / 快修学科辅导</li>
-            <li data-i18n="about.highlights.li3">✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 / 机器人课程</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-
-        <h2 class="section-title" data-i18n="services.title">Services</h2>
-      <p class="section-desc" data-i18n="services.desc">Choose the services you need and contact our advisors for program details and pricing (each item may link to a detail page).</p>
-      <!-- Services reorganized into three main categories -->
-      <div class="services-cats">
-        <div class="cat">
-           <img src="Images/K12.png" alt="K-12 Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
-          <h3 class="cat-title" data-i18n="cat.k12.title">K-12 Reading & Writing Program (ESL)</h3>
-          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('k12')" data-i18n="link.view">View More</button>
-        </div>
-
-        <div class="cat">
-          <img src="Images/ESL.png" alt="ESL Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
-          <h3 class="cat-title" data-i18n="cat.esl.title">ESL Course of Canada</h3>
-          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('esl')" data-i18n="link.view">View More</button>
-        </div>
-
-        <div class="cat">
-          <img src="Images/LanguageTest.png" alt="Language Test Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
-          <h3 class="cat-title" data-i18n="cat.tests.title">Language Test Preparation Course</h3>
-          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('tests')" data-i18n="link.view">View More</button>
-        </div>
-        
-        <div class="cat">
-           <img src="Images/publicspeaking.png" alt="Public Speaking Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
-          <h3 class="cat-title" data-i18n="cat.ps.title">Public Speaking</h3>
-          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('ps')" data-i18n="link.view">View More</button>
-        </div>
-
-        <div class="cat">
-          <img src="Images/Math.png" alt="Math Program" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
-          <h3 class="cat-title" data-i18n="cat.math.title">Math</h3>
-          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('math')" data-i18n="link.view">View More</button>
-        </div>
-
-        <div class="cat">
-          <img src="Images/Others.png" alt="Other Programs" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;" />
-          <h3 class="cat-title" data-i18n="cat.others.title">Others</h3>
-          <button class="btn primary" style="width: 100%; margin-top: 12px;" onclick="openModal('others')" data-i18n="link.view">View More</button>
-        </div>
-
       </div>
     </div>
 
-    
-    </section>
-
-  <section id="partners">
-    <div class="container">
-      <h2 class="section-title" data-i18n="partners.title">合作伙伴</h2>
-      <p class="section-desc" data-i18n="partners.desc">与我们关系密切的合作伙伴</p>
-      <div class="partners-wrap" aria-label="Partners navigation">
-        <button id="partners-prev" type="button" class="btn secondary partners-arrow" aria-label="Previous partners">‹</button>
-        <div class="partners">
-          <div class="partners-track">
-            <div class="partner"><img src="Images/CAIE.png" alt="CAIE" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.g">CAIE</span></div>
-            <a href="https://cecac.ca/about" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/CECAC.jpg" alt="CECAC" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.s">CECAC</span>
-            </a>
-            <div class="partner"><img src="Images/CCISS.png" alt="CCISS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.f">CCISS</span></div>
-            <a href="https://www.dedu-services.com/" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/Partner5.png" alt="Dong_an" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.e">Dong_an</span>
-            </a>
-            <a href="https://ielts.org/" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/partner1.png" alt="IELTS" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.a">IELTS</span>
-            </a>
-            <a href="https://www.celpip.ca/" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/partner2.png" alt="CELPIP" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.b">CELPIP</span>
-            </a>
-            <a href="https://www.uwo.ca/index.html" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/Partner4.png" alt="Western University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.d">Western University</span>
-            </a>
-            <a href="https://www.utoronto.ca/" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/Partner6.png" alt="Toronto University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.h">Toronto University</span>
-            </a>
-            <a href="https://www.mcgill.ca/" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/Partner7.png" alt="McGill University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.i">McGill University</span>
-            </a>
-            <a href="https://uwaterloo.ca/" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/Partner8.png" alt="Waterloo University" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.j">Waterloo University</span>
-            </a>
-            <a href="https://michaelsu.ca/" target="_blank" class="partner" style="flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5); text-decoration: none; cursor: pointer; display: flex; flex-direction: column;">
-              <img src="Images/PartnerSu.jpg" alt="Michael Su & Associates" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.m">Michael Su & Associates</span>
-            </a>
-            <div class="partner"><img src="Images/PartnerGolory.png" alt="Canada Glory Immigration" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.o">Canada Glory Immigration</span></div>
-            <div class="partner"><img src="Images/PartnerFence.png" alt="Axis Fencing Club (Markham)" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.r">Axis Fencing Club (Markham)</span></div>
-            <div class="partner"><img src="Images/PartnerMount.jpg" alt="Mount Saint Vincent University (MSVU) - Duke College Language Pathway" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.k">Mount Saint Vincent University (MSVU) - Duke College Language Pathway</span></div>
-            <div class="partner"><img src="Images/PartnerICEAP.jpg" alt="International Centre for English Academic Preparation (ICEAP), King's University College at Western University - ICEAP Toronto" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 8px;" /><span data-i18n="partner.l">International Centre for English Academic Preparation (ICEAP), King's University College at Western University - ICEAP Toronto</span></div>
-            <div class="partner"><span data-i18n="partner.p">BTA Study Abroad Consultant Doctor Studio (USA)</span></div>
-            <div class="partner"><span data-i18n="partner.n">Prospect International Consulting</span></div>
-        </div>
-        </div>
-        <button id="partners-next" type="button" class="btn secondary partners-arrow" aria-label="Next partners">›</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="life">
-    <div class="container">
-      <h2 class="section-title" data-i18n="life.title">每月活动</h2>
-      <p class="section-desc" data-i18n="life.desc">过往活动展示</p>
-      <div class="grid">
-        <div class="grid-scroll">
-          <div class="service"><img src="Images/MapleTrip.jpg" alt="Maple Syrup Trip" data-i18n-alt="life.event4.imgAlt"><strong data-i18n="life.event4.title">Maple Syrup Trip</strong><p data-i18n="life.event4.desc">Hands-on spring field trip to experience Maple Syrup Festival traditions and seasonal learning activities.</p></div>
-          <div class="service"><img src="Images/MarchBreak.jpg" alt="March Break Reading and Speech Report" data-i18n-alt="life.event5.imgAlt"><strong data-i18n="life.event5.title">March Break Reading & Speech Report</strong><p data-i18n="life.event5.desc">Students present reading summaries and speech reports to strengthen expression, confidence, and critical thinking.</p></div>
-          <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
-          <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
-          <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
-          
-          <div class="service"><img src="Images/MapleTrip.jpg" alt="Maple Syrup Trip" data-i18n-alt="life.event4.imgAlt"><strong data-i18n="life.event4.title">Maple Syrup Trip</strong><p data-i18n="life.event4.desc">Hands-on spring field trip to experience Maple Syrup Festival traditions and seasonal learning activities.</p></div>
-          <div class="service"><img src="Images/MarchBreak.jpg" alt="March Break Reading and Speech Report" data-i18n-alt="life.event5.imgAlt"><strong data-i18n="life.event5.title">March Break Reading & Speech Report</strong><p data-i18n="life.event5.desc">Students present reading summaries and speech reports to strengthen expression, confidence, and critical thinking.</p></div>
-          <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
-          <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
-          <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
-
-          <div class="service"><img src="Images/MapleTrip.jpg" alt="Maple Syrup Trip" data-i18n-alt="life.event4.imgAlt"><strong data-i18n="life.event4.title">Maple Syrup Trip</strong><p data-i18n="life.event4.desc">Hands-on spring field trip to experience Maple Syrup Festival traditions and seasonal learning activities.</p></div>
-          <div class="service"><img src="Images/MarchBreak.jpg" alt="March Break Reading and Speech Report" data-i18n-alt="life.event5.imgAlt"><strong data-i18n="life.event5.title">March Break Reading & Speech Report</strong><p data-i18n="life.event5.desc">Students present reading summaries and speech reports to strengthen expression, confidence, and critical thinking.</p></div>
-          <div class="service"><img src="Images/image1.jpg" alt="Public Speaking Awards" data-i18n-alt="life.event1.imgAlt"><strong data-i18n="life.event1.title">Public Speaking Awards Phase</strong><p data-i18n="life.event1.desc">Student recognition ceremony celebrating outstanding presentations and speaking achievements throughout the year.</p></div>
-          <div class="service"><img src="Images/image2.jpg" alt="Excellent Student" data-i18n-alt="life.event2.imgAlt"><strong data-i18n="life.event2.title">Public Speaking Excellent Student</strong><p data-i18n="life.event2.desc">Highlighting top performers in our public speaking program who demonstrate exceptional confidence and clarity.</p></div>
-          <div class="service"><img src="Images/image3.jpg" alt="Train Museum Tour" data-i18n-alt="life.event3.imgAlt"><strong data-i18n="life.event3.title">Fall Event – Train Museum Tour</strong><p data-i18n="life.event3.desc">Educational excursion exploring railway history and cultural exhibits during our fall program season.</p></div>
-
-        </div>
-      </div>
-      <h2 class="section-title" data-i18n="testimonials.title">学员与家长怎么说</h2>
-      <div class="testis">
-        <div class="quote"><span data-i18n="testi.1.quote">"The reading program strengthened my comprehension and writing—my grades improved noticeably."</span> <strong data-i18n="testi.1.author">— Li Wei</strong></div>
-        <div class="quote"><span data-i18n="testi.2.quote">"Public speaking classes greatly improved my confidence and presentation skills for class and competitions."</span> <strong data-i18n="testi.2.author">— Emma Chen</strong></div>
-        <div class="quote"><span data-i18n="testi.3.quote">"Combining reading and public speaking coaching helped me deliver stronger presentations and land an internship."</span> <strong data-i18n="testi.3.author">— Marcus Liu</strong></div>
-      </div>
-    </div>
-  </section>
-
-    <section id="contact">
-      <div class="container contact">
-      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <!-- Get a free access key at https://web3forms.com (enter dukecollege.vip@gmail.com) and paste it below. -->
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-        <input type="hidden" name="subject" value="New inquiry from Duke College website" />
-        <input type="hidden" name="from_name" value="Duke College Website" />
-        <!-- Honeypot spam protection (leave empty) -->
-        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;" aria-hidden="true" />
-        <h2 class="section-title" data-i18n="contact.title">联系我们</h2>
-        <label data-i18n="label.email">您的邮箱</label>
-        <input type="email" name="email" placeholder="you@example.com" data-i18n-placeholder="placeholder.email" required />
-        <label data-i18n="label.name">姓名</label>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
-          <input type="text" name="first_name" placeholder="名 First Name" data-i18n-placeholder="placeholder.first" />
-          <input type="text" name="last_name" placeholder="姓 Last Name" data-i18n-placeholder="placeholder.last" />
-        </div>
-        <label data-i18n="label.message">问题 / 需求</label>
-        <textarea rows="5" name="message" placeholder="请简单描述你的需求..." data-i18n-placeholder="placeholder.message" required></textarea>
-        <div style="margin-top:14px;">
-          <button class="btn primary" type="submit" data-i18n="btn.submit">提交</button>
-        </div>
-        <p id="form-status" role="status" aria-live="polite" style="margin-top:12px; font-weight:700;"></p>
-      </form>
-      <div>
-        <div class="service qr-container">
-          <h3 data-i18n="contact.qr.title">扫码联系我们</h3>
-          <img src="Images/QR_code.png" alt="Contact QR Code" class="qr-code" />
-          <p data-i18n="contact.qr.desc">使用微信扫描二维码，获取最新课程信息和报名方式</p>
-        </div>
-        <div class="service">
-          <h3 data-i18n="contact.info.title">联系方式</h3>
-          <p data-i18n-html="contact.info.content">📧 dukecollege.vip@gmail.com<br/>☎︎ (905) 569‑0511<br/>☎︎ (647) 987‑2623<br/>📍 7130 Warden Ave., Unit 601, Markham, ON L3R 1S2</p>
-          <p id="office-hours-display">工作时间：Mon–Sat 10:00–20:00</p>
-        </div>
-      </div>
-      </div>
-    </section>
-  </main>
-
-  <main id="page-cn" class="page" data-route="cn" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="chinese.title">中文教育推广项目</h2>
-        <p class="section-desc" data-i18n="chinese.desc">不是学不会，是一开始就没学对。加中教育文化交流协会携手杜克学院，推出公益补贴中文课程。</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="service" style="margin: 0 auto 18px; max-width: 760px;">
-          <img
-            src="Images/Chinese_Poster.jpg"
-            alt="Chinese course poster"
-            data-i18n-alt="chinese.poster.alt"
-            style="display: block; width: 100%; height: auto; border-radius: 12px;"
-          />
-        </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="chinese.problem.title">为什么很多孩子学了几年中文仍然吃力？</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="chinese.problem.list"></div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="chinese.launch.title">项目发起与课程简介</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="chinese.launch.list"></div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="chinese.highlights.title">课程亮点与公益支持</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="chinese.highlights.list"></div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="chinese.objective.title">初期目标：打基础、能读、能开口</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="chinese.objective.list"></div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="chinese.solution.title">项目优势与解决方案</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="chinese.solution.list"></div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="chinese.outcome.title">学习结果预期</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="chinese.outcome.list"></div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="chinese.signup.title">限额与报名方式</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="chinese.signup.list"></div>
-            </div>
+    <header>
+      <div class="container nav">
+        <div class="logo">
+          <img src="Images/Logo.jpg" alt="Duke College logo" class="logo-img" />
+          <div class="logo-text">
+            Duke College Inc.<small>Educational Institute</small>
           </div>
         </div>
+        <nav id="site-menu" class="menu" aria-hidden="false">
+          <a href="#/home" data-i18n="nav.home">首页</a>
+          <a href="#/en" data-i18n="nav.english">英文</a>
+          <a href="#/cn" data-i18n="nav.chinese">语文</a>
+          <a href="#/math" data-i18n="nav.math">数学</a>
+          <a href="#/fr" data-i18n="nav.french">法语</a>
+          <a href="#/ps" data-i18n="nav.ps">公共演讲</a>
+          <a href="#/teachers" data-i18n="nav.teachers">师资</a>
+          <a href="#/test" data-i18n="nav.test">在线测试</a>
+          <a href="#/home/contact" class="cta" data-i18n="nav.contact">联系</a>
+        </nav>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-controls="site-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <main id="page-en" class="page" data-route="en" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="english.title">English Program</h2>
-        <p class="section-desc" data-i18n="english.desc">Structured reading and expression courses designed for different learning stages.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat"><div class="split-row"><h3 class="cat-title" style="margin:0;" data-i18n="english.section.easyStart">Easy Start</h3><a class="btn primary" style="padding: 10px 14px;" href="#/en-easy-start" data-i18n="link.view">View</a></div></div>
-          <div class="cat"><div class="split-row"><h3 class="cat-title" style="margin:0;" data-i18n="english.section.easyChapterBooks">Easy Chapter Books</h3><a class="btn primary" style="padding: 10px 14px;" href="#/en-easy-chapter-books" data-i18n="link.view">View</a></div></div>
-          <div class="cat"><div class="split-row"><h3 class="cat-title" style="margin:0;" data-i18n="english.section.vastReading">Vast Reading</h3><a class="btn primary" style="padding: 10px 14px;" href="#/en-vast-reading" data-i18n="link.view">View</a></div></div>
-          <div class="cat"><div class="split-row"><h3 class="cat-title" style="margin:0;" data-i18n="english.section.comprehensiveReading">Comprehensive Reading</h3><a class="btn primary" style="padding: 10px 14px;" href="#/en-comprehensive-reading" data-i18n="link.view">View</a></div></div>
-          <div class="cat"><div class="split-row"><h3 class="cat-title" style="margin:0;" data-i18n="english.section.speedReading">Speed Reading</h3><a class="btn primary" style="padding: 10px 14px;" href="#/en-speed-reading" data-i18n="link.view">View</a></div></div>
-          <div class="cat"><div class="split-row"><h3 class="cat-title" style="margin:0;" data-i18n="english.section.powerPresentation">Power Presentation</h3><a class="btn primary" style="padding: 10px 14px;" href="#/en-power-presentation" data-i18n="link.view">View</a></div></div>
-          <div class="cat"><div class="split-row"><h3 class="cat-title" style="margin:0;" data-i18n="english.section.classicReading">Classic Reading</h3><a class="btn primary" style="padding: 10px 14px;" href="#/en-classic-reading" data-i18n="link.view">View</a></div></div>
+    <main
+      id="page-home"
+      class="page active"
+      data-route="home"
+      aria-hidden="false"
+    >
+      <section id="home" class="hero hero-home">
+        <img
+          class="hero-bleed"
+          src="Images/Duke_Image.png"
+          alt="Duke College"
+        />
+        <div class="container">
+          <div class="actions">
+            <a
+              class="btn primary"
+              href="#/home/services"
+              data-i18n="btn.courses"
+              >所有课程</a
+            >
+            <a
+              class="btn secondary"
+              href="#/home/contact"
+              data-i18n="btn.signup"
+              >点击报名</a
+            >
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <main id="page-en-easy-start" class="page" data-route="en-easy-start" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="english.easyStart.title">Easy Start</h2>
-          <a class="btn secondary" href="#/en" data-i18n="english.back">Back to English Program</a>
+      <section id="about">
+        <div class="container about">
+          <div class="card">
+            <h2 class="section-title" data-i18n="about.title">关于我们</h2>
+            <p class="section-desc" data-i18n="about.desc">
+              青少年英语读写第一品牌，奠定一生的学业基础
+            </p>
+            <!-- <p data-i18n="about.cert">加拿大杜克英语ESL学习能力认证</p> -->
+          </div>
+          <div class="card">
+            <h3 data-i18n="about.highlights.title">亮点速览</h3>
+            <ul>
+              <li data-i18n="about.highlights.li1">
+                ✅ 语言学习中心：K-12 Reading&Writing Program / ESL / Test
+                Prepration
+              </li>
+              <li data-i18n="about.highlights.li2">
+                ✅ 高中学习辅导：学分提升 / 快修学科辅导
+              </li>
+              <li data-i18n="about.highlights.li3">
+                ✅ 竞赛和兴趣活动培训：加拿大各级数学竞赛 / 音乐学习 /
+                机器人课程
+              </li>
+            </ul>
+          </div>
         </div>
-        <p class="section-desc" data-i18n="english.easyStart.desc">Foundational English for early learners.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="cat-grid">
-          <div class="service" data-i18n-html="english.easyStart.content"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <main id="page-en-easy-chapter-books" class="page" data-route="en-easy-chapter-books" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="english.easyChapterBooks.title">Easy Chapter Books</h2>
-          <a class="btn secondary" href="#/en" data-i18n="english.back">Back to English Program</a>
-        </div>
-        <p class="section-desc" data-i18n="english.easyChapterBooks.desc">Guided transition from picture books to chapter books.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="cat-grid">
-          <div class="service" data-i18n-html="english.easyChapterBooks.content"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+      <section id="services">
+        <div class="container">
+          <h2 class="section-title" data-i18n="services.title">Services</h2>
+          <p class="section-desc" data-i18n="services.desc">
+            Choose the services you need and contact our advisors for program
+            details and pricing (each item may link to a detail page).
+          </p>
+          <!-- Services reorganized into three main categories -->
+          <div class="services-cats">
+            <div class="cat">
+              <img
+                src="Images/K12.png"
+                alt="K-12 Program"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  margin-bottom: 12px;
+                "
+              />
+              <h3 class="cat-title" data-i18n="cat.k12.title">
+                K-12 Reading & Writing Program (ESL)
+              </h3>
+              <button
+                class="btn primary"
+                style="width: 100%; margin-top: 12px"
+                onclick="openModal('k12')"
+                data-i18n="link.view"
+              >
+                View More
+              </button>
+            </div>
 
-  <main id="page-en-vast-reading" class="page" data-route="en-vast-reading" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="english.vastReading.title">Vast Reading</h2>
-          <a class="btn secondary" href="#/en" data-i18n="english.back">Back to English Program</a>
-        </div>
-        <p class="section-desc" data-i18n="english.vastReading.desc">Broaden exposure through diverse genres and topics.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="cat-grid">
-          <div class="service" data-i18n-html="english.vastReading.content"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+            <div class="cat">
+              <img
+                src="Images/ESL.png"
+                alt="ESL Program"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  margin-bottom: 12px;
+                "
+              />
+              <h3 class="cat-title" data-i18n="cat.esl.title">
+                ESL Course of Canada
+              </h3>
+              <button
+                class="btn primary"
+                style="width: 100%; margin-top: 12px"
+                onclick="openModal('esl')"
+                data-i18n="link.view"
+              >
+                View More
+              </button>
+            </div>
 
-  <main id="page-en-comprehensive-reading" class="page" data-route="en-comprehensive-reading" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="english.comprehensiveReading.title">Comprehensive Reading</h2>
-          <a class="btn secondary" href="#/en" data-i18n="english.back">Back to English Program</a>
-        </div>
-        <p class="section-desc" data-i18n="english.comprehensiveReading.desc">Integrate comprehension, analysis, and response writing.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="cat-grid">
-          <div class="service" data-i18n-html="english.comprehensiveReading.content"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+            <div class="cat">
+              <img
+                src="Images/LanguageTest.png"
+                alt="Language Test Program"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  margin-bottom: 12px;
+                "
+              />
+              <h3 class="cat-title" data-i18n="cat.tests.title">
+                Language Test Preparation Course
+              </h3>
+              <button
+                class="btn primary"
+                style="width: 100%; margin-top: 12px"
+                onclick="openModal('tests')"
+                data-i18n="link.view"
+              >
+                View More
+              </button>
+            </div>
 
-  <main id="page-en-speed-reading" class="page" data-route="en-speed-reading" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="english.speedReading.title">Speed Reading</h2>
-          <a class="btn secondary" href="#/en" data-i18n="english.back">Back to English Program</a>
-        </div>
-        <p class="section-desc" data-i18n="english.speedReading.desc">Improve pace while maintaining accuracy and understanding.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="cat-grid">
-          <div class="service" data-i18n-html="english.speedReading.content"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+            <div class="cat">
+              <img
+                src="Images/publicspeaking.png"
+                alt="Public Speaking Program"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  margin-bottom: 12px;
+                "
+              />
+              <h3 class="cat-title" data-i18n="cat.ps.title">
+                Public Speaking
+              </h3>
+              <button
+                class="btn primary"
+                style="width: 100%; margin-top: 12px"
+                onclick="openModal('ps')"
+                data-i18n="link.view"
+              >
+                View More
+              </button>
+            </div>
 
-  <main id="page-en-power-presentation" class="page" data-route="en-power-presentation" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="english.powerPresentation.title">Power Presentation</h2>
-          <a class="btn secondary" href="#/en" data-i18n="english.back">Back to English Program</a>
-        </div>
-        <p class="section-desc" data-i18n="english.powerPresentation.desc">Build confident public speaking with structure and delivery.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="cat-grid">
-          <div class="service" data-i18n-html="english.powerPresentation.content"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+            <div class="cat">
+              <img
+                src="Images/Math.png"
+                alt="Math Program"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  margin-bottom: 12px;
+                "
+              />
+              <h3 class="cat-title" data-i18n="cat.math.title">Math</h3>
+              <button
+                class="btn primary"
+                style="width: 100%; margin-top: 12px"
+                onclick="openModal('math')"
+                data-i18n="link.view"
+              >
+                View More
+              </button>
+            </div>
 
-  <main id="page-en-classic-reading" class="page" data-route="en-classic-reading" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="english.classicReading.title">Classic Reading</h2>
-          <a class="btn secondary" href="#/en" data-i18n="english.back">Back to English Program</a>
+            <div class="cat">
+              <img
+                src="Images/Others.png"
+                alt="Other Programs"
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  margin-bottom: 12px;
+                "
+              />
+              <h3 class="cat-title" data-i18n="cat.others.title">Others</h3>
+              <button
+                class="btn primary"
+                style="width: 100%; margin-top: 12px"
+                onclick="openModal('others')"
+                data-i18n="link.view"
+              >
+                View More
+              </button>
+            </div>
+          </div>
         </div>
-        <p class="section-desc" data-i18n="english.classicReading.desc">Read classics deeply to strengthen language and thinking.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="cat-grid">
-          <div class="service" data-i18n-html="english.classicReading.content"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <main id="page-math" class="page" data-route="math" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="math.title">Math</h2>
-        <p class="section-desc" data-i18n="math.desc">Foundational to competition‑level math support tailored to each student.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.track1.title">基础数学</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <div class="split-row">
-                  <h3 style="margin: 0;" data-i18n="math.track1.item1.title">Grade 1-2</h3>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/math-gr12" data-i18n="math.gr12.view">View More</a>
+      <section id="partners">
+        <div class="container">
+          <h2 class="section-title" data-i18n="partners.title">合作伙伴</h2>
+          <p class="section-desc" data-i18n="partners.desc">
+            与我们关系密切的合作伙伴
+          </p>
+          <div class="partners-wrap" aria-label="Partners navigation">
+            <button
+              id="partners-prev"
+              type="button"
+              class="btn secondary partners-arrow"
+              aria-label="Previous partners"
+            >
+              ‹
+            </button>
+            <div class="partners">
+              <div class="partners-track">
+                <div class="partner">
+                  <img
+                    src="Images/CAIE.png"
+                    alt="CAIE"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.g">CAIE</span>
+                </div>
+                <a
+                  href="https://cecac.ca/about"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/CECAC.jpg"
+                    alt="CECAC"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.s">CECAC</span>
+                </a>
+                <div class="partner">
+                  <img
+                    src="Images/CCISS.png"
+                    alt="CCISS"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.f">CCISS</span>
+                </div>
+                <a
+                  href="https://www.dedu-services.com/"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/Partner5.png"
+                    alt="Dong_an"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.e">Dong_an</span>
+                </a>
+                <a
+                  href="https://ielts.org/"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/partner1.png"
+                    alt="IELTS"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.a">IELTS</span>
+                </a>
+                <a
+                  href="https://www.celpip.ca/"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/partner2.png"
+                    alt="CELPIP"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.b">CELPIP</span>
+                </a>
+                <a
+                  href="https://www.uwo.ca/index.html"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/Partner4.png"
+                    alt="Western University"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.d">Western University</span>
+                </a>
+                <a
+                  href="https://www.utoronto.ca/"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/Partner6.png"
+                    alt="Toronto University"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.h">Toronto University</span>
+                </a>
+                <a
+                  href="https://www.mcgill.ca/"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/Partner7.png"
+                    alt="McGill University"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.i">McGill University</span>
+                </a>
+                <a
+                  href="https://uwaterloo.ca/"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/Partner8.png"
+                    alt="Waterloo University"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.j">Waterloo University</span>
+                </a>
+                <a
+                  href="https://michaelsu.ca/"
+                  target="_blank"
+                  class="partner"
+                  style="
+                    flex: 0 0 calc((100% - (4 * var(--partners-gap))) / 5);
+                    text-decoration: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <img
+                    src="Images/PartnerSu.jpg"
+                    alt="Michael Su & Associates"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.m">Michael Su & Associates</span>
+                </a>
+                <div class="partner">
+                  <img
+                    src="Images/PartnerGolory.png"
+                    alt="Canada Glory Immigration"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.o">Canada Glory Immigration</span>
+                </div>
+                <div class="partner">
+                  <img
+                    src="Images/PartnerFence.png"
+                    alt="Axis Fencing Club (Markham)"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.r"
+                    >Axis Fencing Club (Markham)</span
+                  >
+                </div>
+                <div class="partner">
+                  <img
+                    src="Images/PartnerMount.jpg"
+                    alt="Mount Saint Vincent University (MSVU) - Duke College Language Pathway"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.k"
+                    >Mount Saint Vincent University (MSVU) - Duke College
+                    Language Pathway</span
+                  >
+                </div>
+                <div class="partner">
+                  <img
+                    src="Images/PartnerICEAP.jpg"
+                    alt="International Centre for English Academic Preparation (ICEAP), King's University College at Western University - ICEAP Toronto"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 8px;
+                      margin-bottom: 8px;
+                    "
+                  /><span data-i18n="partner.l"
+                    >International Centre for English Academic Preparation
+                    (ICEAP), King's University College at Western University -
+                    ICEAP Toronto</span
+                  >
+                </div>
+                <div class="partner">
+                  <span data-i18n="partner.p"
+                    >BTA Study Abroad Consultant Doctor Studio (USA)</span
+                  >
+                </div>
+                <div class="partner">
+                  <span data-i18n="partner.n"
+                    >Prospect International Consulting</span
+                  >
                 </div>
               </div>
+            </div>
+            <button
+              id="partners-next"
+              type="button"
+              class="btn secondary partners-arrow"
+              aria-label="Next partners"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="life">
+        <div class="container">
+          <h2 class="section-title" data-i18n="life.title">每月活动</h2>
+          <p class="section-desc" data-i18n="life.desc">过往活动展示</p>
+          <div class="grid">
+            <div class="grid-scroll">
               <div class="service">
-                <div class="split-row">
-                  <h3 style="margin: 0;" data-i18n="math.track1.item2.title">Grade 3-4</h3>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/math-gr34" data-i18n="math.gr34.view">View More</a>
-                </div>
+                <img
+                  src="Images/MapleTrip.jpg"
+                  alt="Maple Syrup Trip"
+                  data-i18n-alt="life.event4.imgAlt"
+                /><strong data-i18n="life.event4.title"
+                  >Maple Syrup Trip</strong
+                >
+                <p data-i18n="life.event4.desc">
+                  Hands-on spring field trip to experience Maple Syrup Festival
+                  traditions and seasonal learning activities.
+                </p>
               </div>
               <div class="service">
-                <div class="split-row">
-                  <h3 style="margin: 0;" data-i18n="math.track1.item3.title">Grade 5-6</h3>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/math-gr56" data-i18n="math.gr56.view">View More</a>
-                </div>
+                <img
+                  src="Images/MarchBreak.jpg"
+                  alt="March Break Reading and Speech Report"
+                  data-i18n-alt="life.event5.imgAlt"
+                /><strong data-i18n="life.event5.title"
+                  >March Break Reading & Speech Report</strong
+                >
+                <p data-i18n="life.event5.desc">
+                  Students present reading summaries and speech reports to
+                  strengthen expression, confidence, and critical thinking.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image1.jpg"
+                  alt="Public Speaking Awards"
+                  data-i18n-alt="life.event1.imgAlt"
+                /><strong data-i18n="life.event1.title"
+                  >Public Speaking Awards Phase</strong
+                >
+                <p data-i18n="life.event1.desc">
+                  Student recognition ceremony celebrating outstanding
+                  presentations and speaking achievements throughout the year.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image2.jpg"
+                  alt="Excellent Student"
+                  data-i18n-alt="life.event2.imgAlt"
+                /><strong data-i18n="life.event2.title"
+                  >Public Speaking Excellent Student</strong
+                >
+                <p data-i18n="life.event2.desc">
+                  Highlighting top performers in our public speaking program who
+                  demonstrate exceptional confidence and clarity.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image3.jpg"
+                  alt="Train Museum Tour"
+                  data-i18n-alt="life.event3.imgAlt"
+                /><strong data-i18n="life.event3.title"
+                  >Fall Event – Train Museum Tour</strong
+                >
+                <p data-i18n="life.event3.desc">
+                  Educational excursion exploring railway history and cultural
+                  exhibits during our fall program season.
+                </p>
+              </div>
+
+              <div class="service">
+                <img
+                  src="Images/MapleTrip.jpg"
+                  alt="Maple Syrup Trip"
+                  data-i18n-alt="life.event4.imgAlt"
+                /><strong data-i18n="life.event4.title"
+                  >Maple Syrup Trip</strong
+                >
+                <p data-i18n="life.event4.desc">
+                  Hands-on spring field trip to experience Maple Syrup Festival
+                  traditions and seasonal learning activities.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/MarchBreak.jpg"
+                  alt="March Break Reading and Speech Report"
+                  data-i18n-alt="life.event5.imgAlt"
+                /><strong data-i18n="life.event5.title"
+                  >March Break Reading & Speech Report</strong
+                >
+                <p data-i18n="life.event5.desc">
+                  Students present reading summaries and speech reports to
+                  strengthen expression, confidence, and critical thinking.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image1.jpg"
+                  alt="Public Speaking Awards"
+                  data-i18n-alt="life.event1.imgAlt"
+                /><strong data-i18n="life.event1.title"
+                  >Public Speaking Awards Phase</strong
+                >
+                <p data-i18n="life.event1.desc">
+                  Student recognition ceremony celebrating outstanding
+                  presentations and speaking achievements throughout the year.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image2.jpg"
+                  alt="Excellent Student"
+                  data-i18n-alt="life.event2.imgAlt"
+                /><strong data-i18n="life.event2.title"
+                  >Public Speaking Excellent Student</strong
+                >
+                <p data-i18n="life.event2.desc">
+                  Highlighting top performers in our public speaking program who
+                  demonstrate exceptional confidence and clarity.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image3.jpg"
+                  alt="Train Museum Tour"
+                  data-i18n-alt="life.event3.imgAlt"
+                /><strong data-i18n="life.event3.title"
+                  >Fall Event – Train Museum Tour</strong
+                >
+                <p data-i18n="life.event3.desc">
+                  Educational excursion exploring railway history and cultural
+                  exhibits during our fall program season.
+                </p>
+              </div>
+
+              <div class="service">
+                <img
+                  src="Images/MapleTrip.jpg"
+                  alt="Maple Syrup Trip"
+                  data-i18n-alt="life.event4.imgAlt"
+                /><strong data-i18n="life.event4.title"
+                  >Maple Syrup Trip</strong
+                >
+                <p data-i18n="life.event4.desc">
+                  Hands-on spring field trip to experience Maple Syrup Festival
+                  traditions and seasonal learning activities.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/MarchBreak.jpg"
+                  alt="March Break Reading and Speech Report"
+                  data-i18n-alt="life.event5.imgAlt"
+                /><strong data-i18n="life.event5.title"
+                  >March Break Reading & Speech Report</strong
+                >
+                <p data-i18n="life.event5.desc">
+                  Students present reading summaries and speech reports to
+                  strengthen expression, confidence, and critical thinking.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image1.jpg"
+                  alt="Public Speaking Awards"
+                  data-i18n-alt="life.event1.imgAlt"
+                /><strong data-i18n="life.event1.title"
+                  >Public Speaking Awards Phase</strong
+                >
+                <p data-i18n="life.event1.desc">
+                  Student recognition ceremony celebrating outstanding
+                  presentations and speaking achievements throughout the year.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image2.jpg"
+                  alt="Excellent Student"
+                  data-i18n-alt="life.event2.imgAlt"
+                /><strong data-i18n="life.event2.title"
+                  >Public Speaking Excellent Student</strong
+                >
+                <p data-i18n="life.event2.desc">
+                  Highlighting top performers in our public speaking program who
+                  demonstrate exceptional confidence and clarity.
+                </p>
+              </div>
+              <div class="service">
+                <img
+                  src="Images/image3.jpg"
+                  alt="Train Museum Tour"
+                  data-i18n-alt="life.event3.imgAlt"
+                /><strong data-i18n="life.event3.title"
+                  >Fall Event – Train Museum Tour</strong
+                >
+                <p data-i18n="life.event3.desc">
+                  Educational excursion exploring railway history and cultural
+                  exhibits during our fall program season.
+                </p>
               </div>
             </div>
           </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contests.title">Math Competitions</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <div class="split-row">
-                  <div class="split-body">
-                    <h3 style="margin: 0;" data-i18n="contest.kangaroo.card.title">Math Kangaroo Canada</h3>
+          <h2 class="section-title" data-i18n="testimonials.title">
+            学员与家长怎么说
+          </h2>
+          <div class="testis">
+            <div class="quote">
+              <span data-i18n="testi.1.quote"
+                >"The reading program strengthened my comprehension and
+                writing—my grades improved noticeably."</span
+              >
+              <strong data-i18n="testi.1.author">— Li Wei</strong>
+            </div>
+            <div class="quote">
+              <span data-i18n="testi.2.quote"
+                >"Public speaking classes greatly improved my confidence and
+                presentation skills for class and competitions."</span
+              >
+              <strong data-i18n="testi.2.author">— Emma Chen</strong>
+            </div>
+            <div class="quote">
+              <span data-i18n="testi.3.quote"
+                >"Combining reading and public speaking coaching helped me
+                deliver stronger presentations and land an internship."</span
+              >
+              <strong data-i18n="testi.3.author">— Marcus Liu</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container contact">
+          <form
+            id="contact-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <!-- Get a free access key at https://web3forms.com (enter dukecollege.vip@gmail.com) and paste it below. -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="YOUR_WEB3FORMS_ACCESS_KEY"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="New inquiry from Duke College website"
+            />
+            <input
+              type="hidden"
+              name="from_name"
+              value="Duke College Website"
+            />
+            <!-- Honeypot spam protection (leave empty) -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabindex="-1"
+              autocomplete="off"
+              style="display: none"
+              aria-hidden="true"
+            />
+            <h2 class="section-title" data-i18n="contact.title">联系我们</h2>
+            <label data-i18n="label.email">您的邮箱</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              data-i18n-placeholder="placeholder.email"
+              required
+            />
+            <label data-i18n="label.name">姓名</label>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px"
+            >
+              <input
+                type="text"
+                name="first_name"
+                placeholder="名 First Name"
+                data-i18n-placeholder="placeholder.first"
+              />
+              <input
+                type="text"
+                name="last_name"
+                placeholder="姓 Last Name"
+                data-i18n-placeholder="placeholder.last"
+              />
+            </div>
+            <label data-i18n="label.message">问题 / 需求</label>
+            <textarea
+              rows="5"
+              name="message"
+              placeholder="请简单描述你的需求..."
+              data-i18n-placeholder="placeholder.message"
+              required
+            ></textarea>
+            <div style="margin-top: 14px">
+              <button class="btn primary" type="submit" data-i18n="btn.submit">
+                提交
+              </button>
+            </div>
+            <p
+              id="form-status"
+              role="status"
+              aria-live="polite"
+              style="margin-top: 12px; font-weight: 700"
+            ></p>
+          </form>
+          <div>
+            <div class="service qr-container">
+              <h3 data-i18n="contact.qr.title">扫码联系我们</h3>
+              <img
+                src="Images/QR_code.png"
+                alt="Contact QR Code"
+                class="qr-code"
+              />
+              <p data-i18n="contact.qr.desc">
+                使用微信扫描二维码，获取最新课程信息和报名方式
+              </p>
+            </div>
+            <div class="service">
+              <h3 data-i18n="contact.info.title">联系方式</h3>
+              <p data-i18n-html="contact.info.content">
+                📧 dukecollege.vip@gmail.com<br />☎︎ (905) 569‑0511<br />☎︎ (647)
+                987‑2623<br />📍 7130 Warden Ave., Unit 601, Markham, ON L3R 1S2
+              </p>
+              <p id="office-hours-display">工作时间：Mon–Sat 10:00–20:00</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="page-cn" class="page" data-route="cn" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="chinese.title">
+            中文教育推广项目
+          </h2>
+          <p class="section-desc" data-i18n="chinese.desc">
+            不是学不会，是一开始就没学对。加中教育文化交流协会携手杜克学院，推出公益补贴中文课程。
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="service" style="margin: 0 auto 18px; max-width: 760px">
+            <img
+              src="Images/Chinese_Poster.jpg"
+              alt="Chinese course poster"
+              data-i18n-alt="chinese.poster.alt"
+              style="
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 12px;
+              "
+            />
+          </div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="chinese.problem.title">
+                为什么很多孩子学了几年中文仍然吃力？
+              </h3>
+              <div class="cat-grid">
+                <div
+                  class="service"
+                  data-i18n-html="chinese.problem.list"
+                ></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="chinese.launch.title">
+                项目发起与课程简介
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="chinese.launch.list"></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="chinese.highlights.title">
+                课程亮点与公益支持
+              </h3>
+              <div class="cat-grid">
+                <div
+                  class="service"
+                  data-i18n-html="chinese.highlights.list"
+                ></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="chinese.objective.title">
+                初期目标：打基础、能读、能开口
+              </h3>
+              <div class="cat-grid">
+                <div
+                  class="service"
+                  data-i18n-html="chinese.objective.list"
+                ></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="chinese.solution.title">
+                项目优势与解决方案
+              </h3>
+              <div class="cat-grid">
+                <div
+                  class="service"
+                  data-i18n-html="chinese.solution.list"
+                ></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="chinese.outcome.title">
+                学习结果预期
+              </h3>
+              <div class="cat-grid">
+                <div
+                  class="service"
+                  data-i18n-html="chinese.outcome.list"
+                ></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="chinese.signup.title">
+                限额与报名方式
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="chinese.signup.list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="page-en" class="page" data-route="en" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="english.title">
+            English Program
+          </h2>
+          <p class="section-desc" data-i18n="english.desc">
+            Structured reading and expression courses designed for different
+            learning stages.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <div class="split-row">
+                <h3
+                  class="cat-title"
+                  style="margin: 0"
+                  data-i18n="english.section.easyStart"
+                >
+                  Easy Start
+                </h3>
+                <a
+                  class="btn primary"
+                  style="padding: 10px 14px"
+                  href="#/en-easy-start"
+                  data-i18n="link.view"
+                  >View</a
+                >
+              </div>
+            </div>
+            <div class="cat">
+              <div class="split-row">
+                <h3
+                  class="cat-title"
+                  style="margin: 0"
+                  data-i18n="english.section.easyChapterBooks"
+                >
+                  Easy Chapter Books
+                </h3>
+                <a
+                  class="btn primary"
+                  style="padding: 10px 14px"
+                  href="#/en-easy-chapter-books"
+                  data-i18n="link.view"
+                  >View</a
+                >
+              </div>
+            </div>
+            <div class="cat">
+              <div class="split-row">
+                <h3
+                  class="cat-title"
+                  style="margin: 0"
+                  data-i18n="english.section.vastReading"
+                >
+                  Vast Reading
+                </h3>
+                <a
+                  class="btn primary"
+                  style="padding: 10px 14px"
+                  href="#/en-vast-reading"
+                  data-i18n="link.view"
+                  >View</a
+                >
+              </div>
+            </div>
+            <div class="cat">
+              <div class="split-row">
+                <h3
+                  class="cat-title"
+                  style="margin: 0"
+                  data-i18n="english.section.comprehensiveReading"
+                >
+                  Comprehensive Reading
+                </h3>
+                <a
+                  class="btn primary"
+                  style="padding: 10px 14px"
+                  href="#/en-comprehensive-reading"
+                  data-i18n="link.view"
+                  >View</a
+                >
+              </div>
+            </div>
+            <div class="cat">
+              <div class="split-row">
+                <h3
+                  class="cat-title"
+                  style="margin: 0"
+                  data-i18n="english.section.speedReading"
+                >
+                  Speed Reading
+                </h3>
+                <a
+                  class="btn primary"
+                  style="padding: 10px 14px"
+                  href="#/en-speed-reading"
+                  data-i18n="link.view"
+                  >View</a
+                >
+              </div>
+            </div>
+            <div class="cat">
+              <div class="split-row">
+                <h3
+                  class="cat-title"
+                  style="margin: 0"
+                  data-i18n="english.section.powerPresentation"
+                >
+                  Power Presentation
+                </h3>
+                <a
+                  class="btn primary"
+                  style="padding: 10px 14px"
+                  href="#/en-power-presentation"
+                  data-i18n="link.view"
+                  >View</a
+                >
+              </div>
+            </div>
+            <div class="cat">
+              <div class="split-row">
+                <h3
+                  class="cat-title"
+                  style="margin: 0"
+                  data-i18n="english.section.classicReading"
+                >
+                  Classic Reading
+                </h3>
+                <a
+                  class="btn primary"
+                  style="padding: 10px 14px"
+                  href="#/en-classic-reading"
+                  data-i18n="link.view"
+                  >View</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-en-easy-start"
+      class="page"
+      data-route="en-easy-start"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2 class="section-title" data-i18n="english.easyStart.title">
+              Easy Start
+            </h2>
+            <a class="btn secondary" href="#/en" data-i18n="english.back"
+              >Back to English Program</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="english.easyStart.desc">
+            Foundational English for early learners.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="cat-grid">
+            <div
+              class="service"
+              data-i18n-html="english.easyStart.content"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-en-easy-chapter-books"
+      class="page"
+      data-route="en-easy-chapter-books"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2
+              class="section-title"
+              data-i18n="english.easyChapterBooks.title"
+            >
+              Easy Chapter Books
+            </h2>
+            <a class="btn secondary" href="#/en" data-i18n="english.back"
+              >Back to English Program</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="english.easyChapterBooks.desc">
+            Guided transition from picture books to chapter books.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="cat-grid">
+            <div
+              class="service"
+              data-i18n-html="english.easyChapterBooks.content"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-en-vast-reading"
+      class="page"
+      data-route="en-vast-reading"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2 class="section-title" data-i18n="english.vastReading.title">
+              Vast Reading
+            </h2>
+            <a class="btn secondary" href="#/en" data-i18n="english.back"
+              >Back to English Program</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="english.vastReading.desc">
+            Broaden exposure through diverse genres and topics.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="cat-grid">
+            <div
+              class="service"
+              data-i18n-html="english.vastReading.content"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-en-comprehensive-reading"
+      class="page"
+      data-route="en-comprehensive-reading"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2
+              class="section-title"
+              data-i18n="english.comprehensiveReading.title"
+            >
+              Comprehensive Reading
+            </h2>
+            <a class="btn secondary" href="#/en" data-i18n="english.back"
+              >Back to English Program</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="english.comprehensiveReading.desc">
+            Integrate comprehension, analysis, and response writing.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="cat-grid">
+            <div
+              class="service"
+              data-i18n-html="english.comprehensiveReading.content"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-en-speed-reading"
+      class="page"
+      data-route="en-speed-reading"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2 class="section-title" data-i18n="english.speedReading.title">
+              Speed Reading
+            </h2>
+            <a class="btn secondary" href="#/en" data-i18n="english.back"
+              >Back to English Program</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="english.speedReading.desc">
+            Improve pace while maintaining accuracy and understanding.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="cat-grid">
+            <div
+              class="service"
+              data-i18n-html="english.speedReading.content"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-en-power-presentation"
+      class="page"
+      data-route="en-power-presentation"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2
+              class="section-title"
+              data-i18n="english.powerPresentation.title"
+            >
+              Power Presentation
+            </h2>
+            <a class="btn secondary" href="#/en" data-i18n="english.back"
+              >Back to English Program</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="english.powerPresentation.desc">
+            Build confident public speaking with structure and delivery.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="cat-grid">
+            <div
+              class="service"
+              data-i18n-html="english.powerPresentation.content"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-en-classic-reading"
+      class="page"
+      data-route="en-classic-reading"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2 class="section-title" data-i18n="english.classicReading.title">
+              Classic Reading
+            </h2>
+            <a class="btn secondary" href="#/en" data-i18n="english.back"
+              >Back to English Program</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="english.classicReading.desc">
+            Read classics deeply to strengthen language and thinking.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="cat-grid">
+            <div
+              class="service"
+              data-i18n-html="english.classicReading.content"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="page-math" class="page" data-route="math" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="math.title">Math</h2>
+          <p class="section-desc" data-i18n="math.desc">
+            Foundational to competition‑level math support tailored to each
+            student.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.track1.title">基础数学</h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <div class="split-row">
+                    <h3 style="margin: 0" data-i18n="math.track1.item1.title">
+                      Grade 1-2
+                    </h3>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/math-gr12"
+                      data-i18n="math.gr12.view"
+                      >View More</a
+                    >
                   </div>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/math-kangaroo" data-i18n="link.view">View</a>
                 </div>
-              </div>
-              <div class="service">
-                <div class="split-row">
-                  <div class="split-body">
-                    <h3 style="margin: 0;" data-i18n="contest.beaver.card.title">Beaver Computing Challenge</h3>
+                <div class="service">
+                  <div class="split-row">
+                    <h3 style="margin: 0" data-i18n="math.track1.item2.title">
+                      Grade 3-4
+                    </h3>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/math-gr34"
+                      data-i18n="math.gr34.view"
+                      >View More</a
+                    >
                   </div>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/beaver" data-i18n="link.view">View</a>
                 </div>
-              </div>
-              <div class="service">
-                <div class="split-row">
-                  <div class="split-body">
-                    <h3 style="margin: 0;" data-i18n="contest.mc.card.title">Mathematica Centrum Contest</h3>
+                <div class="service">
+                  <div class="split-row">
+                    <h3 style="margin: 0" data-i18n="math.track1.item3.title">
+                      Grade 5-6
+                    </h3>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/math-gr56"
+                      data-i18n="math.gr56.view"
+                      >View More</a
+                    >
                   </div>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/mc" data-i18n="link.view">View</a>
                 </div>
               </div>
-              <div class="service">
-                <div class="split-row">
-                  <div class="split-body">
-                    <h3 style="margin: 0;" data-i18n="contest.amc8.card.title">AMC 8</h3>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contests.title">
+                Math Competitions
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <div class="split-row">
+                    <div class="split-body">
+                      <h3
+                        style="margin: 0"
+                        data-i18n="contest.kangaroo.card.title"
+                      >
+                        Math Kangaroo Canada
+                      </h3>
+                    </div>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/math-kangaroo"
+                      data-i18n="link.view"
+                      >View</a
+                    >
                   </div>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/amc8" data-i18n="link.view">View</a>
                 </div>
-              </div>
-              <div class="service">
-                <div class="split-row">
-                  <div class="split-body">
-                    <h3 style="margin: 0;" data-i18n="contest.amc10_12.card.title">AMC 10 / AMC 12</h3>
+                <div class="service">
+                  <div class="split-row">
+                    <div class="split-body">
+                      <h3
+                        style="margin: 0"
+                        data-i18n="contest.beaver.card.title"
+                      >
+                        Beaver Computing Challenge
+                      </h3>
+                    </div>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/beaver"
+                      data-i18n="link.view"
+                      >View</a
+                    >
                   </div>
-                  <a class="btn primary" style="padding: 10px 14px;" href="#/amc10-12" data-i18n="link.view">View</a>
+                </div>
+                <div class="service">
+                  <div class="split-row">
+                    <div class="split-body">
+                      <h3 style="margin: 0" data-i18n="contest.mc.card.title">
+                        Mathematica Centrum Contest
+                      </h3>
+                    </div>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/mc"
+                      data-i18n="link.view"
+                      >View</a
+                    >
+                  </div>
+                </div>
+                <div class="service">
+                  <div class="split-row">
+                    <div class="split-body">
+                      <h3 style="margin: 0" data-i18n="contest.amc8.card.title">
+                        AMC 8
+                      </h3>
+                    </div>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/amc8"
+                      data-i18n="link.view"
+                      >View</a
+                    >
+                  </div>
+                </div>
+                <div class="service">
+                  <div class="split-row">
+                    <div class="split-body">
+                      <h3
+                        style="margin: 0"
+                        data-i18n="contest.amc10_12.card.title"
+                      >
+                        AMC 10 / AMC 12
+                      </h3>
+                    </div>
+                    <a
+                      class="btn primary"
+                      style="padding: 10px 14px"
+                      href="#/amc10-12"
+                      data-i18n="link.view"
+                      >View</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.track3.title">
+                High School
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <h3 data-i18n="math.track3.item1.title">Credit Courses</h3>
+                  <p data-i18n="math.track3.item1.desc">
+                    Functions, advanced functions, calculus readiness.
+                  </p>
+                </div>
+                <div class="service">
+                  <h3 data-i18n="math.track3.item2.title">Exam Support</h3>
+                  <p data-i18n="math.track3.item2.desc">
+                    Targeted review and exam strategies.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.track3.title">High School</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <h3 data-i18n="math.track3.item1.title">Credit Courses</h3>
-                <p data-i18n="math.track3.item1.desc">Functions, advanced functions, calculus readiness.</p>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-math-gr12"
+      class="page"
+      data-route="math-gr12"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="math.gr12.title">
+            Grade 1–2 (Units)
+          </h2>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="math.gr12.desc"
+            >
+              Singapore Math — Grade 1–2 course units overview.
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="math.gr12.back"
+              >Back to Math</a
+            >
+          </div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr12.group1">Units 1–6</h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr12.unit1"></div>
+                <div class="service" data-i18n-html="math.gr12.unit2"></div>
+                <div class="service" data-i18n-html="math.gr12.unit3"></div>
+                <div class="service" data-i18n-html="math.gr12.unit4"></div>
+                <div class="service" data-i18n-html="math.gr12.unit5"></div>
+                <div class="service" data-i18n-html="math.gr12.unit6"></div>
               </div>
-              <div class="service">
-                <h3 data-i18n="math.track3.item2.title">Exam Support</h3>
-                <p data-i18n="math.track3.item2.desc">Targeted review and exam strategies.</p>
+            </div>
+
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr12.group2">Units 7–12</h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr12.unit7"></div>
+                <div class="service" data-i18n-html="math.gr12.unit8"></div>
+                <div class="service" data-i18n-html="math.gr12.unit9"></div>
+                <div class="service" data-i18n-html="math.gr12.unit10"></div>
+                <div class="service" data-i18n-html="math.gr12.unit11"></div>
+                <div class="service" data-i18n-html="math.gr12.unit12"></div>
+              </div>
+            </div>
+
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr12.group3">
+                Units 13–17
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr12.unit13"></div>
+                <div class="service" data-i18n-html="math.gr12.unit14"></div>
+                <div class="service" data-i18n-html="math.gr12.unit15"></div>
+                <div class="service" data-i18n-html="math.gr12.unit16"></div>
+                <div class="service" data-i18n-html="math.gr12.unit17"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <main id="page-math-gr12" class="page" data-route="math-gr12" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="math.gr12.title">Grade 1–2 (Units)</h2>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="math.gr12.desc">Singapore Math — Grade 1–2 course units overview.</p>
-          <a class="btn secondary" href="#/math" data-i18n="math.gr12.back">Back to Math</a>
+    <main
+      id="page-math-gr34"
+      class="page"
+      data-route="math-gr34"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="math.gr34.title">
+            Grade 3–4 (Units)
+          </h2>
         </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr12.group1">Units 1–6</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr12.unit1"></div>
-              <div class="service" data-i18n-html="math.gr12.unit2"></div>
-              <div class="service" data-i18n-html="math.gr12.unit3"></div>
-              <div class="service" data-i18n-html="math.gr12.unit4"></div>
-              <div class="service" data-i18n-html="math.gr12.unit5"></div>
-              <div class="service" data-i18n-html="math.gr12.unit6"></div>
-            </div>
-          </div>
-
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr12.group2">Units 7–12</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr12.unit7"></div>
-              <div class="service" data-i18n-html="math.gr12.unit8"></div>
-              <div class="service" data-i18n-html="math.gr12.unit9"></div>
-              <div class="service" data-i18n-html="math.gr12.unit10"></div>
-              <div class="service" data-i18n-html="math.gr12.unit11"></div>
-              <div class="service" data-i18n-html="math.gr12.unit12"></div>
-            </div>
-          </div>
-
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr12.group3">Units 13–17</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr12.unit13"></div>
-              <div class="service" data-i18n-html="math.gr12.unit14"></div>
-              <div class="service" data-i18n-html="math.gr12.unit15"></div>
-              <div class="service" data-i18n-html="math.gr12.unit16"></div>
-              <div class="service" data-i18n-html="math.gr12.unit17"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <main id="page-math-gr34" class="page" data-route="math-gr34" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="math.gr34.title">Grade 3–4 (Units)</h2>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="math.gr34.desc">Singapore Math — Grade 3–4 course units overview.</p>
-          <a class="btn secondary" href="#/math" data-i18n="math.gr34.back">Back to Math</a>
-        </div>
-
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr34.group1">Units 1–5</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr34.unit1"></div>
-              <div class="service" data-i18n-html="math.gr34.unit2"></div>
-              <div class="service" data-i18n-html="math.gr34.unit3"></div>
-              <div class="service" data-i18n-html="math.gr34.unit4"></div>
-              <div class="service" data-i18n-html="math.gr34.unit5"></div>
-            </div>
-          </div>
-
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr34.group2">Units 6–10</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr34.unit6"></div>
-              <div class="service" data-i18n-html="math.gr34.unit7"></div>
-              <div class="service" data-i18n-html="math.gr34.unit8"></div>
-              <div class="service" data-i18n-html="math.gr34.unit9"></div>
-              <div class="service" data-i18n-html="math.gr34.unit10"></div>
-            </div>
-          </div>
-
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr34.group3">Units 11–15</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr34.unit11"></div>
-              <div class="service" data-i18n-html="math.gr34.unit12"></div>
-              <div class="service" data-i18n-html="math.gr34.unit13"></div>
-              <div class="service" data-i18n-html="math.gr34.unit14"></div>
-              <div class="service" data-i18n-html="math.gr34.unit15"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <main id="page-math-gr56" class="page" data-route="math-gr56" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="math.gr56.title">Grade 5–6 (Units)</h2>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="math.gr56.desc">Grade 5–6 course units overview.</p>
-          <a class="btn secondary" href="#/math" data-i18n="math.gr56.back">Back to Math</a>
-        </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr56.group1">Units 1–4</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr56.unit1"></div>
-              <div class="service" data-i18n-html="math.gr56.unit2"></div>
-              <div class="service" data-i18n-html="math.gr56.unit3"></div>
-              <div class="service" data-i18n-html="math.gr56.unit4"></div>
-            </div>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="math.gr34.desc"
+            >
+              Singapore Math — Grade 3–4 course units overview.
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="math.gr34.back"
+              >Back to Math</a
+            >
           </div>
 
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr56.group2">Units 5–8</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr56.unit5"></div>
-              <div class="service" data-i18n-html="math.gr56.unit6"></div>
-              <div class="service" data-i18n-html="math.gr56.unit7"></div>
-              <div class="service" data-i18n-html="math.gr56.unit8"></div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr34.group1">Units 1–5</h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr34.unit1"></div>
+                <div class="service" data-i18n-html="math.gr34.unit2"></div>
+                <div class="service" data-i18n-html="math.gr34.unit3"></div>
+                <div class="service" data-i18n-html="math.gr34.unit4"></div>
+                <div class="service" data-i18n-html="math.gr34.unit5"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="math.gr56.group3">Units 9–11</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="math.gr56.unit9"></div>
-              <div class="service" data-i18n-html="math.gr56.unit10"></div>
-              <div class="service" data-i18n-html="math.gr56.unit11"></div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr34.group2">Units 6–10</h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr34.unit6"></div>
+                <div class="service" data-i18n-html="math.gr34.unit7"></div>
+                <div class="service" data-i18n-html="math.gr34.unit8"></div>
+                <div class="service" data-i18n-html="math.gr34.unit9"></div>
+                <div class="service" data-i18n-html="math.gr34.unit10"></div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <main id="page-math-kangaroo" class="page" data-route="math-kangaroo" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contest.kangaroo.title">Math Kangaroo Canada</h2>
-        <p class="section-desc" data-i18n="contest.kangaroo.desc">International math contest known for fun, logical problems.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="contest.kangaroo.range">Grades 1–12</p>
-          <a class="btn secondary" href="#/math" data-i18n="contest.back">Back to Math</a>
-        </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.eligibility">Eligibility</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.kangaroo.grades">Grades: 1–12</p>
-                <p data-i18n="contest.kangaroo.groups">Divisions: G1–2, G3–4, G5–6, G7–8, G9–10, G11–12</p>
-              </div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.kangaroo.time">Every March</p>
-              </div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.features">Key Features</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <ul>
-                  <li data-i18n="contest.kangaroo.feature1">International math contest</li>
-                  <li data-i18n="contest.kangaroo.feature2">Fun and thinking-based questions</li>
-                  <li data-i18n="contest.kangaroo.feature3">Emphasis on logical reasoning and strategy</li>
-                  <li data-i18n="contest.kangaroo.feature4">Non-textbook style problems</li>
-                </ul>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr34.group3">
+                Units 11–15
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr34.unit11"></div>
+                <div class="service" data-i18n-html="math.gr34.unit12"></div>
+                <div class="service" data-i18n-html="math.gr34.unit13"></div>
+                <div class="service" data-i18n-html="math.gr34.unit14"></div>
+                <div class="service" data-i18n-html="math.gr34.unit15"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <main id="page-beaver" class="page" data-route="beaver" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contest.beaver.title">Beaver Computing Challenge</h2>
-        <p class="section-desc" data-i18n="contest.beaver.desc">Computational thinking contest with logic and information processing.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="contest.beaver.range">Grades 2–12</p>
-          <a class="btn secondary" href="#/math" data-i18n="contest.back">Back to Math</a>
+    <main
+      id="page-math-gr56"
+      class="page"
+      data-route="math-gr56"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="math.gr56.title">
+            Grade 5–6 (Units)
+          </h2>
         </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.eligibility">Eligibility</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.beaver.grades">Grades: 2–12</p>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="math.gr56.desc"
+            >
+              Grade 5–6 course units overview.
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="math.gr56.back"
+              >Back to Math</a
+            >
+          </div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr56.group1">Units 1–4</h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr56.unit1"></div>
+                <div class="service" data-i18n-html="math.gr56.unit2"></div>
+                <div class="service" data-i18n-html="math.gr56.unit3"></div>
+                <div class="service" data-i18n-html="math.gr56.unit4"></div>
               </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.beaver.time">Every November</p>
-              </div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.features">Key Features</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <ul>
-                  <li data-i18n="contest.beaver.feature1">Focus on computational thinking</li>
-                  <li data-i18n="contest.beaver.feature2">Logic and information processing</li>
-                  <li data-i18n="contest.beaver.feature3">Great for students with strong math basics</li>
-                  <li data-i18n="contest.beaver.feature4">No programming required</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <main id="page-mc" class="page" data-route="mc" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contest.mc.title">Mathematica Centrum Contest</h2>
-        <p class="section-desc" data-i18n="contest.mc.desc">Canadian contest emphasizing number sense and problem solving.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="contest.mc.range">Grades 1–8</p>
-          <a class="btn secondary" href="#/math" data-i18n="contest.back">Back to Math</a>
-        </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.eligibility">Eligibility</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.mc.grades">Grades: 1–8</p>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr56.group2">Units 5–8</h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr56.unit5"></div>
+                <div class="service" data-i18n-html="math.gr56.unit6"></div>
+                <div class="service" data-i18n-html="math.gr56.unit7"></div>
+                <div class="service" data-i18n-html="math.gr56.unit8"></div>
               </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.mc.time">Every April</p>
-              </div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.features">Key Features</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <ul>
-                  <li data-i18n="contest.mc.feature1">Canada-based competition</li>
-                  <li data-i18n="contest.mc.feature2">Emphasis on number sense and problem solving</li>
-                  <li data-i18n="contest.mc.feature3">Clear progression in difficulty</li>
-                  <li data-i18n="contest.mc.feature4">Suitable for systematic training</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <main id="page-amc8" class="page" data-route="amc8" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contest.amc8.title">AMC 8</h2>
-        <p class="section-desc" data-i18n="contest.amc8.desc">Entry point to AMC competitions with strong reasoning focus.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="contest.amc8.range">Grade 8 and below</p>
-          <a class="btn secondary" href="#/math" data-i18n="contest.back">Back to Math</a>
-        </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.eligibility">Eligibility</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.amc8.grades">Grades: 8 and below</p>
-              </div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.amc8.time">Every January</p>
-              </div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.features">Key Features</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <ul>
-                  <li data-i18n="contest.amc8.feature1">U.S. AMC competition system</li>
-                  <li data-i18n="contest.amc8.feature2">25 multiple-choice questions</li>
-                  <li data-i18n="contest.amc8.feature3">Focus on higher-order thinking and strategy</li>
-                  <li data-i18n="contest.amc8.feature4">Important starting point for contest math</li>
-                </ul>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="math.gr56.group3">Units 9–11</h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="math.gr56.unit9"></div>
+                <div class="service" data-i18n-html="math.gr56.unit10"></div>
+                <div class="service" data-i18n-html="math.gr56.unit11"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <main id="page-amc10-12" class="page" data-route="amc10-12" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contest.amc10_12.title">AMC 10 / AMC 12</h2>
-        <p class="section-desc" data-i18n="contest.amc10_12.desc">Key pathway to AIME with advanced algebra and reasoning.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 14px;">
-          <p class="section-desc" style="margin: 0;" data-i18n="contest.amc10_12.range">AMC 10: Grade 10 and below • AMC 12: Grade 12 and below</p>
-          <a class="btn secondary" href="#/math" data-i18n="contest.back">Back to Math</a>
+    <main
+      id="page-math-kangaroo"
+      class="page"
+      data-route="math-kangaroo"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="contest.kangaroo.title">
+            Math Kangaroo Canada
+          </h2>
+          <p class="section-desc" data-i18n="contest.kangaroo.desc">
+            International math contest known for fun, logical problems.
+          </p>
         </div>
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.eligibility">Eligibility</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.amc10_12.grades">AMC 10: Grade 10 and below; AMC 12: Grade 12 and below</p>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="contest.kangaroo.range"
+            >
+              Grades 1–12
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="contest.back"
+              >Back to Math</a
+            >
+          </div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.eligibility">
+                Eligibility
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.kangaroo.grades">Grades: 1–12</p>
+                  <p data-i18n="contest.kangaroo.groups">
+                    Divisions: G1–2, G3–4, G5–6, G7–8, G9–10, G11–12
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="contest.amc10_12.time">Every November</p>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.kangaroo.time">Every March</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="contest.features">Key Features</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <ul>
-                  <li data-i18n="contest.amc10_12.feature1">Important pathway to AIME</li>
-                  <li data-i18n="contest.amc10_12.feature2">High-intensity logic and algebra reasoning</li>
-                  <li data-i18n="contest.amc10_12.feature3">Strong value for top university applications</li>
-                </ul>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.features">
+                Key Features
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <ul>
+                    <li data-i18n="contest.kangaroo.feature1">
+                      International math contest
+                    </li>
+                    <li data-i18n="contest.kangaroo.feature2">
+                      Fun and thinking-based questions
+                    </li>
+                    <li data-i18n="contest.kangaroo.feature3">
+                      Emphasis on logical reasoning and strategy
+                    </li>
+                    <li data-i18n="contest.kangaroo.feature4">
+                      Non-textbook style problems
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <main id="page-fr" class="page" data-route="fr" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="french.title">French</h2>
-        <p class="section-desc" data-i18n="french.desc">Comprehensive French language instruction for young learners and exam preparation.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="french.track1.title">Foundations</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <h3 data-i18n="french.track1.item1.title">Core Skills</h3>
-                <p data-i18n="french.track1.item1.desc">Basic phonics, vocabulary and beginner grammar for early learners.</p>
-              </div>
-              <div class="service">
-                <h3 data-i18n="french.track1.item2.title">Homework & Practice</h3>
-                <p data-i18n="french.track1.item2.desc">Regular practice to build listening, speaking and reading fluency.</p>
+    <main id="page-beaver" class="page" data-route="beaver" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="contest.beaver.title">
+            Beaver Computing Challenge
+          </h2>
+          <p class="section-desc" data-i18n="contest.beaver.desc">
+            Computational thinking contest with logic and information
+            processing.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="contest.beaver.range"
+            >
+              Grades 2–12
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="contest.back"
+              >Back to Math</a
+            >
+          </div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.eligibility">
+                Eligibility
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.beaver.grades">Grades: 2–12</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="french.track2.title">Communication</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <h3 data-i18n="french.track2.item1.title">Conversational French</h3>
-                <p data-i18n="french.track2.item1.desc">Interactive speaking classes focused on practical communication.</p>
-              </div>
-              <div class="service">
-                <h3 data-i18n="french.track2.item2.title">Cultural Activities</h3>
-                <p data-i18n="french.track2.item2.desc">Cultural projects and activities to reinforce language learning.</p>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.beaver.time">Every November</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="french.track3.title">Exam Prep</h3>
-            <div class="cat-grid">
-              <div class="service">
-                <h3 data-i18n="french.track3.item1.title">DELF/DALF Preparation</h3>
-                <p data-i18n="french.track3.item1.desc">Targeted training for French proficiency exams and certification.</p>
-              </div>
-              <div class="service">
-                <h3 data-i18n="french.track3.item2.title">High School Support</h3>
-                <p data-i18n="french.track3.item2.desc">Coursework support and exam strategies for secondary students.</p>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.features">
+                Key Features
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <ul>
+                    <li data-i18n="contest.beaver.feature1">
+                      Focus on computational thinking
+                    </li>
+                    <li data-i18n="contest.beaver.feature2">
+                      Logic and information processing
+                    </li>
+                    <li data-i18n="contest.beaver.feature3">
+                      Great for students with strong math basics
+                    </li>
+                    <li data-i18n="contest.beaver.feature4">
+                      No programming required
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <main id="page-ps" class="page" data-route="ps" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
-          <h2 class="section-title" data-i18n="ps.hero.title" style="margin: 0;">Public Speaking Program</h2>
-          <a class="btn primary" href="#/home/contact" data-i18n="ps.cta.primary">Talk to an Advisor</a>
+    <main id="page-mc" class="page" data-route="mc" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="contest.mc.title">
+            Mathematica Centrum Contest
+          </h2>
+          <p class="section-desc" data-i18n="contest.mc.desc">
+            Canadian contest emphasizing number sense and problem solving.
+          </p>
         </div>
-        <p class="section-desc" data-i18n="ps.hero.desc">Build confidence, clarity, and critical thinking through structured speech training.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.skills.title">Skills Students Develop</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.skills.list"></div>
-            </div>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="contest.mc.range"
+            >
+              Grades 1–8
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="contest.back"
+              >Back to Math</a
+            >
           </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.why.title">Why Public Speaking Matters</h3>
-            <p class="section-desc" data-i18n="ps.why.desc">Strong speakers often become strong writers and strong thinkers.</p>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.why.list"></div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.eligibility">
+                Eligibility
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.mc.grades">Grades: 1–8</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.format.title">Course Format</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.format.list"></div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.mc.time">Every April</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.overview.title">Program Overview</h3>
-            <p class="section-desc" data-i18n="ps.overview.desc">Our program goes beyond simply standing up and speaking.</p>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.overview.list"></div>
-              <div class="service" data-i18n-html="ps.overview.note"></div>
-            </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.gr13.title">Grade 1–3 Public Speaking</h3>
-            <p class="section-desc" data-i18n="ps.gr13.desc">Based on creative and structured topic themes, students explore:</p>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="ps.gr13.summary">Creative topics and guided structure to build confidence and clear expression.</p>
-                <a class="btn primary" style="margin-top: 12px;" href="#/ps-gr13" data-i18n="link.view">View</a>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.features">
+                Key Features
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <ul>
+                    <li data-i18n="contest.mc.feature1">
+                      Canada-based competition
+                    </li>
+                    <li data-i18n="contest.mc.feature2">
+                      Emphasis on number sense and problem solving
+                    </li>
+                    <li data-i18n="contest.mc.feature3">
+                      Clear progression in difficulty
+                    </li>
+                    <li data-i18n="contest.mc.feature4">
+                      Suitable for systematic training
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.gr46.title">Grade 4–6 Public Speaking</h3>
-            <p class="section-desc" data-i18n="ps.gr46.desc">Students move from storytelling to structured argumentation.</p>
-            <div class="cat-grid">
-              <div class="service">
-                <p data-i18n="ps.gr46.summary">Structured persuasion, evidence-based ideas, and debate readiness.</p>
-                <a class="btn primary" style="margin-top: 12px;" href="#/ps-gr46" data-i18n="link.view">View</a>
+        </div>
+      </section>
+    </main>
+
+    <main id="page-amc8" class="page" data-route="amc8" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="contest.amc8.title">AMC 8</h2>
+          <p class="section-desc" data-i18n="contest.amc8.desc">
+            Entry point to AMC competitions with strong reasoning focus.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="contest.amc8.range"
+            >
+              Grade 8 and below
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="contest.back"
+              >Back to Math</a
+            >
+          </div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.eligibility">
+                Eligibility
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.amc8.grades">Grades: 8 and below</p>
+                </div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.amc8.time">Every January</p>
+                </div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.features">
+                Key Features
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <ul>
+                    <li data-i18n="contest.amc8.feature1">
+                      U.S. AMC competition system
+                    </li>
+                    <li data-i18n="contest.amc8.feature2">
+                      25 multiple-choice questions
+                    </li>
+                    <li data-i18n="contest.amc8.feature3">
+                      Focus on higher-order thinking and strategy
+                    </li>
+                    <li data-i18n="contest.amc8.feature4">
+                      Important starting point for contest math
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <main id="page-ps-gr13" class="page" data-route="ps-gr13" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="ps.gr13.title">Grade 1–3 Public Speaking</h2>
-          <a class="btn secondary" href="#/ps" data-i18n="ps.back">Back to Public Speaking</a>
+    <main
+      id="page-amc10-12"
+      class="page"
+      data-route="amc10-12"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="contest.amc10_12.title">
+            AMC 10 / AMC 12
+          </h2>
+          <p class="section-desc" data-i18n="contest.amc10_12.desc">
+            Key pathway to AIME with advanced algebra and reasoning.
+          </p>
         </div>
-        <p class="section-desc" data-i18n="ps.gr13.desc">Based on creative and structured topic themes, students explore:</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.gr13.section.topics">Topics</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.gr13.topic.creative"></div>
-              <div class="service" data-i18n-html="ps.gr13.topic.everyday"></div>
-              <div class="service" data-i18n-html="ps.gr13.topic.explore"></div>
-              <div class="service" data-i18n-html="ps.gr13.topic.values"></div>
-            </div>
+      </section>
+      <section>
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 14px;
+            "
+          >
+            <p
+              class="section-desc"
+              style="margin: 0"
+              data-i18n="contest.amc10_12.range"
+            >
+              AMC 10: Grade 10 and below • AMC 12: Grade 12 and below
+            </p>
+            <a class="btn secondary" href="#/math" data-i18n="contest.back"
+              >Back to Math</a
+            >
           </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.gr13.section.skills">Guided Preparation</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.gr13.skills"></div>
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.eligibility">
+                Eligibility
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.amc10_12.grades">
+                    AMC 10: Grade 10 and below; AMC 12: Grade 12 and below
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <main id="page-ps-gr46" class="page" data-route="ps-gr46" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <h2 class="section-title" data-i18n="ps.gr46.title">Grade 4–6 Public Speaking</h2>
-          <a class="btn secondary" href="#/ps" data-i18n="ps.back">Back to Public Speaking</a>
-        </div>
-        <p class="section-desc" data-i18n="ps.gr46.desc">Students move from storytelling to structured argumentation.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.gr46.section.focus">Training Focus</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.gr46.focus"></div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.exam">Exam Time</h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="contest.amc10_12.time">Every November</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="cat">
-            <h3 class="cat-title" data-i18n="ps.gr46.section.topics">Sample Topics</h3>
-            <div class="cat-grid">
-              <div class="service" data-i18n-html="ps.gr46.topics"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <main id="page-teachers" class="page" data-route="teachers" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="teachers.title">Our Teachers</h2>
-        <p class="section-desc" data-i18n="teachers.desc">Meet our experienced and dedicated team of educators.</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="services-cats">
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher1-zh.jpg" data-i18n-src-zh="Images/Teacher1-zh.jpg" data-i18n-src-en="Images/Teacher1-en.jpg" alt="Teacher 1" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t1.name">Sarah Johnson</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t1.title">Senior English Instructor</p>
-              <p data-i18n="teachers.t1.bio">15+ years teaching K-12 Reading & Writing. MA in Education from University of Toronto.</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher2-zh.jpg" data-i18n-src-zh="Images/Teacher2-zh.jpg" data-i18n-src-en="Images/Teacher2-en.jpg" alt="Teacher 2" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t2.name">Donald Qi 老师</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t2.title">资深教育咨询专家顾问与学术写作指导老师</p>
-              <p data-i18n="teachers.t2.bio">早年毕业于上海复旦大学并留校任教英美文学，后获女王大学文学硕士及多伦多大学教育学博士学位。曾长期在多伦多教育局从事语言教学测评评估工作，并在加拿大多所大学学院教授学术写作。现任杜克学院资深教育咨询专家顾问与学术写作指导老师。</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher3-zh.jpg" data-i18n-src-zh="Images/Teacher3-zh.jpg" data-i18n-src-en="Images/Teacher3-en.jpg" alt="Teacher 3" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t3.name">Emily Wang</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t3.title">ESL Program Director</p>
-              <p data-i18n="teachers.t3.bio">TESOL certified with 12 years experience. Specialized in academic English and IELTS preparation.</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher4-zh.jpg" data-i18n-src-zh="Images/Teacher4-zh.jpg" data-i18n-src-en="Images/Teacher4-en.jpg" alt="Teacher 4" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t4.name">David Martinez</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t4.title">Public Speaking Coach</p>
-              <p data-i18n="teachers.t4.bio">Former debate champion and speech coach. Helps students build confidence and persuasive skills.</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher5-zh.jpg" data-i18n-src-zh="Images/Teacher5-zh.jpg" data-i18n-src-en="Images/Teacher5-en.jpg" alt="Teacher 5" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t5.name">Sophie Dubois</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t5.title">French Language Instructor</p>
-              <p data-i18n="teachers.t5.bio">Native French speaker with DELF/DALF examiner certification. 10 years teaching experience.</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher6-zh.jpg" data-i18n-src-zh="Images/Teacher6-zh.jpg" data-i18n-src-en="Images/Teacher6-en.jpg" alt="Teacher 6" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t6.name">Jason Liu</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t6.title">Academic Writing Mentor</p>
-              <p data-i18n="teachers.t6.bio">Published author and writing consultant. Specialized in essay structure and critical analysis.</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher7-zh.jpg" data-i18n-src-zh="Images/Teacher7-zh.jpg" data-i18n-src-en="Images/Teacher7-en.jpg" alt="Teacher 7" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t7.name">Amanda Roberts</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t7.title">Early Learners Specialist</p>
-              <p data-i18n="teachers.t7.bio">Expert in phonics and foundational literacy. 8 years working with K-3 students.</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher8-zh.jpg" data-i18n-src-zh="Images/Teacher8-zh.jpg" data-i18n-src-en="Images/Teacher8-en.jpg" alt="Teacher 8" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t8.name">Michael Chen</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t8.title">Mathematics Specialist</p>
-              <p data-i18n="teachers.t8.bio">Competition math trainer with expertise in AMC and Kangaroo contests. PhD in Mathematics.</p>
-            </div>
-          </div>
-          <div class="cat">
-            <div style="text-align: center;">
-              <img src="Images/Teacher9-zh.jpg" data-i18n-src-zh="Images/Teacher9-zh.jpg" data-i18n-src-en="Images/Teacher9-en.jpg" alt="Teacher 9" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px; margin: 0 auto 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-              <h3 data-i18n="teachers.t9.name">Emily Wang</h3>
-              <p style="color: var(--accent); font-weight: 600; margin: 8px 0;" data-i18n="teachers.t9.title">ESL Program Director</p>
-              <p data-i18n="teachers.t9.bio">TESOL certified with 12 years experience. Specialized in academic English and IELTS preparation.</p>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="contest.features">
+                Key Features
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <ul>
+                    <li data-i18n="contest.amc10_12.feature1">
+                      Important pathway to AIME
+                    </li>
+                    <li data-i18n="contest.amc10_12.feature2">
+                      High-intensity logic and algebra reasoning
+                    </li>
+                    <li data-i18n="contest.amc10_12.feature3">
+                      Strong value for top university applications
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <main id="page-test" class="page" data-route="test" aria-hidden="true">
-    <section class="hero" style="padding: 48px 0;">
-      <div class="container">
-        <h2 class="section-title" data-i18n="test.title">在线测试</h2>
-        <p class="section-desc" data-i18n="test.desc">完成在线测评，提交后即时显示成绩。</p>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <!-- Quiz UI is rendered by test.js from questions served by Supabase -->
-        <div id="test-app"></div>
-      </div>
-    </section>
-  </main>
+    <main id="page-fr" class="page" data-route="fr" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="french.title">French</h2>
+          <p class="section-desc" data-i18n="french.desc">
+            Comprehensive French language instruction for young learners and
+            exam preparation.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="french.track1.title">
+                Foundations
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <h3 data-i18n="french.track1.item1.title">Core Skills</h3>
+                  <p data-i18n="french.track1.item1.desc">
+                    Basic phonics, vocabulary and beginner grammar for early
+                    learners.
+                  </p>
+                </div>
+                <div class="service">
+                  <h3 data-i18n="french.track1.item2.title">
+                    Homework & Practice
+                  </h3>
+                  <p data-i18n="french.track1.item2.desc">
+                    Regular practice to build listening, speaking and reading
+                    fluency.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="french.track2.title">
+                Communication
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <h3 data-i18n="french.track2.item1.title">
+                    Conversational French
+                  </h3>
+                  <p data-i18n="french.track2.item1.desc">
+                    Interactive speaking classes focused on practical
+                    communication.
+                  </p>
+                </div>
+                <div class="service">
+                  <h3 data-i18n="french.track2.item2.title">
+                    Cultural Activities
+                  </h3>
+                  <p data-i18n="french.track2.item2.desc">
+                    Cultural projects and activities to reinforce language
+                    learning.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="french.track3.title">
+                Exam Prep
+              </h3>
+              <div class="cat-grid">
+                <div class="service">
+                  <h3 data-i18n="french.track3.item1.title">
+                    DELF/DALF Preparation
+                  </h3>
+                  <p data-i18n="french.track3.item1.desc">
+                    Targeted training for French proficiency exams and
+                    certification.
+                  </p>
+                </div>
+                <div class="service">
+                  <h3 data-i18n="french.track3.item2.title">
+                    High School Support
+                  </h3>
+                  <p data-i18n="french.track3.item2.desc">
+                    Coursework support and exam strategies for secondary
+                    students.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <div class="container">
-      © <span id="y"></span> <span data-i18n="footer.copy">Duke College And Business Technology · All rights reserved</span>
+    <main id="page-ps" class="page" data-route="ps" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2
+              class="section-title"
+              data-i18n="ps.hero.title"
+              style="margin: 0"
+            >
+              Public Speaking Program
+            </h2>
+            <a
+              class="btn primary"
+              href="#/home/contact"
+              data-i18n="ps.cta.primary"
+              >Talk to an Advisor</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="ps.hero.desc">
+            Build confidence, clarity, and critical thinking through structured
+            speech training.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.skills.title">
+                Skills Students Develop
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="ps.skills.list"></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.why.title">
+                Why Public Speaking Matters
+              </h3>
+              <p class="section-desc" data-i18n="ps.why.desc">
+                Strong speakers often become strong writers and strong thinkers.
+              </p>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="ps.why.list"></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.format.title">
+                Course Format
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="ps.format.list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.overview.title">
+                Program Overview
+              </h3>
+              <p class="section-desc" data-i18n="ps.overview.desc">
+                Our program goes beyond simply standing up and speaking.
+              </p>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="ps.overview.list"></div>
+                <div class="service" data-i18n-html="ps.overview.note"></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.gr13.title">
+                Grade 1–3 Public Speaking
+              </h3>
+              <p class="section-desc" data-i18n="ps.gr13.desc">
+                Based on creative and structured topic themes, students explore:
+              </p>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="ps.gr13.summary">
+                    Creative topics and guided structure to build confidence and
+                    clear expression.
+                  </p>
+                  <a
+                    class="btn primary"
+                    style="margin-top: 12px"
+                    href="#/ps-gr13"
+                    data-i18n="link.view"
+                    >View</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.gr46.title">
+                Grade 4–6 Public Speaking
+              </h3>
+              <p class="section-desc" data-i18n="ps.gr46.desc">
+                Students move from storytelling to structured argumentation.
+              </p>
+              <div class="cat-grid">
+                <div class="service">
+                  <p data-i18n="ps.gr46.summary">
+                    Structured persuasion, evidence-based ideas, and debate
+                    readiness.
+                  </p>
+                  <a
+                    class="btn primary"
+                    style="margin-top: 12px"
+                    href="#/ps-gr46"
+                    data-i18n="link.view"
+                    >View</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-ps-gr13"
+      class="page"
+      data-route="ps-gr13"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2 class="section-title" data-i18n="ps.gr13.title">
+              Grade 1–3 Public Speaking
+            </h2>
+            <a class="btn secondary" href="#/ps" data-i18n="ps.back"
+              >Back to Public Speaking</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="ps.gr13.desc">
+            Based on creative and structured topic themes, students explore:
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.gr13.section.topics">
+                Topics
+              </h3>
+              <div class="cat-grid">
+                <div
+                  class="service"
+                  data-i18n-html="ps.gr13.topic.creative"
+                ></div>
+                <div
+                  class="service"
+                  data-i18n-html="ps.gr13.topic.everyday"
+                ></div>
+                <div
+                  class="service"
+                  data-i18n-html="ps.gr13.topic.explore"
+                ></div>
+                <div
+                  class="service"
+                  data-i18n-html="ps.gr13.topic.values"
+                ></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.gr13.section.skills">
+                Guided Preparation
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="ps.gr13.skills"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-ps-gr46"
+      class="page"
+      data-route="ps-gr46"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+            "
+          >
+            <h2 class="section-title" data-i18n="ps.gr46.title">
+              Grade 4–6 Public Speaking
+            </h2>
+            <a class="btn secondary" href="#/ps" data-i18n="ps.back"
+              >Back to Public Speaking</a
+            >
+          </div>
+          <p class="section-desc" data-i18n="ps.gr46.desc">
+            Students move from storytelling to structured argumentation.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.gr46.section.focus">
+                Training Focus
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="ps.gr46.focus"></div>
+              </div>
+            </div>
+            <div class="cat">
+              <h3 class="cat-title" data-i18n="ps.gr46.section.topics">
+                Sample Topics
+              </h3>
+              <div class="cat-grid">
+                <div class="service" data-i18n-html="ps.gr46.topics"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main
+      id="page-teachers"
+      class="page"
+      data-route="teachers"
+      aria-hidden="true"
+    >
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="teachers.title">Our Teachers</h2>
+          <p class="section-desc" data-i18n="teachers.desc">
+            Meet our experienced and dedicated team of educators.
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="services-cats">
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher1-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher1-zh.jpg"
+                  data-i18n-src-en="Images/Teacher1-en.jpg"
+                  alt="Teacher 1"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t1.name">Sarah Johnson</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t1.title"
+                >
+                  Senior English Instructor
+                </p>
+                <p data-i18n="teachers.t1.bio">
+                  15+ years teaching K-12 Reading & Writing. MA in Education
+                  from University of Toronto.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher2-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher2-zh.jpg"
+                  data-i18n-src-en="Images/Teacher2-en.jpg"
+                  alt="Teacher 2"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t2.name">Donald Qi 老师</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t2.title"
+                >
+                  资深教育咨询专家顾问与学术写作指导老师
+                </p>
+                <p data-i18n="teachers.t2.bio">
+                  早年毕业于上海复旦大学并留校任教英美文学，后获女王大学文学硕士及多伦多大学教育学博士学位。曾长期在多伦多教育局从事语言教学测评评估工作，并在加拿大多所大学学院教授学术写作。现任杜克学院资深教育咨询专家顾问与学术写作指导老师。
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher3-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher3-zh.jpg"
+                  data-i18n-src-en="Images/Teacher3-en.jpg"
+                  alt="Teacher 3"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t3.name">Emily Wang</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t3.title"
+                >
+                  ESL Program Director
+                </p>
+                <p data-i18n="teachers.t3.bio">
+                  TESOL certified with 12 years experience. Specialized in
+                  academic English and IELTS preparation.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher4-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher4-zh.jpg"
+                  data-i18n-src-en="Images/Teacher4-en.jpg"
+                  alt="Teacher 4"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t4.name">David Martinez</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t4.title"
+                >
+                  Public Speaking Coach
+                </p>
+                <p data-i18n="teachers.t4.bio">
+                  Former debate champion and speech coach. Helps students build
+                  confidence and persuasive skills.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher5-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher5-zh.jpg"
+                  data-i18n-src-en="Images/Teacher5-en.jpg"
+                  alt="Teacher 5"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t5.name">Sophie Dubois</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t5.title"
+                >
+                  French Language Instructor
+                </p>
+                <p data-i18n="teachers.t5.bio">
+                  Native French speaker with DELF/DALF examiner certification.
+                  10 years teaching experience.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher6-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher6-zh.jpg"
+                  data-i18n-src-en="Images/Teacher6-en.jpg"
+                  alt="Teacher 6"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t6.name">Jason Liu</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t6.title"
+                >
+                  Academic Writing Mentor
+                </p>
+                <p data-i18n="teachers.t6.bio">
+                  Published author and writing consultant. Specialized in essay
+                  structure and critical analysis.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher7-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher7-zh.jpg"
+                  data-i18n-src-en="Images/Teacher7-en.jpg"
+                  alt="Teacher 7"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t7.name">Amanda Roberts</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t7.title"
+                >
+                  Early Learners Specialist
+                </p>
+                <p data-i18n="teachers.t7.bio">
+                  Expert in phonics and foundational literacy. 8 years working
+                  with K-3 students.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher8-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher8-zh.jpg"
+                  data-i18n-src-en="Images/Teacher8-en.jpg"
+                  alt="Teacher 8"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t8.name">Michael Chen</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t8.title"
+                >
+                  Mathematics Specialist
+                </p>
+                <p data-i18n="teachers.t8.bio">
+                  Competition math trainer with expertise in AMC and Kangaroo
+                  contests. PhD in Mathematics.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher9-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher9-zh.jpg"
+                  data-i18n-src-en="Images/Teacher9-en.jpg"
+                  alt="Teacher 9"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t9.name">Emily Wang</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t9.title"
+                >
+                  ESL Program Director
+                </p>
+                <p data-i18n="teachers.t9.bio">
+                  TESOL certified with 12 years experience. Specialized in
+                  academic English and IELTS preparation.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher10-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher10-zh.jpg"
+                  data-i18n-src-en="Images/Teacher10-en.jpg"
+                  alt="Teacher 10"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t10.name">Jingtian Zhao</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t10.title"
+                >
+                  Math&Computer/AI tutor
+                </p>
+                <p data-i18n="teachers.t10.bio">
+                  Expert in mathematics and computer science with a focus on AI.
+                  Experienced in tutoring high school and college students.
+                </p>
+              </div>
+            </div>
+            <div class="cat">
+              <div style="text-align: center">
+                <img
+                  src="Images/Teacher11-zh.jpg"
+                  data-i18n-src-zh="Images/Teacher11-zh.jpg"
+                  data-i18n-src-en="Images/Teacher11-en.jpg"
+                  alt="Teacher 11"
+                  style="
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    margin: 0 auto 16px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  "
+                />
+                <h3 data-i18n="teachers.t11.name">Yaxing Pan</h3>
+                <p
+                  style="color: var(--accent); font-weight: 600; margin: 8px 0"
+                  data-i18n="teachers.t11.title"
+                >
+                  English&Math tutor|Educational Assistant
+                </p>
+                <p data-i18n="teachers.t11.bio">
+                  Experienced in teaching English and Math to high school
+                  students. Assists in educational program development.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="page-test" class="page" data-route="test" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="test.title">在线测试</h2>
+          <p class="section-desc" data-i18n="test.desc">
+            完成在线测评，提交后即时显示成绩。
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <!-- Quiz UI is rendered by test.js from questions served by Supabase -->
+          <div id="test-app"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © <span id="y"></span>
+        <span data-i18n="footer.copy"
+          >Duke College And Business Technology · All rights reserved</span
+        >
+      </div>
+    </footer>
+
+    <!-- Modal Popup -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <img id="modal-image" class="modal-image" src="" alt="Program image" />
+        <div class="modal-header">
+          <h2 id="modal-title">Program Details</h2>
+          <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div id="modal-body"></div>
+      </div>
     </div>
-  </footer>
 
-  <!-- Modal Popup -->
-  <div id="modal" class="modal" onclick="closeModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <img id="modal-image" class="modal-image" src="" alt="Program image" />
-      <div class="modal-header">
-        <h2 id="modal-title">Program Details</h2>
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-      </div>
-      <div id="modal-body"></div>
-    </div>
-  </div>
-
-  <script src="script.js" defer></script>
-  <!-- Online test: Supabase client (CDN) + quiz logic -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="test.js" defer></script>
-</body>
+    <script src="script.js" defer></script>
+    <!-- Online test: Supabase client (CDN) + quiz logic -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+      defer
+    ></script>
+    <script src="test.js" defer></script>
+  </body>
 </html>
