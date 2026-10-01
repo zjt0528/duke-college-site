@@ -501,13 +501,13 @@ function closeModal(event) {
       "teachers.t9.bio":
         "MA in Geography and Political Studies (American Modern University), professional instructor at Duke College. 10 years teaching ESL/IELTS/TOEFL/CELPIP to youth and adults, highly popular among international students.",
       "teachers.t10.name": "Mr. Jingtian Zhao",
-      "teachers.t10.title": "Math Program",
+      "teachers.t10.title": "Math, Computer Science & AI Tutor",
       "teachers.t10.bio":
-        "PhD in Mathematics (University of Toronto), experienced math instructor at Duke College. Specializes in high school and competition math, known for engaging and effective teaching methods.",
+        "Expert in mathematics and computer science with a focus on AI. Experienced in tutoring high school and college students.",
       "teachers.t11.name": "Ms. Yaxing Pan",
-      "teachers.t11.title": "Math Program",
+      "teachers.t11.title": "English & Math Tutor | Educational Assistant",
       "teachers.t11.bio":
-        "Experienced math instructor at Duke College, specializing in high school and competition math. Known for engaging and effective teaching methods.",
+        "Experienced in teaching English and math to high school students. Assists in educational program development.",
       "math.track1.title": "Basic Math",
       "math.track1.item1.title": "Grade 1-2",
       "math.track1.item1.desc":
@@ -806,6 +806,14 @@ function closeModal(event) {
       "teachers.t9.title": "英语项目",
       "teachers.t9.bio":
         "American Modern University研究生（地理与政治学方向），Duke College专业教师。10年教授青少年与成人ESL/IELTS/TOEFL/CELPIP经验，深受国际学生欢迎。",
+      "teachers.t10.name": "Jingtian Zhao 老师",
+      "teachers.t10.title": "数学、计算机科学与人工智能辅导老师",
+      "teachers.t10.bio":
+        "专长于数学与计算机科学，重点关注人工智能领域，拥有高中及大学学生辅导经验。",
+      "teachers.t11.name": "Yaxing Pan 老师",
+      "teachers.t11.title": "英语与数学辅导老师｜教育助理",
+      "teachers.t11.bio":
+        "拥有高中英语与数学教学经验，并协助教育项目的开发。",
       "nav.home": "首页",
       "nav.english": "英语",
       "nav.math": "数学",
