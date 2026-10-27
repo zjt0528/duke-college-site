@@ -105,6 +105,25 @@
     .grid-scroll:hover { animation-play-state: paused; }
 /* ---- Course / service category cards (3-up grid) ---- */
     .services-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .english-courses { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .english-course .cat-title { margin-top: 0; }
+    .english-course-content h3 { font-size: 1.1rem; }
+    .english-course-content li { margin-bottom: 8px; }
+    .english-course-content .course-audience,
+    .english-course-content .course-outcomes { list-style: none; padding-left: 0; }
+    .english-course-content .course-audience li,
+    .english-course-content .course-outcomes li { position: relative; padding-left: 1.6em; }
+    .english-course-content .course-audience li::before { content: "•"; position: absolute; left: .3em; color: #e99a38; }
+    .english-course-content .course-outcomes li::before { content: "✓"; position: absolute; left: 0; color: #299443; font-weight: 700; }
+    .english-course { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: center; gap: 28px; scroll-margin-top: 100px; }
+    .english-course-image { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; aspect-ratio: 4 / 3; width: 100%; border: 1px dashed var(--border); border-radius: 10px; background: #f3f6fa; color: #718096; }
+    .english-course-image img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+    .english-course-poster { aspect-ratio: auto; border: 0; background: transparent; }
+    .english-course-poster img { height: auto; object-fit: contain; }
+    .english-course-text { min-width: 0; }
+    @media (max-width: 767px) {
+      .english-course { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    }
     .cat { background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius); }
     #page-teachers .services-cats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .service { background: var(--card); border: 1px solid var(--border); padding: 22px; border-radius: var(--radius); transition: transform .12s ease, box-shadow .12s ease; }

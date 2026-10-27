@@ -131,14 +131,15 @@ function closeModal(event) {
       "services.desc":
         "Choose the services you need and contact our advisors for program details and pricing.",
       "english.title": "English Program",
+      "english.imagePlaceholder": "Course image",
       "english.desc":
         "Structured reading and expression courses designed for different learning stages.",
       "english.section.easyStart": "Easy Start",
-      "english.section.easyChapterBooks": "Easy Chapter Books",
-      "english.section.vastReading": "Vast Reading",
+      "english.section.easyChapterBooks": "Jump Start",
+      "english.section.vastReading": "Reading Wise",
+      "english.section.extensiveReading": "Vast Reading",
       "english.section.comprehensiveReading": "Comprehensive Reading",
       "english.section.speedReading": "Speed Reading",
-      "english.section.powerPresentation": "Power Presentation",
       "english.section.classicReading": "Classic Reading",
       "chinese.title": "Chinese Education Promotion Program",
       "chinese.desc":
@@ -169,39 +170,38 @@ function closeModal(event) {
         "<p><strong>Only first 20 students in the initial intake.</strong></p><ul><li>Scan QR code to register</li><li>Add WeChat to consult</li><li>Fill in assessment form and placement evaluation</li></ul>",
       "english.back": "Back to English Program",
       "english.easyStart.title": "Easy Start",
-      "english.easyStart.desc": "Foundational English for early learners.",
+      "english.easyStart.desc": "Learn phonics and read simple picture books while building confidence and a love of reading.",
       "english.easyStart.content":
-        "<h3>Course Focus</h3><ul><li>Letter-sound awareness and phonics basics</li><li>Core vocabulary and sentence patterns</li><li>Simple speaking routines and classroom language</li><li>Reading readiness through guided practice</li></ul>",
-      "english.easyChapterBooks.title": "Easy Chapter Books",
+        "<h3>For students who:</h3><ul class=\"course-audience\"><li>want to make an academic start easily</li><li>try to learn phonics fast</li><li>will be ready for a jump start at Kindergarten</li></ul><h3>We guarantee they can:</h3><ul class=\"course-outcomes\"><li>master basic phonics</li><li>learn to count up to <strong>100</strong></li><li>be familiar with more than <strong>500</strong> picture words</li><li>complete <strong>26</strong> Alphabet NextBuks</li><li>enjoy work by using popular educational websites</li></ul>",
+      "english.easyChapterBooks.title": "Jump Start",
       "english.easyChapterBooks.desc":
-        "Guided transition from picture books to chapter books.",
+        "Strengthen phonics and begin independent reading to build a strong foundation for school learning.",
       "english.easyChapterBooks.content":
-        "<h3>Course Focus</h3><ul><li>Build reading stamina with short chapter books</li><li>Understand plot, setting, and character basics</li><li>Retell and summarize with clear structure</li><li>Vocabulary growth through contextual reading</li></ul>",
-      "english.vastReading.title": "Vast Reading",
+        "<h3>For students who:</h3><ul class=\"course-audience\"><li>try to make a jump start</li><li>want to master phonics fast to read books</li><li>are ready for increased academic standards</li></ul><h3>We guarantee they can:</h3><ul class=\"course-outcomes\"><li>cover <strong>4</strong> levels of Phonics (=<strong>1</strong> year regular work)</li><li>learn to read books easily</li><li>become confident and competent with school work</li><li>become a lifetime reader</li></ul>",
+      "english.vastReading.title": "Reading Wise",
       "english.vastReading.desc":
-        "Broaden exposure through diverse genres and topics.",
+        "Build strong reading skills, expand vocabulary, and develop a deeper understanding of texts.",
       "english.vastReading.content":
-        "<h3>Course Focus</h3><ul><li>Expand reading volume across fiction and non-fiction</li><li>Develop independent reading habits</li><li>Compare ideas across texts</li><li>Track progress with level-based goals</li></ul>",
+        "<h3>For students who:</h3><ul class=\"course-audience\"><li>rarely choose to read</li><li>cannot apply skills</li><li>cannot comprehend well</li><li>remain at grade level</li><li>have limited vocabulary</li></ul><h3>We guarantee they can:</h3><ul class=\"course-outcomes\"><li>read <strong>48–96</strong> books</li><li>write <strong>24–48</strong> book reports</li><li>pass the comprehension test</li><li>study <strong>40</strong> vocabulary lessons (<strong>2</strong> school years / <strong>2,000</strong> words)</li><li>study <strong>48</strong> Reading Skills lessons</li><li>improve reading level to at least <strong>1</strong> school grade above</li></ul>",
+      "english.extensiveReading.title": "Vast Reading",
+      "english.extensiveReading.desc": "Explore a world of books, broaden your horizons, and develop a lasting love of reading.",
+      "english.extensiveReading.content":
+        "<h3>For students who:</h3><ul class=\"course-audience\"><li>have either no or low interest in reading</li><li>cannot comprehend well</li><li>have limited vocabulary</li></ul><h3>We guarantee they can:</h3><ul class=\"course-outcomes\"><li>read <strong>48–100</strong> books</li><li>read <strong>48</strong> NextBuks</li><li>pass the reading comprehension test</li><li>master key vocabulary</li></ul>",
       "english.comprehensiveReading.title": "Comprehensive Reading",
       "english.comprehensiveReading.desc":
         "Integrate comprehension, analysis, and response writing.",
       "english.comprehensiveReading.content":
-        "<h3>Course Focus</h3><ul><li>Main idea and supporting detail analysis</li><li>Inference and evidence-based interpretation</li><li>Structured written responses to texts</li><li>Critical thinking and argument clarity</li></ul>",
+        "<h3>For students who:</h3><ul class=\"course-audience\"><li>read recklessly</li><li>need to discuss books</li><li>cannot comprehend well</li><li>try to read above grade level</li><li>need to apply words</li></ul><h3>We guarantee they can:</h3><ul class=\"course-outcomes\"><li>complete <strong>24–48</strong> books</li><li>engage in active discussion about <strong>24–48</strong> books</li><li>improve critical thinking skills</li><li>apply vocabulary and reading strategies</li></ul>",
       "english.speedReading.title": "Speed Reading",
       "english.speedReading.desc":
         "Improve pace while maintaining accuracy and understanding.",
       "english.speedReading.content":
-        "<h3>Course Focus</h3><ul><li>Increase reading rate with timed passages</li><li>Maintain comprehension under time constraints</li><li>Identify key information quickly</li><li>Build exam-ready reading efficiency</li></ul>",
-      "english.powerPresentation.title": "Power Presentation",
-      "english.powerPresentation.desc":
-        "Build confident public speaking with structure and delivery.",
-      "english.powerPresentation.content":
-        "<h3>Course Focus</h3><ul><li>Presentation structure: opening, body, conclusion</li><li>Voice, pacing, and audience engagement</li><li>Visual support and speaking notes</li><li>Q&A handling and confidence building</li></ul>",
+        "<h3>For students who:</h3><ul class=\"course-audience\"><li>need to improve fluency</li><li>don't finish tests on time</li><li>don't comprehend</li><li>perform poorly on standardized tests</li></ul><h3>We guarantee they can:</h3><ul class=\"course-outcomes\"><li>increase reading speed</li><li>solve related comprehension quizzes</li><li>improve critical thinking skills</li><li>understand themes and motives of classics</li></ul>",
       "english.classicReading.title": "Classic Reading",
       "english.classicReading.desc":
         "Read classics deeply to strengthen language and thinking.",
       "english.classicReading.content":
-        "<h3>Course Focus</h3><ul><li>Close reading of classic literary texts</li><li>Theme, tone, and author craft analysis</li><li>Discussion and text-based argumentation</li><li>Academic writing linked to reading</li></ul>",
+        "<h3>For students who:</h3><ul class=\"course-audience\"><li>try to enjoy classics</li><li>are relatively advanced readers</li><li>want to expand their perspective</li><li>try to extend their thoughts to essay writing (SAT, etc.)</li></ul><h3>We guarantee they can:</h3><ul class=\"course-outcomes\"><li>read <strong>24–48</strong> classic books</li><li>engage in <strong>12–24</strong> chapter studies</li><li>improve critical thinking skills</li><li>understand themes and motives of classics</li></ul>",
       "math.title": "Math",
       "math.desc":
         "Foundational to competition‑level math support tailored to each student.",
@@ -831,43 +831,44 @@ function closeModal(event) {
       "services.title": "课程",
       "services.desc": "选择您需要的服务并联系顾问获取课程详情与价格",
       "english.title": "英语课程",
+      "english.imagePlaceholder": "课程图片预留位",
       "english.desc": "根据不同学习阶段设计的系统化阅读与表达课程。",
-      "english.section.easyStart": "Easy Start",
-      "english.section.easyChapterBooks": "Easy Chapter Books",
-      "english.section.vastReading": "Vast Reading",
-      "english.section.comprehensiveReading": "Comprehensive Reading",
-      "english.section.speedReading": "Speed Reading",
-      "english.section.powerPresentation": "Power Presentation",
-      "english.section.classicReading": "Classic Reading",
+      "english.section.easyStart": "阅读启蒙",
+      "english.section.easyChapterBooks": "自主阅读起步",
+      "english.section.vastReading": "阅读理解提升",
+      "english.section.extensiveReading": "广泛阅读",
+      "english.section.comprehensiveReading": "综合阅读",
+      "english.section.speedReading": "快速阅读",
+      "english.section.classicReading": "经典阅读",
       "english.back": "返回英语课程",
-      "english.easyStart.title": "Easy Start",
-      "english.easyStart.desc": "面向低龄学习者的英语基础课程。",
+      "english.easyStart.title": "阅读启蒙",
+      "english.easyStart.desc": "学习自然拼读与简单绘本阅读，建立阅读信心，享受阅读乐趣。",
       "english.easyStart.content":
-        "<h3>课程重点</h3><ul><li>字母与发音启蒙</li><li>核心词汇与基础句型</li><li>日常口语与课堂表达</li><li>循序渐进的入门阅读训练</li></ul>",
-      "english.easyChapterBooks.title": "Easy Chapter Books",
-      "english.easyChapterBooks.desc": "从绘本顺利过渡到初级章节书。",
+        "<h3>适合以下学生：</h3><ul class=\"course-audience\"><li>希望轻松开启学业学习</li><li>希望快速学习自然拼读</li><li>准备好在幼儿园学习中领先起步</li></ul><h3>我们保证学生能够：</h3><ul class=\"course-outcomes\"><li>掌握基础自然拼读</li><li>学会数到 <strong>100</strong></li><li>熟悉超过 <strong>500</strong> 个图画词汇</li><li>完成 <strong>26</strong> 本字母 NextBuks</li><li>通过热门教育网站享受学习乐趣</li></ul>",
+      "english.easyChapterBooks.title": "自主阅读起步",
+      "english.easyChapterBooks.desc": "巩固自然拼读，逐步开始独立阅读，为学校学习打下扎实基础。",
       "english.easyChapterBooks.content":
-        "<h3>课程重点</h3><ul><li>通过短篇章节书建立阅读耐力</li><li>理解情节、场景与人物基础</li><li>进行结构化复述与总结</li><li>通过语境学习提升词汇量</li></ul>",
-      "english.vastReading.title": "Vast Reading",
-      "english.vastReading.desc": "通过多题材阅读拓展知识与表达。",
+        "<h3>适合以下学生：</h3><ul class=\"course-audience\"><li>希望在学习中领先起步</li><li>希望快速掌握自然拼读，开始阅读书籍</li><li>已准备好迎接更高的学业要求</li></ul><h3>我们保证学生能够：</h3><ul class=\"course-outcomes\"><li>完成 <strong>4</strong> 个级别的自然拼读（相当于常规 <strong>1</strong> 年的学习内容）</li><li>学会轻松阅读书籍</li><li>更有信心、更有能力完成学校课业</li><li>养成终身阅读的习惯</li></ul>",
+      "english.vastReading.title": "阅读理解提升",
+      "english.vastReading.desc": "强化阅读技能，拓展词汇，逐步深入理解文本内容。",
       "english.vastReading.content":
-        "<h3>课程重点</h3><ul><li>广泛阅读小说与非虚构文本</li><li>培养独立阅读习惯</li><li>跨文本比较观点与信息</li><li>以分级目标跟踪阅读进度</li></ul>",
-      "english.comprehensiveReading.title": "Comprehensive Reading",
+        "<h3>适合以下学生：</h3><ul class=\"course-audience\"><li>很少主动选择阅读</li><li>难以运用阅读技巧</li><li>阅读理解能力有待提升</li><li>阅读水平仍停留在本年级水平</li><li>词汇量有限</li></ul><h3>我们保证学生能够：</h3><ul class=\"course-outcomes\"><li>阅读 <strong>48–96</strong> 本书</li><li>完成 <strong>24–48</strong> 篇读书报告</li><li>通过阅读理解测试</li><li>学习 <strong>40</strong> 节词汇课（相当于 <strong>2</strong> 学年的内容，共 <strong>2,000</strong> 个词汇）</li><li>学习 <strong>48</strong> 节阅读技巧课</li><li>阅读水平至少提高到高于当前年级 <strong>1</strong> 个年级的水平</li></ul>",
+      "english.extensiveReading.title": "广泛阅读",
+      "english.extensiveReading.desc": "探索丰富的书籍世界，拓宽视野，培养持久的阅读兴趣。",
+      "english.extensiveReading.content":
+        "<h3>适合以下学生：</h3><ul class=\"course-audience\"><li>对阅读缺乏兴趣或兴趣较低</li><li>阅读理解能力有待提升</li><li>词汇量有限</li></ul><h3>我们保证学生能够：</h3><ul class=\"course-outcomes\"><li>阅读 <strong>48–100</strong> 本书</li><li>阅读 <strong>48</strong> 本 NextBuks</li><li>通过阅读理解测试</li><li>掌握重点词汇</li></ul>",
+      "english.comprehensiveReading.title": "综合阅读",
       "english.comprehensiveReading.desc": "融合阅读理解、分析与书面表达训练。",
       "english.comprehensiveReading.content":
-        "<h3>课程重点</h3><ul><li>主旨与细节分析</li><li>推理与证据支持观点</li><li>结构化读后写作</li><li>批判性思维与论证表达</li></ul>",
-      "english.speedReading.title": "Speed Reading",
+        "<h3>适合以下学生：</h3><ul class=\"course-audience\"><li>阅读时不够仔细</li><li>需要通过讨论加深对书籍的理解</li><li>阅读理解能力有待提升</li><li>希望阅读高于当前年级水平的书籍</li><li>需要练习运用词汇</li></ul><h3>我们保证学生能够：</h3><ul class=\"course-outcomes\"><li>读完 <strong>24–48</strong> 本书</li><li>积极参与 <strong>24–48</strong> 本书的讨论</li><li>提升批判性思维能力</li><li>运用词汇与阅读策略</li></ul>",
+      "english.speedReading.title": "快速阅读",
       "english.speedReading.desc": "在保证理解准确的前提下提升阅读速度。",
       "english.speedReading.content":
-        "<h3>课程重点</h3><ul><li>通过计时阅读提升速度</li><li>在限时条件下保持理解力</li><li>快速抓取关键信息</li><li>提升考试场景阅读效率</li></ul>",
-      "english.powerPresentation.title": "Power Presentation",
-      "english.powerPresentation.desc": "强化结构化表达与演讲呈现能力。",
-      "english.powerPresentation.content":
-        "<h3>课程重点</h3><ul><li>演讲结构：开场、主体、结尾</li><li>声音控制、节奏与听众互动</li><li>视觉辅助与讲稿要点使用</li><li>问答应对与舞台自信建立</li></ul>",
-      "english.classicReading.title": "Classic Reading",
+        "<h3>适合以下学生：</h3><ul class=\"course-audience\"><li>需要提升阅读流畅度</li><li>无法按时完成考试</li><li>阅读理解存在困难</li><li>在标准化考试中表现不佳</li></ul><h3>我们保证学生能够：</h3><ul class=\"course-outcomes\"><li>提升阅读速度</li><li>完成相关阅读理解测验</li><li>提升批判性思维能力</li><li>理解经典作品的主题与动机</li></ul>",
+      "english.classicReading.title": "经典阅读",
       "english.classicReading.desc": "通过经典阅读提升语言深度与思辨能力。",
       "english.classicReading.content":
-        "<h3>课程重点</h3><ul><li>经典文本精读训练</li><li>主题、语气与写作技巧分析</li><li>基于文本的讨论与论证</li><li>阅读与学术写作联动提升</li></ul>",
+        "<h3>适合以下学生：</h3><ul class=\"course-audience\"><li>希望享受经典作品的阅读乐趣</li><li>已具备较高的阅读水平</li><li>希望拓宽视野</li><li>希望将思考延伸至议论文写作（SAT 等）</li></ul><h3>我们保证学生能够：</h3><ul class=\"course-outcomes\"><li>阅读 <strong>24–48</strong> 本经典书籍</li><li>完成 <strong>12–24</strong> 项章节研读</li><li>提升批判性思维能力</li><li>理解经典作品的主题与动机</li></ul>",
       "math.title": "数学",
       "math.desc": "从基础到竞赛的数学支持，按学生情况定制。",
       "math.gr12.view": "查看详情",
@@ -1368,8 +1369,15 @@ function closeModal(event) {
 
       const raw = window.location.hash || "#/home";
       const match = raw.match(/^#\/([^\/]+)(?:\/([^\/]+))?/);
-      const route = match && match[1] ? match[1] : "home";
-      const anchor = match && match[2] ? match[2] : null;
+      const requestedRoute = match && match[1] ? match[1] : "home";
+      const englishModules = [
+        "en-easy-start", "en-easy-chapter-books", "en-vast-reading",
+        "en-extensive-reading", "en-comprehensive-reading", "en-speed-reading",
+        "en-classic-reading",
+      ];
+      const isEnglishModule = englishModules.includes(requestedRoute);
+      const route = isEnglishModule ? "en" : requestedRoute;
+      const anchor = isEnglishModule ? requestedRoute : (match && match[2] ? match[2] : null);
 
       document.querySelectorAll(".page").forEach((page) => {
         const isActive = page.getAttribute("data-route") === route;
@@ -1377,7 +1385,7 @@ function closeModal(event) {
         page.setAttribute("aria-hidden", isActive ? "false" : "true");
       });
 
-      if (route === "home" && anchor) {
+      if ((route === "home" || route === "en") && anchor) {
         requestAnimationFrame(() => {
           const el = document.getElementById(anchor);
           if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
