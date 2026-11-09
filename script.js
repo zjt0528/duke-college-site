@@ -107,7 +107,8 @@ function closeModal(event) {
     en: {
       "nav.home": "Home",
       "nav.chinese": "Chinese",
-      "nav.english": "English",
+      "nav.english": "Reading",
+      "nav.writing": "Writing",
       "nav.math": "Math",
       "nav.french": "French",
       "nav.ps": "Public Speaking",
@@ -130,7 +131,19 @@ function closeModal(event) {
       "services.title": "Courses",
       "services.desc":
         "Choose the services you need and contact our advisors for program details and pricing.",
-      "english.title": "English Program",
+      "english.title": "Reading Program",
+      "writing.title": "Writing Program",
+      "writing.desc": "Develop written expression, essay organization, and academic writing skills through structured practice.",
+      "writing.creative.title": "Creative Writing",
+      "writing.creative.content":
+        "<h4>For students who:</h4><ul class=\"course-audience\"><li>want to write their own stories</li><li>want to develop characters using their imagination</li><li>want to become lifelong writers</li></ul><h4>We guarantee they can:</h4><ul class=\"course-outcomes\"><li>write <strong>12</strong> creative writing pieces and publish <strong>1</strong> book</li><li>enjoy writing their own stories</li><li>be good at creating new characters</li></ul>",
+      "writing.essay.title": "Essay Writing",
+      "writing.essay.content":
+        "<h4>For students who:</h4><ul class=\"course-audience\"><li>struggle with essay writing</li><li>want to write at their grade level</li><li>want to become lifelong writers</li></ul><h4>We guarantee they can:</h4><ul class=\"course-outcomes\"><li>master grade-required essay writing</li><li>write <strong>21</strong> essays</li><li>publish <strong>1</strong> book</li><li>score well in essay tests</li></ul>",
+      "writing.grammar.title": "Grammar",
+      "writing.grammar.content":
+        "<h4>For students who:</h4><ul class=\"course-audience\"><li>make frequent grammatical mistakes in their writing</li><li>struggle with grammar tests</li><li>want to write a great essay</li></ul><h4>We guarantee they can:</h4><ul class=\"course-outcomes\"><li>master grammar across <strong>2</strong> school-year levels</li><li>obtain good scores in grammar tests</li><li>write an essay without grammatical errors</li></ul>",
+      "writing.contact": "Ask about Writing Courses",
       "english.imagePlaceholder": "Course image",
       "english.desc":
         "Structured reading and expression courses designed for different learning stages.",
@@ -168,7 +181,7 @@ function closeModal(event) {
       "chinese.signup.title": "Limited Seats and Registration",
       "chinese.signup.list":
         "<p><strong>Only first 20 students in the initial intake.</strong></p><ul><li>Scan QR code to register</li><li>Add WeChat to consult</li><li>Fill in assessment form and placement evaluation</li></ul>",
-      "english.back": "Back to English Program",
+      "english.back": "Back to Reading Program",
       "english.easyStart.title": "Easy Start",
       "english.easyStart.desc": "Learn phonics and read simple picture books while building confidence and a love of reading.",
       "english.easyStart.content":
@@ -411,57 +424,18 @@ function closeModal(event) {
       "french.track3.item2.desc":
         "Coursework support and exam strategies for secondary students.",
       "ps.hero.title": "Public Speaking Program",
-      "ps.hero.desc":
-        "Build confidence, clarity, and critical thinking through structured speech training.",
-      "ps.back": "Back to Public Speaking",
-      "ps.overview.title": "Program Overview",
-      "ps.overview.desc":
-        "Our program goes beyond simply standing up and speaking.",
-      "ps.overview.list":
-        "<ul><li>Organize ideas logically</li><li>Speak clearly and confidently</li><li>Engage an audience</li><li>Develop critical thinking</li><li>Express opinions with structure and evidence</li></ul>",
-      "ps.overview.note":
-        "<p>We help students speak with logic, structure, and depth—not just courage.</p>",
-      "ps.gr13.title": "Grade 1–3 Public Speaking",
-      "ps.gr13.desc":
-        "Based on creative and structured topic themes, students explore:",
-      "ps.gr13.summary":
-        "Creative topics and guided structure to build confidence and clear expression.",
-      "ps.gr13.section.topics": "Topics",
-      "ps.gr13.section.skills": "Guided Preparation",
-      "ps.gr13.topic.creative":
-        "<h3>Creative & Fun Topics</h3><ul><li>If I Were a Superhero</li><li>What Would I Invent?</li><li>My Favorite Planet</li></ul>",
-      "ps.gr13.topic.everyday":
-        "<h3>Everyday Life with a Twist</h3><ul><li>The Perfect Playground</li><li>Why It's Important to Say “Thank You”</li></ul>",
-      "ps.gr13.topic.explore":
-        "<h3>Exploration & Discovery</h3><ul><li>Why the Ocean Is Important</li><li>What Would Happen Without Electricity?</li></ul>",
-      "ps.gr13.topic.values":
-        "<h3>Values & Character</h3><ul><li>Why Being Kind Matters</li><li>How to Be a Good Friend</li></ul>",
-      "ps.gr13.skills":
-        "<h3>Guided Preparation</h3><ul><li>Introduction – Body – Conclusion structure</li><li>Eye contact and voice projection</li><li>Basic persuasive speaking</li><li>Answering simple audience questions</li></ul>",
-      "ps.gr46.title": "Grade 4–6 Public Speaking",
-      "ps.gr46.desc":
-        "Students move from storytelling to structured argumentation.",
-      "ps.gr46.summary":
-        "Structured persuasion, evidence-based ideas, and debate readiness.",
-      "ps.gr46.section.focus": "Training Focus",
-      "ps.gr46.section.topics": "Sample Topics",
-      "ps.gr46.focus":
-        "<h3>Training Focus</h3><ul><li>Structured persuasive speeches</li><li>Supporting ideas with examples</li><li>Comparing viewpoints</li><li>Debate introduction skills</li><li>Q&A handling</li></ul>",
-      "ps.gr46.topics":
-        "<h3>Sample Topics</h3><ul><li>Should homework be reduced?</li><li>Why teamwork matters</li><li>Technology: helpful or harmful?</li><li>Environmental responsibility</li></ul>",
-      "ps.skills.title": "Skills Students Develop",
-      "ps.skills.list":
-        "<ul><li>Confidence on stage</li><li>Clear pronunciation</li><li>Logical organization</li><li>Critical thinking</li><li>Cultural awareness</li><li>Academic vocabulary</li></ul>",
-      "ps.why.title": "Why Public Speaking Matters",
-      "ps.why.desc":
-        "Strong speakers often become strong writers and strong thinkers.",
-      "ps.why.list":
-        "<ul><li>Academic performance</li><li>Writing skills</li><li>Leadership development</li><li>University readiness</li></ul>",
-      "ps.format.title": "Course Format",
-      "ps.format.list":
-        "<ul><li>Small group instruction</li><li>Guided topic preparation</li><li>Weekly speech delivery</li><li>Individual feedback</li><li>Performance-based progress tracking</li></ul>",
-      "ps.cta.primary": "Talk to an Advisor",
-      "ps.cta.secondary": "Back to Courses",
+      "ps.showTell.title": "Show & Tell",
+      "ps.showTell.content":
+        "<h4>For students who:</h4><ul class=\"course-audience\"><li>want to learn presentation techniques</li><li>want to overcome social fear</li><li>need to strengthen their confidence</li></ul><h4>We guarantee they can:</h4><ul class=\"course-outcomes\"><li>improve vocalization, expression, gestures, and eye contact</li><li>give presentations and experience video recording <strong>24</strong> times</li><li>become persuasive, confident presenters</li></ul>",
+      "ps.story.title": "Story Presentation",
+      "ps.story.content":
+        "<h4>For students who:</h4><ul class=\"course-audience\"><li>struggle to present in front of others</li><li>want to overcome social fear</li><li>have difficulty summarizing stories</li></ul><h4>We guarantee they can:</h4><ul class=\"course-outcomes\"><li>read <strong>24</strong> books and present <strong>24</strong> times</li><li>experience video recording <strong>24</strong> times</li><li>become persuasive, confident presenters</li></ul>",
+      "ps.speech.title": "Speech",
+      "ps.speech.content":
+        "<h4>For students who:</h4><ul class=\"course-audience\"><li>want to deliver a successful speech</li><li>struggle to present in front of others</li><li>want to overcome social fear</li></ul><h4>We guarantee they can:</h4><ul class=\"course-outcomes\"><li>write <strong>15</strong> expository essays and deliver <strong>15</strong> presentations</li><li>experience video recording <strong>15</strong> times</li><li>become persuasive, confident presenters</li></ul>",
+      "ps.mockCourt.title": "Mock Court",
+      "ps.mockCourt.content":
+        "<h4>For students who:</h4><ul class=\"course-audience\"><li>want to expand their knowledge of the law</li><li>want to acquire cooperative learning skills</li><li>want to experience the process of a real court proceeding</li><li>need more opportunities to voice their opinions</li><li>have prepared for Public Forum debate</li></ul><h4>We guarantee they can:</h4><ul class=\"course-outcomes\"><li>develop a better understanding of the law</li><li>gain greater confidence in public speaking</li><li>learn how the judicial system works</li><li>develop questioning techniques, critical thinking, and oral advocacy skills</li><li>experience the roles of attorneys and witnesses in a fictional criminal or civil trial</li></ul>",
       "teachers.title": "Our Teachers",
       "teachers.desc": "Meet our experienced and dedicated team of educators.",
       "teachers.t1.name": "Mr. Daniel Huang",
@@ -723,51 +697,18 @@ function closeModal(event) {
       "french.track3.item2.title": "高中支持",
       "french.track3.item2.desc": "面向中学学生的课程辅导与考试策略。",
       "ps.hero.title": "公共演讲课程",
-      "ps.hero.desc": "通过结构化演讲训练，培养清晰表达、自信演讲与思辨能力。",
-      "ps.back": "返回公共演讲课程",
-      "ps.overview.title": "课程介绍",
-      "ps.overview.desc":
-        "课程不仅训练“敢开口”，更帮助学生有逻辑、有条理地表达。",
-      "ps.overview.list":
-        "<ul><li>逻辑组织观点</li><li>清晰、自信地表达</li><li>吸引并引导听众</li><li>培养批判性思维</li><li>用结构和证据表达观点</li></ul>",
-      "ps.overview.note":
-        "<p>帮助学生在表达上做到有结构、有深度、有说服力。</p>",
-      "ps.gr13.title": "一年级–三年级 演讲基础",
-      "ps.gr13.desc": "以创意与结构化主题为引导，学生将探索：",
-      "ps.gr13.summary": "创意主题与结构化训练，帮助建立自信与清晰表达。",
-      "ps.gr13.section.topics": "主题",
-      "ps.gr13.section.skills": "基础训练重点",
-      "ps.gr13.topic.creative":
-        "<h3>创意与趣味主题</h3><ul><li>如果我是超级英雄</li><li>我会发明什么？</li><li>我最喜欢的星球</li></ul>",
-      "ps.gr13.topic.everyday":
-        "<h3>日常生活小创意</h3><ul><li>完美的游乐场</li><li>为什么说“谢谢”很重要</li></ul>",
-      "ps.gr13.topic.explore":
-        "<h3>探索与发现</h3><ul><li>海洋为什么重要</li><li>没有电会发生什么？</li></ul>",
-      "ps.gr13.topic.values":
-        "<h3>价值观与品格</h3><ul><li>善良为什么重要</li><li>如何做一个好朋友</li></ul>",
-      "ps.gr13.skills":
-        "<h3>基础训练重点</h3><ul><li>开头–主体–结尾结构</li><li>眼神交流与声音投射</li><li>基础说服性表达</li><li>回答简单观众问题</li></ul>",
-      "ps.gr46.title": "四年级–六年级 逻辑表达与思辨",
-      "ps.gr46.desc": "从故事表达逐步过渡到结构化论证。",
-      "ps.gr46.summary": "结构化说服、证据支撑观点与辩论准备。",
-      "ps.gr46.section.focus": "重点训练",
-      "ps.gr46.section.topics": "主题示例",
-      "ps.gr46.focus":
-        "<h3>重点训练</h3><ul><li>结构化说服演讲</li><li>用例子支持观点</li><li>对比不同立场</li><li>辩论导入技巧</li><li>Q&A 应对</li></ul>",
-      "ps.gr46.topics":
-        "<h3>主题示例</h3><ul><li>是否应该减少作业？</li><li>团队合作为什么重要</li><li>科技是帮助还是伤害？</li><li>环保责任</li></ul>",
-      "ps.skills.title": "学生可获得的能力",
-      "ps.skills.list":
-        "<ul><li>舞台自信</li><li>清晰发音</li><li>逻辑组织</li><li>批判性思维</li><li>文化意识</li><li>学术词汇</li></ul>",
-      "ps.why.title": "为什么演讲很重要",
-      "ps.why.desc": "强表达者通常也是强写作者与强思考者。",
-      "ps.why.list":
-        "<ul><li>提升学业表现</li><li>强化写作能力</li><li>培养领导力</li><li>大学升学准备</li></ul>",
-      "ps.format.title": "课程形式",
-      "ps.format.list":
-        "<ul><li>小班教学</li><li>主题引导与准备</li><li>每周演讲展示</li><li>个性化反馈</li><li>表现型进度记录</li></ul>",
-      "ps.cta.primary": "咨询课程顾问",
-      "ps.cta.secondary": "返回课程",
+      "ps.showTell.title": "展示与讲述",
+      "ps.showTell.content":
+        "<h4>适合以下学生：</h4><ul class=\"course-audience\"><li>希望学习演讲展示技巧</li><li>希望克服社交场合中的紧张</li><li>需要增强自信心</li></ul><h4>我们保证学生能够：</h4><ul class=\"course-outcomes\"><li>提升发声、表达、手势及眼神交流能力</li><li>完成 <strong>24</strong> 次演讲展示及录像练习</li><li>成为自信且有说服力的演讲者</li></ul>",
+      "ps.story.title": "故事演讲",
+      "ps.story.content":
+        "<h4>适合以下学生：</h4><ul class=\"course-audience\"><li>难以在他人面前进行展示</li><li>希望克服社交场合中的紧张</li><li>不善于概括故事内容</li></ul><h4>我们保证学生能够：</h4><ul class=\"course-outcomes\"><li>阅读 <strong>24</strong> 本书，并完成 <strong>24</strong> 次演讲展示</li><li>完成 <strong>24</strong> 次录像练习</li><li>成为自信且有说服力的演讲者</li></ul>",
+      "ps.speech.title": "演讲训练",
+      "ps.speech.content":
+        "<h4>适合以下学生：</h4><ul class=\"course-audience\"><li>希望成功完成一场演讲</li><li>难以在他人面前进行展示</li><li>希望克服社交场合中的紧张</li></ul><h4>我们保证学生能够：</h4><ul class=\"course-outcomes\"><li>完成 <strong>15</strong> 篇说明文，并进行 <strong>15</strong> 次演讲展示</li><li>完成 <strong>15</strong> 次录像练习</li><li>成为自信且有说服力的演讲者</li></ul>",
+      "ps.mockCourt.title": "模拟法庭",
+      "ps.mockCourt.content":
+        "<h4>适合以下学生：</h4><ul class=\"course-audience\"><li>希望拓展法律知识</li><li>希望学习合作学习技能</li><li>希望体验真实法庭的审理流程</li><li>需要更多表达自己观点的机会</li><li>已为公共论坛辩论做好准备</li></ul><h4>我们保证学生能够：</h4><ul class=\"course-outcomes\"><li>加深对法律的理解</li><li>增强公共演讲的自信心</li><li>了解司法体系的运作方式</li><li>培养提问技巧、批判性思维与口头论辩能力</li><li>在虚构的刑事或民事审判中体验律师和证人的角色</li></ul>",
       "teachers.title": "我们的师资",
       "teachers.desc": "认识我们经验丰富、敬业的教师团队。",
       "teachers.t1.name": "Mr. Daniel Huang（黄老师）",
@@ -815,7 +756,8 @@ function closeModal(event) {
       "teachers.t11.bio":
         "拥有高中英语与数学教学经验，并协助教育项目的开发。",
       "nav.home": "首页",
-      "nav.english": "英语",
+      "nav.english": "阅读",
+      "nav.writing": "写作",
       "nav.math": "数学",
       "nav.partners": "合作伙伴",
       "nav.life": "学生生活",
@@ -830,7 +772,19 @@ function closeModal(event) {
         "      Duke College 是一家专注于青少年英语 Reading&Writing（阅读与写作）能力培养的教育机构.我们致力于通过系统、科学、循序渐进的教学方式，帮助孩子建立扎实的阅读基础，提升写作表达能力，发展长期的学术学习能力。",
       "services.title": "课程",
       "services.desc": "选择您需要的服务并联系顾问获取课程详情与价格",
-      "english.title": "英语课程",
+      "english.title": "阅读课程",
+      "writing.title": "写作课程",
+      "writing.desc": "通过系统训练，提升写作表达、文章组织与学术写作能力。",
+      "writing.creative.title": "创意写作",
+      "writing.creative.content":
+        "<h4>适合以下学生：</h4><ul class=\"course-audience\"><li>希望创作自己的故事</li><li>希望发挥想象力，塑造故事人物</li><li>希望成为终身坚持写作的人</li></ul><h4>我们保证学生能够：</h4><ul class=\"course-outcomes\"><li>完成 <strong>12</strong> 篇创意写作作品，并出版 <strong>1</strong> 本书</li><li>享受创作自己故事的乐趣</li><li>善于创造新的人物角色</li></ul>",
+      "writing.essay.title": "作文写作",
+      "writing.essay.content":
+        "<h4>适合以下学生：</h4><ul class=\"course-audience\"><li>作文写作表现不理想</li><li>希望达到所在年级要求的写作水平</li><li>希望成为终身坚持写作的人</li></ul><h4>我们保证学生能够：</h4><ul class=\"course-outcomes\"><li>掌握所在年级要求的作文写作技能</li><li>完成 <strong>21</strong> 篇作文</li><li>出版 <strong>1</strong> 本书</li><li>在各类作文考试中取得好成绩</li></ul>",
+      "writing.grammar.title": "语法",
+      "writing.grammar.content":
+        "<h4>适合以下学生：</h4><ul class=\"course-audience\"><li>写作中经常出现语法错误</li><li>语法考试表现不理想</li><li>希望写出优秀的作文</li></ul><h4>我们保证学生能够：</h4><ul class=\"course-outcomes\"><li>掌握 <strong>2</strong> 个学年所要求的语法知识</li><li>在语法考试中取得好成绩</li><li>写出没有语法错误的作文</li></ul>",
+      "writing.contact": "咨询写作课程",
       "english.imagePlaceholder": "课程图片预留位",
       "english.desc": "根据不同学习阶段设计的系统化阅读与表达课程。",
       "english.section.easyStart": "阅读启蒙",
@@ -840,7 +794,7 @@ function closeModal(event) {
       "english.section.comprehensiveReading": "综合阅读",
       "english.section.speedReading": "快速阅读",
       "english.section.classicReading": "经典阅读",
-      "english.back": "返回英语课程",
+      "english.back": "返回阅读课程",
       "english.easyStart.title": "阅读启蒙",
       "english.easyStart.desc": "学习自然拼读与简单绘本阅读，建立阅读信心，享受阅读乐趣。",
       "english.easyStart.content":
@@ -1376,7 +1330,8 @@ function closeModal(event) {
         "en-classic-reading",
       ];
       const isEnglishModule = englishModules.includes(requestedRoute);
-      const route = isEnglishModule ? "en" : requestedRoute;
+      const isRetiredSpeakingRoute = ["ps-gr13", "ps-gr46"].includes(requestedRoute);
+      const route = isEnglishModule ? "en" : (isRetiredSpeakingRoute ? "ps" : requestedRoute);
       const anchor = isEnglishModule ? requestedRoute : (match && match[2] ? match[2] : null);
 
       document.querySelectorAll(".page").forEach((page) => {
@@ -1385,7 +1340,7 @@ function closeModal(event) {
         page.setAttribute("aria-hidden", isActive ? "false" : "true");
       });
 
-      if ((route === "home" || route === "en") && anchor) {
+      if ((route === "home" || route === "en" || route === "ps") && anchor) {
         requestAnimationFrame(() => {
           const el = document.getElementById(anchor);
           if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });

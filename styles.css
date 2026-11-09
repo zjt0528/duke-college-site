@@ -121,6 +121,9 @@
     .english-course-poster { aspect-ratio: auto; border: 0; background: transparent; }
     .english-course-poster img { height: auto; object-fit: contain; }
     .english-course-text { min-width: 0; }
+    .writing-course, .speaking-course { align-items: start; }
+    .writing-course .cat-title, .speaking-course .cat-title { color: var(--accent); }
+    .writing-course .english-course-content h4, .speaking-course .english-course-content h4 { margin: 24px 0 10px; font-size: 1.1rem; }
     @media (max-width: 767px) {
       .english-course { grid-template-columns: minmax(0, 1fr); gap: 20px; }
     }
@@ -171,6 +174,10 @@
 /* ---- Responsive breakpoints: tablet (≤1000px) and mobile (≤767px).
        ≤767px swaps the nav for the hamburger drop-down menu. ---- */
     @media (min-width: 768px) { .menu { display: flex !important; } }
+    @media (min-width: 768px) and (max-width: 1100px) {
+      .nav { flex-wrap: wrap; gap: 14px; }
+      .menu { width: 100%; flex-wrap: wrap; justify-content: center; column-gap: 18px; row-gap: 4px; }
+    }
     @media (max-width: 1000px) {
       .about, .contact { grid-template-columns: 1fr; }
       .grid { grid-template-columns: repeat(2, 1fr); }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Duke College Inc. — Education & Services</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=speaking-courses" />
   </head>
   <body>
     <div class="topbar">
@@ -29,11 +29,12 @@
         </div>
         <nav id="site-menu" class="menu" aria-hidden="false">
           <a href="#/home" data-i18n="nav.home">首页</a>
-          <a href="#/en" data-i18n="nav.english">英文</a>
+          <a href="#/en" data-i18n="nav.english">阅读</a>
+          <a href="#/writing" data-i18n="nav.writing">写作</a>
+          <a href="#/ps" data-i18n="nav.ps">公共演讲</a>
           <a href="#/cn" data-i18n="nav.chinese">语文</a>
           <a href="#/math" data-i18n="nav.math">数学</a>
           <a href="#/fr" data-i18n="nav.french">法语</a>
-          <a href="#/ps" data-i18n="nav.ps">公共演讲</a>
           <a href="#/teachers" data-i18n="nav.teachers">师资</a>
           <a href="#/test" data-i18n="nav.test">在线测试</a>
           <a href="#/home/contact" class="cta" data-i18n="nav.contact">联系</a>
@@ -1033,7 +1034,7 @@
       <section class="hero" style="padding: 48px 0">
         <div class="container">
           <h2 class="section-title" data-i18n="english.title">
-            English Program
+            Reading Program
           </h2>
           <p class="section-desc" data-i18n="english.desc">
             Structured reading and expression courses designed for different
@@ -1114,6 +1115,53 @@
             <div class="english-course-content" data-i18n-html="english.classicReading.content"></div>
             </div>
           </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="page-writing" class="page" data-route="writing" aria-hidden="true">
+      <section class="hero" style="padding: 48px 0">
+        <div class="container">
+          <h2 class="section-title" data-i18n="writing.title">写作课程</h2>
+          <p class="section-desc" data-i18n="writing.desc">
+            通过系统训练，提升写作表达、文章组织与学术写作能力。
+          </p>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="english-courses">
+            <article class="cat english-course writing-course" id="writing-creative" aria-labelledby="writing-creative-title">
+              <div class="english-course-image english-course-poster">
+                <img src="Images/Creative%20Writting.png" alt="创意写作" data-i18n-alt="writing.creative.title" width="3133" height="4490" loading="lazy" decoding="async">
+              </div>
+              <div class="english-course-text">
+                <h3 class="cat-title" id="writing-creative-title" data-i18n="writing.creative.title">创意写作</h3>
+                <div class="english-course-content" data-i18n-html="writing.creative.content"></div>
+              </div>
+            </article>
+            <article class="cat english-course writing-course" id="writing-essay" aria-labelledby="writing-essay-title">
+              <div class="english-course-image english-course-poster">
+                <img src="Images/Essay%20Writing.png" alt="作文写作" data-i18n-alt="writing.essay.title" width="4386" height="6579" loading="lazy" decoding="async">
+              </div>
+              <div class="english-course-text">
+                <h3 class="cat-title" id="writing-essay-title" data-i18n="writing.essay.title">作文写作</h3>
+                <div class="english-course-content" data-i18n-html="writing.essay.content"></div>
+              </div>
+            </article>
+            <article class="cat english-course writing-course" id="writing-grammar" aria-labelledby="writing-grammar-title">
+              <div class="english-course-image english-course-poster">
+                <img src="Images/Grammar.png" alt="语法" data-i18n-alt="writing.grammar.title" width="1024" height="1536" loading="lazy" decoding="async">
+              </div>
+              <div class="english-course-text">
+                <h3 class="cat-title" id="writing-grammar-title" data-i18n="writing.grammar.title">语法</h3>
+                <div class="english-course-content" data-i18n-html="writing.grammar.content"></div>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top: 24px">
+            <a class="btn primary" href="#/home/contact" data-i18n="writing.contact">咨询写作课程</a>
           </div>
         </div>
       </section>
@@ -2034,250 +2082,48 @@
     <main id="page-ps" class="page" data-route="ps" aria-hidden="true">
       <section class="hero" style="padding: 48px 0">
         <div class="container">
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 12px;
-              flex-wrap: wrap;
-            "
-          >
-            <h2
-              class="section-title"
-              data-i18n="ps.hero.title"
-              style="margin: 0"
-            >
-              Public Speaking Program
-            </h2>
-            <a
-              class="btn primary"
-              href="#/home/contact"
-              data-i18n="ps.cta.primary"
-              >Talk to an Advisor</a
-            >
-          </div>
-          <p class="section-desc" data-i18n="ps.hero.desc">
-            Build confidence, clarity, and critical thinking through structured
-            speech training.
-          </p>
+          <h2 class="section-title" data-i18n="ps.hero.title">公共演讲课程</h2>
         </div>
       </section>
       <section>
         <div class="container">
-          <div class="services-cats">
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.skills.title">
-                Skills Students Develop
-              </h3>
-              <div class="cat-grid">
-                <div class="service" data-i18n-html="ps.skills.list"></div>
+          <div class="english-courses">
+            <article class="cat english-course speaking-course" id="ps-show-tell" aria-labelledby="ps-show-tell-title">
+              <div class="english-course-image english-course-poster">
+                <img src="Images/Show%20%26%20Tell.png" alt="展示与讲述" data-i18n-alt="ps.showTell.title" width="1024" height="1536" loading="lazy" decoding="async">
               </div>
-            </div>
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.why.title">
-                Why Public Speaking Matters
-              </h3>
-              <p class="section-desc" data-i18n="ps.why.desc">
-                Strong speakers often become strong writers and strong thinkers.
-              </p>
-              <div class="cat-grid">
-                <div class="service" data-i18n-html="ps.why.list"></div>
+              <div class="english-course-text">
+                <h3 class="cat-title" id="ps-show-tell-title" data-i18n="ps.showTell.title">展示与讲述</h3>
+                <div class="english-course-content" data-i18n-html="ps.showTell.content"></div>
               </div>
-            </div>
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.format.title">
-                Course Format
-              </h3>
-              <div class="cat-grid">
-                <div class="service" data-i18n-html="ps.format.list"></div>
+            </article>
+            <article class="cat english-course speaking-course" id="ps-story" aria-labelledby="ps-story-title">
+              <div class="english-course-image english-course-poster">
+                <img src="Images/Story%20Presentation.png" alt="故事演讲" data-i18n-alt="ps.story.title" width="1024" height="1536" loading="lazy" decoding="async">
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div class="container">
-          <div class="services-cats">
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.overview.title">
-                Program Overview
-              </h3>
-              <p class="section-desc" data-i18n="ps.overview.desc">
-                Our program goes beyond simply standing up and speaking.
-              </p>
-              <div class="cat-grid">
-                <div class="service" data-i18n-html="ps.overview.list"></div>
-                <div class="service" data-i18n-html="ps.overview.note"></div>
+              <div class="english-course-text">
+                <h3 class="cat-title" id="ps-story-title" data-i18n="ps.story.title">故事演讲</h3>
+                <div class="english-course-content" data-i18n-html="ps.story.content"></div>
               </div>
-            </div>
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.gr13.title">
-                Grade 1–3 Public Speaking
-              </h3>
-              <p class="section-desc" data-i18n="ps.gr13.desc">
-                Based on creative and structured topic themes, students explore:
-              </p>
-              <div class="cat-grid">
-                <div class="service">
-                  <p data-i18n="ps.gr13.summary">
-                    Creative topics and guided structure to build confidence and
-                    clear expression.
-                  </p>
-                  <a
-                    class="btn primary"
-                    style="margin-top: 12px"
-                    href="#/ps-gr13"
-                    data-i18n="link.view"
-                    >View</a
-                  >
-                </div>
+            </article>
+            <article class="cat english-course speaking-course" id="ps-speech" aria-labelledby="ps-speech-title">
+              <div class="english-course-image english-course-poster">
+                <img src="Images/Power%20Presentation.png" alt="演讲训练" data-i18n-alt="ps.speech.title" width="1024" height="1536" loading="lazy" decoding="async">
               </div>
-            </div>
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.gr46.title">
-                Grade 4–6 Public Speaking
-              </h3>
-              <p class="section-desc" data-i18n="ps.gr46.desc">
-                Students move from storytelling to structured argumentation.
-              </p>
-              <div class="cat-grid">
-                <div class="service">
-                  <p data-i18n="ps.gr46.summary">
-                    Structured persuasion, evidence-based ideas, and debate
-                    readiness.
-                  </p>
-                  <a
-                    class="btn primary"
-                    style="margin-top: 12px"
-                    href="#/ps-gr46"
-                    data-i18n="link.view"
-                    >View</a
-                  >
-                </div>
+              <div class="english-course-text">
+                <h3 class="cat-title" id="ps-speech-title" data-i18n="ps.speech.title">演讲训练</h3>
+                <div class="english-course-content" data-i18n-html="ps.speech.content"></div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <main
-      id="page-ps-gr13"
-      class="page"
-      data-route="ps-gr13"
-      aria-hidden="true"
-    >
-      <section class="hero" style="padding: 48px 0">
-        <div class="container">
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 12px;
-              flex-wrap: wrap;
-            "
-          >
-            <h2 class="section-title" data-i18n="ps.gr13.title">
-              Grade 1–3 Public Speaking
-            </h2>
-            <a class="btn secondary" href="#/ps" data-i18n="ps.back"
-              >Back to Public Speaking</a
-            >
-          </div>
-          <p class="section-desc" data-i18n="ps.gr13.desc">
-            Based on creative and structured topic themes, students explore:
-          </p>
-        </div>
-      </section>
-      <section>
-        <div class="container">
-          <div class="services-cats">
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.gr13.section.topics">
-                Topics
-              </h3>
-              <div class="cat-grid">
-                <div
-                  class="service"
-                  data-i18n-html="ps.gr13.topic.creative"
-                ></div>
-                <div
-                  class="service"
-                  data-i18n-html="ps.gr13.topic.everyday"
-                ></div>
-                <div
-                  class="service"
-                  data-i18n-html="ps.gr13.topic.explore"
-                ></div>
-                <div
-                  class="service"
-                  data-i18n-html="ps.gr13.topic.values"
-                ></div>
+            </article>
+            <article class="cat english-course speaking-course" id="ps-mock-court" aria-labelledby="ps-mock-court-title">
+              <div class="english-course-image english-course-poster">
+                <img src="Images/Mock%20Court.png" alt="模拟法庭" data-i18n-alt="ps.mockCourt.title" width="1024" height="1536" loading="lazy" decoding="async">
               </div>
-            </div>
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.gr13.section.skills">
-                Guided Preparation
-              </h3>
-              <div class="cat-grid">
-                <div class="service" data-i18n-html="ps.gr13.skills"></div>
+              <div class="english-course-text">
+                <h3 class="cat-title" id="ps-mock-court-title" data-i18n="ps.mockCourt.title">模拟法庭</h3>
+                <div class="english-course-content" data-i18n-html="ps.mockCourt.content"></div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <main
-      id="page-ps-gr46"
-      class="page"
-      data-route="ps-gr46"
-      aria-hidden="true"
-    >
-      <section class="hero" style="padding: 48px 0">
-        <div class="container">
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 12px;
-              flex-wrap: wrap;
-            "
-          >
-            <h2 class="section-title" data-i18n="ps.gr46.title">
-              Grade 4–6 Public Speaking
-            </h2>
-            <a class="btn secondary" href="#/ps" data-i18n="ps.back"
-              >Back to Public Speaking</a
-            >
-          </div>
-          <p class="section-desc" data-i18n="ps.gr46.desc">
-            Students move from storytelling to structured argumentation.
-          </p>
-        </div>
-      </section>
-      <section>
-        <div class="container">
-          <div class="services-cats">
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.gr46.section.focus">
-                Training Focus
-              </h3>
-              <div class="cat-grid">
-                <div class="service" data-i18n-html="ps.gr46.focus"></div>
-              </div>
-            </div>
-            <div class="cat">
-              <h3 class="cat-title" data-i18n="ps.gr46.section.topics">
-                Sample Topics
-              </h3>
-              <div class="cat-grid">
-                <div class="service" data-i18n-html="ps.gr46.topics"></div>
-              </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -2661,7 +2507,7 @@
       </div>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=speaking-courses" defer></script>
     <!-- Online test: Supabase client (CDN) + quiz logic -->
     <script
       src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
