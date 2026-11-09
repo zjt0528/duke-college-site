@@ -4,6 +4,19 @@
 -- correct_index is 0-based. Answers were generated for you; please spot-check.
 -- ============================================================================
 
+-- Legacy seed only. New question banks use the website import manager.
+begin;
+do $guard$
+begin
+  if to_regclass('public.test_question_banks') is not null then
+    raise exception 'USE_QUESTION_BANK_MANAGER: see supabase/README.md';
+  end if;
+  if exists (select 1 from public.questions where subject like '5a%') then
+    raise exception 'WORKSHEETS_ALREADY_EXIST: import cancelled to avoid duplicates';
+  end if;
+end;
+$guard$;
+
 -- ---- 5a1  Context Clue --------------------------------------------------------
 insert into public.questions (subject, grade, prompt, choices, correct_index, sort_order) values
 ('5a1 - Context Clue','G5', $p$Choose the best word for blank (1): It is not (1)___ that the first settlers quickly killed most of the bears. A hungry bear would eat almost anything a farmer could raise or grow. Some bears can run at (2)___ up to thirty miles an hour. Bear meat could be eaten, and the skins were useful. But the most (3)___ part of a bear was the (4)___. Many people liked bear oil better than butter. A large bear, killed when it is fat in the fall, would (5)___ about thirty gallons of bear oil.$p$, $c$["usual","surprising","fair","cruel"]$c$::jsonb, 1, 1),
@@ -181,3 +194,5 @@ insert into public.questions (subject, grade, prompt, choices, correct_index, so
 ('5a12 - Inference','G5', $p$"Wow," thought Ms. Jenkins, "I must be really old. I thought a 'byte' was what you took from food. This computer class isn't for me." Which is probably true?$p$, $c$["Ms. Jenkins was a teacher.","Ms. Jenkins was seventy years old.","Ms. Jenkins had very little knowledge about computers.","Ms. Jenkins could never learn how to use the computer no matter how hard she tried."]$c$::jsonb, 2, 3),
 ('5a12 - Inference','G5', $p$In the park on Monday, a race will take place. The winner of the race gets a high-speed bicycle. Brett has been preparing for two weeks. He can't wait to ride his new bicycle home. Which is probably true?$p$, $c$["Brett doesn't know about Max, who runs faster than he does.","Brett is confident that he will win.","Brett can run faster than a car.","The bicycle has a black, steel body."]$c$::jsonb, 1, 4),
 ('5a12 - Inference','G5', $p$"My dad doesn't allow us to use his office computer for playing computer games," said John. "My dad just made up that rule in our house, too. Last week, he made the mistake of letting my younger brother, Daniel, use it," said Chris. Which is probably true?$p$, $c$["John and Chris have old-fashioned fathers.","Daniel ruined his dad's computer.","John's dad's computer is the best there is.","Chris and John are content with the new rule at home."]$c$::jsonb, 1, 5);
+
+commit;

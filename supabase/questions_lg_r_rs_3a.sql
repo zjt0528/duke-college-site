@@ -5,6 +5,19 @@
 -- correct_index is 0-based. Answers were generated for you; please spot-check.
 -- ============================================================================
 
+-- Legacy seed only. New question banks use the website import manager.
+begin;
+do $guard$
+begin
+  if to_regclass('public.test_question_banks') is not null then
+    raise exception 'USE_QUESTION_BANK_MANAGER: see supabase/README.md';
+  end if;
+  if exists (select 1 from public.questions where subject like '3a%') then
+    raise exception 'WORKSHEETS_ALREADY_EXIST: import cancelled to avoid duplicates';
+  end if;
+end;
+$guard$;
+
 -- ---- 3a1  Context Clue --------------------------------------------------------
 insert into public.questions (subject, grade, prompt, choices, correct_index, sort_order) values
 ('3a1 - Context Clue','G3', $p$Choose the best word for blank (1): Rivers are not all the same color. In some cases, the color of a river is (1)___ by the river (2)___. It may be (3)___ to the color of its (4)___, which a river (5)___. The river color may be caused by what is found in the water.$p$, $c$["caused","marched","decided","divided"]$c$::jsonb, 0, 1),
@@ -186,3 +199,5 @@ insert into public.questions (subject, grade, prompt, choices, correct_index, so
 ('3a12 - Inference','G3', $p$Most dogs start to kick and bark when they are about to be given a bath. Some dogs are known to jump out of the water and run all over the place. Which is probably true?$p$, $c$["Some dogs like to be given baths, and some dogs don't.","Every dog is bossy.","Dogs love playing around in the water."]$c$::jsonb, 0, 3),
 ('3a12 - Inference','G3', $p$Mom was busy cooking a ham, so she asked Carl to help her cook a turkey. He said, "Yes, I would. I can cook the turkey because I've seen you do it many times." When Carl's mom took the turkey out of the oven, she thought, "I should have cooked it myself." Which is probably true?$p$, $c$["Carl wanted to make his mom angry.","Carl ruined the turkey.","Carl's mom should have used the microwave oven."]$c$::jsonb, 1, 4),
 ('3a12 - Inference','G3', $p$Jenny put her sweater on. She said, "I will check the windows. Would you check the door and make sure that it's closed?" Peter checked the door and said, "Jenny, don't worry. You will be fine soon. I closed the door." Jenny said, "Good. Then, I can take my sweater off later." Which is probably true?$p$, $c$["Jenny was afraid of robbers.","The room was hot and humid.","It was very cold and windy."]$c$::jsonb, 2, 5);
+
+commit;

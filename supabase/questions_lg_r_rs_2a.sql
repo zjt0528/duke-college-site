@@ -3,13 +3,25 @@
 -- ~Grade 2 ESL. 12 worksheets / 130 questions.
 --
 -- Run this AFTER supabase/setup.sql, in the Supabase SQL editor.
--- It clears any existing questions (including the 4 samples) and loads these.
+-- Adds these worksheets without clearing existing questions.
 --
 -- correct_index is 0-based (first choice = 0). Answers were generated for you;
 -- please spot-check. Two are mild judgment calls — see the comments inline.
 -- ============================================================================
 
-delete from public.questions;
+
+-- Legacy seed only. New question banks use the website import manager.
+begin;
+do $guard$
+begin
+  if to_regclass('public.test_question_banks') is not null then
+    raise exception 'USE_QUESTION_BANK_MANAGER: see supabase/README.md';
+  end if;
+  if exists (select 1 from public.questions where subject like '2a%') then
+    raise exception 'WORKSHEETS_ALREADY_EXIST: import cancelled to avoid duplicates';
+  end if;
+end;
+$guard$;
 
 -- ---- 2a1  Context Clue --------------------------------------------------------
 insert into public.questions (subject, grade, prompt, choices, correct_index, sort_order) values
@@ -178,3 +190,5 @@ insert into public.questions (subject, grade, prompt, choices, correct_index, so
 ('2a12 - Inference','G2', $p$Mary bought some seeds, some wood, and nails. She built a birdhouse in her backyard. Then, Mary put the birdseed inside the birdhouse. Which is probably true?$p$, $c$["Mary loves birds.","Mary likes to eat the birdseed.","Mary has a big backyard."]$c$::jsonb, 0, 3),
 ('2a12 - Inference','G2', $p$At lunchtime, everyone in the family had something different. Ally had a sandwich. Mom and Dad had salads. Emma had some soup. Johnny said, "I'm full. Let's play now!" Which is probably true?$p$, $c$["Johnny was a cat.","Johnny had already eaten.","Johnny liked to eat chicken."]$c$::jsonb, 1, 4),
 ('2a12 - Inference','G2', $p$"What do you want to do? Go to the movies or go to the World Series?" asked Billy's dad. "I want to go to the World Series. That is only once a year," answered Billy. Which is probably true?$p$, $c$["Billy and his dad would fight.","Sammy Sosa didn't play.","Billy and his dad went to the World Series."]$c$::jsonb, 2, 5);
+
+commit;

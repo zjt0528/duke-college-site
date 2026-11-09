@@ -13,7 +13,7 @@
  *
  * SETUP:
  *   1. Fill in the two constants below (Dashboard > Project Settings > API).
- *   2. Run supabase/setup.sql, then supabase/questions_lg_r_rs_2a.sql.
+ *   2. Follow supabase/README.md for migrations and safe question-bank imports.
  *   3. Enable Email auth: Dashboard > Authentication > Providers > Email.
  *      For instant login, turn OFF "Confirm email" (Authentication > Providers
  *      > Email). If you keep confirmation on, set the Site URL to your domain
@@ -29,7 +29,7 @@
   // Tiny i18n helper: pick the Chinese or English string for the current language.
   const lang = () => (localStorage.getItem('site-lang') || 'zh');
   const t = (zh, en) => (lang() === 'zh' ? zh : en);
-  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   const el = (html) => { const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstElementChild; };
 
   // Only create a client once real credentials have been filled in.
@@ -45,6 +45,11 @@
   let sections = [];      // [{ subject, questions: [...] }], ordered by worksheet code
   let current = null;     // currently selected subject label
   let mySubs = {};        // subject -> { score, total } — this student's past submissions
+  let selectedBank = null;
+  let questionLoadVersion = 0;
+  let activeUserId = null;
+  let drafts = Object.create(null);
+  let submitting = false;
 
   function displayName() {
     const u = session && session.user;
@@ -75,13 +80,20 @@
         return;
       }
       const nowIn = !!s;
-      if (nowIn === loggedIn && !recovering) return;   // gate state unchanged — don't reload
+      if (nowIn === loggedIn && (!s || s.user.id === activeUserId) && !recovering) return;   // gate state unchanged — don't reload
       route();
     });
     route();
   }
 
   async function route() {
+    const userId = session && session.user.id;
+    if (userId !== activeUserId) {
+      activeUserId = userId;
+      questionLoadVersion++;
+      sections = []; current = null; selectedBank = null;
+      mySubs = {}; drafts = Object.create(null); submitting = false;
+    }
     loggedIn = !!session;
     if (recovering) { renderRecovery(); return; }
     if (!session) { isAdmin = false; view = 'test'; renderAuth(); return; }
@@ -91,7 +103,9 @@
       const { data } = await db.rpc('is_admin');
       isAdmin = data === true;
     } catch (_) { isAdmin = false; }
+    if (!session || session.user.id !== userId) return;
     if (view === 'admin' && isAdmin) loadAdmin();
+    else if (view === 'banks' && isAdmin) renderBanks();
     else if (view === 'results' && isAdmin) loadResults();
     else { view = 'test'; loadQuestions(); }
   }
@@ -269,11 +283,31 @@
       res.addEventListener('click', () => { view = 'results'; loadResults(); });
       btns.appendChild(res);
     }
+    if (isAdmin) {
+      const banks = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('题库管理', 'Question banks') + '</button>');
+      banks.addEventListener('click', () => { questionLoadVersion++; view = 'banks'; renderBanks(); });
+      btns.appendChild(banks);
+    }
     const out = el('<button class="btn secondary" type="button" style="padding:8px 14px;">' + t('退出登录', 'Log out') + '</button>');
     out.addEventListener('click', async () => { await db.auth.signOut(); });   // onAuthStateChange → renderAuth
     btns.appendChild(out);
     bar.appendChild(btns);
     return bar;
+  }
+
+  function renderBanks() {
+    root.innerHTML = '';
+    root.appendChild(signedInBar({ back: true, admin: true, results: true }));
+    const panel = document.createElement('div');
+    root.appendChild(panel);
+    if (!window.TestBankManager) {
+      panel.textContent = t('题库管理组件未加载，请刷新页面。', 'Question bank manager did not load. Please refresh.');
+      return;
+    }
+    window.TestBankManager.render({ root: panel, db, t, esc, el,
+      onBack: () => { view = 'test'; loadQuestions(); },
+      onSaved: () => { sections = []; questionLoadVersion++; }
+    });
   }
 
   // Shown to logged-in users an admin hasn't approved yet.
@@ -287,37 +321,81 @@
     ));
   }
 
+  function localized(row, prefix) {
+    return row[prefix + '_' + lang()] || row[prefix + '_en'] || row[prefix + '_zh'] || row.subject;
+  }
+
+  function showTestError(error) {
+    root.innerHTML = '';
+    root.appendChild(signedInBar({ admin: true }));
+    root.appendChild(el('<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(error.message || '') + '</p></div>'));
+    const retry = el('<button type="button" class="btn secondary">' + t('重试', 'Try again') + '</button>');
+    retry.addEventListener('click', loadQuestions); root.appendChild(retry);
+  }
+
   async function loadQuestions() {
-    root.innerHTML = '<p class="section-desc">' + t('加载题目中…', 'Loading questions…') + '</p>';
-    const { data, error } = await db.rpc('get_questions');
-    if (error) {
-      if ((error.message || '').indexOf('PENDING_APPROVAL') !== -1) { renderPending(); return; }
-      root.innerHTML = '<div class="service"><strong>' + t('加载失败', 'Failed to load') + '</strong><p>' + esc(error.message) + '</p></div>';
-      return;
-    }
-    // Past submissions mark worksheets as completed (one attempt each).
-    // try/catch keeps the page working before the migration adds the RPC.
-    mySubs = {};
+    const version = ++questionLoadVersion;
+    root.innerHTML = '<p class="section-desc">' + t('加载题库中…', 'Loading question banks…') + '</p>';
     try {
-      const subsRes = await db.rpc('get_my_submissions');
-      (subsRes.data || []).forEach((s) => { if (!mySubs[s.subject]) mySubs[s.subject] = s; });
-    } catch (_) { /* RPC not installed yet */ }
-
-    const bySubject = {};
-    (data || []).forEach((q) => { (bySubject[q.subject] = bySubject[q.subject] || []).push(q); });
-    sections = Object.keys(bySubject)
-      .sort((a, b) => codeNum(a) - codeNum(b))
-      .map((s) => ({ subject: s, questions: bySubject[s] }));
-
-    if (!sections.length) {
-      renderTest(true);
-      return;
+      const [catalog, subsRes] = await Promise.all([
+        db.rpc('get_test_catalog'), db.rpc('get_my_submissions')
+      ]);
+      if (version !== questionLoadVersion || view !== 'test' || !session) return;
+      mySubs = {};
+      (subsRes.data || []).forEach((row) => { if (!mySubs[row.subject]) mySubs[row.subject] = row; });
+      if (catalog.error) {
+        // Keep existing installations usable until the bank migration is run.
+        if (!['PGRST202', '42883'].includes(catalog.error.code)) throw catalog.error;
+        const legacy = await db.rpc('get_questions');
+        if (version !== questionLoadVersion || view !== 'test' || !session) return;
+        if (legacy.error) throw legacy.error;
+        const bySubject = new Map();
+        (legacy.data || []).forEach((q) => {
+          if (!bySubject.has(q.subject)) bySubject.set(q.subject, []);
+          bySubject.get(q.subject).push(q);
+        });
+        sections = [...bySubject.keys()].sort((a, b) => codeNum(a) - codeNum(b)).map((subject) => ({
+          subject, bank_id: 'legacy', bank_name_zh: 'book reading vocabulary', bank_name_en: 'book reading vocabulary',
+          title_zh: subject, title_en: subject, questions: bySubject.get(subject), question_count: bySubject.get(subject).length
+        }));
+      } else {
+        sections = (catalog.data || []).filter((row) => row.subject && Number(row.question_count) > 0)
+          .map((row) => ({ ...row,
+            bank_name_zh: row.bank_code === 'legacy' && ['原有题库', '现有题库'].includes(row.bank_name_zh) ? 'book reading vocabulary' : row.bank_name_zh,
+            bank_name_en: row.bank_code === 'legacy' && ['Existing question bank', 'Existing worksheets'].includes(row.bank_name_en) ? 'book reading vocabulary' : row.bank_name_en,
+            questions: null }))
+          .sort((a, b) => String(a.bank_id).localeCompare(String(b.bank_id), undefined, { numeric: true }) ||
+            (a.bank_code === 'legacy' ? codeNum(a.subject) - codeNum(b.subject) : 0) || a.sort_order - b.sort_order);
+      }
+      if (!sections.some((row) => String(row.bank_id) === String(selectedBank))) selectedBank = sections.length ? String((sections.find((row) => !mySubs[row.subject]) || sections[0]).bank_id) : null;
+      const available = sections.filter((row) => String(row.bank_id) === String(selectedBank));
+      if (!available.some((row) => row.subject === current)) current = (available.find((row) => !mySubs[row.subject]) || available[0] || {}).subject;
+      await loadSelectedWorksheet();
+    } catch (error) {
+      if (version !== questionLoadVersion || view !== 'test' || !session) return;
+      sections = [];
+      if ((error.message || '').includes('PENDING_APPROVAL')) renderPending();
+      else showTestError(error);
     }
-    if (!current || !bySubject[current]) {
-      // Default to the first worksheet the student hasn't taken yet.
-      const open = sections.find((s) => !mySubs[s.subject]);
-      current = (open || sections[0]).subject;
+  }
+
+  async function loadSelectedWorksheet() {
+    const section = sections.find((row) => row.subject === current);
+    const version = ++questionLoadVersion;
+    if (!section || section.questions || (mySubs[current] && !isAdmin)) { renderTest(); return; }
+    section.loading = true;
+    section.error = null;
+    renderTest();
+    try {
+      const result = await db.rpc('get_questions', { p_subject: section.subject });
+      if (version !== questionLoadVersion || view !== 'test' || !session) return;
+      if (result.error) throw result.error;
+      section.questions = result.data || [];
+    } catch (error) {
+      if (version !== questionLoadVersion || view !== 'test' || !session) return;
+      section.error = error.message || String(error);
     }
+    section.loading = false;
     renderTest();
   }
 
@@ -334,22 +412,41 @@
 
     const section = sections.find((s) => s.subject === current) || sections[0];
 
-    // Worksheet picker
-    const picker = el('<div class="service" style="margin-bottom:18px;"><label>' + t('选择练习', 'Choose a worksheet') + '</label></div>');
-    const sel = document.createElement('select');
-    sel.style.cssText = 'width:100%; padding:12px; border-radius:10px; border:1px solid var(--border); margin-top:6px; font:inherit;';
-    sections.forEach((sec) => {
-      const o = document.createElement('option');
-      o.value = sec.subject;
-      const done = mySubs[sec.subject];
-      o.textContent = sec.subject + '  (' + sec.questions.length + ')' +
-        (done ? '  ✓ ' + t('已完成', 'done') + ' ' + done.score + '/' + done.total : '');
-      if (sec.subject === current) o.selected = true;
-      sel.appendChild(o);
+    // Only the selected worksheet is fetched; the catalog contains no answers.
+    const picker = el('<div class="service" style="margin-bottom:18px;"></div>');
+    const selectStyle = 'width:100%; padding:12px; border-radius:10px; border:1px solid var(--border); margin:6px 0 14px; font:inherit;';
+    const bankLabel = el('<label for="test-bank-picker">' + t('选择题库', 'Choose a question bank') + '</label>');
+    const bankSel = document.createElement('select');
+    bankSel.id = 'test-bank-picker'; bankSel.style.cssText = selectStyle; bankSel.disabled = submitting;
+    const banks = new Map(sections.map((row) => [String(row.bank_id), row]));
+    banks.forEach((bank, id) => {
+      const option = document.createElement('option'); option.value = id;
+      option.textContent = localized(bank, 'bank_name') + (bank.bank_published === false ? t('（草稿）', ' (draft)') : '');
+      option.selected = id === String(selectedBank); bankSel.appendChild(option);
     });
-    sel.addEventListener('change', () => { current = sel.value; renderTest(); });
-    picker.appendChild(sel);
-    root.appendChild(picker);
+    bankSel.addEventListener('change', () => {
+      selectedBank = bankSel.value;
+      const available = sections.filter((row) => String(row.bank_id) === selectedBank);
+      current = (available.find((row) => !mySubs[row.subject]) || available[0]).subject;
+      loadSelectedWorksheet();
+    });
+    picker.append(bankLabel, bankSel);
+    const description = localized(section, 'bank_description');
+    if (description && description !== section.subject) {
+      const text = document.createElement('p'); text.className = 'section-desc'; text.textContent = description; picker.appendChild(text);
+    }
+    picker.appendChild(el('<label for="test-worksheet-picker">' + t('选择练习', 'Choose a worksheet') + '</label>'));
+    const sel = document.createElement('select');
+    sel.id = 'test-worksheet-picker'; sel.style.cssText = selectStyle; sel.disabled = submitting;
+    sections.filter((sec) => String(sec.bank_id) === String(selectedBank)).forEach((sec) => {
+      const option = document.createElement('option'); option.value = sec.subject;
+      const done = mySubs[sec.subject];
+      option.textContent = localized(sec, 'title') + '  (' + sec.question_count + ')' +
+        (done ? '  ✓ ' + t('已完成', 'done') + ' ' + done.score + '/' + done.total : '');
+      option.selected = sec.subject === current; sel.appendChild(option);
+    });
+    sel.addEventListener('change', () => { current = sel.value; loadSelectedWorksheet(); });
+    picker.appendChild(sel); root.appendChild(picker);
 
     // Already taken: each worksheet allows a single attempt (enforced by the
     // database too) — show the recorded result instead of the questions.
@@ -366,18 +463,28 @@
       return;
     }
 
+    if (section.loading) {
+      root.appendChild(el('<p role="status">' + t('加载题目中…', 'Loading questions…') + '</p>')); return;
+    }
+    if (section.error || !section.questions || !section.questions.length) {
+      const error = el('<div class="service"><p>' + esc(section.error || t('该练习暂时没有可用题目。', 'No questions are available for this worksheet.')) + '</p></div>');
+      const retry = el('<button type="button" class="btn secondary">' + t('重新加载', 'Reload') + '</button>');
+      retry.addEventListener('click', () => { section.questions = null; loadSelectedWorksheet(); });
+      error.appendChild(retry); root.appendChild(error); return;
+    }
+
     const form = el('<form id="test-form"></form>');
 
     section.questions.forEach((q, i) => {
       const choices = (q.choices || []).map((c, idx) =>
         '<label style="display:flex; gap:8px; align-items:flex-start; font-weight:500; margin-top:8px;">' +
           '<input type="radio" name="q_' + q.id + '" value="' + idx + '" required style="width:auto; margin:4px 0 0;" /> ' +
-          '<span>' + esc(c) + '</span>' +
+          '<span style="white-space:pre-wrap;">' + esc(c) + '</span>' +
         '</label>'
       ).join('');
       form.appendChild(el(
         '<div class="service" style="margin-bottom:14px;">' +
-          '<strong>' + (i + 1) + '. ' + esc(q.prompt) + '</strong>' +
+          '<strong style="white-space:pre-wrap;">' + (i + 1) + '. ' + esc(q.prompt) + '</strong>' +
           '<div style="margin-top:6px;">' + choices + '</div>' +
         '</div>'
       ));
@@ -390,6 +497,15 @@
       '</div>'
     ));
 
+    form.dataset.subject = section.subject;
+    const saved = drafts[section.subject] || {};
+    form.querySelectorAll('input[type=radio]').forEach((input) => {
+      input.checked = saved[input.name] === input.value;
+      input.addEventListener('change', () => {
+        if (!drafts[section.subject]) drafts[section.subject] = Object.create(null);
+        drafts[section.subject][input.name] = input.value;
+      });
+    });
     form.addEventListener('submit', onSubmit);
     root.appendChild(form);
   }
@@ -586,7 +702,10 @@
     const status = form.querySelector('#test-status');
     const btn = form.querySelector('[type="submit"]');
     const fd = new FormData(form);
-    const section = sections.find((s) => s.subject === current);
+    const submittedSubject = form.dataset.subject;
+    const submitterId = session.user.id;
+    const section = sections.find((s) => s.subject === submittedSubject);
+    if (submitting || !section || !section.questions) return;
 
     const answers = {};
     section.questions.forEach((q) => {
@@ -594,6 +713,8 @@
       if (v !== null) answers[q.id] = parseInt(v, 10);
     });
 
+    submitting = true;
+    root.querySelectorAll('#test-bank-picker, #test-worksheet-picker').forEach((picker) => { picker.disabled = true; });
     btn.disabled = true;
     status.style.color = '#6b7280';
     status.textContent = t('提交中…', 'Submitting…');
@@ -602,14 +723,18 @@
       const { data, error } = await db.rpc('submit_test', {
         p_name: displayName(),
         p_email: session.user.email,
-        p_subject: current,   // grade only this worksheet on the server
+        p_subject: submittedSubject,   // grade only this worksheet on the server
         p_answers: answers
       });
       if (error) throw error;
       const row = Array.isArray(data) ? data[0] : data;
       // Record locally and re-render: the worksheet flips to its completed
       // card (with the score) and gets its ✓ in the picker.
-      mySubs[current] = { subject: current, score: row.score, total: row.total, created_at: new Date().toISOString() };
+      if (!session || session.user.id !== submitterId) return;
+      mySubs[submittedSubject] = { subject: submittedSubject, score: row.score, total: row.total, created_at: new Date().toISOString() };
+      delete drafts[submittedSubject];
+      submitting = false;
+      if (view !== 'test') return;
       renderTest();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err) {
@@ -618,6 +743,9 @@
         ? t('该练习已提交过，每个练习只能提交一次。', 'You have already submitted this worksheet — only one attempt is allowed.')
         : t('提交失败：', 'Submission failed: ') + (err.message || '');
       btn.disabled = false;
+    } finally {
+      submitting = false;
+      root.querySelectorAll('#test-bank-picker, #test-worksheet-picker').forEach((picker) => { picker.disabled = false; });
     }
   }
 
@@ -745,7 +873,7 @@
       right.forEach((q) => {
         dt.appendChild(el(
           '<div style="border:1px solid var(--border); border-radius:10px; padding:10px 14px; margin-top:8px; background:#fff;">' +
-            '<div style="font-weight:600;">' + esc(q.prompt) + '</div>' +
+            '<div style="font-weight:600; white-space:pre-wrap;">' + esc(q.prompt) + '</div>' +
             '<div style="margin-top:4px; color:#28a745;">' + choiceText(q, q.picked_index) + '</div>' +
           '</div>'
         ));
@@ -761,6 +889,7 @@
     if (recovering) renderRecovery();
     else if (session) {
       if (view === 'admin' && isAdmin) loadAdmin();
+      else if (view === 'banks' && isAdmin) renderBanks();
       else if (view === 'results' && isAdmin) renderResults();
       else if (sections.length) renderTest();
       // No sections loaded: the visitor is on the pending-approval, error, or

@@ -4,6 +4,19 @@
 -- correct_index is 0-based. Answers were generated for you; please spot-check.
 -- ============================================================================
 
+-- Legacy seed only. New question banks use the website import manager.
+begin;
+do $guard$
+begin
+  if to_regclass('public.test_question_banks') is not null then
+    raise exception 'USE_QUESTION_BANK_MANAGER: see supabase/README.md';
+  end if;
+  if exists (select 1 from public.questions where subject like '6a%') then
+    raise exception 'WORKSHEETS_ALREADY_EXIST: import cancelled to avoid duplicates';
+  end if;
+end;
+$guard$;
+
 -- ---- 6a1  Context Clue --------------------------------------------------------
 insert into public.questions (subject, grade, prompt, choices, correct_index, sort_order) values
 ('6a1 - Context Clue','G6', $p$Choose the best word for blank (1): Chinatown is high on the sightseeing list of (1)___ in San Francisco and New York. The word brings to mind strange, (2)___ Chinese foods, such as shark's fin soup. It also (3)___ tiny shops crowded with expensive (4)___ treasures and cheap souvenirs. In the last part of the 19th century there were Chinese communities in small cities all along the West coast. Today, Chinatowns have (5)___ from all except our largest cities.$p$, $c$["mayors","tourists","residents","employees"]$c$::jsonb, 1, 1),
@@ -179,3 +192,5 @@ insert into public.questions (subject, grade, prompt, choices, correct_index, so
 ('6a12 - Inference','G6', $p$"I know that there is a first time for everything, but it looks really crowded down there. Are you sure about this?" asked Joel. Meg answered, "Once you get the skates on, you'll completely forget about the other people." Which is probably true?$p$, $c$["Joel became determined to be the best skater in the world.","Meg challenged Joel to skate.","Joel has never been skating before, but Meg has.","All of the above"]$c$::jsonb, 2, 3),
 ('6a12 - Inference','G6', $p$Ted and Vera cleaned their rooms. Ted vacuumed the house, while Vera cleaned the kitchen. They discussed what they should do next. They predicted that the whole house would be clean before their mom returned home. Which is probably true?$p$, $c$["Ted and Vera cooperate in everything they do.","The intent of Ted and Vera was to please their mother.","Ted programmed everything.","All of the above"]$c$::jsonb, 1, 4),
 ('6a12 - Inference','G6', $p$All of his friends and family begged Nelson to get a hearing aid. They complained that it was nearly impossible to communicate with him without shouting. One day, Ricky, Nelson's grandson, visited Nelson and hollered, "How are you?" Nelson grumbled, "Stop the yelling. I can hear you." Which is probably true?$p$, $c$["Nelson's family and friends were the most affectionate people in the world.","Nelson finally got a hearing aid.","A hearing aid brought more trouble to Nelson.","All of the above"]$c$::jsonb, 1, 5);
+
+commit;

@@ -1,0 +1,11 @@
+{
+  "name": "duke-college-site",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.cjs tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.16",
+    "linkedom": "0.18.15"
+  }
+}

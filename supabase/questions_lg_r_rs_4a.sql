@@ -4,6 +4,19 @@
 -- correct_index is 0-based. Answers were generated for you; please spot-check.
 -- ============================================================================
 
+-- Legacy seed only. New question banks use the website import manager.
+begin;
+do $guard$
+begin
+  if to_regclass('public.test_question_banks') is not null then
+    raise exception 'USE_QUESTION_BANK_MANAGER: see supabase/README.md';
+  end if;
+  if exists (select 1 from public.questions where subject like '4a%') then
+    raise exception 'WORKSHEETS_ALREADY_EXIST: import cancelled to avoid duplicates';
+  end if;
+end;
+$guard$;
+
 -- ---- 4a1  Context Clue --------------------------------------------------------
 insert into public.questions (subject, grade, prompt, choices, correct_index, sort_order) values
 ('4a1 - Context Clue','G4', $p$Choose the best word for blank (1): A flea market is a place where people can sell things they no (1)___ need. There are long tables at some flea markets. Traders can (2)___ a whole table or part of a table. (3)___ at a flea market do not cost much money. Used clothes are often sold at flea markets. The (4)___ may have (5)___ them, or they may just be tired of them. But the clothes will fit someone else.$p$, $c$["more","longer","shortly","quick"]$c$::jsonb, 1, 1),
@@ -181,3 +194,5 @@ insert into public.questions (subject, grade, prompt, choices, correct_index, so
 ('4a12 - Inference','G4', $p$Three boys were taking a shortcut through Mr. Rivera's farm. The boys suddenly saw a horse coming right at them! Pat ran and jumped over the fence. It took a while for the others to catch up with him. They were all safe once they were on the other side of the fence. Which is probably true?$p$, $c$["The horse jumped over the fence.","The fence was made of wood.","Pat dashed away faster than the rest of the boys.","Mr. Rivera became furious because of the boys."]$c$::jsonb, 2, 3),
 ('4a12 - Inference','G4', $p$Jennifer was angry today. Last night's weather report said that it would rain today. So Jennifer had canceled her plans to go to the beach with her friends. Which is probably true?$p$, $c$["Jennifer's friends dumped her.","The weatherman was incorrect.","Jennifer did not want to go to the beach with her friends.","Jennifer scorned the sun."]$c$::jsonb, 1, 4),
 ('4a12 - Inference','G4', $p$The invitation said that the play would begin at 3:00 P.M. The third grade class was eager to start the play. Ms. Jones, their teacher, said, "Get ready kids. You go on in fifteen minutes." Which is probably true?$p$, $c$["The third grade class is watching the play.","It was about 2:45 P.M.","The parents were not there yet.","Ms. Jones demanded the children memorize their lines right before the play began."]$c$::jsonb, 1, 5);
+
+commit;
