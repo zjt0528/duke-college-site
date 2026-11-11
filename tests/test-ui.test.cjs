@@ -85,6 +85,38 @@ test('student loads catalog and only the selected worksheet, without admin contr
   assert.ok(ui.root.querySelector('#test-form'));
 });
 
+test('imported worksheet picker includes codes in both languages without duplicating existing prefixes', async () => {
+  const ui = await harness({ catalog: [
+    { ...catalog[0], subject: 'reading:2a1', title_zh: '阅读一', title_en: 'Book One' },
+    { ...catalog[1], subject: 'reading:2a2', title_zh: '2a2 - 阅读二', title_en: '2a2 - Book Two' },
+  ] });
+  const labels = () => [...ui.root.querySelectorAll('#test-worksheet-picker option')].map(o => o.textContent);
+  assert.deepEqual(labels(), ['2a1 - 阅读一  (1)', '2a2 - 阅读二  (1)']);
+  await ui.language('en');
+  assert.deepEqual(labels(), ['2a1 - Book One  (1)', '2a2 - Book Two  (1)']);
+  assert.equal(ui.root.querySelector('#test-worksheet-picker option').value, 'reading:2a1');
+});
+
+test('level picker filters worksheets, sorts numeric codes, and survives language and bank changes', async () => {
+  const rows = ['2a1', '2a10', '2a2', '2b1', '2c1', 'ma1'].map(code => ({
+    ...catalog[0], subject: 'reading:' + code, title_en: code + ' Book', title_zh: code + ' 阅读'
+  }));
+  const ui = await harness({ catalog: [...rows, catalog[2]] });
+  const values = id => [...ui.root.querySelectorAll('#' + id + ' option')].map(o => o.value);
+  assert.deepEqual(values('test-level-picker'), ['2a', '2b', '2c', 'ma']);
+  assert.deepEqual(values('test-worksheet-picker'), ['reading:2a1', 'reading:2a2', 'reading:2a10']);
+  await ui.choose('test-level-picker', '2b');
+  assert.deepEqual(values('test-worksheet-picker'), ['reading:2b1']);
+  assert.match(ui.root.textContent, /Question for reading:2b1/);
+  await ui.language('en');
+  assert.equal(ui.root.querySelector('#test-level-picker').value, '2b');
+  await ui.choose('test-level-picker', 'ma');
+  assert.deepEqual(values('test-worksheet-picker'), ['reading:ma1']);
+  await ui.choose('test-bank-picker', '2');
+  assert.deepEqual(values('test-level-picker'), ['']);
+  assert.deepEqual(values('test-worksheet-picker'), ['words:unit-1']);
+});
+
 test('bank and worksheet selection fetch only the chosen subject and reuse loaded questions', async () => {
   const ui = await harness();
   await ui.choose('test-worksheet-picker', 'reading:unit-2');

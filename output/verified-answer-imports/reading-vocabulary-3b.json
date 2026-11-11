@@ -1,0 +1,3796 @@
+{
+  "worksheets": [
+    {
+      "code": "3b1",
+      "title_zh": "",
+      "title_en": "Amazing Bone",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "tenderly means",
+          "choices": [
+            "roughly",
+            "quickly",
+            "nicely",
+            "softly"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "flabbergast means",
+          "choices": [
+            "em barrass",
+            "amaze",
+            "delight",
+            "tickle"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "boldness means",
+          "choices": [
+            "to be strong",
+            "to be brave",
+            "to be tall",
+            "to be smart"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "barred means",
+          "choices": [
+            "made",
+            "helped",
+            "blocked",
+            "shocked"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "duped means",
+          "choices": [
+            "fooled",
+            "scared",
+            "understood",
+            "stopped"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "bered",
+            "boldness",
+            "tendelly",
+            "dupid"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "barled",
+            "dooped",
+            "flabbergast",
+            "bowlness"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "flabergast",
+            "tendorry",
+            "duped",
+            "ballness"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "berred",
+            "bordness",
+            "flabborgust",
+            "tenderly"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "flubbergest",
+            "duepped",
+            "barred",
+            "tanderry"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The fox was not easily _____ because it was smart.",
+          "choices": [
+            "duped",
+            "boldness",
+            "barred",
+            "flabbergast"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The magician _______ the audience with his skills.",
+          "choices": [
+            "barred",
+            "tenderly",
+            "flabbergasted",
+            "duped"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The warm air touched her so _____ .",
+          "choices": [
+            "barred",
+            "duped",
+            "boldness",
+            "tenderly"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "A fox came out from behind the tree and _____ their path, so they couldn't get past the tree.",
+          "choices": [
+            "barred",
+            "boldness",
+            "tenderly",
+            "flabbergast"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The robbers were surprised at Pearl’s _____ .",
+          "choices": [
+            "flabbergast",
+            "duped",
+            "boldness",
+            "tenderly"
+          ],
+          "correct_index": 2
+        }
+      ]
+    },
+    {
+      "code": "3b2",
+      "title_zh": "",
+      "title_en": "Angel Child, Dragon Child",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "teased means",
+          "choices": [
+            "gave a look",
+            "made fun of",
+            "talked to",
+            "asked questions"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "tender means",
+          "choices": [
+            "loving",
+            "grinding",
+            "loud",
+            "tough"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "trilled means",
+          "choices": [
+            "broke",
+            "shone",
+            "sounded",
+            "dropped"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "sort means",
+          "choices": [
+            "to mix",
+            "to cut",
+            "to cook",
+            "to organize"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "tugged means",
+          "choices": [
+            "wiped",
+            "pulled",
+            "called",
+            "pushed"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "triled",
+            "tysed",
+            "tugged",
+            "tandur"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "trilled",
+            "tuged",
+            "surt",
+            "tised"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sout",
+            "treeled",
+            "teased",
+            "tendur"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sort",
+            "terggerd",
+            "tendder",
+            "tised"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sut",
+            "teasid",
+            "tender",
+            "tergged"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The bell _____ to let them know that it was time to go home.",
+          "choices": [
+            "teased",
+            "tugged",
+            "tender",
+            "trilled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "She sat down to _____ mint leaves and chives.",
+          "choices": [
+            "tender",
+            "teased",
+            "trilled",
+            "sort"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "She is very ______ to her baby.",
+          "choices": [
+            "tugged",
+            "teased",
+            "tender",
+            "sort"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Nguyen Hoa gently _____ at the boy’s sleeve.",
+          "choices": [
+            "sort",
+            "tugged",
+            "trilled",
+            "tender"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The American children _____ Nguyen Hoa and her sisters because they were different and strange.",
+          "choices": [
+            "teased",
+            "trilled",
+            "tugged",
+            "sort"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "3b3",
+      "title_zh": "",
+      "title_en": "Hawk, I’m Your Brother",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "fierce means",
+          "choices": [
+            "bright",
+            "small",
+            "wild",
+            "peaceful"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "please means",
+          "choices": [
+            "to make happy",
+            "to beg for",
+            "to dream about",
+            "to ask for"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "trickled means",
+          "choices": [
+            "tricked",
+            "flowed",
+            "stopped",
+            "blocked"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "content means",
+          "choices": [
+            "continue",
+            "willing",
+            "hoping",
+            "happy"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "tugging means",
+          "choices": [
+            "moving around",
+            "pulling",
+            "cutting up",
+            "pushing down"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "tuging",
+            "trikled",
+            "please",
+            "cuntent"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "pleese",
+            "terging",
+            "fearce",
+            "content"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "feerse",
+            "condent",
+            "trickled",
+            "turgging"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "cuntent",
+            "treekled",
+            "fierce",
+            "pleace"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "tugging",
+            "trikled",
+            "plise",
+            "fierse"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The hawk kept ______ at the string that was wrapped around its body.",
+          "choices": [
+            "please",
+            "tugging",
+            "content",
+            "trickled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The water ______ down the stream.",
+          "choices": [
+            "fierce",
+            "tugging",
+            "trickled",
+            "please"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The bird looked out from the cage with its eyes.",
+          "choices": [
+            "please",
+            "fierce",
+            "trickled",
+            "tugging"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "He hoped the bird would be _____ to stay with him.",
+          "choices": [
+            "content",
+            "please",
+            "trickled",
+            "fierce"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Rudy wanted to _____ the hawk in any way he could.",
+          "choices": [
+            "fierce",
+            "trickled",
+            "tugging",
+            "please"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "3b4",
+      "title_zh": "",
+      "title_en": "Legend of the Bluebonnet",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "healing means",
+          "choices": [
+            "holding",
+            "pouring",
+            "dying",
+            "saving"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "famine means",
+          "choices": [
+            "family",
+            "pain",
+            "hunger",
+            "sickness"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "gathered means",
+          "choices": [
+            "put together",
+            "gave away",
+            "turned around",
+            "sat around"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "cease means",
+          "choices": [
+            "to begin",
+            "to stop",
+            "to continue",
+            "to get better"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "scarcely means",
+          "choices": [
+            "easily",
+            "hopefully",
+            "fearfully",
+            "hardly"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "femine",
+            "skarcelly",
+            "cease",
+            "heelling"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gaddered",
+            "healing",
+            "fanine",
+            "seace"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "ceese",
+            "gattered",
+            "scacely",
+            "famine"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gathered",
+            "scarcelly",
+            "hiling",
+            "cises"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gatered",
+            "healling",
+            "scarcely",
+            "pham ine"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "_________ any food was left because of the drought.",
+          "choices": [
+            "Gathered",
+            "Cease",
+            "Famine",
+            "Scarcely"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "People _____ around the shaman to listen to him speak.",
+          "choices": [
+            "famine",
+            "gathered",
+            "scarcely",
+            "healing"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Even though the winter was over, no _____ rains came.",
+          "choices": [
+            "healing",
+            "cease",
+            "gathered",
+            "scarcely"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Drought would _____ if the people made sacrifices to the Great Spirits.",
+          "choices": [
+            "famine",
+            "healing",
+            "cease",
+            "gathered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Drought and _____ were hard for many people.",
+          "choices": [
+            "cease",
+            "famine",
+            "healing",
+            "scarcely"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "3b5",
+      "title_zh": "",
+      "title_en": "Madeline",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "vines means",
+          "choices": [
+            "plants with long stems",
+            "vases with flowers",
+            "roof with bright colors",
+            "walls with strong bricks"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "frown means",
+          "choices": [
+            "to yell at a bad person",
+            "to be mean to others",
+            "to make an unhappy face",
+            "to hurt other people"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "rushed means",
+          "choices": [
+            "called",
+            "ran",
+            "spoke",
+            "hurried"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "tiptoed means",
+          "choices": [
+            "danced on the tips of one’s toes",
+            "walked on the tips of one’s toes",
+            "ran on the tip’s of one’s toes",
+            "crawled on the tips of one’s toes"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "solemn means",
+          "choices": [
+            "hopeless",
+            "careful",
+            "serious",
+            "worried"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "solemn",
+            "fron",
+            "binez",
+            "rershed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "vains",
+            "soulen",
+            "florwn",
+            "rushed"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "tipptoed",
+            "vines",
+            "frowm n",
+            "russed"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "froen",
+            "tiptoed",
+            "solm n",
+            "vynes"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sulmn",
+            "lushed",
+            "frown",
+            "teeptoed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "They walked into the hospital with ____ faces.",
+          "choices": [
+            "vines",
+            "tiptoed",
+            "rushed",
+            "solemn"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "My mother ______ when she saw my bad score.",
+          "choices": [
+            "tiptoed",
+            "frowned",
+            "solemn",
+            "vines"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The old house in Paris was covered with _______.",
+          "choices": [
+            "solemn",
+            "rushed",
+            "vines",
+            "tiptoed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The girls _______ into Madeline’s room because they did not want to bother her.",
+          "choices": [
+            "tiptoed",
+            "frown",
+            "vines",
+            "rushed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "He _____ out to the phone to call the nurse.",
+          "choices": [
+            "vines",
+            "solemn",
+            "frown",
+            "rushed"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "3b6",
+      "title_zh": "",
+      "title_en": "Mirette on the High Wire",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "devoured means",
+          "choices": [
+            "divided",
+            "cooked",
+            "ate up",
+            "picked"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "hesitated means",
+          "choices": [
+            "waited",
+            "explained",
+            "thought",
+            "questioned"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "astonished means",
+          "choices": [
+            "afraid",
+            "amazed",
+            "disappointed",
+            "wondered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "paced means",
+          "choices": [
+            "thought hard",
+            "washed well",
+            "practiced hard",
+            "walked around"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "intense means",
+          "choices": [
+            "few",
+            "little",
+            "new",
+            "great"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "deboured",
+            "astonished",
+            "pased",
+            "intence"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "peced",
+            "hesitated",
+            "estonised",
+            "indence"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "hesistated",
+            "devored",
+            "intense",
+            "asstonished"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "devoured",
+            "pacid",
+            "hesitaded",
+            "astonissed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "hesidaded",
+            "paced",
+            "intance",
+            "devourred"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "She felt an _____ pleasure as she began to cross the sky.",
+          "choices": [
+            "astonished",
+            "paced",
+            "hesitated",
+            "intense"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Mirette was _____ upon hearing Bellini tell her that he was afraid.",
+          "choices": [
+            "astonished",
+            "intense",
+            "devoured",
+            "paced"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "People _____ Madame Gateau’s kidney stews.",
+          "choices": [
+            "paced",
+            "devoured",
+            "intense",
+            "astonished"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Bellini _____ around his room for hours.",
+          "choices": [
+            "astonished",
+            "paced",
+            "devoured",
+            "intense"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "He _____ a long time before he answered.",
+          "choices": [
+            "intense",
+            "devoured",
+            "astonished",
+            "hesitated"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "3b7",
+      "title_zh": "",
+      "title_en": "More Stories Julian Tells",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "ordinary means",
+          "choices": [
+            "original",
+            "regular",
+            "weird",
+            "outside"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "stiffly means",
+          "choices": [
+            "moving with pain",
+            "moving quickly",
+            "not looking normal",
+            "not moving easily"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "plunged means",
+          "choices": [
+            "put away",
+            "ran into",
+            "was thrown in",
+            "broke away"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "sympathetically means",
+          "choices": [
+            "feeling sorry for",
+            "feeling glad about",
+            "feeling funny",
+            "feeling jealous"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "trembled means",
+          "choices": [
+            "tightened",
+            "shook",
+            "astonished",
+            "folded"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stiffly",
+            "plenged",
+            "tremblled",
+            "sim pathetically"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "plened",
+            "stif ly",
+            "ordinary",
+            "sim patheticaly"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "odinary",
+            "pluged",
+            "ateefly",
+            "trembled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "simpattetically",
+            "plunged",
+            "ordeenarry",
+            "trem bbled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "steeflly",
+            "trem mble",
+            "sympathetically",
+            "odinery"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Huey _____ into the sand pile from the swing.",
+          "choices": [
+            "trembled",
+            "stiffly",
+            "ordinary",
+            "plunged"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Huey came walking very _____ down the stairs.",
+          "choices": [
+            "trembled",
+            "stiffly",
+            "plunged",
+            "sympathetically"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Gloria looked at Julian _____ because she understood Julian.",
+          "choices": [
+            "ordinary",
+            "plunged",
+            "st iffly",
+            "sympathetically"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Julian was better at _____ things than Gloria.",
+          "choices": [
+            "ordinary",
+            "plunged",
+            "trembled",
+            "sympathetically"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Their long ears _____ when they came out of the box.",
+          "choices": [
+            "st iffly",
+            "sympathetically",
+            "trembled",
+            "ordinary"
+          ],
+          "correct_index": 2
+        }
+      ]
+    },
+    {
+      "code": "3b8",
+      "title_zh": "",
+      "title_en": "Sarah Moron’s Day",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "seek means",
+          "choices": [
+            "look for",
+            "make up",
+            "speak out",
+            "ask about"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "scraps means",
+          "choices": [
+            "plate",
+            "pieces",
+            "garbage",
+            "whole"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "idle means",
+          "choices": [
+            "to work hard",
+            "to go away",
+            "to do nothing",
+            "to play with"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "bolt means",
+          "choices": [
+            "box of",
+            "part of",
+            "piece of",
+            "roll of"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "conversing means",
+          "choices": [
+            "working with",
+            "playing with",
+            "talking with",
+            "praying with"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "conversing",
+            "skraps",
+            "idlle",
+            "seak"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "convercing",
+            "scraps",
+            "balt",
+            "eyedle"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "scrabs",
+            "idlle",
+            "bowlt",
+            "seek"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sik",
+            "bolt",
+            "scrapps",
+            "conbercing"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "bult",
+            "ceek",
+            "idle",
+            "cunversing"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "We might get letters and a ______of new cloth tomorrow.",
+          "choices": [
+            "bolt",
+            "scraps",
+            "idle",
+            "seek"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Sarah’s family came to America because they were ______ freedom from the Church of England.",
+          "choices": [
+            "blowing",
+            "seeking",
+            "idle",
+            "conversing"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Sarah was resting and got caught being ______by her mother.",
+          "choices": [
+            "conversing",
+            "seek",
+            "idle",
+            "scraps"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Sarah and her mother have some time for quiet ______.",
+          "choices": [
+            "bolt",
+            "scraps",
+            "idle",
+            "conversing"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "With the table ______ I have collected, I go out to feed the chickens.",
+          "choices": [
+            "bolt",
+            "scraps",
+            "seek",
+            "conversing"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "3b9",
+      "title_zh": "",
+      "title_en": "Bears on Hemlock Mountain",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "company means",
+          "choices": [
+            "factory",
+            "guests",
+            "office",
+            "relatives"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "fond means",
+          "choices": [
+            "to find",
+            "to own",
+            "to enjoy",
+            "to like"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "fetch means",
+          "choices": [
+            "to eat",
+            "to itch",
+            "to get",
+            "to borrow"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "lumbering means",
+          "choices": [
+            "cutting down",
+            "chopping into pieces",
+            "walking heavily",
+            "running away"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "fright means",
+          "choices": [
+            "fight",
+            "worry",
+            "trouble",
+            "scare"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "frigt",
+            "fatch",
+            "fond",
+            "lum vering"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "lumbering",
+            "cum pany",
+            "f rite",
+            "fand"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "lemvering",
+            "fetch",
+            "com pony",
+            "phright"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "futch",
+            "com puny",
+            "fyund",
+            "fright"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "funt",
+            "rum bering",
+            "company",
+            "phetch"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "His mother told him to _____ the big pot from his aunt’s house.",
+          "choices": [
+            "company",
+            "fetch",
+            "fond",
+            "fright"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Jonathan liked having _____ at his house.",
+          "choices": [
+            "company",
+            "lumbering",
+            "fright",
+            "fetch"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Jonathan was very _____ of his uncles.",
+          "choices": [
+            "lumbering",
+            "fond",
+            "company",
+            "fright"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "He was nervous because he has stage _______.",
+          "choices": [
+            "lumbering",
+            "fetch",
+            "fright",
+            "fond"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The bears went _____ off into the woods.",
+          "choices": [
+            "lumbering",
+            "fond",
+            "company",
+            "fetch"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "3b10",
+      "title_zh": "",
+      "title_en": "The Chalk Box Kid",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "brag means",
+          "choices": [
+            "to be very talented",
+            "to talk about others",
+            "to act very unfriendly",
+            "to be too proud of oneself"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "wondered means",
+          "choices": [
+            "was wonderful",
+            "was curious about",
+            "was worried",
+            "was hopeful"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "path means",
+          "choices": [
+            "road",
+            "prize",
+            "tree",
+            "fruit"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "ripe means",
+          "choices": [
+            "very large",
+            "complete",
+            "all grown",
+            "finished"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "puzzled means",
+          "choices": [
+            "confused",
+            "satisfied",
+            "concerned",
+            "upset"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "raipe",
+            "breg",
+            "path",
+            "puzled"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "patz",
+            "lipe",
+            "wundered",
+            "brag"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "peth",
+            "puzzled",
+            "brak",
+            "onedered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "rype",
+            "purzzled",
+            "wondered",
+            "pess"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "ripe",
+            "brac",
+            "perzzled",
+            "wonderred"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Miss Perry was _____ when Ivy didn’t want to keep her prize.",
+          "choices": [
+            "path",
+            "wondered",
+            "ripe",
+            "puzzled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "He followed the _______ to his house.",
+          "choices": [
+            "puzzled",
+            "wondered",
+            "brag",
+            "path"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "He_____ if his answers to the questions were correct.",
+          "choices": [
+            "wondered",
+            "ripe",
+            "brag",
+            "puzzled"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Gregory’s dad said he would visit when the strawberries were_____ and could be eaten.",
+          "choices": [
+            "brag",
+            "path",
+            "ripe",
+            "wondered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The children did not like Gregory because they thought he was_____.",
+          "choices": [
+            "path",
+            "bragging",
+            "puzzled",
+            "ripe"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "3b11",
+      "title_zh": "",
+      "title_en": "Fly Away Home",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "bellowing means",
+          "choices": [
+            "singing",
+            "shouting",
+            "calling",
+            "fighting"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "fluttered means",
+          "choices": [
+            "waved lightly",
+            "flew around",
+            "crawled into",
+            "moved endlessly"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "exhausted means",
+          "choices": [
+            "excited",
+            "hopefully",
+            "slowly",
+            "tired"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "instant means",
+          "choices": [
+            "downhill",
+            "after a while",
+            "moment",
+            "long time"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "stingy means",
+          "choices": [
+            "being kind",
+            "being mean",
+            "being cheap",
+            "being forgetful"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "instant",
+            "flutered",
+            "sttingy",
+            "belowing"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "exhusted",
+            "bellowing",
+            "insdant",
+            "flutterred"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stinzy",
+            "exhaustted",
+            "instamt",
+            "fluttered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stinggy",
+            "vellowing",
+            "exhausted",
+            "instand"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stingy",
+            "exhasted",
+            "velowing",
+            "flerttered"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "They were as loud as two moose ______ .",
+          "choices": [
+            "stingy",
+            "exhausted",
+            "instant",
+            "bellowing"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The birds flew around for a long time and then sat down______.",
+          "choices": [
+            "bellowing",
+            "fluttered",
+            "exhausted",
+            "stingy"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "She paused for a(n) ______ to take a picture.",
+          "choices": [
+            "exhausted",
+            "instant",
+            "fluttered",
+            "bellowing"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The trapped bird______ in the high, hollow spaces.",
+          "choices": [
+            "instant",
+            "bellowing",
+            "stingy",
+            "fluttered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Denny feels people are______ when they do not tip.",
+          "choices": [
+            "stingy",
+            "exhausted",
+            "instant",
+            "fluttered"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "3b12",
+      "title_zh": "",
+      "title_en": "How Many Days to America?",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "peered means",
+          "choices": [
+            "picked",
+            "frowned",
+            "looked",
+            "waited"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "knotting means",
+          "choices": [
+            "knocking",
+            "gluing together",
+            "making new",
+            "tying together"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "scrambled means",
+          "choices": [
+            "searched quickly",
+            "moved quickly",
+            "talked quickly",
+            "jumped quickly"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "gripped means",
+          "choices": [
+            "pushed down",
+            "covered up",
+            "held tightly",
+            "hit lightly"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "anxious means",
+          "choices": [
+            "worried",
+            "happy",
+            "grateful",
+            "quiet"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "enxious",
+            "gribbed",
+            "peared",
+            "scrambled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "natting",
+            "peered",
+            "greeped",
+            "skrabled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "nating",
+            "pired",
+            "gripped",
+            "ancious"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "scrembled",
+            "ansiouse",
+            "greepped",
+            "knotting"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "anxious",
+            "knatting",
+            "peerred",
+            "scrammbled"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Men______ from the other boat to ours.",
+          "choices": [
+            "scrambled",
+            "gripped",
+            "knotting",
+            "anxious"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Everyone was quiet, and my mother ______my hand tightly.",
+          "choices": [
+            "knotting",
+            "scrambled",
+            "gripped",
+            "peered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "When I______ out, I could see my mother’s feet in her black slippers.",
+          "choices": [
+            "gripped",
+            "peered",
+            "anxious",
+            "scrambled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "There was such a(n)______silence among us.",
+          "choices": [
+            "scrambled",
+            "anxious",
+            "knotting",
+            "gripped"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The woman made a sail by ______clothes together.",
+          "choices": [
+            "anxious",
+            "gripped",
+            "peered",
+            "knotting"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "3b13",
+      "title_zh": "",
+      "title_en": "Magic School Bus Inside the Earth",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "pick means",
+          "choices": [
+            "tool for planting flowers",
+            "plan for digging into the ground",
+            "working in a store",
+            "tool for breaking the ground"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "chipped means",
+          "choices": [
+            "cut up",
+            "broke off",
+            "sliced in",
+            "bit off"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "boring means",
+          "choices": [
+            "making shiny",
+            "making a hole",
+            "rushing through",
+            "planting flowers"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "formed means",
+          "choices": [
+            "from",
+            "forgot",
+            "made",
+            "buried"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "rumbling means",
+          "choices": [
+            "deep, rolling sound",
+            "soft, rocking sound",
+            "loud, fighting noise",
+            "short, hitting noise"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "picke",
+            "formed",
+            "rhum bling",
+            "boreing"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "pikk",
+            "chiped",
+            "rumbling",
+            "forum ed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "chiphed",
+            "buring",
+            "pick",
+            "form ad"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "boreng",
+            "foerm ed",
+            "rom bleeng",
+            "chipped"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "furmed",
+            "rum mbling",
+            "boring",
+            "pich"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "We used shovels and _____ to dig into the earth.",
+          "choices": [
+            "picks",
+            "form ed",
+            "chipped",
+            "boring"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The drill on the truck started ______through the rock.",
+          "choices": [
+            "rumbling",
+            "pick",
+            "boring",
+            "form ed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "We hit a rock that was ______ billions of years ago.",
+          "choices": [
+            "chipped",
+            "boring",
+            "rumbling",
+            "formed"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "We heard a ______ sound from below the surface of the ground.",
+          "choices": [
+            "rumbling",
+            "pick",
+            "form ed",
+            "chipped"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "We _______ off pieces of the rocks for our collection.",
+          "choices": [
+            "boring",
+            "rumbling",
+            "chipped",
+            "pick"
+          ],
+          "correct_index": 2
+        }
+      ]
+    },
+    {
+      "code": "3b14",
+      "title_zh": "",
+      "title_en": "Song and Dance Man",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "supper means",
+          "choices": [
+            "lunch",
+            "dinner",
+            "snack",
+            "party"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "faded means",
+          "choices": [
+            "losing color",
+            "from far away",
+            "from a long time ago",
+            "forgotten"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "tin means",
+          "choices": [
+            "paper",
+            "rock",
+            "metal",
+            "mud"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "gliding means",
+          "choices": [
+            "jumping over",
+            "hitting softly",
+            "sitting quietly",
+            "moving easily"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "polished means",
+          "choices": [
+            "made new",
+            "made shiny",
+            "made dirty",
+            "made old"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "fadded",
+            "poolished",
+            "tin",
+            "suppor"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gliding",
+            "tein",
+            "fadded",
+            "polisheed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "glyding",
+            "tinn",
+            "supper",
+            "fadded"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "faded",
+            "polyshed",
+            "sopper",
+            "ghliding"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "supher",
+            "glading",
+            "polished",
+            "tinn"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Skaters were ______ over the ice.",
+          "choices": [
+            "supper",
+            "boring",
+            "tin",
+            "gliding"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The light shines on his ______tap shoes.",
+          "choices": [
+            "faded",
+            "tin",
+            "gliding",
+            "polished"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Grandmother told them that ______ would be ready in an hour.",
+          "choices": [
+            "polished",
+            "tin",
+            "supper",
+            "faded"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The posters in the attic were ______ because they were old.",
+          "choices": [
+            "tin",
+            "faded",
+            "gliding",
+            "supper"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The tap shoes sound like rain on a ______ roof.",
+          "choices": [
+            "tin",
+            "gliding",
+            "supper",
+            "polished"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "3b15",
+      "title_zh": "",
+      "title_en": "Sylvester and Magic Pebble",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "gradually means",
+          "choices": [
+            "quickly",
+            "perfectly",
+            "slowly",
+            "surprisingly"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "vanished means",
+          "choices": [
+            "disappeared",
+            "stopped",
+            "dried",
+            "shined"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "soothe means",
+          "choices": [
+            "help",
+            "comfort",
+            "satisfy",
+            "sink"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "scent means",
+          "choices": [
+            "sight",
+            "hint",
+            "signal",
+            "smell"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "sorrow means",
+          "choices": [
+            "happiness",
+            "sadness",
+            "worry",
+            "shock"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sarrow",
+            "shent",
+            "vanished",
+            "sothe"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "schent",
+            "suthe",
+            "greadually",
+            "sorrow"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "soode",
+            "gradeally",
+            "scent",
+            "venished"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gladually",
+            "vaneshed",
+            "soothe",
+            "sarrou"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gradually",
+            "veniched",
+            "swarlow",
+            "sant"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Mr. Duncan did his best to ______ Mrs. Duncan when she was upset.",
+          "choices": [
+            "scent",
+            "soothe",
+            "sorrow",
+            "vanished"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "You could see _____ in the little girl’s eyes when she lost her puppy.",
+          "choices": [
+            "vanished",
+            "gradually",
+            "sorrow",
+            "soothe"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The rain didn’t stop ______ as rain usually does.",
+          "choices": [
+            "soothe",
+            "gradually",
+            "scent",
+            "sorrow"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The dogs sniffed for the ______ of Sylvester.",
+          "choices": [
+            "scent",
+            "sorrow",
+            "vanished",
+            "gradually"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The drops of rain ______ and disappeared on the way down.",
+          "choices": [
+            "gradually",
+            "soothe",
+            "scent",
+            "vanished"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "3b16",
+      "title_zh": "",
+      "title_en": "Teammates",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "adoring means",
+          "choices": [
+            "famous",
+            "lucky",
+            "hating",
+            "loving"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "launched means",
+          "choices": [
+            "blew up",
+            "planned",
+            "began",
+            "finished"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "initially means",
+          "choices": [
+            "in the beginning",
+            "in the middle",
+            "during the game",
+            "at the end"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "humiliations means",
+          "choices": [
+            "rewards",
+            "embarrassment",
+            "yells",
+            "threats"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "taunts means",
+          "choices": [
+            "yelling",
+            "shouts",
+            "jokes",
+            "teasing"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "inetially",
+            "lounched",
+            "adoring",
+            "tounts"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "lanched",
+            "initially",
+            "tauns",
+            "hum illations"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "tauchs",
+            "hum illiations",
+            "adouring",
+            "launched"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "taunts",
+            "adroing",
+            "initailly",
+            "luanched"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "adearing",
+            "inicially",
+            "humiliations",
+            "luched"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Branch Rickey ______ his search to find great players.",
+          "choices": [
+            "initially",
+            "adoring",
+            "humiliations",
+            "launched"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The ______ fans went to every single baseball game.",
+          "choices": [
+            "humiliations",
+            "adoring",
+            "taunts",
+            "launched"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Jackie Robinson didn’t fight back despite the ______.",
+          "choices": [
+            "humiliations",
+            "adoring",
+            "launched",
+            "initially"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The ______and shouting of the fans were ringing in Pee Wee’s ears.",
+          "choices": [
+            "launched",
+            "initially",
+            "taunts",
+            "adoring"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "_______, Jackie Robinson’s life with the Dodgers was difficult.",
+          "choices": [
+            "Adoring",
+            "Initially",
+            "Humiliation",
+            "Taunts"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "3b17",
+      "title_zh": "",
+      "title_en": "Black Snowman",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "transform means",
+          "choices": [
+            "to change",
+            "to travel",
+            "to fry",
+            "different"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "vast means",
+          "choices": [
+            "fast",
+            "deep",
+            "great",
+            "cold"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "mocked means",
+          "choices": [
+            "hurt",
+            "helped",
+            "delighted",
+            "teased"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "rate means",
+          "choices": [
+            "race",
+            "speed",
+            "time",
+            "work"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "restored means",
+          "choices": [
+            "stored in",
+            "purchased from",
+            "back to original form",
+            "built again"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "vast",
+            "ristored",
+            "trensferm",
+            "m ogked"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "trainsform",
+            "m acked",
+            "reat",
+            "restored"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "moked",
+            "transform",
+            "rait",
+            "vaste"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "raite",
+            "mocked",
+            "vaste",
+            "restorede"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "veast",
+            "rastored",
+            "rate",
+            "trensform"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "At the ______ Peewee was going, he would never finish the snowman.",
+          "choices": [
+            "mocked",
+            "transform ed",
+            "restored",
+            "rate"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Jacob’s bitter words _____his mother.",
+          "choices": [
+            "bored",
+            "mocked",
+            "vast",
+            "rate"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The magical cloth that he put on ______ him into a dog.",
+          "choices": [
+            "fought",
+            "vast",
+            "transform ed",
+            "rate"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "He _____ the broken toy by gluing the broken parts together.",
+          "choices": [
+            "restored",
+            "vast",
+            "rate",
+            "mocked"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "They are loaded onto a ship that sails across the ______ ocean.",
+          "choices": [
+            "rate",
+            "mocked",
+            "transform ed",
+            "vast"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "3b18",
+      "title_zh": "",
+      "title_en": "Buffalo Woman",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "scraps means",
+          "choices": [
+            "meat",
+            "bones",
+            "pieces",
+            "fur"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "prairie means",
+          "choices": [
+            "grassland",
+            "farm land",
+            "garden",
+            "desert"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "flock means",
+          "choices": [
+            "flood",
+            "group",
+            "few",
+            "a pair"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "parted means",
+          "choices": [
+            "came together",
+            "blocked",
+            "walked away",
+            "separated"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "trample means",
+          "choices": [
+            "to hurt",
+            "to carry",
+            "to move",
+            "to step on"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sceps",
+            "flock",
+            "pated",
+            "prarie"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "prearie",
+            "parted",
+            "tream ple",
+            "flok"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "flouck",
+            "scrapse",
+            "trample",
+            "parteid"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "scraps",
+            "partted",
+            "priarie",
+            "tranple"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "trampple",
+            "prairie",
+            "scraeps",
+            "floc"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "______ from the dinner table were given to dogs.",
+          "choices": [
+            "Flock",
+            "Trample",
+            "Prairie",
+            "Scraps"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The buffalo ______ and joined again behind them.",
+          "choices": [
+            "parted",
+            "scraps",
+            "flock",
+            "trample ."
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The ______ of birds flew around him.",
+          "choices": [
+            "trample",
+            "flock",
+            "prairie",
+            "parted"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Don’t ______on the roses in my garden.",
+          "choices": [
+            "prairie",
+            "trample",
+            "parted",
+            "scraps"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "She smelled of wild sage and ______ flowers.",
+          "choices": [
+            "parted",
+            "scraps",
+            "flock",
+            "prairie"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "3b19",
+      "title_zh": "",
+      "title_en": "Do Not Open",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "blustered means",
+          "choices": [
+            "moved quickly",
+            "blew loudly",
+            "came slowly",
+            "whispered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "sturdy means",
+          "choices": [
+            "weak",
+            "large",
+            "cute",
+            "strong"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "stowed means",
+          "choices": [
+            "ground",
+            "stole",
+            "put",
+            "searched"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "billows means",
+          "choices": [
+            "large waves",
+            "thick string",
+            "round balls",
+            "thin string"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "horrid means",
+          "choices": [
+            "happy",
+            "horrible",
+            "joyful",
+            "loud"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stowed",
+            "bellos",
+            "sturrdy",
+            "horid"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stordy",
+            "hurrid",
+            "billows",
+            "bloustered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "blustred",
+            "belows",
+            "stoud",
+            "horrid"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stowd",
+            "blustered",
+            "belows",
+            "studie"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "horryd",
+            "bulstered",
+            "sturdy",
+            "stwoed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "They were afraid to go inside the _____ and scary house.",
+          "choices": [
+            "sturdy",
+            "billows",
+            "stowed",
+            "horrid"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The smoke came out in _____ from the burning building.",
+          "choices": [
+            "stowed",
+            "billows",
+            "blustered",
+            "horrid"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The wind ______ up from the southeast.",
+          "choices": [
+            "horrid",
+            "sturdy",
+            "billows",
+            "blustered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "She ______ the box in her wheelbarrow.",
+          "choices": [
+            "stowed",
+            "blustered",
+            "horrid",
+            "sturdy"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Miss Moody didn’t worry about the strong wind because her house was______.",
+          "choices": [
+            "billows",
+            "stowed",
+            "sturdy",
+            "blustered"
+          ],
+          "correct_index": 2
+        }
+      ]
+    },
+    {
+      "code": "3b20",
+      "title_zh": "",
+      "title_en": "Julian’s Glorious Summer",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "persisted means",
+          "choices": [
+            "to keep on doing something",
+            "to shut",
+            "to choose",
+            "to fight"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "enthusiastic means",
+          "choices": [
+            "bored",
+            "excited",
+            "tired",
+            "sleepy"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "tempted means",
+          "choices": [
+            "to steal",
+            "to fight",
+            "to make a person do something",
+            "to make a person cry"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "collapsed means",
+          "choices": [
+            "to hop",
+            "to skip",
+            "to run",
+            "to fall down"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "numb means",
+          "choices": [
+            "to scratch",
+            "to pull",
+            "to lose feeling",
+            "to push"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "enthusiastic",
+            "colapsed",
+            "tam pted",
+            "persistid"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "persestid",
+            "tempted",
+            "nubm",
+            "anthusiastic"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "temted",
+            "pursisted",
+            "nom b",
+            "collapsed"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "entusiastic",
+            "numb",
+            "culapsed",
+            "tenpted"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "munb",
+            "enthusaistic",
+            "persisted",
+            "callopsed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The cookies ______ me, but I did not eat one before dinner.",
+          "choices": [
+            "tempted",
+            "collapsed",
+            "enthusiastic",
+            "numb"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The dentist made my teeth feel ______.",
+          "choices": [
+            "persisted",
+            "numb",
+            "tempted",
+            "collapsed"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "My sister ______ in asking me the same question, but I would not answer.",
+          "choices": [
+            "tempted",
+            "collapsed",
+            "persisted",
+            "enthusiastic"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Our teacher is very ______ and always makes her students excited to learn.",
+          "choices": [
+            "numb",
+            "persisted",
+            "tempted",
+            "enthusiastic"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The man _______ to the ground when he was not feeling well.",
+          "choices": [
+            "tempted",
+            "collapsed",
+            "persisted",
+            "numb"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "3b21",
+      "title_zh": "",
+      "title_en": "The Mud Pony",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "longed means",
+          "choices": [
+            "saved",
+            "hoped",
+            "peered",
+            "talked about"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "weary means",
+          "choices": [
+            "tall",
+            "strong",
+            "helpful",
+            "tired"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "astonished means",
+          "choices": [
+            "scared",
+            "dainty",
+            "amazed",
+            "frightened"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "trembled means",
+          "choices": [
+            "tricked",
+            "roamed",
+            "shook",
+            "sang"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "captured means",
+          "choices": [
+            "watched",
+            "met",
+            "fought",
+            "caught"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "trambled",
+            "logned",
+            "astonished",
+            "kaptured"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "trembled",
+            "longad",
+            "ceptured",
+            "weiry"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "waery",
+            "captured",
+            "astorished",
+            "trenbled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "captered",
+            "wiery",
+            "aztonished",
+            "longed"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "astronished",
+            "traem bled",
+            "weary",
+            "longued"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The boy was hungry and ______, but he kept going.",
+          "choices": [
+            "captured",
+            "weary",
+            "longed",
+            "trembled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The boy was ______ that so many people came to his party.",
+          "choices": [
+            "astonished",
+            "collected",
+            "captured",
+            "longed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "More than anything, he ______ for a pony of his own.",
+          "choices": [
+            "trembled",
+            "longed",
+            "astonished",
+            "weary"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "More buffalos were _______ by the boy than by any other men.",
+          "choices": [
+            "longed",
+            "trembled",
+            "captured",
+            "astonished"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The boy ______ and shook when he saw the ghost.",
+          "choices": [
+            "trembled",
+            "astonished",
+            "weary",
+            "captured"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "3b22",
+      "title_zh": "",
+      "title_en": "The Paperboy",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "route means",
+          "choices": [
+            "town",
+            "job",
+            "house",
+            "path"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "sniffing means",
+          "choices": [
+            "touching",
+            "smelling",
+            "looking",
+            "growing"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "chasing means",
+          "choices": [
+            "running after",
+            "playing with",
+            "fighting with",
+            "hiding from"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "growl means",
+          "choices": [
+            "grow up",
+            "looks at",
+            "give a deep sound of anger",
+            "stays away from"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "fade means",
+          "choices": [
+            "to wear out",
+            "to light up",
+            "to get smaller",
+            "to get farther away"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "chaesing",
+            "grouls",
+            "growls",
+            "faed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "ruote",
+            "grauls",
+            "chaseng",
+            "fade"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "grawls",
+            "route",
+            "cheasing",
+            "fhade"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "faede",
+            "raute",
+            "sni ffing",
+            "gruols"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "chasing",
+            "sneefing",
+            "faid",
+            "rowt"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The dog is _____ squirrels.",
+          "choices": [
+            "growls",
+            "route",
+            "fade",
+            "chasing"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The paperboy knows his ______by heart, and he could go to houses quickly.",
+          "choices": [
+            "fade",
+            "sniffing",
+            "chasing",
+            "route"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The stars and the moon ______ away when the morning comes.",
+          "choices": [
+            "fade",
+            "sniffing",
+            "chasing",
+            "growls"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The dog was _______ the food to see if it was edible.",
+          "choices": [
+            "chasing",
+            "growls",
+            "sni ffing",
+            "fading"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The dog ______ at cats.",
+          "choices": [
+            "chasing",
+            "growls",
+            "sni ffing",
+            "fade"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "3b23",
+      "title_zh": "",
+      "title_en": "Who’s That Stepping on the Plymouth Rock?",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "natural means",
+          "choices": [
+            "weird",
+            "normal",
+            "strange",
+            "surprising"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "merchant means",
+          "choices": [
+            "salesperson",
+            "sailors",
+            "restaurant",
+            "workers"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "recalled means",
+          "choices": [
+            "nam ed again",
+            "read again",
+            "called once",
+            "remembered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "imprisoned means",
+          "choices": [
+            "gave a name",
+            "celebrated",
+            "locked up",
+            "crept"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "elevated means",
+          "choices": [
+            "measured",
+            "gathered",
+            "lifted up",
+            "knotted"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "recalled",
+            "elavated",
+            "natureral",
+            "im mprisoned"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "recaled",
+            "merchant",
+            "elivated",
+            "netural"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "mercant",
+            "ricalled",
+            "alevated",
+            "imprisoned"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "neatural",
+            "inprisoned",
+            "elevated",
+            "m ershant"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "natural",
+            "enprisoned",
+            "aleivated",
+            "natchural"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The robber was _________ in the jail.",
+          "choices": [
+            "clim b",
+            "elevating",
+            "recalled",
+            "imprisoned"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "_________ food is good for your health.",
+          "choices": [
+            "Elevated",
+            "Recalled",
+            "Natural",
+            "Merchants ."
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The rock was slowly ______by jackscrews.",
+          "choices": [
+            "recalled",
+            "elevated",
+            "merchants",
+            "imprisoned"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Now, the others ______ the story of the rock on Plymouth.",
+          "choices": [
+            "merchants",
+            "imprisoned",
+            "natural",
+            "recalled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The ______ carrying their goods walked around the rock.",
+          "choices": [
+            "merchants",
+            "imprisoned",
+            "natural",
+            "elevated"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "3b24",
+      "title_zh": "",
+      "title_en": "Why Mosquitoes Buzz in People’s Ears?",
+      "grade": "G3",
+      "questions": [
+        {
+          "prompt": "mischief means",
+          "choices": [
+            "decent",
+            "large beast",
+            "playful action that can cause harm",
+            "a misplaced handkerchief"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "timid means",
+          "choices": [
+            "scary",
+            "large",
+            "brave",
+            "shy"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "summons means",
+          "choices": [
+            "a song",
+            "a request to come somewhere",
+            "a demand",
+            "a yell"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "conscience means",
+          "choices": [
+            "a very close friend",
+            "knowing you have done something",
+            "something inside you that can tell right from wrong",
+            "to blame others for something you have done"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "startled means",
+          "choices": [
+            "to be caught by surprise",
+            "to hurt something",
+            "to fix something",
+            "to tell a lie"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "starled",
+            "consience",
+            "m ieschif",
+            "timid"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "temid",
+            "summons",
+            "statled",
+            "counsience"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "mishcief",
+            "som muns",
+            "conscience",
+            "tim med"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "consiense",
+            "m iscief",
+            "sum nons",
+            "startled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "mischief",
+            "som mons",
+            "teem id",
+            "sturtled"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The mosquito has a guilty ______ because it knows right from wrong.",
+          "choices": [
+            "conscience",
+            "startled",
+            "timid",
+            "summons"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The ______ dog hid behind the boy when a stranger entered the house.",
+          "choices": [
+            "summons",
+            "mischief",
+            "timid",
+            "conscience"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The boy was _____ by the loud thunder.",
+          "choices": [
+            "timid",
+            "startled",
+            "summons",
+            "mischief"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Little boys who get into ______ may get punished.",
+          "choices": [
+            "conscience",
+            "mischief",
+            "startled",
+            "timid"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The teacher _______ the students when their break time is over.",
+          "choices": [
+            "mischief",
+            "timid",
+            "startled",
+            "summons"
+          ],
+          "correct_index": 3
+        }
+      ]
+    }
+  ]
+}

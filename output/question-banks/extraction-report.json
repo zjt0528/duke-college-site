@@ -1,0 +1,615 @@
+[
+  {
+    "volume": "2a",
+    "worksheets": 24,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "2a6",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2a8",
+        "question": 9,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2a11",
+        "question": 10,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2a13",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2a22",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "2b",
+    "worksheets": 24,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "2b1",
+        "question": 8,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b1",
+        "question": 10,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b6",
+        "question": 7,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b8",
+        "question": 7,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b9",
+        "question": 9,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b15",
+        "question": 8,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b17",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b20",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b21",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b21",
+        "question": 8,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b21",
+        "question": 9,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2b21",
+        "question": 10,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "2c",
+    "worksheets": 24,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "2c2",
+        "question": 8,
+        "reason": "Spelling requires review",
+        "matches": [
+          2,
+          3
+        ]
+      },
+      {
+        "worksheet": "2c4",
+        "question": 9,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2c9",
+        "question": 9,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2c11",
+        "question": 8,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2c13",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "2c20",
+        "question": 8,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "3a",
+    "worksheets": 24,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "3a2",
+        "question": 10,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "3a20",
+        "question": 8,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "3b",
+    "worksheets": 24,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "3b22",
+        "question": 6,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "3c",
+    "worksheets": 25,
+    "questions": 375,
+    "issues": [],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "4a",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "4a4",
+        "question": 16,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "4a4",
+        "question": 19,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "4a6",
+        "question": 14,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "4a6",
+        "question": 17,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "4b",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "4b5",
+        "question": 14,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "4b8",
+        "question": 14,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "4b8",
+        "question": 20,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "4c",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "4c2",
+        "question": 15,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "4c2",
+        "question": 19,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "4c11",
+        "question": 16,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "5a",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "5a11",
+        "question": 19,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "5a12",
+        "question": 13,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "5b",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "5c",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "5c1",
+        "question": 12,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "6a",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "6a7",
+        "question": 18,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "6a9",
+        "question": 12,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "6b",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "6b7",
+        "question": 14,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "ma",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "ma12",
+        "question": 15,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "ma12",
+        "question": 19,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "mb",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "mb2",
+        "question": 16,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "mc",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "mc7",
+        "question": 11,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "mc8",
+        "question": 13,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "mc11",
+        "question": 12,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "md",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "md6",
+        "question": 12,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md6",
+        "question": 13,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md6",
+        "question": 15,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md6",
+        "question": 17,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md6",
+        "question": 18,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md6",
+        "question": 20,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md8",
+        "question": 19,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md10",
+        "question": 16,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "md11",
+        "question": 17,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  },
+  {
+    "volume": "me",
+    "worksheets": 12,
+    "questions": 360,
+    "issues": [
+      {
+        "worksheet": "me1",
+        "question": 11,
+        "reason": "Spelling requires review",
+        "matches": [
+          0,
+          2
+        ]
+      },
+      {
+        "worksheet": "me3",
+        "question": 13,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me3",
+        "question": 15,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me3",
+        "question": 18,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me4",
+        "question": 18,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me5",
+        "question": 12,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me6",
+        "question": 13,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me6",
+        "question": 14,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me6",
+        "question": 17,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me6",
+        "question": 19,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me7",
+        "question": 14,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me8",
+        "question": 18,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me10",
+        "question": 19,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me11",
+        "question": 12,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me12",
+        "question": 12,
+        "reason": "Spelling requires review",
+        "matches": []
+      },
+      {
+        "worksheet": "me12",
+        "question": 13,
+        "reason": "Spelling requires review",
+        "matches": []
+      }
+    ],
+    "answers": "Provisional: shared answer-position pattern from LG-V-RV-G.pdf; spelling checked against worksheet vocabulary; all answers require review. 3a1 Q1 corrected by meaning.",
+    "review_required": true
+  }
+]

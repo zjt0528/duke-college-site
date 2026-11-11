@@ -325,6 +325,24 @@
     return row[prefix + '_' + lang()] || row[prefix + '_en'] || row[prefix + '_zh'] || row.subject;
   }
 
+  function worksheetLabel(row) {
+    const title = localized(row, 'title');
+    const subject = String(row.subject || '');
+    if (!subject.includes(':')) return title;
+    const code = subject.slice(subject.lastIndexOf(':') + 1);
+    const start = title.slice(0, code.length);
+    if (!code || (start.toLowerCase() === code.toLowerCase() &&
+        (!title[code.length] || /[\s\-–—:：]/.test(title[code.length])))) return title;
+    return code + ' - ' + title;
+  }
+
+  function worksheetLevel(row) {
+    const subject = String(row.subject || '');
+    const code = subject.slice(subject.lastIndexOf(':') + 1).trim();
+    const match = code.match(/^((?:\d+[a-z]+|m[a-z]+))\d+(?=$|\s|[-–—:])/i);
+    return match ? match[1].toLowerCase() : '';
+  }
+
   function showTestError(error) {
     root.innerHTML = '';
     root.appendChild(signedInBar({ admin: true }));
@@ -435,13 +453,32 @@
     if (description && description !== section.subject) {
       const text = document.createElement('p'); text.className = 'section-desc'; text.textContent = description; picker.appendChild(text);
     }
+    const bankWorksheets = sections.filter((sec) => String(sec.bank_id) === String(selectedBank));
+    const levels = [...new Set(bankWorksheets.map(worksheetLevel))].sort((a, b) =>
+      a ? (b ? a.localeCompare(b, undefined, { numeric: true }) : -1) : 1);
+    const selectedLevel = worksheetLevel(section);
+    picker.appendChild(el('<label for="test-level-picker">' + t('选择级别', 'Choose a level') + '</label>'));
+    const levelSel = document.createElement('select');
+    levelSel.id = 'test-level-picker'; levelSel.style.cssText = selectStyle; levelSel.disabled = submitting;
+    levels.forEach((level) => {
+      const option = document.createElement('option'); option.value = level;
+      option.textContent = level || t('其他', 'Other'); option.selected = level === selectedLevel;
+      levelSel.appendChild(option);
+    });
+    levelSel.addEventListener('change', () => {
+      const available = bankWorksheets.filter((row) => worksheetLevel(row) === levelSel.value);
+      current = (available.find((row) => !mySubs[row.subject]) || available[0]).subject;
+      loadSelectedWorksheet();
+    });
+    picker.appendChild(levelSel);
     picker.appendChild(el('<label for="test-worksheet-picker">' + t('选择练习', 'Choose a worksheet') + '</label>'));
     const sel = document.createElement('select');
     sel.id = 'test-worksheet-picker'; sel.style.cssText = selectStyle; sel.disabled = submitting;
-    sections.filter((sec) => String(sec.bank_id) === String(selectedBank)).forEach((sec) => {
+    bankWorksheets.filter((sec) => worksheetLevel(sec) === selectedLevel)
+      .sort((a, b) => a.subject.localeCompare(b.subject, undefined, { numeric: true })).forEach((sec) => {
       const option = document.createElement('option'); option.value = sec.subject;
       const done = mySubs[sec.subject];
-      option.textContent = localized(sec, 'title') + '  (' + sec.question_count + ')' +
+      option.textContent = worksheetLabel(sec) + '  (' + sec.question_count + ')' +
         (done ? '  ✓ ' + t('已完成', 'done') + ' ' + done.score + '/' + done.total : '');
       option.selected = sec.subject === current; sel.appendChild(option);
     });
@@ -714,7 +751,7 @@
     });
 
     submitting = true;
-    root.querySelectorAll('#test-bank-picker, #test-worksheet-picker').forEach((picker) => { picker.disabled = true; });
+    root.querySelectorAll('#test-bank-picker, #test-level-picker, #test-worksheet-picker').forEach((picker) => { picker.disabled = true; });
     btn.disabled = true;
     status.style.color = '#6b7280';
     status.textContent = t('提交中…', 'Submitting…');
@@ -745,7 +782,7 @@
       btn.disabled = false;
     } finally {
       submitting = false;
-      root.querySelectorAll('#test-bank-picker, #test-worksheet-picker').forEach((picker) => { picker.disabled = false; });
+      root.querySelectorAll('#test-bank-picker, #test-level-picker, #test-worksheet-picker').forEach((picker) => { picker.disabled = false; });
     }
   }
 

@@ -38,6 +38,7 @@ test('PostgreSQL migration, imports, permissions, scoring and history', async (t
   await db.query('update public.test_access set subjects=ARRAY[\'English\'] where user_id=$1', [ids.restricted]);
   const original = (await db.query('select id,subject from public.questions order by id')).rows;
   await db.exec(await sql('migration_question_banks.sql'));
+  await db.exec(await sql('migration_edit_answers.sql'));
 
   async function asUser(user, fn, role = 'authenticated') {
     await db.exec('set role ' + role);
@@ -119,9 +120,21 @@ test('PostgreSQL migration, imports, permissions, scoring and history', async (t
   });
 
   await t.test('snapshot review survives owner edits and unpublishing', async () => {
-    // Simulate an out-of-band owner correction after a student submission.
-    await query("update public.questions set prompt='Changed later',correct_index=1 where id=$1", [questions[0].id]);
+    const changes = JSON.stringify([{ question_id: questions[0].id, expected_index: 0, correct_index: 1 }]);
+    await assert.rejects(asUser('student', () => query('select * from public.admin_get_worksheet_answers($1)', ['new-reading:unit-1'])), /NOT_ADMIN/);
+    await assert.rejects(asUser('admin', () => query('select public.admin_update_worksheet_answers($1,$2::jsonb)', ['new-reading:unit-1', changes])), /BANK_PUBLISHED/);
     await asUser('admin', () => query('select public.admin_set_question_bank_published($1,false)', [bankId]));
+    await assert.rejects(asUser('student', () => query('select public.admin_update_worksheet_answers($1,$2::jsonb)', ['new-reading:unit-1', changes])), /NOT_ADMIN/);
+    const edited = await asUser('admin', () => query('select public.admin_update_worksheet_answers($1,$2::jsonb) as n', ['new-reading:unit-1', changes]));
+    assert.equal(edited.rows[0].n, 1);
+    await assert.rejects(asUser('admin', () => query('select public.admin_update_worksheet_answers($1,$2::jsonb)', ['new-reading:unit-1', changes])), /ANSWER_CHANGED/);
+    assert.equal((await asUser('admin', () => query('select * from public.admin_get_worksheet_answers($1)', ['new-reading:unit-1']))).rows[0].correct_index, 1);
+    const validKey = { code: 'unit-1', answers: 'AB' };
+    await assert.rejects(asUser('admin', () => query('select public.admin_apply_bank_answer_key($1,$2::jsonb)', [bankId, JSON.stringify([validKey, { code: 'missing', answers: 'AB' }])])), /SUBJECT_NOT_FOUND/);
+    assert.equal((await query('select correct_index from public.questions where id=$1', [questions[0].id])).rows[0].correct_index, 1); // Earlier worksheet rolled back too.
+    await assert.rejects(asUser('admin', () => query('select public.admin_apply_bank_answer_key($1,$2::jsonb)', [bankId, JSON.stringify([{ code: 'unit-1', answers: 'A' }])])), /ANSWER_COUNT_MISMATCH/);
+    await assert.rejects(asUser('student', () => query('select public.admin_apply_bank_answer_key($1,$2::jsonb)', [bankId, JSON.stringify([validKey])])), /NOT_ADMIN/);
+    assert.equal((await asUser('admin', () => query('select public.admin_apply_bank_answer_key($1,$2::jsonb) as n', [bankId, JSON.stringify([validKey])]))).rows[0].n, 2);
     const history = (await asUser('admin', () => query('select * from public.admin_get_submission($1)', [submissionId]))).rows;
     assert.equal(history.length, 2);
     assert.equal(history[0].prompt, 'Choose a noun.');

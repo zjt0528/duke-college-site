@@ -1,0 +1,102 @@
+
+3c7 Koko’s Kitten
+1. sturdy means | A=real | B=strong | C=large | D=expensive | KEY=B
+2. express means | A=to experience | B=to snack | C=to feel | D=to show | KEY=D
+3. abandoned means | A=raised | B=took care of | C=left behind | D=forgot about | KEY=C
+4. examined means | A=looked carefully | B=played with | C=asked about | D=measured | KEY=A
+5. accustomed means | A=waited for | B=got used to | C=wanted more of | D=learned about | KEY=B
+6. Find the correct spelling. | A=sturdy | B=expless | C=exemined | D=adanboned | KEY=A
+7. Find the correct spelling. | A=studdy | B=acustomed | C=abandoned | D=exemined | KEY=C
+8. Find the correct spelling. | A=accostomed | B=adanboned | C=exemined | D=express | KEY=D
+9. Find the correct spelling. | A=expless | B=accustomed | C=sturddy | D=donbaned | KEY=B
+10. Find the correct spelling. | A=studdy | B=adanboned | C=examined | D=expless | KEY=C
+11. Try to _____ your ideas clearly. | A=accustom | B=sturdy | C=abandon | D=express | KEY=D
+12. I chose this wooden table because its legs looked _____. | A=abandoned | B=sturdy | C=examined | D=accustomed | KEY=B
+13. The doctor _____ the wound on my father’s leg. | A=abandoned | B=sturdy | C=expressed | D=examined | KEY=D
+14. She soon became _____ to jogging daily. | A=accustomed | B=abandoned | C=expressed | D=examined | KEY=A
+15. The mother had ____ her kittens when they were born. | A=accustomed | B=sturdy | C=abandoned | D=expressed | KEY=C
+
+3c8 Uncle Jed’s Barber Shop
+1. e quipment means | A=tools | B=chairs | C=m irrors | D=tables | KEY=A
+2. exchange means | A=to pay | B=to trade | C=to share | D=to make | KEY=B
+3. hitched means | A=held | B=put | C=tied | D=brought | KEY=C
+4. examined means | A=worked | B=called | C=talked | D=looked carefully | KEY=D
+5. twirled means | A=swung | B=pushed | C=spun | D=pulled | KEY=C
+6. Find the correct spelling. | A=equipment | B=exemined | C=hitchied | D=exchenge | KEY=A
+7. Find the correct spelling. | A=equpment | B=hitched | C=exemined | D=twriled | KEY=B
+8. Find the correct spelling. | A=exchenge | B=equpnem t | C=hitchied | D=twirled | KEY=D
+9. Find the correct spelling. | A=exemined | B=exchange | C=hitchied | D=twriled | KEY=B
+10. Find the correct spelling. | A=equpment | B=exchenge | C=examined | D=twriled | KEY=C
+11. He ____ me round and round in the barber chair. | A=twirled | B=hitched | C=exchange | D=examined | KEY=A
+12. What kinds of ______ are needed to build a house? | A=examined | B=equipment | C=twirled | D=hitched | KEY=B
+13. They worked on somebody else’s land in ____for some crops. | A=twirl | B=equipment | C=exchange | D=examination | KEY=C
+14. When the doctors ____ me, they told my dad that I needed an operation. | A=exchanged | B=hitched | C=equipped | D=examined | KEY=D
+15. To prepare for the trip, my dad _____ the horse to the wagon. | A=equipped | B=hitched | C=twirled | D=exchanged | KEY=B
+
+3c9 All About Alligator
+1. grasp means | A=to eat | B=to hold | C=to cook | D=to swim | KEY=B
+2. inhabit means | A=to protect | B=to visit | C=to clean | D=to live in | KEY=D
+3. approach means | A=to touch | B=to look at | C=to go near | D=to be kind | KEY=C
+4. abandoned means | A=guided | B=in a group | C=left behind | D=with a friend | KEY=C
+5. aggravated means | A=helped | B=rescued | C=alarm ed | D=annoyed | KEY=D
+6. Find the correct spelling. | A=abandaned | B=approche | C=inhabit | D=aggvarated | KEY=C
+7. Find the correct spelling. | A=grasp | B=approche | C=inhebit | D=graps | KEY=A
+8. Find the correct spelling. | A=garsp | B=abandoned | C=aggvarated | D=inhabite | KEY=B
+9. Find the correct spelling. | A=aggreveted | B=adanboned | C=grapsp | D=approach | KEY=D
+10. Find the correct spelling. | A=inhebit | B=approche | C=aggravated | D=garsps | KEY=C
+11. Although the baby boy appears to be _______, his mother is surely nearby. | A=inhabited | B=abandoned | C=grasped | D=approached | KEY=B
+12. Alligators ____ rivers, lakes, canals, and more. | A=inhabit | B=aggravate | C=grasp | D=abandon | KEY=A
+13. They will grumble when they are ____. | A=happy | B=aggravated | C=inhabited | D=grasp | KEY=B
+14. Never ____ a baby alligator in a lake. | A=group | B=aggravated | C=approach | D=inhabit | KEY=C
+15. Alligators strongly ____ their prey with their mouths. | A=grasp | B=abandon | C=inhabit | D=approach | KEY=A
+
+3c10 Chocolate Touch
+1. suitable means | A=absent | B=present | C=today | D=good for | KEY=D
+2. devoured means | A=ate slow | B=ate hungrily | C=roughed | D=fought | KEY=B
+3. anxiously means | A=with excitement | B=bored | C=tiredly | D=sleepy | KEY=A
+4. absent-mindedly means | A=argue | B=scream | C=without thinking | D=sing | KEY=C
+5. encountered means | A=met unexpectedly | B=lost | C=change | D=met outdoors | KEY=A
+6. Find the correct spelling. | A=suiteble | B=anxiuosly | C=encountered | D=devored | KEY=C
+7. Find the correct spelling. | A=devored | B=absant-mindedly | C=anxiosly | D=suitable | KEY=D
+8. Find the correct spelling. | A=suiteble | B=absent-mindedly | C=anxiuosly | D=devored | KEY=B
+9. Find the correct spelling. | A=asent-mindedly | B=anxiosly | C=devoured | D=encontered | KEY=C
+10. Find the correct spelling. | A=anxiously | B=encountred | C=sutable | D=absent-m indly | KEY=A
+11. The boy ____ the hamburger because he had not eaten in hours. | A=encountered | B=threw | C=absent-minded | D=devoured | KEY=D
+12. Those jeans are ripped and are not ____ for church. | A=absent-mindedly | B=encountering | C=anxious | D=suitable | KEY=D
+13. When we got to school, we ____ a new teacher in our classroom. | A=encountered | B=anxiously | C=devoured | D=absent-mindedly | KEY=A
+14. The boy ____ left his gloves behind on the school bus. | A=devoured | B=suitable | C=absent-mindedly | D=encountered | KEY=C
+15. The girl ____ ran up the stairs looking for her puppy. | A=suitably | B=anxiously | C=absent-mindedly | D=hungrily | KEY=B
+
+3c11 Lon Po Po
+1. eldest means | A=cleverest | B=oldest | C=sm artest | D=bravest | KEY=B
+2. latched means | A=locked | B=laced | C=caught | D=opened | KEY=A
+3. cunning means | A=scary | B=mean | C=calm | D=smart | KEY=D
+4. embraced means | A=ate | B=touched | C=hugged | D=looked at | KEY=C
+5. brittle means | A=sharp | B=pointy | C=weak | D=small | KEY=C
+6. Find the correct spelling. | A=cunning | B=em breced | C=eldist | D=britle | KEY=A
+7. Find the correct spelling. | A=cuning | B=latched | C=britle | D=em breced | KEY=B
+8. Find the correct spelling. | A=eldist | B=letched | C=cuning | D=brittle | KEY=D
+9. Find the correct spelling. | A=britle | B=cuning | C=eldest | D=em breced | KEY=C
+10. Find the correct spelling. | A=embraced | B=eldist | C=letched | D=brritle | KEY=A
+11. The ____ wolf had an evil plan for eating all the children. | A=eldest | B=latched | C=brittle | D=cunning | KEY=D
+12. Mother told the three children to ____ the door well. | A=brittle | B=eldest | C=latch | D=embraced | KEY=C
+13. The ____child was in charge of the house while mom was away. | A=embraced | B=eldest | C=latch | D=brittle | KEY=B
+14. An egg shell is so ______ that you have to be very careful not to break it. | A=latched | B=embraced | C=cunning | D=brittle | KEY=D
+15. The brothers _____ when they met at the airport. | A=embraced | B=honked | C=devoured | D=latched | KEY=A
+
+3c12 Sarah, Plain and Tall
+1. mild means | A=m odest | B=kind | C=gentle | D=sweet | KEY=C
+2. plain means | A=large | B=ugly | C=unusual | D=simple | KEY=D
+3. portion means | A=whole | B=part | C=top | D=edge | KEY=B
+4. eerie means | A=dark | B=cold | C=scary | D=m isty | KEY=C
+5. leaped means | A=jumped | B=crawled | C=walked | D=lifted | KEY=A
+6. Find the correct spelling. | A=errie | B=plein | C=porsion | D=mild | KEY=D
+7. Find the correct spelling. | A=milde | B=portion | C=leapped | D=errie | KEY=B
+8. Find the correct spelling. | A=erriee | B=posion | C=plain | D=leapeed | KEY=C
+9. Find the correct spelling. | A=plein | B=miled | C=posion | D=leaped | KEY=D
+10. Find the correct spelling. | A=eerie | B=m lied | C=lepead | D=plein | KEY=A
+11. The darkness made the barn look ____. | A=eerie | B=plain | C=mild | D=portion | KEY=A
+12. A ____ of the roof was loose, and it had to be fixed. | A=mild | B=leaped | C=portion | D=plain | KEY=C
+13. I washed the baby with a ______ soap. | A=tasty | B=mild | C=leaped | D=portion | KEY=B
+14. The boy ____up into the wagon to sit by his mother. | A=eerie | B=leaped | C=portion | D=plain | KEY=B
+15. She described herself as a ____ and tall person, not an unusual person. | A=leaped | B=eerie | C=whole | D=plain | KEY=D

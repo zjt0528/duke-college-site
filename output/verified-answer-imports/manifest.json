@@ -1,0 +1,27 @@
+[
+  {
+    "level": "2c",
+    "worksheets": 24,
+    "questions": 360,
+    "pending": []
+  },
+  {
+    "level": "3a",
+    "worksheets": 24,
+    "questions": 360,
+    "pending": []
+  },
+  {
+    "level": "3b",
+    "worksheets": 24,
+    "questions": 360,
+    "pending": []
+  },
+  {
+    "level": "3c",
+    "worksheets": 24,
+    "questions": 360,
+    "pending": [],
+    "replacement": "3c25 content -> 3c17"
+  }
+]

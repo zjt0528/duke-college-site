@@ -1,0 +1,102 @@
+
+3a7 Madeline’s Rescue
+1. pupil means | A=teacher | B=student | C=class pet | D=helper | KEY=B
+2. annual means | A=m onthly | B=weekly | C=daily | D=yearly | KEY=D
+3. inspected means | A=tested around | B=studied around | C=looked around | D=listened around | KEY=C
+4. thorough means | A=complete | B=quick | C=frightening | D=very long | KEY=A
+5. embrace means | A=to have | B=to hug | C=to watch | D=to raise | KEY=B
+6. Find the correct spelling. | A=pupil | B=inspekted | C=thorugh | D=anyual | KEY=A
+7. Find the correct spelling. | A=thorugh | B=embrase | C=inspected | D=pupul | KEY=C
+8. Find the correct spelling. | A=anyual | B=pupel | C=inspeckted | D=embrace | KEY=D
+9. Find the correct spelling. | A=thorouh | B=annual | C=embrase | D=inspekded | KEY=B
+10. Find the correct spelling. | A=embrase | B=pupel | C=thorough | D=anyual | KEY=C
+11. Genevieve became the newest ____ at the school. | A=embrace | B=inspection | C=thoroughness | D=pupil | KEY=D
+12. The trustees came to the school for their ____ visit on the first of May. | A=inspected | B=annual | C=m ucky | D=embrace | KEY=B
+13. The trustees walked around and ____ the entire school. | A=annual | B=pupil | C=thorough | D=inspected | KEY=D
+14. The annual inspection of the school was very ____. | A=thorough | B=pupil | C=aqua | D=m etallic | KEY=A
+15. It is a disgrace for young ladies to ____ dogs. | A=annual | B=pupil | C=embrace | D=thorough | KEY=C
+
+3a8 Sam, Bangs, and Moonshine
+1. reckless means | A=careless | B=little | C=old | D=responsible | KEY=A
+2. scoured means | A=looked quickly | B=looked carefully | C=measured | D=touched lightly | KEY=B
+3. massive means | A=colorful | B=pointy | C=huge | D=high | KEY=C
+4. pardon means | A=catch | B=listen | C=wait | D=excuse | KEY=D
+5. torrent means | A=bucket | B=drizzle | C=flood | D=cave | KEY=C
+6. Find the correct spelling. | A=pardon | B=skoured | C=reckliss | D=torrints | KEY=A
+7. Find the correct spelling. | A=messive | B=scoured | C=torrints | D=pardin | KEY=B
+8. Find the correct spelling. | A=skoured | B=pardin | C=m assiv | D=reckless | KEY=D
+9. Find the correct spelling. | A=skoured | B=torrent | C=recklis | D=m asiv | KEY=B
+10. Find the correct spelling. | A=torrints | B=pardin | C=massive | D=recklis | KEY=C
+11. Samantha had a ____ habit of lying. | A=reckless | B=scoured | C=pardoned | D=torrent | KEY=A
+12. Thomas ____ the beach, but he never found it. | A=massive | B=scoured | C=reckless | D=torrent | KEY=B
+13. Thomas rode his bicycle towards the ____ blue rock. | A=scoured | B=reckless | C=massive | D=torrent | KEY=C
+14. She said, “____ me while I go to the moon.” | A=Scoured | B=Massive | C=Reckless | D=Pardon | KEY=D
+15. A sudden wind drove a ____ of rain against her face. | A=massive | B=torrent | C=pardons | D=scours | KEY=B
+
+3a9 Book about Your Skeleton
+1. flop means | A=to slide | B=to move limply | C=to twist | D=to mix | KEY=B
+2. stiff means | A=soft | B=piece | C=st uff | D=hard | KEY=D
+3. attached means | A=attacked | B=took | C=connected | D=next to | KEY=C
+4. replace means | A=to get rid of | B=to make new | C=to take the place of | D=to cover up | KEY=C
+5. mend means | A=to bend | B=to stick | C=to end | D=to fix | KEY=D
+6. Find the correct spelling. | A=meand | B=replase | C=st iff | D=attachid | KEY=C
+7. Find the correct spelling. | A=flop | B=stif | C=atach | D=replase | KEY=A
+8. Find the correct spelling. | A=stif | B=mend | C=atach | D=floppe | KEY=B
+9. Find the correct spelling. | A=meand | B=stif | C=floppe | D=replace | KEY=D
+10. Find the correct spelling. | A=replase | B=flopp | C=attached | D=meand | KEY=C
+11. When a baby tooth falls out, an adult tooth will _____ it. | A=love | B=replace | C=flop | D=brush | KEY=B
+12. The muscles are ____ to your bones. | A=attached | B=replaced | C=flopped | D=stiffened | KEY=A
+13. Birds ____ when their wings are hurt. | A=mend | B=flop | C=attach | D=replace | KEY=B
+14. The ______ legs of the table hold up the books. | A=flopped | B=cotton | C=st iff | D=cheese | KEY=C
+15. The bone will ____ itself after it breaks. | A=mend | B=flop | C=stick | D=stuff | KEY=A
+
+3a10 Cloudy with a Chance of Meatballs
+1. incident means | A=accident | B=meeting | C=me mory | D=event | KEY=D
+2. assorted means | A=cute | B=mixed | C=large | D=healthy | KEY=B
+3. gradual means | A=slow | B=bright | C=quick | D=wonderful | KEY=A
+4. consisted means | A=cooked for | B=lightly rained | C=made up of | D=piled on top | KEY=C
+5. staler means | A=older | B=tastier | C=greater | D=darker | KEY=A
+6. Find the correct spelling. | A=consistid | B=insidint | C=gradual | D=stailer | KEY=C
+7. Find the correct spelling. | A=assortid | B=incidint | C=gradul | D=staler | KEY=D
+8. Find the correct spelling. | A=stailer | B=consisted | C=incidint | D=assortid | KEY=B
+9. Find the correct spelling. | A=consistid | B=gradul | C=assorted | D=stailer | KEY=C
+10. Find the correct spelling. | A=incident | B=assortid | C=consistid | D=gradul | KEY=A
+11. I saw a(n) _____ on my way home. | A=stale | B=gradual | C=consisted | D=incident | KEY=D
+12. Candies come in _______flavors and colors. | A=incidental | B=stale | C=consistent | D=assorted | KEY=D
+13. The sick person showed ______ improvement, so the doctor was happy. | A=gradual | B=incident | C=assorted | D=stale | KEY=A
+14. The bread stayed there and got ____ every day. | A=assorted | B=gradual | C=staler | D=consisted | KEY=C
+15. The dinner ____ of lamb chops and ketchup. | A=gradual | B=consisted | C=incident | D=stale | KEY=B
+
+3a11 Doctor De Soto
+1. patient means | A=doctor | B=sick person | C=nurse | D=assistant | KEY=B
+2. hoisted means | A=lifted | B=held | C=sat | D=helped | KEY=A
+3. dainty means | A=large | B=special | C=different | D=delicate | KEY=D
+4. timid means | A=angry | B=sad | C=shy | D=happy | KEY=C
+5. unique means | A=strange | B=strong | C=special | D=common | KEY=C
+6. Find the correct spelling. | A=dainty | B=unike | C=tim ied | D=pashients | KEY=A
+7. Find the correct spelling. | A=pashients | B=unique | C=danety | D=hoistid | KEY=B
+8. Find the correct spelling. | A=unike | B=danety | C=tim ied | D=hoisted | KEY=D
+9. Find the correct spelling. | A=hoistid | B=tihm id | C=patient | D=danety | KEY=C
+10. Find the correct spelling. | A=timid | B=hoistid | C=unike | D=pashients | KEY=A
+11. He gave the fox a ____ medication, which was one of its kind. | A=timid | B=hoisted | C=dainty | D=unique | KEY=D
+12. A ____ cat would not be able to make friends very easily. | A=patient | B=hoisted | C=timid | D=strong | KEY=C
+13. Doctor’s tools are very _______. | A=hoisted | B=dainty | C=patient | D=timid | KEY=B
+14. He was ____ up to the large animal’s mouth with a string. | A=timid | B=patient | C=unique | D=hoisted | KEY=D
+15. Doctor De Soto helped many ____ with their toothaches. | A=patients | B=timid | C=unique | D=dainty | KEY=A
+
+3a12 Henry and Mudge and the Long Weekend
+1. headed means | A=to be on top | B=to change | C=to move toward | D=to choose | KEY=C
+2. sniffed means | A=shook | B=shot | C=circled | D=smelled | KEY=D
+3. admiring means | A=hating | B=respecting | C=bothering | D=teasing | KEY=B
+4. lowered means | A=floated | B=flew | C=brought down | D=forced | KEY=C
+5. thrilled means | A=excited | B=sickened | C=healed | D=bored | KEY=A
+6. Find the correct spelling. | A=lowerd | B=adm ireng | C=heded | D=thrilled | KEY=D
+7. Find the correct spelling. | A=lowerd | B=headed | C=snifed | D=adm ireng | KEY=B
+8. Find the correct spelling. | A=heded | B=thriled | C=admiring | D=snifed | KEY=C
+9. Find the correct spelling. | A=thriled | B=adm ireng | C=heded | D=sniffed | KEY=D
+10. Find the correct spelling. | A=lowered | B=thriled | C=heded | D=snifed | KEY=A
+11. Mom and I ____ to the store to pick up some groceries. | A=headed | B=sniffed | C=lowered | D=thrilled | KEY=A
+12. She was ____ the girl’s beautiful dress. | A=sni ffing | B=thrilling | C=admiring | D=heading | KEY=C
+13. The dog ____ the bag that had a steak in it. | A=lowered | B=sniffed | C=admired | D=thrilled | KEY=B
+14. I was ____ when I found out we were going to Disney World. | A=headed | B=thrilled | C=admired | D=sniffed | KEY=B
+15. They ____ the float into the water to save the people. | A=admired | B=sniffed | C=headed | D=lowered | KEY=D

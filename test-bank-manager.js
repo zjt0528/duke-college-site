@@ -91,8 +91,6 @@
     let busy = false;
     let preview = null;
     let viewVersion = 0;
-    let message = '';
-    let messageError = false;
 
     function node(tag, content, cls) {
       const n = document.createElement(tag);
@@ -132,16 +130,25 @@
         INVALID_QUESTIONS: t('题目数据不完整或答案无效，请核对后再发布。', 'Some question data or answers are invalid. Review them before publishing.'),
         BANK_NOT_FOUND: t('题库不存在，请重新加载。', 'This bank no longer exists. Reload the list.')
       };
+      errors.ANSWER_CHANGED = t('答案已被其他操作修改，请重新打开编辑器。', 'Answers changed elsewhere. Reopen the editor.');
+      errors.HISTORY_WITHOUT_SNAPSHOT = t('该练习有缺少历史快照的旧成绩，暂不能修改答案。', 'Legacy results without snapshots prevent editing these answers.');
       for (const key of Object.keys(errors)) if (text.indexOf(key) !== -1) return errors[key];
+      errors.ANSWER_COUNT_MISMATCH = t('答案数量与练习题数不一致，整批未保存。', 'Answer counts do not match. No changes were saved.');
+      errors.INVALID_ANSWERS = t('答案文件或选项无效，整批未保存。', 'Invalid answer data. No changes were saved.');
+      errors.SUBJECT_NOT_FOUND = t('练习不存在，请核对题库和练习编号。', 'Worksheet not found. Check the selected bank and codes.');
+      for (const key of Object.keys(errors)) if (text.indexOf(key) !== -1) return errors[key];
+      if (/admin_(get_worksheet_answers|update_worksheet_answers|apply_bank_answer_key)/.test(text)) {
+        return t('请先执行 migration_edit_answers.sql，再使用编辑答案功能。', 'Run migration_edit_answers.sql before editing answers.');
+      }
       if (text.indexOf('get_test_catalog') !== -1 || (err && err.code === 'PGRST202')) {
         return t('请先在 Supabase 执行 migration_question_banks.sql，再重新加载。', 'Run migration_question_banks.sql in Supabase, then reload this page.');
       }
       return text;
     }
-    function status(content, isError) {
-      message = content; messageError = !!isError;
+    function status(content, isError, notify) {
       const n = root.querySelector('[data-bank-status]');
-      if (n) { n.textContent = content; n.style.color = isError ? '#b91c1c' : '#166534'; }
+      if (n) { n.textContent = notify === false ? content : ''; n.hidden = notify !== false; }
+      if (notify !== false && typeof global.alert === 'function') global.alert(content);
     }
     async function rpc(name, args) {
       const response = await db.rpc(name, args);
@@ -169,7 +176,7 @@
       const controls = Array.from(root.querySelectorAll('button,input,textarea,select'));
       const previous = controls.map(function (n) { return n.disabled; });
       controls.forEach(function (n) { n.disabled = true; });
-      status(t('处理中…', 'Please wait…'));
+      status(t('处理中…', 'Please wait…'), false, false);
       try { await run(); }
       catch (err) { status(errorText(err), true); }
       finally { busy = false; controls.forEach(function (n, i) { n.disabled = previous[i]; }); }
@@ -180,9 +187,9 @@
       root.replaceChildren();
       root.appendChild(node('h3', t('题库管理', 'Question bank management')));
       root.appendChild(hint(t('新增题库先保存为草稿。导入并核对题目后发布，学生才能看到有权限的练习。', 'New banks start as drafts. Import and review questions, then publish to make permitted worksheets available to students.')));
-      const statusNode = node('p', message);
+      const statusNode = node('p');
+      statusNode.hidden = true;
       statusNode.dataset.bankStatus = 'true'; statusNode.setAttribute('role', 'status'); statusNode.setAttribute('aria-live', 'polite');
-      statusNode.style.color = messageError ? '#b91c1c' : '#166534';
       root.appendChild(statusNode);
       const toolbar = card();
       const choose = node('select');
@@ -193,7 +200,7 @@
         option.value = bank.id; option.selected = selected === bank.id; choose.appendChild(option);
       });
       choose.value = selected;
-      choose.addEventListener('change', function () { if (busy) return; selected = choose.value; message = ''; draw(); });
+      choose.addEventListener('change', function () { if (busy) return; selected = choose.value; draw(); });
       toolbar.appendChild(label(choose, t('选择题库', 'Choose a bank')));
       toolbar.appendChild(button(t('重新加载', 'Reload'), function () { action(async function () { await readCatalog(); draw(); status(t('已重新加载。', 'Reloaded.')); }); }));
       root.appendChild(toolbar);
@@ -223,7 +230,17 @@
       const total = bank.worksheets.reduce(function (n, row) { return n + Number(row.question_count || 0); }, 0);
       inventory.appendChild(node('h4', bank.worksheets.length + t(' 个练习 · ', ' worksheets · ') + total + t(' 道题', ' questions')));
       const list = node('ul');
-      bank.worksheets.forEach(function (row) { list.appendChild(node('li', rowName(row) + (row.grade ? ' · ' + row.grade : '') + ' · ' + row.question_count + t(' 道题', ' questions'))); });
+      bank.worksheets.forEach(function (row) {
+        const item = node('li', rowName(row) + (row.grade ? ' · ' + row.grade : '') + ' · ' + row.question_count + t(' 道题', ' questions'));
+        if (!bank.published) item.appendChild(button(t('编辑答案', 'Edit answers'), function () {
+          action(async function () {
+            const questions = await rpc('admin_get_worksheet_answers', { p_subject: row.subject });
+            drawAnswerEditor(row, questions || []);
+            status(t('已打开答案编辑器。', 'Answer editor opened.'));
+          });
+        }));
+        list.appendChild(item);
+      });
       inventory.appendChild(list);
       inventory.appendChild(hint(t('现有题目和成绩会保留。导入仅新增练习，重复编号会被拒绝；已作答的题目不能通过导入覆盖。', 'Existing questions and results are preserved. Imports only add new worksheets; duplicate codes are rejected, and answered questions cannot be overwritten through import.')));
       const publish = button(bank.published ? t('下架题库', 'Unpublish bank') : t('发布题库', 'Publish bank'), function () {
@@ -239,6 +256,81 @@
         return;
       }
       drawImport(bank);
+      drawBulkAnswers(bank);
+    }
+
+    function drawBulkAnswers(bank) {
+      const pane = card(); pane.appendChild(node('h4', t('批量修改答案', 'Batch answer corrections')));
+      pane.appendChild(hint(t('上传答案修改文件，格式为 {"worksheets":[{"code":"2a1","answers":"DBBCA"}]}。每个字母对应一道题，必须提供该练习的全部答案；不会新增题目或重算旧成绩。', 'Upload an answer key: {"worksheets":[{"code":"2a1","answers":"DBBCA"}]}. Include one letter per question for the entire worksheet. This updates existing answers without adding questions or recalculating past scores.')));
+      const file = node('input'); file.type = 'file'; file.accept = '.json,application/json';
+      pane.appendChild(label(file, t('选择答案修改文件', 'Choose an answer correction file')));
+      const previewNode = node('pre'); previewNode.style.cssText = 'white-space:pre-wrap;overflow-wrap:anywhere;'; pane.appendChild(previewNode);
+      const reviewed = node('input'); reviewed.type = 'checkbox'; reviewed.disabled = true;
+      pane.appendChild(label(reviewed, t('我已核对题库、练习编号和全部答案。', 'I have reviewed the bank, worksheet codes and all answers.')));
+      let key = null;
+      const save = button(t('保存批量答案修改', 'Save batch answer corrections'), function () {
+        if (!key || !reviewed.checked || selected !== bank.id) return;
+        const captured = key;
+        action(async function () {
+          const count = await rpc('admin_apply_bank_answer_key', { p_bank_id: bank.id, p_key: captured });
+          draw(); status(t('批量答案已更新，共 ', 'Updated ') + count + t(' 道题，已有成绩保持不变。', ' answers. Existing scores are unchanged.'));
+        });
+      }, true);
+      save.disabled = true;
+      reviewed.addEventListener('change', function () { save.disabled = !key || !reviewed.checked; });
+      file.addEventListener('change', async function () {
+        key = null; reviewed.checked = false; reviewed.disabled = true; save.disabled = true; previewNode.textContent = '';
+        const version = viewVersion; const chosen = file.files && file.files[0]; if (!chosen) return;
+        try {
+          if (chosen.size > 1024 * 1024) throw new Error(t('答案文件最多 1 MB。', 'Answer file must be at most 1 MB.'));
+          const parsed = JSON.parse(await chosen.text());
+          if (version !== viewVersion || busy || file.files[0] !== chosen) return;
+          const rows = parsed.worksheets; const seen = new Set();
+          if (!Array.isArray(rows) || !rows.length || rows.length > 100) throw new Error('INVALID_ANSWERS');
+          rows.forEach(function (row) {
+            if (!row || typeof row.code !== 'string' || !codePattern.test(row.code) || seen.has(row.code) || typeof row.answers !== 'string' || !/^[A-J]{1,1000}$/i.test(row.answers)) throw new Error('INVALID_ANSWERS');
+            seen.add(row.code);
+            const sheet = bank.worksheets.find(function (w) { return w.subject === bank.code + ':' + row.code; });
+            if (!sheet) throw new Error('SUBJECT_NOT_FOUND');
+            if (Number(sheet.question_count) !== row.answers.length) throw new Error('ANSWER_COUNT_MISMATCH');
+          });
+          key = rows.map(function (r) { return { code: r.code, answers: r.answers.toUpperCase() }; });
+          previewNode.textContent = bankName(bank) + '\n' + key.map(function (r) { return r.code + ': ' + r.answers; }).join('\n');
+          reviewed.disabled = false; status(t('答案文件已读取，请核对预览后勾选确认。', 'Answer key loaded. Review the preview and tick the confirmation.'));
+        } catch (err) { if (version === viewVersion) status(errorText(err), true); }
+      });
+      pane.appendChild(save); root.appendChild(pane);
+    }
+
+    function drawAnswerEditor(row, questions) {
+      root.querySelectorAll('[data-answer-editor]').forEach(function (n) { n.remove(); });
+      const pane = card(); pane.dataset.answerEditor = 'true';
+      pane.appendChild(node('h4', t('编辑答案：', 'Edit answers: ') + rowName(row)));
+      pane.appendChild(hint(t('仅影响今后的评分；已有成绩和提交快照保持不变。', 'Changes apply to future grading. Existing scores and submission snapshots are preserved.')));
+      const fields = [];
+      questions.forEach(function (q, i) {
+        const prompt = node('p', (i + 1) + '. ' + q.prompt); prompt.style.whiteSpace = 'pre-wrap'; pane.appendChild(prompt);
+        const select = node('select');
+        q.choices.forEach(function (choice, index) {
+          const option = node('option', String.fromCharCode(65 + index) + '. ' + choice);
+          option.value = String(index); option.selected = index === q.correct_index; select.appendChild(option);
+        });
+        select.value = String(q.correct_index);
+        pane.appendChild(label(select, t('正确答案', 'Correct answer')));
+        fields.push({ question: q, select: select });
+      });
+      pane.appendChild(button(t('保存答案修改', 'Save answer changes'), function () {
+        const changes = fields.filter(function (f) { return Number(f.select.value) !== f.question.correct_index; })
+          .map(function (f) { return { question_id: f.question.question_id, expected_index: f.question.correct_index, correct_index: Number(f.select.value) }; });
+        if (!changes.length) { status(t('没有需要保存的修改。', 'No changes to save.')); return; }
+        action(async function () {
+          const count = await rpc('admin_update_worksheet_answers', { p_subject: row.subject, p_changes: changes });
+          pane.remove(); status(t('答案已更新，共 ', 'Updated ') + count + t(' 道题。', ' answers.'));
+        });
+      }, true));
+      pane.appendChild(button(t('取消', 'Cancel'), function () { pane.remove(); }));
+      root.appendChild(pane);
+      if (pane.scrollIntoView) pane.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     function drawImport(bank) {
@@ -249,6 +341,7 @@
         const url = URL.createObjectURL(new Blob([JSON.stringify(template, null, 2)], { type: 'application/json' }));
         const a = node('a'); a.href = url; a.download = 'question-bank-template.json'; a.click();
         setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        status(t('已请求下载 JSON 模板，请查看浏览器下载列表。', 'JSON template download requested. Check your browser downloads.'));
       });
       pane.appendChild(download);
       const file = node('input'); file.type = 'file'; file.accept = '.json,application/json';
@@ -325,7 +418,8 @@
     root.replaceChildren(hint(t('加载题库中…', 'Loading question banks…')));
     try { await readCatalog(); selected = banks.length ? banks[0].id : ''; draw(); }
     catch (err) {
-      root.replaceChildren(node('h3', t('题库管理', 'Question bank management')), hint(errorText(err)));
+      root.replaceChildren(node('h3', t('题库管理', 'Question bank management')));
+      status(errorText(err), true);
       root.appendChild(button(t('重试', 'Retry'), function () { render(options); }));
     }
   }

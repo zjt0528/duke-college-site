@@ -1,0 +1,21 @@
+﻿册别,练习,题号,字段,修正前,修正后
+2c,2c8,1,choices[0],self ish,selfish
+2c,2c9,9,choices[3],am used,amused
+2c,2c2,15,prompt,Something must be wrong with him. _____ He looks very _____ today.,Something must be wrong with him. He looks very _____ today.
+2c,2c5,14,prompt,Watch out! _____ A _____ man is coming.,Watch out! A _____ man is coming.
+3a,3a9,6,choices[2],st iff,stiff
+3a,3a9,14,choices[2],st iff,stiff
+3a,3a14,6,choices[2],mo ment,moment
+3a,3a24,4,prompt,scrum ptious means,scrumptious means
+3a,3a24,9,choices[3],scrum ptious,scrumptious
+3a,3a24,12,choices[2],scrum ptious,scrumptious
+3b,3b1,2,choices[1],am aze,amaze
+3b,3b11,4,choices[2],mo ment,moment
+3b,3b13,6,choices[1],form ed,formed
+3b,3b13,13,choices[3],form ed,formed
+3b,3b15,3,choices[1],com fort,comfort
+3b,3b23,3,choices[3],r emembered,remembered
+3c,3c8,1,prompt,e quipment means,equipment means
+3c,3c14,5,choices[1],m eetings,meetings
+3c,3c14,12,choices[3],c ompromise,compromise
+3c,3c24,11,choices[0],s trumming,strumming

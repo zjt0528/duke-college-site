@@ -1,0 +1,641 @@
+[
+  {
+    "worksheet": "3a5",
+    "question": 15,
+    "category": "答案错误",
+    "severity": "优先修正",
+    "reason": "句子 She ___ her son because he did not listen to her. 当前 D=wicked 无法作所需过去式动词。",
+    "suggestion": "答案 D 改 B=scolded。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a1",
+    "question": 1,
+    "category": "答案与书中语境不符",
+    "severity": "优先修正",
+    "reason": "browsed 在本练习长颈鹿吃树叶语境中是取食；当前 D=looked for 不符合这个义项。browse 也有浏览/随意查看义，建议把语境写进题干。",
+    "suggestion": "答案建议 D 改 A=fed on，并明确题干为 In the story, browsed means...。",
+    "source": "https://animals.sandiegozoo.org/animal-glossary/browse"
+  },
+  {
+    "worksheet": "3c16",
+    "question": 3,
+    "category": "释义选项不准确",
+    "severity": "优先修正",
+    "reason": "several 不等于当前 A=many；B=few 也不如 a few/some 准确，不建议只机械换答案。",
+    "suggestion": "将 A 改为 more than two but not many，保留答案 A；或重写选项后重新确定答案。",
+    "source": "https://dictionary.cambridge.org/us/dictionary/english/several?topic=different-and-difference"
+  },
+  {
+    "worksheet": "2c2",
+    "question": 8,
+    "category": "拼写题多解",
+    "severity": "优先修正",
+    "reason": "C=pinch 和 D=unusual 均拼写正确。原 PDF 第四个标签印成 e，JSON 按第四项处理。",
+    "suggestion": "保留 C，第四项改成明确错拼 unusuall。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c12",
+    "question": 7,
+    "category": "拼写题多解",
+    "severity": "优先修正",
+    "reason": "A=paddler 是合法英语单词，B=cleverness 也正确；若题目仅问正确拼写，不能唯一选 B。",
+    "suggestion": "保留 B，将 A 改为不构成另一合法词的错拼，例如 peddlerr；或明确限定为本课词表中的正确拼写。",
+    "source": "https://dictionary.cambridge.org/dictionary/english/paddler"
+  },
+  {
+    "worksheet": "3b4",
+    "question": 1,
+    "category": "缺少准确释义",
+    "severity": "优先修正",
+    "reason": "healing 指使恢复健康/愈合，D=saving 不能准确释义，其余选项也不合适。",
+    "suggestion": "把 D 改为 making or becoming healthy again，保留 D。",
+    "source": "https://dictionary.cambridge.org/us/dictionary/english/heal"
+  },
+  {
+    "worksheet": "3a19",
+    "question": 2,
+    "category": "缺少准确释义",
+    "severity": "优先修正",
+    "reason": "crumpled 是弄皱/揉成一团，D=destroyed 过强，纸揉皱不等于被毁掉，其余也不合适。",
+    "suggestion": "把 D 改为 crushed into wrinkles or folds，保留 D。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c3",
+    "question": 5,
+    "category": "缺少准确释义",
+    "severity": "优先修正",
+    "reason": "lame 的身体义项指腿脚受伤导致行走困难；B=weak 不准确，其他选项也不准确。",
+    "suggestion": "把 B 改为 unable to walk properly because of an injured leg or foot。",
+    "source": "https://www.collinsdictionary.com/dictionary/english/lame"
+  },
+  {
+    "worksheet": "3c3",
+    "question": 12,
+    "category": "例句义项不合适",
+    "severity": "优先修正",
+    "reason": "以翅膀受伤、飞得低来说明 lame，不是其标准腿脚行走义。",
+    "suggestion": "改写为 The dog was ____ because its leg was hurt.，仍选 C=lame。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b3",
+    "question": 13,
+    "category": "原稿缺少填空",
+    "severity": "优先修正",
+    "reason": "当前句子完整写成 The bird looked out from the cage with its eyes.，没有空格；已查看原 PDF 页面，原稿也如此。",
+    "suggestion": "改成 The bird looked out from the cage with its _____ eyes.，保留 B=fierce。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c2",
+    "question": 15,
+    "category": "提取多出填空",
+    "severity": "优先修正",
+    "reason": "句号后版式空白被误识别为填空，当前有两个空。原 PDF 只在 very 后留空。",
+    "suggestion": "删除 wrong with him. 与 He looks 之间多出的 _____，保留 very 后的空与答案 A。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c5",
+    "question": 14,
+    "category": "提取多出填空",
+    "severity": "优先修正",
+    "reason": "Watch out! 与 A ... man 之间的句间排版空白被误识别成填空。",
+    "suggestion": "改成 Watch out! A _____ man is coming.，保留 A=strange。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b1",
+    "question": 12,
+    "category": "句子语境多解风险",
+    "severity": "建议明确",
+    "reason": "The magician ___ the audience with his skills. 中 C=flabbergasted 合理；D=duped 也可能表示魔术师用技巧骗过观众，句子没有排除。",
+    "suggestion": "增加惊讶线索，例如 The audience was completely amazed; the magician _____ them with his skills. 保留 C。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b9",
+    "question": 2,
+    "category": "释义近义重叠",
+    "severity": "建议明确",
+    "reason": "fond 选 D=to like，但 C=to enjoy 语义非常接近；脱离 fond of 的搭配时不够唯一。",
+    "suggestion": "改成 fond of means，并把 C 换成 to avoid，保留 D=to like。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b11",
+    "question": 2,
+    "category": "多义词未限定语境",
+    "severity": "建议明确",
+    "reason": "fluttered 可以指轻轻摆动，也可以指快速轻盈地飞；A=waved lightly 与 B=flew around 都有可辩护的义项。",
+    "suggestion": "限定为 The flags fluttered in the wind. 中的意思，或替换 B。",
+    "source": "https://dictionary.cambridge.org/us/dictionary/learner-english/flutter"
+  },
+  {
+    "worksheet": "3b11",
+    "question": 5,
+    "category": "英美词义导致多解",
+    "severity": "建议明确",
+    "reason": "C=being cheap 是预期答案，但 B=being mean 在英式英语中也可指吝啬、不慷慨。",
+    "suggestion": "把 B 换成 being careless，保留 C；也可把 C 改成 unwilling to share or spend money。",
+    "source": "https://dictionary.cambridge.org/dictionary/english/mean?q=mean_2"
+  },
+  {
+    "worksheet": "3c19",
+    "question": 8,
+    "category": "旧拼写变体风险",
+    "severity": "建议明确",
+    "reason": "B=bowlder 在旧词典中是 boulder 的变体；D=pleaded 为现代预期答案。不是常用现代拼写，但作绝对错误项容易产生争议。",
+    "suggestion": "把 B 换成明显错拼 bouulder，保留 D；不将旧式拼写当成普通错字。",
+    "source": "https://ttabvue.uspto.gov/ttabvue/ttabvue-91190282-OPP-38.pdf"
+  },
+  {
+    "worksheet": "2c2",
+    "question": 2,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "draw the drapes 指拉上/拉开窗帘，A=pull down 不够准确。",
+    "suggestion": "把 A 改为 pull the curtains open or closed，并在题干说明 curtains 语境。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c5",
+    "question": 2,
+    "category": "比较级释义建议",
+    "severity": "文字优化",
+    "reason": "dirtier 是 more dirty，C=very dirty 没有体现比较级。",
+    "suggestion": "将 C 改为 more dirty，保留 C。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c10",
+    "question": 3,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "shame 可指羞愧/耻辱/遗憾；A=feeling sorry 过宽，例句用法也可能是遗憾而不是羞愧。",
+    "suggestion": "限定羞愧义并将 A 改为 an unhappy feeling about having done something wrong，或改用 What a shame 的遗憾语境。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c16",
+    "question": 4,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "foolishly 是愚蠢地、不明智地，B=carelessly 仅近似。",
+    "suggestion": "将 B 改为 unwisely。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c18",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "thumping 是重重地敲/砰砰作响，D=tapping 通常轻敲，力度不同。",
+    "suggestion": "将 D 改为 hitting or beating heavily。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c19",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "canning 是加热密封保存食物，家庭场景也可用玻璃瓶，不只是往罐中放。",
+    "suggestion": "将 B 改为 preserving food in sealed cans or jars。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c21",
+    "question": 2,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "dazzling 不只泛指 wonderful，核心为耀眼/令人赞叹。",
+    "suggestion": "将 D 改为 extremely bright or impressive。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c22",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "rabbi 是犹太教宗教领袖/教师，不是泛指任何给建议的人。",
+    "suggestion": "将 A 改为 a Jewish religious teacher or leader。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c23",
+    "question": 2,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "wick 指灯芯/烛芯，并非泛指蜡烛顶部。",
+    "suggestion": "将 A 改为 the string in a candle that burns。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c24",
+    "question": 1,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "coincidence 不只是同时发生，还强调偶然且看似有关联。",
+    "suggestion": "将 C 改为 two similar or connected events happening by chance。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a3",
+    "question": 3,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "mumbled 侧重说得含糊、不清楚，B=spoke with a low voice 只说明音量。",
+    "suggestion": "将 B 改为 spoke quietly and unclearly。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a5",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "河岸义的 bank 是沿河的陆地，C=by the river 是位置短语，不是名词释义。",
+    "suggestion": "将 C 改为 the land along the side of a river。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a7",
+    "question": 3,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "inspected 是仔细检查；C=looked around 太泛。",
+    "suggestion": "将 C 改为 examined carefully。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a15",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "recited 是背诵或朗诵，B=read out 不一定体现记忆背诵义。",
+    "suggestion": "将 B 改为 said aloud from memory。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a18",
+    "question": 3,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "climate 指长期气候特征，不等同短期 weather。",
+    "suggestion": "将 B 改为 the usual weather conditions of a place over many years。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a18",
+    "question": 4,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "expert 是知识/技能熟练的人，不只 a talented person。",
+    "suggestion": "将 D 改为 a person with special knowledge or skill。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a22",
+    "question": 1,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "stool 通常无靠背，D=chair 太宽泛。",
+    "suggestion": "将 D 改为 a seat without a back。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a23",
+    "question": 5,
+    "category": "释义近义重叠",
+    "severity": "建议明确",
+    "reason": "C=delicate 最贴近 dainty，但 D=pretty 也与该词的漂亮精巧义重叠。",
+    "suggestion": "将 D 换成 noisy，保留 C；或将 C 写成 small and delicate。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b3",
+    "question": 1,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "fierce 侧重凶猛/强烈，C=wild 只是近义。",
+    "suggestion": "将 C 改为 aggressive or powerful。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b4",
+    "question": 2,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "famine 是广泛的严重食物短缺，不是一般 hunger。",
+    "suggestion": "将 C 改为 a severe shortage of food。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b6",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "intense 的 D=great 过宽。",
+    "suggestion": "将 D 改为 very strong or extreme。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b10",
+    "question": 1,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "brag 指夸耀地谈论自己，不仅是心里太骄傲。",
+    "suggestion": "将 D 改为 to talk too proudly about oneself。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b10",
+    "question": 4,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "ripe 在草莓语境指成熟可食，C=all grown 不够准确。",
+    "suggestion": "将 C 改为 fully developed and ready to eat。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b20",
+    "question": 3,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "tempted 是诱使/让人想做，不保证人实际去做；C=make a person do something 过强。",
+    "suggestion": "将 C 改为 made a person want to do something。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b22",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "fade 是逐渐变淡/消失，A=wear out 不够对应。",
+    "suggestion": "将 A 改为 to become less bright or less clear。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c2",
+    "question": 2,
+    "category": "词性与释义建议",
+    "severity": "文字优化",
+    "reason": "hardship 是名词；A=not easy 是形容性表述。",
+    "suggestion": "将 A 改为 a difficult or unpleasant situation。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c4",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "ripe 在樱桃语境指成熟可食，D=fully grown 太宽。",
+    "suggestion": "将 D 改为 mature and ready to eat。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c10",
+    "question": 3,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "anxiously 可含担忧或急切期待，不宜简单教成 with excitement。",
+    "suggestion": "将 A 改为 in a worried or eager way。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c11",
+    "question": 5,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "brittle 的特点是容易碎裂，不是笼统 weak。",
+    "suggestion": "将 C 改为 hard but easily broken。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c14",
+    "question": 1,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "debated 可以是正式讨论、辩论，不一定 fought with words。",
+    "suggestion": "将 B 改为 discussed different opinions。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c14",
+    "question": 2,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "compromise 强调各方让步达成协议，不是任意 solve。",
+    "suggestion": "将 A 改为 to reach an agreement by each side giving up something。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c14",
+    "question": 12,
+    "category": "例句搭配建议",
+    "severity": "文字优化",
+    "reason": "compromise over the matter 可以理解，但 compromise on the matter 更适合基础教学。",
+    "suggestion": "题干改为 Finally, Washington decided to _____ on the matter. 保留 D。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c21",
+    "question": 4,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "adore 强于 to like，表达非常喜爱。",
+    "suggestion": "将 C 改为 to love very much。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c24",
+    "question": 3,
+    "category": "释义建议",
+    "severity": "文字优化",
+    "reason": "strumming 指扫拨弦，B=playing music 太泛。",
+    "suggestion": "将 B 改为 playing a stringed instrument by brushing the strings。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c24",
+    "question": 11,
+    "category": "原题措辞错误",
+    "severity": "优先修正",
+    "reason": "chords 是和弦，不是供手指扫拨的琴弦；strum her fingers against the chords 的表达不合适。",
+    "suggestion": "题干改为 She was _____ the strings of the guitar with her fingers.，选 A；同时 A 的 s trumming 应合并。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c24",
+    "question": 13,
+    "category": "例句搭配建议",
+    "severity": "文字优化",
+    "reason": "played in syncopation 可理解但不自然。",
+    "suggestion": "改为 Ragtime music often uses _____.，仍选 B=syncopation。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c8",
+    "question": 1,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 self ish，词内多出空格。",
+    "suggestion": "仅合并为 selfish，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "2c9",
+    "question": 9,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 am used，词内多出空格。",
+    "suggestion": "仅合并为 amused，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a9",
+    "question": 6,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 st iff，词内多出空格。",
+    "suggestion": "仅合并为 stiff，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a9",
+    "question": 14,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 st iff，词内多出空格。",
+    "suggestion": "仅合并为 stiff，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a14",
+    "question": 6,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 mo ment，词内多出空格。",
+    "suggestion": "仅合并为 moment，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a24",
+    "question": 4,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "题干 scrum ptious 多出词内空格。",
+    "suggestion": "改为 scrumptious means，答案不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a24",
+    "question": 9,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 scrum ptious，词内多出空格。",
+    "suggestion": "仅合并为 scrumptious，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3a24",
+    "question": 12,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 scrum ptious，词内多出空格。",
+    "suggestion": "仅合并为 scrumptious，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b1",
+    "question": 2,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 am aze，词内多出空格。",
+    "suggestion": "仅合并为 amaze，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b11",
+    "question": 4,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 mo ment，词内多出空格。",
+    "suggestion": "仅合并为 moment，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b13",
+    "question": 6,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 form ed，词内多出空格。",
+    "suggestion": "仅合并为 formed，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b13",
+    "question": 13,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 form ed，词内多出空格。",
+    "suggestion": "仅合并为 formed，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b15",
+    "question": 3,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 com fort，词内多出空格。",
+    "suggestion": "仅合并为 comfort，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3b23",
+    "question": 3,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 r emembered，词内多出空格。",
+    "suggestion": "仅合并为 remembered，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c8",
+    "question": 1,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "题干 e quipment 多出词内空格。",
+    "suggestion": "改为 equipment means，答案不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c14",
+    "question": 5,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 m eetings，词内多出空格。",
+    "suggestion": "仅合并为 meetings，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c14",
+    "question": 12,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 c ompromise，词内多出空格。",
+    "suggestion": "仅合并为 compromise，答案字母不变。",
+    "source": ""
+  },
+  {
+    "worksheet": "3c24",
+    "question": 11,
+    "category": "提取单词断开",
+    "severity": "排版修正",
+    "reason": "当前正确选项显示为 s trumming，词内多出空格。",
+    "suggestion": "仅合并为 strumming，答案字母不变。",
+    "source": ""
+  }
+]

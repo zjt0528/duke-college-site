@@ -1,0 +1,29 @@
+{
+  "total_reviewed": 1440,
+  "flagged_questions": 69,
+  "issue_entries": 71,
+  "categories": {
+    "优先修正": 13,
+    "建议明确": 6,
+    "文字优化": 34,
+    "排版修正": 18
+  },
+  "volumes": {
+    "2c": {
+      "reviewed": 360,
+      "flagged_questions": 16
+    },
+    "3a": {
+      "reviewed": 360,
+      "flagged_questions": 17
+    },
+    "3b": {
+      "reviewed": 360,
+      "flagged_questions": 19
+    },
+    "3c": {
+      "reviewed": 360,
+      "flagged_questions": 17
+    }
+  }
+}

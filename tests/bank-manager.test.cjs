@@ -81,6 +81,8 @@ async function manager(catalog, mutation) {
   const vm = require('node:vm');
   const fs = require('node:fs');
   const { window, document } = parseHTML('<html><body><div id="root"></div></body></html>');
+  const alerts = [];
+  window.alert = (message) => alerts.push(message);
   Object.defineProperty(window.HTMLSelectElement.prototype, 'value', {
     configurable: true,
     get() { return Array.from(this.options).find((o) => o.selected)?.value || this.options[0]?.value || ''; },
@@ -98,7 +100,7 @@ async function manager(catalog, mutation) {
     } }
   });
   return {
-    root, calls, window,
+    root, calls, window, alerts,
     button: (text) => Array.from(root.querySelectorAll('button')).find((b) => b.textContent === text),
     change: (target) => target.dispatchEvent(new window.Event('change', { bubbles: true })),
     input: (target) => target.dispatchEvent(new window.Event('input', { bubbles: true })),
@@ -140,8 +142,12 @@ test('admin import sends only reviewed normalized worksheets, prevents duplicate
   assert.equal(call.args.p_bank_id, '1');
   assert.equal(call.args.p_worksheets[0].questions[0].correct_index, 1);
   assert.equal(commit.disabled, true);
+  assert.equal(ui.alerts.length, 1); // Validation result only; pending import stays quiet.
   finish({ data: 1, error: null }); await ui.flush();
-  assert.match(ui.root.textContent, /Imported 1 questions/);
+  assert.doesNotMatch(ui.root.textContent, /Imported 1 questions|Please wait/);
+  assert.equal(ui.root.querySelector('[data-bank-status]').hidden, true);
+  assert.equal(ui.alerts.length, 2);
+  assert.match(ui.alerts[1], /Imported 1 questions/);
   assert.equal(ui.root.querySelector('input[type="checkbox"]').checked, undefined);
 });
 
@@ -155,6 +161,24 @@ test('published banks hide import tools and API failures preserve metadata form 
   fields[1].value = '保留修改';
   form.dispatchEvent(new ui.window.Event('submit', { cancelable: true })); await ui.flush();
   assert.equal(fields[1].value, '保留修改');
-  assert.match(ui.root.textContent, /This bank code already exists/);
+  assert.doesNotMatch(ui.root.textContent, /This bank code already exists|Please wait/);
+  assert.equal(ui.alerts.length, 1);
+  assert.match(ui.alerts[0], /This bank code already exists/);
   assert.equal(ui.button('Save bank details').disabled, false);
+});
+
+test('answer editor loads choices and saves only changed answers with conflict checks', async () => {
+  const ui = await manager([{ ...draft[0], subject: 'reading:2a1', title_en: 'Book', question_count: 1 }], (name) => ({
+    data: name === 'admin_get_worksheet_answers' ? [{ question_id: 51, prompt: 'A question', choices: ['First', 'Second'], correct_index: 0 }] : 1, error: null
+  }));
+  ui.button('Edit answers').click(); await ui.flush();
+  const editor = ui.root.querySelector('[data-answer-editor]');
+  assert.match(editor.textContent, /A question/);
+  editor.querySelector('select').value = '1';
+  ui.button('Save answer changes').click(); await ui.flush();
+  const saved = ui.calls.find(c => c.name === 'admin_update_worksheet_answers');
+  assert.equal(saved.args.p_subject, 'reading:2a1');
+  assert.deepEqual(JSON.parse(JSON.stringify(saved.args.p_changes)), [{ question_id: 51, expected_index: 0, correct_index: 1 }]);
+  assert.equal(ui.root.querySelector('[data-answer-editor]'), null);
+  assert.match(ui.alerts.at(-1), /Updated 1 answers/);
 });

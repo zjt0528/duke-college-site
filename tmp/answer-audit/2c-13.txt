@@ -1,0 +1,102 @@
+
+2c13 The Pain and the Great One
+1. poky means | A=fast | B=quiet | C=tired | D=slow | KEY=D
+2. a pain is | A=a funny man | B=a trouble maker | C=a smart man | D=a toy | KEY=B
+3. a slob is | A=a clean person | B=a messy person | C=a hungry person | D=a strong person | KEY=B
+4. better than her means | A=a little bit | B=a lot | C=nicer than her | D=as much as her | KEY=C
+5. all by herself means | A=without any help | B=with help | C=quickly | D=for other people | KEY=A
+6. Find the correct spelling. | A=pokky | B=better | C=herselp | D=pein | KEY=B
+7. Find the correct spelling. | A=poki | B=peine | C=all by herself | D=slov | KEY=C
+8. Find the correct spelling. | A=pein | B=slov | C=poky | D=beter | KEY=C
+9. Find the correct spelling. | A=all by herselp | B=slub | C=beter | D=pain | KEY=D
+10. Find the correct spelling. | A=beter | B=by her sef | C=slob | D=porkey | KEY=C
+11. She thought the train was ______than the car to go there. | A=better | B=slob | C=pain | D=pokey | KEY=A
+12. She thinks he is a ____ because he always bothers her. | A=poky | B=all by herself | C=pain | D=better | KEY=C
+13. He misses the bus because he’s so _______. | A=better | B=all by herself | C=slob | D=poky | KEY=D
+14. He never stays clean because he’s a _____ . | A=slob | B=all by herself | C=pain | D=pokey | KEY=A
+15. She can do things_______________. | A=slob | B=pain | C=all by herself | D=poky | KEY=C
+
+2c14 Popcorn Book
+1. moisture means | A=dryness | B=wetness | C=hairy | D=itchy | KEY=B
+2. burst means | A=to pop open | B=to crack | C=to drag | D=to push | KEY=A
+3. commonly means | A=never | B=also | C=usually | D=and | KEY=C
+4. fond means | A=to hate | B=to pull | C=to yell | D=to like | KEY=D
+5. discovered means | A=lost | B=found | C=helped | D=harm ed | KEY=B
+6. Find the correct spelling. | A=foned | B=discobered | C=burst | D=m oischure | KEY=C
+7. Find the correct spelling. | A=commonly | B=fornd | C=descovered | D=m oistur | KEY=A
+8. Find the correct spelling. | A=discobered | B=burste | C=fond | D=m oistue | KEY=C
+9. Find the correct spelling. | A=discovered | B=burste | C=com moly | D=m oistur | KEY=A
+10. Find the correct spelling. | A=faund | B=com only | C=moisture | D=burste | KEY=C
+11. Students _______ have homework to do. | A=bursts | B=moisture | C=discovered | D=commonly | KEY=D
+12. Sally __________out laughing every time I tell that joke. | A=moisture | B=discovered | C=fond | D=bursts | KEY=D
+13. The air was very dry in the desert; there was no___________. | A=discovered | B=fond | C=moisture | D=discovered | KEY=C
+14. My teacher is very ___________ of me because I always help her. | A=commonly | B=fond | C=moisture | D=bursts | KEY=B
+15. Did you know that Christopher Columbus ________ America? | A=discovered | B=commonly | C=fond | D=bursts | KEY=A
+
+2c15 Wagon Wheels
+1. a banjo is | A=a game | B=a puzzle | C=an instrument | D=a toy | KEY=C
+2. fresh means | A=new | B=old | C=rotten | D=bad | KEY=A
+3. supper means | A=breakfast | B=dinner | C=lunch | D=swim ming | KEY=B
+4. sight means | A=wagon | B=pocket | C=house | D=view | KEY=D
+5. loaded means | A=emptied out | B=filled up | C=broke | D=fixed | KEY=B
+6. Find the correct spelling. | A=bangio | B=sighte | C=supper | D=loded | KEY=C
+7. Find the correct spelling. | A=loded | B=frash | C=benjo | D=sight | KEY=D
+8. Find the correct spelling. | A=freshe | B=benjo | C=loaded | D=sufer | KEY=C
+9. Find the correct spelling. | A=soffer | B=frash | C=banjo | D=sihte | KEY=C
+10. Find the correct spelling. | A=fresh | B=sufer | C=sith | D=rorded | KEY=A
+11. They would sit around the fire after ______. | A=banjo | B=supper | C=fresh | D=loaded | KEY=B
+12. They hunted so they could eat _____ meat. | A=sight | B=banjo | C=fresh | D=loaded | KEY=C
+13. Daddy would play his _____ at night. | A=loaded | B=banjo | C=sight | D=supper | KEY=B
+14. The babysitter kept the baby in her ______. | A=sight | B=banjo | C=supper | D=fresh | KEY=A
+15. They _____ their wagon with many things. | A=supper | B=sight | C=fresh | D=loaded | KEY=D
+
+2c16 What’s Under My Bed?
+1. nerve means | A=happy | B=terrible | C=friendly | D=rudeness | KEY=D
+2. fluttering means | A=forcing something | B=running fast | C=flapping rapidly | D=jumping high | KEY=C
+3. wailing means | A=crying | B=smiling | C=buzzing | D=eating | KEY=A
+4. foolishly means | A=mean | B=carelessly | C=rude | D=practice | KEY=B
+5. lad means | A=an old man | B=a young girl | C=an adult | D=a young boy | KEY=D
+6. Find the correct spelling. | A=folishly | B=nurve | C=wailing | D=loade | KEY=C
+7. Find the correct spelling. | A=flutering | B=foolishly | C=llad | D=narve | KEY=B
+8. Find the correct spelling. | A=fruttering | B=wailling | C=f oolishlly | D=nerve | KEY=D
+9. Find the correct spelling. | A=fluttering | B=wailling | C=f oolishlly | D=laed | KEY=A
+10. Find the correct spelling. | A=fruttering | B=narve | C=lad | D=weiling | KEY=C
+11. My sister had the _____ to take my doll without asking. | A=foolishly | B=fluttering | C=wailing | D=nerve | KEY=D
+12. The young _____ asked his sister to help him. | A=wailing | B=lad | C=fluttering | D=foolishly | KEY=B
+13. The baby was _____ when his mother took his bottle away. | A=wailing | B=lad | C=fluttering | D=nerve | KEY=A
+14. The boy _____ drove his bike right into the tree. | A=fluttering | B=wailing | C=foolishly | D=nerve | KEY=C
+15. The butterfly was _____ about in the sky. | A=lad | B=fluttering | C=nerve | D=foolishly | KEY=B
+
+2c17 Abiyoyo
+1. tricks mean | A=mean jokes | B=silly | C=rude | D=nice | KEY=A
+2. ostracized means | A=welcom ed | B=ate | C=kicked out | D=drank | KEY=C
+3. precious means | A=hated | B=fight | C=argue | D=important | KEY=D
+4. matted means | A=dirty | B=knotted | C=straight | D=curly | KEY=B
+5. staggered means | A=walked | B=danced | C=stumbled | D=sang | KEY=C
+6. Find the correct spelling. | A=tricks | B=presios | C=ostrecised | D=matede | KEY=A
+7. Find the correct spelling. | A=matteded | B=stagared | C=praciuce | D=ostracized | KEY=D
+8. Find the correct spelling. | A=matede | B=precious | C=trikce | D=steggered | KEY=B
+9. Find the correct spelling. | A=triks | B=matted | C=stagared | D=ostrecised | KEY=B
+10. Find the correct spelling. | A=ostlacised | B=trikcs | C=staggered | D=presiouce | KEY=C
+11. The boy _____ and fell right into the ditch. | A=precious | B=matted | C=ostracized | D=staggered | KEY=D
+12. The man was _____ after he stole from the local store. | A=staggered | B=ostracized | C=tricks | D=matted | KEY=B
+13. My daughter is _____ to me, and I will always love her. | A=tricks | B=ostracized | C=precious | D=staggered | KEY=C
+14. My hair was _____ and knotted after swimming all day. | A=matted | B=ostracized | C=precious | D=tricks | KEY=A
+15. My brother always plays nasty _____ on me, so I do not like him. | A=staggered | B=matted | C=precious | D=tricks | KEY=D
+
+2c18 Bed Time for Francis
+1. Piggyback means | A=an animal | B=a dance | C=a ride on the back | D=a song | KEY=C
+2. worried means | A=troubled | B=mad | C=sad | D=hungry | KEY=A
+3. bumping means | A=falling | B=banging into | C=jumping | D=spilling | KEY=B
+4. whack means | A=to touch | B=to dress | C=to tangle | D=to hit | KEY=D
+5. thumping means | A=crunching | B=building | C=dripping | D=tapping | KEY=D
+6. Find the correct spelling. | A=bomping | B=worried | C=whec | D=theping | KEY=B
+7. Find the correct spelling. | A=whac | B=bumping | C=them ping | D=peggieback | KEY=B
+8. Find the correct spelling. | A=pyggibak | B=dum fing | C=whack | D=worrid | KEY=C
+9. Find the correct spelling. | A=thumping | B=peggieback | C=woried | D=bam ping | KEY=A
+10. Find the correct spelling. | A=worrid | B=piggyback | C=bom pyng | D=wheck | KEY=B
+11. The rabbit was making a _______ noise with its feet. | A=whack | B=worried | C=piggyback | D=thumping | KEY=D
+12. I’m ______ that I will not do well on the test. | A=worried | B=piggyback | C=whack | D=thumping | KEY=A
+13. I got a ______ on the head when the door opened. | A=worried | B=whack | C=bumping | D=piggyback | KEY=B
+14. Stop ______ into me. It really hurts. | A=piggyback | B=bumping | C=thumping | D=worried | KEY=B
+15. Daddy gave me a _____ ride. | A=thumping | B=whack | C=bumping | D=piggyback | KEY=D

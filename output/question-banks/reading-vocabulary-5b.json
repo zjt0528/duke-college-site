@@ -1,0 +1,3700 @@
+{
+  "worksheets": [
+    {
+      "code": "5b1",
+      "title_zh": "",
+      "title_en": "Abel’s Island",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "inconsiderate means",
+          "choices": [
+            "quiet",
+            "caring",
+            "noisy",
+            "not caring"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "gigantic means",
+          "choices": [
+            "small",
+            "huge",
+            "new",
+            "sick"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "soiled means",
+          "choices": [
+            "wet",
+            "dirty",
+            "new",
+            "sick"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "impulsively means",
+          "choices": [
+            "probably",
+            "usually",
+            "instinctively",
+            "actually"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "emerged means",
+          "choices": [
+            "to come into view",
+            "completed",
+            "left",
+            "gave"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "erred means",
+          "choices": [
+            "made a correction",
+            "made a mistake",
+            "made money",
+            "made a basket"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "gnawed means",
+          "choices": [
+            "sat",
+            "hit",
+            "chewed",
+            "left"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "edible means",
+          "choices": [
+            "hard to eat",
+            "able to fix",
+            "able to be eaten",
+            "soft to eat"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "predicament means",
+          "choices": [
+            "question",
+            "solution",
+            "answer",
+            "problem"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "eons means",
+          "choices": [
+            "a few months",
+            "a few days",
+            "many years",
+            "a few years"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gigantic",
+            "inpulsively",
+            "energed",
+            "erled"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "knawed",
+            "ered",
+            "emerged",
+            "edibel"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gnaued",
+            "imirged",
+            "urred",
+            "impulsively"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "edible",
+            "predicahment",
+            "eonns",
+            "inconsedirate"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "adibel",
+            "nawed",
+            "erred",
+            "pridicament"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "jigantic",
+            "soyled",
+            "inconsiderate",
+            "immpulsively"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "etible",
+            "gnawed",
+            "pradicament",
+            "aons"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "imerged",
+            "gygentic",
+            "impusively",
+            "soiled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "enconsiderate",
+            "eonse",
+            "predicament",
+            "soeiled"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sooiled",
+            "inconsidorate",
+            "eons",
+            "gigentyc"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "A new baby chick slowly _____ from the egg that was just hatched.",
+          "choices": [
+            "soiled",
+            "impulsively",
+            "gigantic",
+            "emerged"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "When I realized I was supposed to be in two places at the same time, I had a(n) _______.",
+          "choices": [
+            "gnawed",
+            "edible",
+            "predicament",
+            "erred"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The pyramids in Egypt have existed for _____.",
+          "choices": [
+            "eons",
+            "predicament",
+            "edible",
+            "gnawed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The noisy girl was _____ of the other students in the class who were trying to take a test.",
+          "choices": [
+            "eons",
+            "inconsiderate",
+            "predicament",
+            "edible"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "He _____ at the carrot with his teeth.",
+          "choices": [
+            "impulsively",
+            "erred",
+            "emerged",
+            "gnawed"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Abel tried to avoid being _____ by the bus on the rainy day.",
+          "choices": [
+            "eons",
+            "inconsiderate",
+            "soiled",
+            "predicament"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "I tried to eat the plastic apple before I realized it was not _____ .",
+          "choices": [
+            "gnawed",
+            "edible",
+            "erred",
+            "emerged"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "I _____ reached for my umbrella when I heard it was raining.",
+          "choices": [
+            "impulsively",
+            "gigantic",
+            "soiled",
+            "inconsiderate"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "He thought he was correct, but actually he had ______.",
+          "choices": [
+            "emerged",
+            "erred",
+            "impulsively",
+            "gigantic"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "My kitten is small, but Tracy’s cat is so _____ that I can’t even pick it up.",
+          "choices": [
+            "inconsiderate",
+            "soiled",
+            "gigantic",
+            "eons"
+          ],
+          "correct_index": 2
+        }
+      ]
+    },
+    {
+      "code": "5b2",
+      "title_zh": "",
+      "title_en": "Caddie Woodlawn",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "perilous means",
+          "choices": [
+            "ridiculous",
+            "dangerous",
+            "joyous",
+            "rambunctious"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "unheeded means",
+          "choices": [
+            "not noticed",
+            "hopeless",
+            "shirt-less",
+            "penniless"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "despair means",
+          "choices": [
+            "hope",
+            "help",
+            "grief",
+            "question"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "relenting means",
+          "choices": [
+            "asking",
+            "lasting",
+            "ending",
+            "become more forgiving"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "piously means",
+          "choices": [
+            "logically",
+            "saintly",
+            "badly",
+            "deadly"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "forbidden means",
+          "choices": [
+            "discouraged",
+            "allowed",
+            "not allowed",
+            "derailed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "uproar means",
+          "choices": [
+            "chaos",
+            "peace",
+            "talking",
+            "quiet"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "astonishment means",
+          "choices": [
+            "dedication",
+            "understanding",
+            "surprise",
+            "forgiveness"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "delicate means",
+          "choices": [
+            "easily broken",
+            "harmful",
+            "forgetful",
+            "meaningful"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "glared means",
+          "choices": [
+            "fell",
+            "pranced",
+            "looked angrily",
+            "stood"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "pieously",
+            "relanting",
+            "forebidden",
+            "despair"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "dellicate",
+            "estonishment",
+            "glaired",
+            "uproar"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "despare",
+            "unhieded",
+            "perilous",
+            "relanting"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "forbiden",
+            "piously",
+            "uprore",
+            "atonishment"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "delicate",
+            "glarred",
+            "unheedid",
+            "perilus"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "piousely",
+            "relenting",
+            "forrbidden",
+            "uproare"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "perylous",
+            "delecate",
+            "glaired",
+            "astonishment"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "dispair",
+            "unheeded",
+            "realenting",
+            "pioussly"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "forbidden",
+            "uproare",
+            "delacate",
+            "upproar"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "perrilous",
+            "unheaded",
+            "glared",
+            "dispare"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "She acted so _____, especially when she volunteered for her church group without being asked to do so.",
+          "choices": [
+            "piously",
+            "relenting",
+            "despair",
+            "unheeded"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The glass is so _____ that the girl had to be careful not to break it.",
+          "choices": [
+            "forbidden",
+            "astonishment",
+            "delicate",
+            "uproar"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "When he was told that there was no hope, he became filled with ________.",
+          "choices": [
+            "glared",
+            "unheeded",
+            "perilous",
+            "despair"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "There was a great _______ when the horrible fire began.",
+          "choices": [
+            "forbidden",
+            "uproar",
+            "piously",
+            "relenting"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The rain was so _________ that it seemed as if it would never stop.",
+          "choices": [
+            "forbidden",
+            "unheeded",
+            "unrelenting",
+            "despair"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "She had a look of ____________ on her face when she heard about the accident.",
+          "choices": [
+            "astonishment",
+            "forbidden",
+            "uproar",
+            "piously"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Everyone ignored the boss so his orders were_______.",
+          "choices": [
+            "perilous",
+            "glared",
+            "delicate",
+            "unheeded"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "She was _________ to go into the danger zone.",
+          "choices": [
+            "despair",
+            "relenting",
+            "piously",
+            "forbidden"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "They told us it was _________ to enter that building without a helmet.",
+          "choices": [
+            "perilous",
+            "glared",
+            "astonishment",
+            "delicate"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "She ______ at her husband when she saw that he still hadn’t cleaned up the mess.",
+          "choices": [
+            "delicate",
+            "astonishment",
+            "glared",
+            "uproar"
+          ],
+          "correct_index": 2
+        }
+      ]
+    },
+    {
+      "code": "5b3",
+      "title_zh": "",
+      "title_en": "Maniac Magee",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "suspicious means",
+          "choices": [
+            "perfect",
+            "innocent",
+            "questionable",
+            "tired"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "deserted means",
+          "choices": [
+            "empty",
+            "full",
+            "black",
+            "white"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "sacrifice means",
+          "choices": [
+            "give away",
+            "give up",
+            "push",
+            "pull"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "pleaded means",
+          "choices": [
+            "said",
+            "asked",
+            "threatened",
+            "begged"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "dashed means",
+          "choices": [
+            "ran slowly",
+            "ran quickly",
+            "ran heavily",
+            "walked heavily"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "pandemonium means",
+          "choices": [
+            "laziness",
+            "calm",
+            "panic",
+            "energy"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "intercepted means",
+          "choices": [
+            "came out",
+            "came around",
+            "didn’t come",
+            "came in between"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "befuddled means",
+          "choices": [
+            "bored",
+            "enjoyable",
+            "confused",
+            "intellectual"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "fatal means",
+          "choices": [
+            "lucky",
+            "lively",
+            "deadly",
+            "car"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "lingered means",
+          "choices": [
+            "stayed",
+            "left",
+            "cried",
+            "played"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "pleeded",
+            "sacrifice",
+            "pandimonium",
+            "dasched"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "befudled",
+            "fatel",
+            "intercepted",
+            "lingured"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "diserted",
+            "suspicious",
+            "sacriface",
+            "pleadid"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "dashed",
+            "pendemonium",
+            "bifuddled",
+            "intersepted"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "suspitious",
+            "lingured",
+            "desserted",
+            "fatal"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "beefuddled",
+            "pandimonium",
+            "pleaded",
+            "inturcepted"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "faital",
+            "befuddled",
+            "suspicoius",
+            "lingerred"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "deserted",
+            "pleided",
+            "sacrefice",
+            "dashied"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "befudlled",
+            "fatall",
+            "entercepted",
+            "pandemonium"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sacrafice",
+            "suspictious",
+            "lingered",
+            "deserrted"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The street was totally _____ at 12:00 A.M., and not even a car was in sight.",
+          "choices": [
+            "fatal",
+            "suspicious",
+            "deserted",
+            "lingered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "She had a _____ look on her face during the math test.",
+          "choices": [
+            "befuddled",
+            "pandemonium",
+            "dashed",
+            "pleaded"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The small boy did not want to go home, so he_____ in the hallway.",
+          "choices": [
+            "befuddled",
+            "lingered",
+            "fatal",
+            "intercepted"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "After the fire, the people were in a state of ______.",
+          "choices": [
+            "sacrifice",
+            "dashed",
+            "pleaded",
+            "pandemonium"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Many people were killed in the _____ car accident.",
+          "choices": [
+            "pandemonium",
+            "intercepted",
+            "fatal",
+            "befuddled"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "His testimony was _____ since he changed his words frequently.",
+          "choices": [
+            "suspicious",
+            "fatal",
+            "lingered",
+            "befuddled"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Skipping my favorite show to do my homework is a real ________.",
+          "choices": [
+            "suspicious",
+            "deserted",
+            "lingered",
+            "sacrifice"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The football player _____ the pass and started running.",
+          "choices": [
+            "pleaded",
+            "dashed",
+            "intercepted",
+            "pandemonium"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "“No, no, no… please,” he _____ .",
+          "choices": [
+            "sacrifice",
+            "pleaded",
+            "deserted",
+            "suspicious"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "She _____ out of the back door so that I couldn’t catch her.",
+          "choices": [
+            "pleaded",
+            "sacrifice",
+            "deserted",
+            "dashed"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "5b4",
+      "title_zh": "",
+      "title_en": "The Night Swimmers",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "temporarily means",
+          "choices": [
+            "trying to stay",
+            "for all the time",
+            "not for anytime",
+            "for the time being"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "clutched means",
+          "choices": [
+            "left",
+            "gave",
+            "grabbed",
+            "joined"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "consented means",
+          "choices": [
+            "agreed",
+            "denied",
+            "asked",
+            "believed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "maternal means",
+          "choices": [
+            "fatherly",
+            "m otherly",
+            "brotherly",
+            "sisterly"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "shimmering means",
+          "choices": [
+            "staying",
+            "wrestling",
+            "talking",
+            "shining"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "distance means",
+          "choices": [
+            "longitude",
+            "area",
+            "space between two points",
+            "deny"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "gestured means",
+          "choices": [
+            "called",
+            "motioned",
+            "looked",
+            "asked"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "brief means",
+          "choices": [
+            "finished",
+            "long",
+            "new",
+            "short"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "disgust means",
+          "choices": [
+            "dislike",
+            "joy",
+            "relief",
+            "pondering"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "shrubbery means",
+          "choices": [
+            "water",
+            "oil",
+            "plants",
+            "salt"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "destance",
+            "maturnal",
+            "shimerring",
+            "consented"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "breif",
+            "gestured",
+            "shrubery",
+            "desgust"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "temporarily",
+            "cluttched",
+            "concented",
+            "maternel"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "breef",
+            "distence",
+            "shimmering",
+            "gestered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "shrubbrey",
+            "disgust",
+            "clutchied",
+            "temperarily"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gastured",
+            "maternal",
+            "disstance",
+            "shimmerring"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "temperarily",
+            "disguste",
+            "brief",
+            "shrrubery"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "shimering",
+            "cunsented",
+            "maternel",
+            "clutched"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gesturred",
+            "distance",
+            "dissgust",
+            "breif"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "connsented",
+            "tempurarily",
+            "shrubbery",
+            "cllutched"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Her __________ instincts led her to nurture her brothers.",
+          "choices": [
+            "maternal",
+            "clutched",
+            "consented",
+            "temporarily"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "I have been at school for a _______ time - only two minutes.",
+          "choices": [
+            "gestured",
+            "distance",
+            "s himmering",
+            "brief"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I ________ the bat in my hand, holding it with all my might.",
+          "choices": [
+            "shrubbery",
+            "clutched",
+            "clutched",
+            "temporarily"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "There was a great _______ between my house and my friend’s house.",
+          "choices": [
+            "s himmering",
+            "maternal",
+            "distance",
+            "consented"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "I am _________ grounded, but I will not be punished forever.",
+          "choices": [
+            "brief",
+            "shrubbery",
+            "disgust",
+            "temporarily"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The stars were __________ at night.",
+          "choices": [
+            "s himmering",
+            "consented",
+            "maternal",
+            "clutched"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "She was filled with ________ to find that her favorite pen was stolen.",
+          "choices": [
+            "disgust",
+            "gestured",
+            "distance",
+            "brief"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "She _______ with her hand for me to come to her.",
+          "choices": [
+            "distance",
+            "shimmering",
+            "gestured",
+            "maternal"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "My mother ________ so that I could go on the class trip.",
+          "choices": [
+            "temporarily",
+            "consented",
+            "clutched",
+            "shrubbery"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "As a part-time job, I water the ______ in the garden.",
+          "choices": [
+            "disgust",
+            "shrubbery",
+            "brief",
+            "gestured"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "5b5",
+      "title_zh": "",
+      "title_en": "Danny the Champion of the World",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "repairing means",
+          "choices": [
+            "fixing",
+            "finding",
+            "falling",
+            "following"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "stern means",
+          "choices": [
+            "swaying",
+            "easygoing",
+            "strict",
+            "civilized"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "intent means",
+          "choices": [
+            "critical",
+            "unlikely",
+            "problem atic",
+            "determined"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "queer means",
+          "choices": [
+            "queen",
+            "strange",
+            "slippery",
+            "money"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "inevitable means",
+          "choices": [
+            "capable",
+            "preventable",
+            "unpreventable",
+            "closing"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "brilliant means",
+          "choices": [
+            "genius",
+            "recognizable",
+            "thrilling",
+            "dark"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "bend means",
+          "choices": [
+            "square",
+            "tail",
+            "tree",
+            "curve"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "petrified means",
+          "choices": [
+            "wood",
+            "scared",
+            "oil",
+            "enveloped"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "triumphant means",
+          "choices": [
+            "failing",
+            "successful",
+            "trumpet",
+            "instrument"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "revolutionized means",
+          "choices": [
+            "revolted",
+            "remained",
+            "changed",
+            "defended"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "cueer",
+            "sturn",
+            "entent",
+            "repairing"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "briliant",
+            "inevitable",
+            "bende",
+            "petrifyed"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "reparing",
+            "revolutonized",
+            "triumphant",
+            "sterne"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "intent",
+            "inevitible",
+            "queere",
+            "brillient"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "repeiring",
+            "triumphent",
+            "revulutionized",
+            "bend"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stern",
+            "quere",
+            "intant",
+            "inebitable"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "bende",
+            "brilliant",
+            "triomphant",
+            "petryfied"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "entent",
+            "reparing",
+            "sturn",
+            "revolutionized"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "brelliant",
+            "inevatible",
+            "queer",
+            "bennd"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "revollutionized",
+            "tryumphant",
+            "petrified",
+            "reppairing"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The _____ woman never cracked a smile.",
+          "choices": [
+            "stern",
+            "repairing",
+            "triumphant",
+            "revolutionized"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "She is such a _____ person that she knows the answer to every question.",
+          "choices": [
+            "repairing",
+            "brilliant",
+            "intent",
+            "inevitable"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "She felt _____ after winning the race.",
+          "choices": [
+            "petrified",
+            "bend",
+            "triumphant",
+            "stern"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "He had a(n) _____ look when he climbed the peak of the mountain.",
+          "choices": [
+            "revolutionized",
+            "inevitable",
+            "repairing",
+            "intent"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "There was (a) _____ in the road, so I had to turn my wheels to go around it.",
+          "choices": [
+            "brilliant",
+            "bend",
+            "inevitable",
+            "queer"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "My father was _____ the light because it had stopped working.",
+          "choices": [
+            "revolutionized",
+            "repairing",
+            "triumphant",
+            "petrified"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "It is _____ that I will meet him since we are in the same airplane.",
+          "choices": [
+            "queer",
+            "intent",
+            "stern",
+            "inevitable"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Some kids made fun of the _______ looking boy.",
+          "choices": [
+            "inevitable",
+            "queer",
+            "repairing",
+            "sharp"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "She is _____ of high places, so she hates to ride the cable car.",
+          "choices": [
+            "brilliant",
+            "bend",
+            "petrified",
+            "inevitable"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Computers have _____ office work.",
+          "choices": [
+            "revolutionized",
+            "triumphant",
+            "petrified",
+            "bend"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "5b6",
+      "title_zh": "",
+      "title_en": "The Facts and Fiction of Minna Pratt",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "dismal means",
+          "choices": [
+            "m esmerizing",
+            "exciting",
+            "dull",
+            "long"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "visible means",
+          "choices": [
+            "able to be seen",
+            "unable to be seen",
+            "able to be sold",
+            "unable to be taken"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "peered means",
+          "choices": [
+            "asked",
+            "looked",
+            "discovered",
+            "thanked"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "stout means",
+          "choices": [
+            "apologetic",
+            "lovely",
+            "tall",
+            "fat"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "eternal means",
+          "choices": [
+            "never",
+            "sometimes",
+            "for 3 years",
+            "forever"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "retrieved means",
+          "choices": [
+            "left",
+            "gathered",
+            "developed",
+            "denied"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "chaos means",
+          "choices": [
+            "calm ness",
+            "disorder",
+            "rain",
+            "slow-pacing"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "fatal means",
+          "choices": [
+            "quickly",
+            "anxious",
+            "deadly",
+            "slowly"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "eerie means",
+          "choices": [
+            "strange",
+            "real",
+            "short",
+            "correct"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "startled means",
+          "choices": [
+            "expecting",
+            "surprised",
+            "tolerating",
+            "convinced"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stowt",
+            "vesible",
+            "peared",
+            "dismal"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "eternal",
+            "retreived",
+            "fatle",
+            "choas"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "startlled",
+            "eerie",
+            "dismall",
+            "visibal"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "eternnal",
+            "peered",
+            "stoute",
+            "retreved"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sturtled",
+            "fatel",
+            "erie",
+            "chaos"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "eternall",
+            "piered",
+            "stowt",
+            "visible"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "earie",
+            "retrieved",
+            "fatle",
+            "kaos"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "perred",
+            "desmal",
+            "startled",
+            "viseble"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stout",
+            "enternal",
+            "chaus",
+            "retreived"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "eree",
+            "startuled",
+            "fatal",
+            "dismall"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The stop sign is made ______ so that people can see it and know where to stop.",
+          "choices": [
+            "dismal",
+            "visible",
+            "eerie",
+            "startled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "People try to find _____ life through religion.",
+          "choices": [
+            "eternal",
+            "stout",
+            "peered",
+            "visible"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "She couldn’t recover from the ________ disease.",
+          "choices": [
+            "retrieved",
+            "fatal",
+            "stout",
+            "chaos"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The girl led a(n) _____ life because she hardly did anything.",
+          "choices": [
+            "fatal",
+            "startled",
+            "dismal",
+            "eerie"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "There was _____ in the building when the fire alarm went off.",
+          "choices": [
+            "chaos",
+            "stout",
+            "eternal",
+            "retrieved"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The short and _____ man did not look small at all to me.",
+          "choices": [
+            "stout",
+            "visible",
+            "dismal",
+            "peered"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "I got a(n) _____ feeling when I got a phone call from an unknown man.",
+          "choices": [
+            "fatal",
+            "chaos",
+            "retrieved",
+            "eerie"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I was _____ when he came bursting into my room without warning.",
+          "choices": [
+            "fatal",
+            "startled",
+            "chaos",
+            "eerie"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "I _____ into the cabinet to find some food.",
+          "choices": [
+            "startled",
+            "dismal",
+            "peered",
+            "visible"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "I _____ my books from my book bag when my class began.",
+          "choices": [
+            "eternal",
+            "retrieved",
+            "stout",
+            "peered"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "5b7",
+      "title_zh": "",
+      "title_en": "Nothing’s Fair in Fifth Grade",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "politely means",
+          "choices": [
+            "without care",
+            "with manners",
+            "without fear",
+            "with help"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "whimpered means",
+          "choices": [
+            "jumped",
+            "died",
+            "fell",
+            "cried"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "hollering means",
+          "choices": [
+            "jumping",
+            "speaking",
+            "yelling",
+            "asking"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "accused means",
+          "choices": [
+            "blam ed",
+            "told",
+            "asked",
+            "demanded"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "relieved means",
+          "choices": [
+            "agitated",
+            "relaxed",
+            "afraid",
+            "guilty"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "grinned means",
+          "choices": [
+            "smiled",
+            "groaned",
+            "thanked",
+            "bothered"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "pranced means",
+          "choices": [
+            "looked",
+            "left",
+            "paraded",
+            "discovered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "sarcastically means",
+          "choices": [
+            "surely",
+            "with truth",
+            "slowly",
+            "said mockingly"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "cross means",
+          "choices": [
+            "soldier",
+            "angry",
+            "dot",
+            "polite"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "struggling means",
+          "choices": [
+            "moving away",
+            "having no problems",
+            "having problems",
+            "moving to"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "sarcastecally",
+            "releived",
+            "wimpered",
+            "pranced"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "polytely",
+            "cross",
+            "hallering",
+            "strugling"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "releeved",
+            "ackused",
+            "prenced",
+            "grinned"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "relieved",
+            "whempered",
+            "sacastically",
+            "crose"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "acused",
+            "grined",
+            "struggling",
+            "pransed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "crosz",
+            "sarcastically",
+            "pulitely",
+            "holering"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "polietly",
+            "sarrcasticaly",
+            "croass",
+            "whimpered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "accuseed",
+            "strucgling",
+            "greined",
+            "hollering"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "pransed",
+            "accused",
+            "releeved",
+            "whempired"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "politely",
+            "howlering",
+            "shruggling",
+            "grynned"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "My mother was ______ with me when she discovered I had broken her favorite vase.",
+          "choices": [
+            "relieved",
+            "sarcastically",
+            "whimpered",
+            "cross"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The dog _____ because he was hungry.",
+          "choices": [
+            "accused",
+            "relieved",
+            "pranced",
+            "whimpered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I was _____ to button my jacket because it was too small for me.",
+          "choices": [
+            "struggling",
+            "hollering",
+            "politely",
+            "cross"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "She _____ said to the man, “Thank you.”",
+          "choices": [
+            "sarcastically",
+            "cross",
+            "politely",
+            "whimpered"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "I was _____ to discover that I had passed the test I thought I had failed.",
+          "choices": [
+            "pranced",
+            "relieved",
+            "accused",
+            "grinned"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "My friend _____ at me when I gave her a compliment.",
+          "choices": [
+            "grinned",
+            "struggling",
+            "hollering",
+            "politely"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "My mother _____ me of pushing my brother, but I told her I really didn’t do it.",
+          "choices": [
+            "hollering",
+            "grinned",
+            "struggling",
+            "accused"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The girl _____ around the room as if she were the head of the circus.",
+          "choices": [
+            "accused",
+            "pranced",
+            "grinned",
+            "struggling"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The teacher was _____ at the children, because they were so noisy.",
+          "choices": [
+            "cross",
+            "politely",
+            "hollering",
+            "sarcastically"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "She _____ said something to me, and I know she didn’t mean it.",
+          "choices": [
+            "struggling",
+            "sarcastically",
+            "relieved",
+            "pranced"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "5b8",
+      "title_zh": "",
+      "title_en": "The Secret Life of the Underwear Champ",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "gigantic means",
+          "choices": [
+            "large",
+            "small",
+            "quiet",
+            "interesting"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "casually means",
+          "choices": [
+            "frantically",
+            "without interest",
+            "noticeably",
+            "angrily"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "edged means",
+          "choices": [
+            "left",
+            "joined",
+            "moved",
+            "desired"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "boast means",
+          "choices": [
+            "play",
+            "boil",
+            "eat",
+            "brag"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "vaguely means",
+          "choices": [
+            "easily",
+            "greatly",
+            "unclearly",
+            "openly"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "hesitated means",
+          "choices": [
+            "paused",
+            "began",
+            "continued",
+            "jumped"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "glanced means",
+          "choices": [
+            "discovered",
+            "looked",
+            "questioned",
+            "answered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "persisted means",
+          "choices": [
+            "graced",
+            "stopped",
+            "listened",
+            "continued"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "envious means",
+          "choices": [
+            "scared",
+            "jealous",
+            "tired",
+            "dignified"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "discovered means",
+          "choices": [
+            "taught",
+            "questioned",
+            "found",
+            "finished"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "vaguely",
+            "etged",
+            "cajually",
+            "anvious"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "glenced",
+            "envious",
+            "bost",
+            "disscovered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "jigantic",
+            "hasitated",
+            "persisted",
+            "vagly"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "hesetated",
+            "descovered",
+            "pursisted",
+            "gigantic"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "geigantec",
+            "hesitated",
+            "vagguly",
+            "ehdged"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "envios",
+            "cassualy",
+            "edged",
+            "glensed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "casually",
+            "enveous",
+            "granced",
+            "bowst"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "boust",
+            "glanced",
+            "dyscobered",
+            "perrsisted"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "discovered",
+            "persysted",
+            "hasitated",
+            "gygaenic"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "boast",
+            "deskovered",
+            "purrsisted",
+            "hezitated"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "I _____ over at the clock to see the time.",
+          "choices": [
+            "edged",
+            "discovered",
+            "persisted",
+            "glanced"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "My sister _____ to bother me even though I told her to stop.",
+          "choices": [
+            "boast",
+            "discovered",
+            "persisted",
+            "glance"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "There was a _____ bug, the size of my thumb, under the sink.",
+          "choices": [
+            "hesitated",
+            "gigantic",
+            "persisted",
+            "discovered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "I don’t mean to _____ , but I am the best reader in the entire school.",
+          "choices": [
+            "casually",
+            "glanced",
+            "envy",
+            "boast"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The supermodel was _____ while standing at a bus stop.",
+          "choices": [
+            "discovered",
+            "boast",
+            "glanced",
+            "envious"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "I _____ walked up to get my test paper although I was nervous.",
+          "choices": [
+            "persistently",
+            "vaguely",
+            "enviously",
+            "casually"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I only _____ remember her name, but I do remember that I met her once.",
+          "choices": [
+            "persisted",
+            "gigantic",
+            "hesitated",
+            "vaguely"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I _____ before I gave an answer because I was not so sure.",
+          "choices": [
+            "persisted",
+            "hesitated",
+            "discovered",
+            "boast"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Nervously, I _____ toward my mother looking for her protection.",
+          "choices": [
+            "gigantic",
+            "vaguely",
+            "edged",
+            "hesitated"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "I was _____ of her because she got the part in the play that I wanted to have.",
+          "choices": [
+            "casual",
+            "envious",
+            "edged",
+            "vague"
+          ],
+          "correct_index": 1
+        }
+      ]
+    },
+    {
+      "code": "5b9",
+      "title_zh": "",
+      "title_en": "The Cat Who Went to Heaven",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "lingered means",
+          "choices": [
+            "left",
+            "stayed",
+            "laughed",
+            "ran"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "trembled means",
+          "choices": [
+            "sang",
+            "talked",
+            "jogged",
+            "shook"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "gratitude means",
+          "choices": [
+            "helplessness",
+            "sorrow",
+            "thanks",
+            "helpfulness"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "strode means",
+          "choices": [
+            "asked",
+            "looked",
+            "paced",
+            "sat"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "immediately means",
+          "choices": [
+            "after a while",
+            "always",
+            "slowly",
+            "right away"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "meditating means",
+          "choices": [
+            "reading",
+            "swallowing",
+            "thinking",
+            "writing"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "scolded means",
+          "choices": [
+            "criticized",
+            "thanked",
+            "forgave",
+            "smiled at"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "contemplated means",
+          "choices": [
+            "thanked",
+            "thought",
+            "realized",
+            "asked"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "gazed means",
+          "choices": [
+            "followed",
+            "grabbed",
+            "took",
+            "stared"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "quarrel means",
+          "choices": [
+            "winning",
+            "losing",
+            "argument",
+            "m isbehaving"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "scollded",
+            "gazed",
+            "stroad",
+            "linggered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "quarrel",
+            "trambled",
+            "imidiately",
+            "contamplated"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "linegered",
+            "strode",
+            "quarel",
+            "treambled"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "linngered",
+            "stroud",
+            "scolded",
+            "quarral"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "contemplated",
+            "maditated",
+            "greditude",
+            "gased"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "tremmbled",
+            "qoarreled",
+            "lingered",
+            "imidiately"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "stroade",
+            "gazde",
+            "sqolded",
+            "gratitude"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "maditaeting",
+            "comtenplated",
+            "immediately",
+            "grratitude"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "trembled",
+            "iimmideatly",
+            "coentemplated",
+            "medictating"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "meditating",
+            "graditude",
+            "gayzed",
+            "scorded"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "My boyfriend and I got into a_______ last week because he forgot my birthday.",
+          "choices": [
+            "quarrel",
+            "lingered",
+            "strode",
+            "scolded"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "He _______ up and down the room, walking back and forth.",
+          "choices": [
+            "gazed",
+            "scolded",
+            "strode",
+            "gratitude"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "She _______outside her house waiting for her father.",
+          "choices": [
+            "immediately",
+            "lingered",
+            "scolded",
+            "gratitude"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "I was filled with _______when I discovered the wonderful gift he had given to me.",
+          "choices": [
+            "meditating",
+            "gratitude",
+            "contemplated",
+            "immediately"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "I _______wrote down the number, so I wouldn’t forget it.",
+          "choices": [
+            "recklessly",
+            "trembled",
+            "random ly",
+            "immediately"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "She sat in the quiet room, with candles in front of her, _______ on ideas.",
+          "choices": [
+            "striding",
+            "gazing",
+            "trem bling",
+            "meditating"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "The boy _______ with fear when he saw the scary spider.",
+          "choices": [
+            "quarreled",
+            "trembled",
+            "lingered",
+            "strode"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "When the teacher asked me a question, I _______ it first before I gave her my answer.",
+          "choices": [
+            "quarreled",
+            "strode",
+            "trembled",
+            "contemplated"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I_______ into the sky to see the beautiful stars.",
+          "choices": [
+            "gazed",
+            "m editated",
+            "thanked",
+            "contemplated"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "She_______ her son when he touched something he wasn’t supposed to.",
+          "choices": [
+            "gratitude",
+            "gazed",
+            "scolded",
+            "quarrel"
+          ],
+          "correct_index": 2
+        }
+      ]
+    },
+    {
+      "code": "5b10",
+      "title_zh": "",
+      "title_en": "Harry Potter and the Sorcerer’s Stone",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "craning means",
+          "choices": [
+            "hurting",
+            "crying",
+            "losing",
+            "stretching"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "peculiar means",
+          "choices": [
+            "normal",
+            "strange",
+            "old",
+            "determined"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "wailed means",
+          "choices": [
+            "cried",
+            "smiled",
+            "laughed",
+            "lied"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "vanished means",
+          "choices": [
+            "developed",
+            "discovered",
+            "disappeared",
+            "determined"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "fond means",
+          "choices": [
+            "liked",
+            "looked",
+            "pried",
+            "disliked"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "minuscule means",
+          "choices": [
+            "tall",
+            "large",
+            "small",
+            "new"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "gigantic means",
+          "choices": [
+            "greedy",
+            "small",
+            "fun",
+            "large"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "uproar means",
+          "choices": [
+            "peace",
+            "chaos",
+            "content",
+            "logical"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "interfere means",
+          "choices": [
+            "to discuss",
+            "to ignore",
+            "to get in the middle of",
+            "to question"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "invisible means",
+          "choices": [
+            "unable to be seen",
+            "able to be seen",
+            "to small",
+            "bright enough to be seen"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "interfear",
+            "gygentic",
+            "waled",
+            "minuscule"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "uprore",
+            "invisble",
+            "fonnd",
+            "vanished"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "craning",
+            "peculiare",
+            "meniscule",
+            "gigentic"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "vanisheed",
+            "enterfere",
+            "wailed",
+            "inviseble"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "waeled",
+            "uproar",
+            "inturfere",
+            "vanised"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "upproar",
+            "fonde",
+            "invisible",
+            "craneing"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "gigantyc",
+            "miniscul",
+            "peculiar",
+            "whailed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "faond",
+            "venished",
+            "inviseble",
+            "interfere"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "kraning",
+            "uploar",
+            "fond",
+            "paculiar"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "vanished",
+            "envisibel",
+            "fonnd",
+            "ufroar"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "I saw him _____ his neck to look over the fence.",
+          "choices": [
+            "fond",
+            "uproar",
+            "craning",
+            "invisible"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The baby _____ because he was very hungry.",
+          "choices": [
+            "gigantic",
+            "wailed",
+            "minuscule",
+            "peculiar"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "She had a _____ smile that made her stand out from everyone else.",
+          "choices": [
+            "craning",
+            "peculiar",
+            "uproar",
+            "fond"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The pen I used this morning _________, so I had to find another one.",
+          "choices": [
+            "wailed",
+            "interfere",
+            "vanished",
+            "gigantic"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The large-sized clothes looked _____ on me, considering I normally wear a small size.",
+          "choices": [
+            "gigantic",
+            "minuscule",
+            "peculiar",
+            "craning"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "My sister is very _____ of cats, so she always plays with them.",
+          "choices": [
+            "invisible",
+            "fond",
+            "vanished",
+            "interfered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "There is a _____ amount of food, so we have to be careful to conserve it.",
+          "choices": [
+            "craning",
+            "peculiar",
+            "minuscule",
+            "uproar"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The pen had _____ ink, so no one could see what I had written.",
+          "choices": [
+            "wailed",
+            "vanished",
+            "interfere",
+            "invisible"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "There was a great _____ when the fire started, and no one knew what to do.",
+          "choices": [
+            "uproar",
+            "fond",
+            "invisible",
+            "vanished"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "I try not to _____ when my sister is doing her homework.",
+          "choices": [
+            "crane",
+            "wail",
+            "vanish",
+            "interfere"
+          ],
+          "correct_index": 3
+        }
+      ]
+    },
+    {
+      "code": "5b11",
+      "title_zh": "",
+      "title_en": "Life’s a Funny Proposition, Horatio",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "banned means",
+          "choices": [
+            "offered",
+            "not allowed",
+            "allowed",
+            "sold"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "stacked means",
+          "choices": [
+            "piled",
+            "loose",
+            "tum bled",
+            "dirty"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "disgusted means",
+          "choices": [
+            "tired",
+            "relieved",
+            "congratulated",
+            "irritated"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "fade means",
+          "choices": [
+            "develop",
+            "start",
+            "disappear",
+            "cook"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "sincere means",
+          "choices": [
+            "lonely",
+            "enthusiastic",
+            "truthful",
+            "disappointing"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "startled means",
+          "choices": [
+            "shocked",
+            "aware",
+            "tight",
+            "loose"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "retrieved means",
+          "choices": [
+            "gave",
+            "obtained",
+            "sold",
+            "lost"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "fascinated means",
+          "choices": [
+            "in season",
+            "in disgust",
+            "in time",
+            "in awe"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "hesitated means",
+          "choices": [
+            "read",
+            "looked",
+            "paused",
+            "questioned"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "antsy means",
+          "choices": [
+            "anxious",
+            "tolerating",
+            "considerate",
+            "negotiating"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "retreved",
+            "disgosted",
+            "sencere",
+            "fade"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "fasinated",
+            "antzy",
+            "banned",
+            "hasitated"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "retreived",
+            "sincere",
+            "baned",
+            "anntsy"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "faed",
+            "starled",
+            "stecked",
+            "hesitated"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "fascinated",
+            "hesetated",
+            "starteled",
+            "stakked"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "startled",
+            "entsy",
+            "facinated",
+            "hasitated"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "retreved",
+            "scincere",
+            "disgusted",
+            "banhed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "antsy",
+            "facenated",
+            "hashtated",
+            "starteled"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "desgustid",
+            "faide",
+            "stacked",
+            "cinsere"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "antzy",
+            "venishad",
+            "retrieved",
+            "faond"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Cigarettes should be ______ because they are not good for you.",
+          "choices": [
+            "retrieved",
+            "banned",
+            "sincere",
+            "disgusted"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "She was so ______ that I knew she was telling the truth.",
+          "choices": [
+            "startling",
+            "disgusting",
+            "stacking",
+            "sincere"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I ______ my clothes high on the bed, and I could hardly see over them.",
+          "choices": [
+            "stacked",
+            "startled",
+            "hesitated",
+            "fascinated"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "The word that had been lightly written on the shirt began to _____ ____ away.",
+          "choices": [
+            "stacked",
+            "fade",
+            "startled",
+            "hesitated"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "He was ______ with himself for making a silly mistake.",
+          "choices": [
+            "stacked",
+            "fade",
+            "disgusted",
+            "startled"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "I was ______ when I heard the loud sound while I was sleeping.",
+          "choices": [
+            "antsy",
+            "hesitated",
+            "stacked",
+            "startled"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I ______ my pen from the girl when class was over.",
+          "choices": [
+            "fade",
+            "sincere",
+            "disgusted",
+            "retrieved"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I was ______ while preparing for my most difficult examination.",
+          "choices": [
+            "banned",
+            "antsy",
+            "retrieved",
+            "sincere"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "I was ______ to discover the truth about the stars.",
+          "choices": [
+            "banned",
+            "antsy",
+            "fascinated",
+            "retrieved"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "I ______ before I answered, so I could think through what I wanted to say.",
+          "choices": [
+            "hesitated",
+            "fascinated",
+            "retrieve",
+            "banned"
+          ],
+          "correct_index": 0
+        }
+      ]
+    },
+    {
+      "code": "5b12",
+      "title_zh": "",
+      "title_en": "Seven Spiders spinning",
+      "grade": "G5",
+      "questions": [
+        {
+          "prompt": "entrancing means",
+          "choices": [
+            "utilizing",
+            "realizing",
+            "hypnotizing",
+            "fantasizing"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "adjourned means",
+          "choices": [
+            "won",
+            "began",
+            "lost",
+            "ended"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "uttered means",
+          "choices": [
+            "cried",
+            "said",
+            "stayed",
+            "denied"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "mute means",
+          "choices": [
+            "small",
+            "talkative",
+            "silent",
+            "lonely"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "swayed means",
+          "choices": [
+            "moved",
+            "joined",
+            "dazzled",
+            "fell"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "authentic means",
+          "choices": [
+            "old",
+            "ordinary",
+            "cheap",
+            "real"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "quivered means",
+          "choices": [
+            "looked",
+            "shook",
+            "gave",
+            "took"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "pestered means",
+          "choices": [
+            "realized",
+            "relieved",
+            "bothered",
+            "typed"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "feeble means",
+          "choices": [
+            "tall",
+            "capable",
+            "easy",
+            "weak"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "scurry means",
+          "choices": [
+            "run along",
+            "come along",
+            "ride along",
+            "stay along"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "authentic",
+            "muote",
+            "entransing",
+            "ajorned"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "quevered",
+            "feible",
+            "uttered",
+            "scury"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "skurry",
+            "quivered",
+            "pastered",
+            "suayed"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "antrancing",
+            "mute",
+            "adgorned",
+            "uttored"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "pestirred",
+            "queevered",
+            "scorry",
+            "feeble"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "queivered",
+            "utterd",
+            "fibble",
+            "adjourned"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "swaed",
+            "paestered",
+            "scurry",
+            "aothentic"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "uttared",
+            "adjoned",
+            "entrancing",
+            "fiebel"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "swayed",
+            "authintic",
+            "mewt",
+            "entransing"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Find the correct spelling.",
+          "choices": [
+            "muit",
+            "suwayed",
+            "athentic",
+            "pestered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I have a(n) _____ signature from a famous baseball player.",
+          "choices": [
+            "pestered",
+            "swayed",
+            "authentic",
+            "scurry"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The meeting _____ for lunchtime.",
+          "choices": [
+            "swayed",
+            "adjourned",
+            "m uted",
+            "pestered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The mouse tried to _____ behind the refrigerater.",
+          "choices": [
+            "scurry",
+            "quivered",
+            "feeble",
+            "uttered"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "My brother _____ me until I loaned him a dollar.",
+          "choices": [
+            "feeble",
+            "scurry",
+            "quivered",
+            "pestered"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "I am surprised that she has not _______ a word since this morning.",
+          "choices": [
+            "swayed",
+            "adjourned",
+            "uttered",
+            "m uted"
+          ],
+          "correct_index": 2
+        },
+        {
+          "prompt": "The girl was _____ because she had a sore throat.",
+          "choices": [
+            "authentic",
+            "mute",
+            "swayed",
+            "pestered"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The leaves _____ from side to side as the wind blew.",
+          "choices": [
+            "entrancing",
+            "authentic",
+            "mute",
+            "swayed"
+          ],
+          "correct_index": 3
+        },
+        {
+          "prompt": "His words sound so ________ that everybody believes him.",
+          "choices": [
+            "entrancing",
+            "mute",
+            "adjourned",
+            "swayed"
+          ],
+          "correct_index": 0
+        },
+        {
+          "prompt": "Her lips _____ with fear.",
+          "choices": [
+            "feeble",
+            "quivered",
+            "uttered",
+            "adjourned"
+          ],
+          "correct_index": 1
+        },
+        {
+          "prompt": "The girl is so _____ that she cannot even pick up a pencil.",
+          "choices": [
+            "adjourned",
+            "uttered",
+            "feeble",
+            "entrancing"
+          ],
+          "correct_index": 2
+        }
+      ]
+    }
+  ]
+}
